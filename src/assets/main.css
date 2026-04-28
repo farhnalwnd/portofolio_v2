@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import './base.css';
+@import "tailwindcss";
+
+:root {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Archivo', sans-serif;
+}
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+  font-weight: normal;
+}
