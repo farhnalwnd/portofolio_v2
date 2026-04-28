@@ -33,7 +33,7 @@ const onLeave = (el, done) => {
 
 <template>
   <div
-    class="min-h-screen bg-[#FAFAFA] dark:bg-[#09090B] text-[#09090B] dark:text-[#FAFAFA] selection:bg-blue-500/30"
+    class="min-h-screen bg-background-custom text-text-custom selection:bg-accent-custom/30 transition-colors duration-300"
   >
     <Navbar />
 
@@ -48,7 +48,7 @@ const onLeave = (el, done) => {
     <!-- Decorative background elements for Glassmorphism -->
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
       <div
-        class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full"
+        class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-custom/10 blur-[120px] rounded-full"
       ></div>
       <div
         class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 blur-[120px] rounded-full"
@@ -58,8 +58,9 @@ const onLeave = (el, done) => {
 </template>
 
 <style>
+@reference "./assets/main.css";
 body {
-  @apply bg-[#FAFAFA] dark:bg-[#09090B];
+  @apply bg-background-custom;
 }
 
 /* Ensure global transitions and base styles */

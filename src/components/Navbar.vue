@@ -1,5 +1,10 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { Icon } from '@iconify/vue'
+import { useDark, useToggle } from '@vueuse/core'
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
 </script>
 
 <template>
@@ -12,18 +17,28 @@ import { RouterLink } from 'vue-router'
       <RouterLink to="/projects" class="nav-link">Projects</RouterLink>
       <RouterLink to="/about" class="nav-link">About</RouterLink>
       <RouterLink to="/contact" class="nav-link">Contact</RouterLink>
+
+      <div class="h-4 w-[1px] bg-white/20 mx-2"></div>
+
+      <button
+        @click="toggleDark()"
+        class="p-2 rounded-full hover:bg-white/10 transition-colors text-slate-400 hover:text-white"
+        aria-label="Toggle Dark Mode"
+      >
+        <Icon :icon="isDark ? 'ph:moon-stars-bold' : 'ph:sun-bold'" class="text-xl" />
+      </button>
     </div>
   </nav>
 </template>
 
 <style scoped>
-@reference 'tailwindcss';
+@reference "../assets/main.css";
 
 .nav-link {
   @apply px-4 py-2 text-sm font-medium text-slate-400 transition-colors hover:text-white rounded-full;
 }
 
 .router-link-active {
-  @apply text-blue-400 bg-white/5;
+  @apply text-accent-custom bg-white/5;
 }
 </style>

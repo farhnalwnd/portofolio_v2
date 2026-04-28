@@ -2,8 +2,29 @@
 @import './base.css';
 @import "tailwindcss";
 
+@theme {
+  --color-background-custom: var(--bg);
+  --color-text-custom: var(--text);
+  --color-primary-custom: var(--primary);
+  --color-secondary-custom: var(--secondary);
+  --color-accent-custom: var(--accent);
+}
+
 :root {
   font-family: 'Space Grotesk', sans-serif;
+  --bg: #FAFAFA;
+  --text: #09090B;
+  --primary: #18181B;
+  --secondary: #3F3F46;
+  --accent: #2563EB;
+}
+
+.dark {
+  --bg: #09090B;
+  --text: #FAFAFA;
+  --primary: #18181B;
+  --secondary: #A1A1AA;
+  --accent: #3B82F6;
 }
 
 h1,
@@ -19,4 +40,7 @@ h6 {
   width: 100%;
   margin: 0 auto;
   font-weight: normal;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
 }
