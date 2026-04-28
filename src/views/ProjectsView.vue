@@ -12,10 +12,6 @@ onMounted(() => {
     ease: 'power3.out',
   })
 })
-
-onUnmounted(() => {
-  ctx.revert()
-})
 </script>
 
 <template>

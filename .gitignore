@@ -16,7 +16,9 @@ coverage
 
 # Editor directories and files
 .vscode/*
-.agent/*
+skills-lock.json
+.agents/
+.agent/
 !.vscode/extensions.json
 .idea
 *.suo

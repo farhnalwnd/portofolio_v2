@@ -16,10 +16,6 @@ onMounted(() => {
     })
   })
 })
-
-onUnmounted(() => {
-  ctx.revert()
-})
 </script>
 
 <template>
