@@ -45,10 +45,11 @@ h6 {
   min-height: 100vh;
 }
 
-.box {
+.circle {
   height: 10vh;
   width: 10vh;
-  border-radius: 20px;
+  margin: 20px;
+  border-radius: 100%;
   background: linear-gradient(135deg, #2563eb, #3b82f6);
   display: flex;
   align-items: center;
@@ -56,6 +57,5 @@ h6 {
   font-size: 2rem;
   font-weight: bold;
   color: white;
-  margin: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }

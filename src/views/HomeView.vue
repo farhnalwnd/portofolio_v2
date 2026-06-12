@@ -1,155 +1,171 @@
 <script setup>
-import { onMounted, ref, onUnmounted } from 'vue'
+import { onMounted, ref, onUnmounted, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
 let ctx
-const containerRef = ref(null)
-const heroContentRef = ref(null)
+const heroRef = ref(null)
 
-onMounted(() => {
+onMounted(async () => {
+  await nextTick()
+  window.scrollTo(0, 0)
+  ScrollTrigger.clearScrollMemory()
+
   ctx = gsap.context(() => {
-    // Initial setup: move everything down and hide
-    gsap.set(['.hero-title', '.hero-subtitle', '.hero-cta', '.hero-visual'], {
-      opacity: 0,
-      y: 100,
-    })
-    gsap.set('.hero-visual', { scale: 0.5 })
+    gsap.set('.hero-name', { opacity: 1, y: 0, visibility: 'visible' })
+    gsap.set('.hero-role-text', { opacity: 1, y: 0, visibility: 'visible' })
+    gsap.set('.scroll-indicator', { opacity: 1, visibility: 'visible' })
+    gsap.set('.state-education', { opacity: 0, y: 50, visibility: 'hidden' })
+    gsap.set('.state-job', { opacity: 0, y: 50, visibility: 'hidden' })
+    gsap.set('.final-name', { opacity: 0, scale: 0.85, visibility: 'hidden' })
+    gsap.set('.role-item', { opacity: 0, y: 30, visibility: 'hidden' })
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: containerRef.value,
+        trigger: heroRef.value,
         start: 'top top',
-        end: '+=2000',
+        end: '+=3200',
         pin: true,
         scrub: 1,
         anticipatePin: 1,
       },
     })
 
-    tl.to('.hero-title', {
-      opacity: 1,
-      y: 0,
-      stagger: 0.2,
-      duration: 2,
-    })
-      .to(
-        '.hero-subtitle',
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.1,
-          duration: 2,
-        },
-        '-=1.5',
-      )
-      .to(
-        '.hero-visual',
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 3,
-        },
-        '-=2',
-      )
-      .to(
-        '.hero-cta',
-        {
-          opacity: 1,
-          y: 0,
-          duration: 2,
-        },
-        '-=1.5',
-      )
-      .to(
-        '.scroll-indicator',
-        {
-          opacity: 0,
-          duration: 0.5,
-        },
-        0,
-      )
-  }, containerRef.value)
+    tl.to('.scroll-indicator', { opacity: 0, visibility: 'hidden', duration: 0.3 })
+      .to('.hero-name', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
+      .to('.hero-role-text', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 }, '<')
+      .to('.state-education', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
+      .to({}, { duration: 1.8 })
+      .to('.state-education', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
+      .to('.state-job', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
+      .to({}, { duration: 1.8 })
+      .to('.state-job', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
+      .to('.final-name', { visibility: 'visible', opacity: 1, scale: 1, duration: 1.15, ease: 'power3.out' })
+      .to('.role-item', { visibility: 'visible', opacity: 1, y: 0, stagger: 0.3, duration: 1, ease: 'power2.out' }, '-=0.6')
+  }, heroRef.value)
+
+  ScrollTrigger.refresh()
 })
 
 onUnmounted(() => {
-  if (ctx) ctx.revert()
+  ctx?.revert()
+  ScrollTrigger.getAll().forEach(t => t.kill())
 })
 </script>
 
 <template>
-  <div ref="containerRef" class="relative w-full overflow-hidden">
-    <!-- Hero Section -->
+  <div class="relative w-full">
+    <!-- Pinned Hero Section -->
     <section
-      class="relative h-screen flex flex-col items-center justify-center px-4 text-center overflow-hidden"
+      ref="heroRef"
+      class="relative h-screen w-full flex items-center justify-center overflow-hidden"
     >
-      <!-- Decorative background element -->
       <div
-        class="hero-visual absolute -z-10 w-[600px] h-[600px] bg-accent-custom/10 blur-[120px] rounded-full opacity-0"
+        class="absolute -z-10 w-[50vw] h-[50vw] max-w-125 max-h-125 bg-accent-custom/10 blur-[140px] rounded-full"
       ></div>
 
-      <div ref="heroContentRef" class="max-w-5xl mx-auto z-10">
-        <div
-          class="inline-block px-4 py-1.5 mb-6 border border-accent-custom/20 rounded-full bg-accent-custom/5 hero-subtitle opacity-0"
-        >
-          <span class="text-xs font-bold uppercase tracking-widest text-accent-custom"
-            >AI-Native Engineer</span
+      <div class="relative w-full h-full flex items-center justify-center">
+        <div class="state-name-role absolute inset-0 flex flex-col items-center justify-center">
+          <h1
+            class="hero-name font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom"
           >
+            Farhan <br class="hidden md:block" />Alwanda
+          </h1>
+          <p class="hero-role-text mt-6 text-xl md:text-2xl text-secondary-custom font-medium">
+            Full-Stack Developer & AI Engineer
+          </p>
         </div>
 
-        <h1
-          class="hero-title text-6xl md:text-9xl font-bold mb-8 text-text-custom tracking-tighter leading-none opacity-0"
-        >
-          THE <br class="md:hidden" />
-          <span class="text-accent-custom italic">GATEWAY</span>
-        </h1>
-
-        <p
-          class="hero-subtitle text-secondary-custom text-xl md:text-3xl max-w-3xl mx-auto leading-relaxed mb-12 opacity-0"
-        >
-          Digital portal of a
-          <span class="text-text-custom font-semibold">Fullstack & AI Engineer</span> crafting the
-          future with intelligent systems.
-        </p>
-
-        <div class="hero-cta flex flex-wrap justify-center gap-4 opacity-0">
-          <router-link
-            to="/projects"
-            class="px-8 py-4 bg-accent-custom text-white rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-accent-custom/20"
+        <div class="state-education absolute inset-0 flex flex-col items-center justify-center">
+          <span
+            class="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
           >
-            Explore Work
-          </router-link>
-          <router-link
-            to="/contact"
-            class="px-8 py-4 bg-white/5 border border-white/10 text-text-custom rounded-full font-bold hover:bg-white/10 transition-colors"
+            Pendidikan Terakhir
+          </span>
+          <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom mb-4">
+            S1 Teknik Informatika
+          </h2>
+          <p class="text-xl md:text-2xl text-secondary-custom font-medium">President University</p>
+        </div>
+
+        <div class="state-job absolute inset-0 flex flex-col items-center justify-center">
+          <span
+            class="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
           >
-            Get in Touch
-          </router-link>
+            Pekerjaan Terbaru
+          </span>
+          <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom mb-4">
+            Full-Stack Developer
+          </h2>
+          <p class="text-xl md:text-2xl text-secondary-custom font-medium">Oneject Indonesia</p>
+        </div>
+
+        <div class="state-final absolute inset-0 flex flex-col items-center justify-center">
+          <h1
+            class="final-name font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom mb-8"
+          >
+            Farhan <br class="hidden md:block" />Alwanda
+          </h1>
+          <div class="flex flex-col items-center gap-2">
+            <span class="role-item text-2xl md:text-4xl font-semibold text-accent-custom"
+              >Full-Stack Developer</span
+            >
+            <span class="role-item text-2xl md:text-4xl font-semibold text-accent-custom"
+              >& AI Engineer</span
+            >
+          </div>
         </div>
       </div>
 
-      <!-- Scroll indicator -->
       <div
-        class="scroll-indicator absolute bottom-10 flex flex-col items-center gap-2 animate-bounce"
+        class="scroll-indicator absolute bottom-10 flex flex-col items-center gap-2 z-20 pointer-events-none"
       >
-        <span class="text-xs uppercase tracking-widest text-secondary-custom">Scroll to Enter</span>
-        <div class="w-px h-12 bg-linear-to-b from-accent-custom to-transparent"></div>
+        <span class="text-xs uppercase tracking-[0.2em] text-secondary-custom"
+          >Scroll to Explore</span
+        >
+        <div class="w-px h-16 bg-linear-to-b from-accent-custom to-transparent"></div>
       </div>
     </section>
 
-    <!-- Content spacer for pinning effect -->
-    <!-- <div class="h-[10vh]"></div> -->
+    <!-- Subsequent Section (Provides DOM height for scrolling) -->
+    <section
+      class="relative min-h-screen w-full flex flex-col items-center justify-center bg-background-custom/50 backdrop-blur-xs border-t border-text-custom/5"
+    >
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="font-archivo text-3xl md:text-5xl font-bold mb-6 text-text-custom">
+          Explore My Journey
+        </h2>
+        <p class="text-secondary-custom text-lg md:text-xl mb-8 max-w-2xl mx-auto font-medium">
+          Explore my journey, projects, and skills by navigating through the links above or clicking
+          below.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <router-link
+            to="/projects"
+            class="px-6 py-3 bg-accent-custom text-white font-medium rounded-lg hover:bg-accent-custom/90 transition duration-300"
+          >
+            View Projects
+          </router-link>
+          <router-link
+            to="/about"
+            class="px-6 py-3 border border-text-custom/15 text-text-custom font-medium rounded-lg hover:bg-text-custom/5 transition duration-300"
+          >
+            About Me
+          </router-link>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <style scoped>
-.hero-title {
-  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.hero-name {
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 }
 
-.dark .hero-title {
-  text-shadow: 0 0 40px rgba(37, 99, 235, 0.1);
+.dark .hero-name {
+  text-shadow: 0 0 60px rgba(59, 130, 246, 0.15);
 }
 </style>
