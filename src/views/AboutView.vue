@@ -1,43 +1,11 @@
 <script setup>
-import { onMounted, ref, onUnmounted, nextTick } from 'vue'
+import { onMounted, ref, onBeforeUnmount, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Icon } from '@iconify/vue'
 import { skills } from '../data/skills.js'
 import { certificates } from '../data/certificates.js'
-
-const getColorClasses = (color) => {
-  switch (color) {
-    case 'purple':
-      return {
-        text: 'text-purple-400',
-        bg: 'bg-purple-500/10',
-        border: 'border-purple-500/20 hover:border-purple-500/40',
-        glow: 'bg-purple-500/5 group-hover:bg-purple-500/10',
-      }
-    case 'emerald':
-      return {
-        text: 'text-emerald-400',
-        bg: 'bg-emerald-500/10',
-        border: 'border-emerald-500/20 hover:border-emerald-500/40',
-        glow: 'bg-emerald-500/5 group-hover:bg-emerald-500/10',
-      }
-    case 'orange':
-      return {
-        text: 'text-orange-400',
-        bg: 'bg-orange-500/10',
-        border: 'border-orange-500/20 hover:border-orange-500/40',
-        glow: 'bg-orange-500/5 group-hover:bg-orange-500/10',
-      }
-    default:
-      return {
-        text: 'text-accent-custom',
-        bg: 'bg-accent-custom/10',
-        border: 'border-accent-custom/20 hover:border-accent-custom/40',
-        glow: 'bg-accent-custom/5 group-hover:bg-accent-custom/10',
-      }
-  }
-}
+import { getColorClasses } from '../data/colorMap.js'
 
 const getSizeClasses = (size) => {
   switch (size) {
@@ -128,7 +96,7 @@ onMounted(async () => {
   }, 100)
 })
 
-onUnmounted(() => {
+onBeforeUnmount(() => {
   ctx?.revert()
 })
 </script>
@@ -140,11 +108,6 @@ onUnmounted(() => {
         <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
           Skills & Expertise
         </h1>
-        <p class="text-xl text-secondary-custom mx-auto leading-relaxed">
-          Saya adalah seorang Full-Stack Developer dan AI Engineer yang berfokus pada pembuatan
-          solusi teknologi modern, efisien, dan inovatif untuk berbagai kebutuhan bisnis dan
-          industri.
-        </p>
       </div>
     </div>
 
@@ -169,7 +132,7 @@ onUnmounted(() => {
               class="category-block shrink-0"
             >
               <h3
-                class="text-xl md:text-2xl font-semibold text-accent-custom mb-8 flex items-center gap-2"
+                class="text-xl md:text-2xl font-semibold text-accent-custom pb-2 flex items-center gap-2"
               >
                 <span class="w-2.5 h-2.5 rounded-full bg-accent-custom"></span>
                 {{ category.category }}

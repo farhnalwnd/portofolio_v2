@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, onUnmounted, nextTick } from 'vue'
+import { onMounted, ref, onBeforeUnmount, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Icon } from '@iconify/vue'
@@ -93,7 +93,7 @@ onMounted(async () => {
   ScrollTrigger.refresh()
 })
 
-onUnmounted(() => {
+onBeforeUnmount(() => {
   ctx?.revert()
 })
 </script>

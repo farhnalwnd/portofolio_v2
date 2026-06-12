@@ -1,10 +1,11 @@
 <script setup>
-import { onMounted, ref, onUnmounted, computed } from 'vue'
+import { onMounted, ref, onBeforeUnmount, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import gsap from 'gsap'
 import { Icon } from '@iconify/vue'
 import { projects } from '../data/projects.js'
 import { useGsapStore } from '../stores/gsap'
+import { getTechIcon, getTechColor } from '../data/techIcons.js'
 
 const route = useRoute()
 const router = useRouter()
@@ -17,43 +18,6 @@ const imageError = ref(false)
 const project = computed(() => {
   return projects.find((p) => p.slug === route.params.slug)
 })
-
-const techColors = [
-  { bg: 'bg-blue-500/10', border: 'border-blue-500/30', text: 'text-blue-400' },
-  { bg: 'bg-purple-500/10', border: 'border-purple-500/30', text: 'text-purple-400' },
-  { bg: 'bg-green-500/10', border: 'border-green-500/30', text: 'text-green-400' },
-  { bg: 'bg-orange-500/10', border: 'border-orange-500/30', text: 'text-orange-400' },
-  { bg: 'bg-cyan-500/10', border: 'border-cyan-500/30', text: 'text-cyan-400' },
-  { bg: 'bg-rose-500/10', border: 'border-rose-500/30', text: 'text-rose-400' },
-  { bg: 'bg-amber-500/10', border: 'border-amber-500/30', text: 'text-amber-400' },
-]
-
-const techIcons = {
-  'Vue.js': 'logos:vue',
-  Vue: 'logos:vue',
-  Laravel: 'logos:laravel',
-  Python: 'logos:python',
-  FastAPI: 'simple-icons:fastapi',
-  Docker: 'logos:docker-icon',
-  React: 'logos:react',
-  'Next.js': 'logos:nextjs-icon',
-  PostgreSQL: 'logos:postgresql',
-  MySQL: 'logos:mysql',
-  Redis: 'logos:redis',
-  OAuth2: 'mdi:shield-lock',
-  JWT: 'mdi:key',
-  Flutter: 'logos:flutter',
-  Go: 'logos:go',
-  'OpenAI API': 'simple-icons:openai',
-  'Tailwind CSS': 'logos:tailwindcss-icon',
-  ESP32: 'mdi:chip',
-  MQTT: 'mdi:access-point-network',
-  Filament: 'mdi:view-dashboard',
-}
-
-const getTechIcon = (techName) => {
-  return techIcons[techName] || 'mdi:code-tags'
-}
 
 onMounted(() => {
   if (!project.value) {
@@ -96,7 +60,7 @@ onMounted(() => {
   }, containerRef.value)
 })
 
-onUnmounted(() => {
+onBeforeUnmount(() => {
   gsapStore.setActiveTimeline(null)
   ctx?.revert()
 })
@@ -181,18 +145,12 @@ onUnmounted(() => {
           <!-- Tech Stack on the left -->
           <div class="flex flex-wrap gap-3">
             <div
-              v-for="(tech, index) in project.techStack"
+              v-for="tech in project.techStack"
               :key="tech"
-              :class="`px-4 py-2.5 rounded-xl backdrop-blur-xl border transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 ${techColors[index % techColors.length].bg} ${techColors[index % techColors.length].border}`"
+              :class="`px-4 py-2.5 rounded-xl backdrop-blur-xl border transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 ${getTechColor(tech).bg} ${getTechColor(tech).border}`"
             >
-              <Icon
-                :icon="getTechIcon(tech)"
-                :class="`text-lg ${techColors[index % techColors.length].text}`"
-              />
-              <span
-                :class="`font-semibold text-sm ${techColors[index % techColors.length].text}`"
-                >{{ tech }}</span
-              >
+              <Icon :icon="getTechIcon(tech)" :class="`text-lg ${getTechColor(tech).text}`" />
+              <span :class="`font-semibold text-sm ${getTechColor(tech).text}`">{{ tech }}</span>
             </div>
           </div>
 

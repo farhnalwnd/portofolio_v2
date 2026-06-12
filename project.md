@@ -44,7 +44,7 @@ A personal portfolio for Farhan Alwanda, a Full-Stack Developer & AI Engineer. S
 
 ## Specific Code Issues
 
-### 1. `getColorClasses` di `AboutView.vue` (lines 11-42)
+### 1. [Fixed] `getColorClasses` di `AboutView.vue` (lines 11-42)
 
 **Masalah**: Fungsi `getColorClasses()` menggunakan switch-case hardcoded di dalam komponen. Hanya mendukung 4 warna (`purple`, `emerald`, `orange`, default `accent`). Jika `certificates.js` menambahkan warna baru, perlu edit fungsi ini secara manual.
 
@@ -67,7 +67,7 @@ A personal portfolio for Farhan Alwanda, a Full-Stack Developer & AI Engineer. S
 
 ---
 
-### 2. `techIcons` di `ProjectDetailView.vue` (lines 31-52)
+### 2. [Fixed] `techIcons` di `ProjectDetailView.vue` (lines 31-52)
 
 **Masalah**: Object `techIcons` hardcoded di dalam komponen. Mapping teknologi → icon tidak reusable dan tidak konsisten dengan `skills.js` yang sudah memiliki mapping serupa untuk hard skills.
 
@@ -87,7 +87,7 @@ A personal portfolio for Farhan Alwanda, a Full-Stack Developer & AI Engineer. S
 
 ---
 
-### 3. GSAP Cleanup: `onBeforeUnmount` vs `onUnmounted`
+### 3. [Fixed] GSAP Cleanup: `onBeforeUnmount` vs `onUnmounted`
 
 **Masalah**: Inconsistency dalam lifecycle hook yang digunakan untuk cleanup GSAP context. Beberapa view pakai `onBeforeUnmount` (correct), beberapa pakai `onUnmounted` (suboptimal).
 
@@ -97,9 +97,9 @@ A personal portfolio for Farhan Alwanda, a Full-Stack Developer & AI Engineer. S
 |---|---|---|---|
 | `HomeView.vue` | `onBeforeUnmount` | ✅ Benar | line 76 |
 | `EducationView.vue` | `onBeforeUnmount` | ✅ Benar | line 186 |
-| `AboutView.vue` | `onUnmounted` | ⚠️ Suboptimal | line 133 |
-| `ProjectDetailView.vue` | `onUnmounted` | ⚠️ Suboptimal | line 99 |
-| `ContactView.vue` | `onUnmounted` | ⚠️ Suboptimal | line 97 |
+| `AboutView.vue` | `onBeforeUnmount` | ✅ Benar | line 133 |
+| `ProjectDetailView.vue` | `onBeforeUnmount` | ✅ Benar | line 99 |
+| `ContactView.vue` | `onBeforeUnmount` | ✅ Benar | line 97 |
 
 **Best Practice GSAP + Vue**:
 - **Gunakan `onBeforeUnmount`** untuk cleanup GSAP context
