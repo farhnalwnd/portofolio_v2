@@ -1,37 +1,136 @@
-# Prompt Plan: Refactoring Histories Page to alternating Zig-Zag Timeline with Scroll Animations
+# Portofolio V2 Project Analysis
 
-## Objective
-Mengubah struktur layout dan animasi pada halaman **Histories**. Setelah tampilan utama (*initial state*) di-scroll, card utama (*Latest Card*) akan bergeser ke kiri untuk menjadi bagian dari awal timeline. Selanjutnya, proses scroll akan memunculkan garis tali (timeline bar) di tengah layar, dan card dari `education.js` akan muncul secara bergantian di sisi kiri dan kanan tali tersebut dengan efek animasi masuk yang halus.
+## What the Project Is
+A personal portfolio for Farhan Alwanda, a Full-Stack Developer & AI Engineer. Showcases skills, education/career timeline, certificates, and projects. Built custom from scratch using Vue 3, Vite, Tailwind CSS v4, and GSAP 3. Currently in active development; the data layer contains placeholder/test entries.
+
+## Tech Stack
+- **Framework**: Vue 3 `<script setup>` (^3.5.32)
+- **Build**: Vite (^8.0.8)
+- **CSS**: Tailwind CSS v4 (`@theme`) (^4.2.4)
+- **Animation**: GSAP 3 + ScrollTrigger (^3.12.7)
+- **State**: Pinia (^3.0.4)
+- **Router**: Vue Router (^5.0.4)
+- **Icons**: @iconify/vue (^4.3.0)
+- **Lint/Format**: oxlint, ESLint, Prettier
+
+## Critical Bugs to Fix
+1. [Fixed] `src/data/projects.js` uses absolute filesystem paths (e.g., `/home/kuliah/.../image.png`). Change to `/image.png` or `src/assets/`.
+2. [Fixed] `src/data/projects.js` has duplicate `slug: 'yaya'` which breaks `ProjectDetailView` routing.
+3. [Fixed] `index.html` has empty `lang=""`. Set to `lang="id"`.
+4. [Fixed] `index.html` title is "Vite App". Update to portfolio name.
+5. [Fixed] `GSDevToolsPanel.vue` uses paid GSAP Club plugin. Will crash dev mode without license.
+6. [Fixed] `GSDevToolsPanel.vue` calls `watch()` inside async `onMounted()`, causing memory leaks.
+
+## Code Quality Issues
+- Remove unused `motion` package from dependencies.
+- Remove dead `counter.js` store and unused `logo.svg`.
+- Remove dead `certificates` array from `src/data/skills.js`.
+- Remove junk test entries from `projects.js` (`aaaaa`, `teas`).
+- Add 404 catch-all route to Vue Router.
+- Move `gsap.registerPlugin(ScrollTrigger)` from views to `main.js`.
+- Replace custom `line-clamp-2` CSS with Tailwind utilities.
+- Fix `ProjectsView.vue` empty state check (use `regularProjects.length`).
+- Use `personalInfo` data instead of hardcoded strings in `HomeView.vue`.
+- Add `prefers-reduced-motion` handling with `gsap.matchMedia()`.
+
+## Architectural Polish
+- Add SEO meta tags and Open Graph to `index.html`.
+- Add router navigation guard to update `document.title`.
+- Add `loading="lazy"` to project card images.
+- Implement GSAP page transitions on `<router-view>` (App.vue).
+- Create `usePageAnimation()` composable to DRY up GSAP boilerplate in views.
+- Split monolithic `AboutView.vue` (372 lines) into sub-components.
+- Move Google Fonts `@import` from `main.css` to HTML `<link>` for better performance.
+
+## Specific Code Issues
+
+### 1. `getColorClasses` di `AboutView.vue` (lines 11-42)
+
+**Masalah**: Fungsi `getColorClasses()` menggunakan switch-case hardcoded di dalam komponen. Hanya mendukung 4 warna (`purple`, `emerald`, `orange`, default `accent`). Jika `certificates.js` menambahkan warna baru, perlu edit fungsi ini secara manual.
+
+**Lokasi**: `src/views/AboutView.vue:11-42`
+
+**Contoh kasus**:
+```javascript
+// certificates.js memiliki cert dengan color: 'accent'
+{ color: 'accent', ... }
+
+// Tapi getColorClasses() tidak punya case 'accent', jadi fallback ke default
+```
+
+**Solusi**:
+- **Opsi 1**: Pindahkan mapping warna ke file terpisah `src/data/colorMap.js` yang export object dengan semua warna yang tersedia
+- **Opsi 2**: Ubah struktur data certificate di `certificates.js` untuk langsung include class Tailwind-nya sendiri
+- **Opsi 3**: Extend switch-case untuk menambahkan case `'accent'` secara eksplisit
+
+**Rekomendasi**: Opsi 1 — centralized color mapping yang bisa dipakai di semua komponen.
 
 ---
 
-## 1. Initial State & First Scroll Transition
-* **Initial View:** Saat halaman pertama kali dibuka, *Latest Card* berada tepat di tengah viewport sebagai sorotan utama, dilengkapi dengan Header di bagian atas.
-* **First Scroll Action:** 
-    * Teks Header akan mengalami efek **Fade Out**.
-    * *Latest Card* akan mengecil secara proporsional dan melakukan **Translate X ke arah kiri** untuk memposisikan dirinya sebagai titik awal (node pertama) di sebelah kiri garis tengah.
+### 2. `techIcons` di `ProjectDetailView.vue` (lines 31-52)
+
+**Masalah**: Object `techIcons` hardcoded di dalam komponen. Mapping teknologi → icon tidak reusable dan tidak konsisten dengan `skills.js` yang sudah memiliki mapping serupa untuk hard skills.
+
+**Lokasi**: `src/views/ProjectDetailView.vue:31-52`
+
+**Dampak**:
+- Duplikasi data: `skills.js` sudah punya icon mapping untuk Vue.js, Laravel, Python, dll
+- Maintenance: Setiap tech stack baru perlu ditambahkan manual di `techIcons`
+- Tidak reusable: Komponen lain (ProjectCard, FeaturedProjectCard) tidak bisa pakai mapping ini
+
+**Solusi**:
+- **Opsi 1**: Buat file `src/data/techMeta.js` yang export mapping lengkap `{ [techName]: { icon, defaultColor } }`
+- **Opsi 2**: Extend `skills.js` dengan universal tech mapping (merge hard skills icons + additional techs)
+- **Opsi 3**: Ubah struktur `techStack` di `projects.js` dari array of strings menjadi array of objects `[{ name, icon }]`
+
+**Rekomendasi**: Opsi 2 — leverage existing `skills.js`, tambahkan section `techIcons` yang comprehensive untuk reuse di semua project components.
 
 ---
 
-## 2. The Mid-Line (Tali Timeline) & Alternating Layout
-Setelah *Latest Card* berpindah ke kiri, elemen-elemen berikut akan aktif secara dinamis berbasis progress scroll:
+### 3. GSAP Cleanup: `onBeforeUnmount` vs `onUnmounted`
 
-* **Tali Timeline (Center Line):** Sebuah garis vertikal di tengah layar (`left: 50%` atau `justify-center`) akan memanjang ke bawah mengikuti arah scroll pengguna (*scroll-driven height/draw effect*).
-* **Alternating Cards (Data dari `education.js`):**
-    * Card yang di-render dari `education.js` harus tersusun secara **zig-zag (bergantian)** di sepanjang tali tengah.
-    * Jika *Latest Card* sudah berada di Kiri, maka card pertama dari `education.js` akan berada di **Kanan**, card berikutnya di **Kiri**, lalu **Kanan**, dan seterusnya (menggunakan kondisi indeks `index % 2 === 0`).
+**Masalah**: Inconsistency dalam lifecycle hook yang digunakan untuk cleanup GSAP context. Beberapa view pakai `onBeforeUnmount` (correct), beberapa pakai `onUnmounted` (suboptimal).
 
----
+**Status per View**:
 
-## 3. Scroll-Linked Animation Details
-Berikan efek interaksi mikro (*micro-interactions*) pada setiap card dan tali saat viewport mendeteksinya (*scroll-triggered* atau *scroll-linked*):
+| View | Hook | Status | Location |
+|---|---|---|---|
+| `HomeView.vue` | `onBeforeUnmount` | ✅ Benar | line 76 |
+| `EducationView.vue` | `onBeforeUnmount` | ✅ Benar | line 186 |
+| `AboutView.vue` | `onUnmounted` | ⚠️ Suboptimal | line 133 |
+| `ProjectDetailView.vue` | `onUnmounted` | ⚠️ Suboptimal | line 99 |
+| `ContactView.vue` | `onUnmounted` | ⚠️ Suboptimal | line 97 |
 
-* **Animasi Tali Tengah:** Garis timeline vertikal tampak seperti "digambar" dari atas ke bawah seiring bertambahnya progress scroll.
-* **Card Masuk dari Kiri (Index Genap):** Muncul dengan kombinasi **Fade In** dan sedikit sentuhan **Translate X dari kiri ke kanan** (seperti ditarik mendekati tali tengah) serta sedikit rotasi ringan (*subtle tilt*).
-* **Card Masuk dari Kanan (Index Ganjil):** Muncul dengan kombinasi **Fade In** dan **Translate X dari kanan ke kiri** (mendekati tali tengah).
-* **Scroll Reversed (Up):** Ketika di-scroll ke atas, semua komponen akan melakukan transisi mundur secara halus (*fade out* dan kembali ke posisi luar) hingga *Latest Card* kembali ke posisi tengah semula.
+**Best Practice GSAP + Vue**:
+- **Gunakan `onBeforeUnmount`** untuk cleanup GSAP context
+- **Alasan**: `ctx.revert()` perlu akses DOM yang masih hidup untuk:
+  - Remove inline styles yang di-inject GSAP
+  - Kill ScrollTrigger instances
+  - Remove pin spacers dari ScrollTrigger pinning
+  - Cleanup event listeners
 
----
+**Dampak pakai `onUnmounted`**:
+- DOM sudah detached saat `ctx.revert()` dipanggil
+- Inline styles mungkin tidak ter-cleanup dengan benar
+- ScrollTrigger pin spacers bisa tertinggal di DOM
+- Potential memory leak jika ScrollTrigger tidak ter-kill sempurna
 
-## Output yang Diharapkan
-Berikan struktur kode komponen yang diperbarui (disarankan menggunakan React, Tailwind CSS, dan Framer Motion/GSAP). Pastikan logika pembagian indeks ganjil/genap untuk posisi kiri-kanan berjalan otomatis berdasarkan urutan data di `education.js`.
+**Solusi**: 
+Standarkan semua view ke `onBeforeUnmount` untuk GSAP cleanup:
+
+```javascript
+// ❌ BEFORE (suboptimal)
+onUnmounted(() => {
+  ctx?.revert()
+})
+
+// ✅ AFTER (best practice)
+onBeforeUnmount(() => {
+  ctx?.revert()
+})
+```
+
+**Files to fix**:
+1. `src/views/AboutView.vue:133`
+2. `src/views/ProjectDetailView.vue:99`
+3. `src/views/ContactView.vue:97`

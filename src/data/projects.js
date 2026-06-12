@@ -4,7 +4,7 @@ export const projects = [
     title: 'Catera IoT',
     description:
       'IoT-based smart monitoring system using ESP32 and MQTT protocol for real-time data transmission and visualization.',
-    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
+    thumbnail: '/image.png',
     techStack: ['ESP32', 'MQTT', 'Python', 'FastAPI', 'Vue.js', 'Docker'],
     category: 'IoT',
     featured: true,
@@ -21,7 +21,7 @@ export const projects = [
     title: 'The Bridge SSO',
     description:
       'Enterprise-grade Single Sign-On authentication system with OAuth2 and JWT implementation for seamless user management.',
-    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
+    thumbnail: '/image.png',
     techStack: ['Laravel', 'Filament', 'PostgreSQL', 'Redis', 'OAuth2', 'JWT'],
     category: 'Web Application',
     featured: true,
@@ -38,7 +38,7 @@ export const projects = [
     title: 'Sortify',
     description:
       'Smart task management and organization tool with AI-powered categorization and priority suggestions.',
-    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
+    thumbnail: '/image.png',
     techStack: ['Flutter', 'Go', 'PostgreSQL', 'Docker', 'OpenAI API'],
     category: 'Mobile Application',
     featured: true,
@@ -55,92 +55,7 @@ export const projects = [
     title: 'Smart Inventory System',
     description:
       'Real-time inventory tracking system with barcode scanning and predictive stock alerts.',
-    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
-    techStack: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'],
-    category: 'Web Application',
-    featured: false,
-    year: 2023,
-    fullDescription:
-      'A comprehensive inventory management system designed for small to medium businesses. Features include barcode scanning, real-time stock tracking, automated reorder alerts, and detailed analytics dashboard.',
-    links: {
-      github: null,
-      demo: null,
-    },
-  },
-  {
-    slug: 'aaaaa',
-    title: 'aaaa',
-    description:
-      'Real-time inventory tracking system with barcode scanning and predictive stock alerts.',
-    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
-    techStack: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'],
-    category: 'Web Application',
-    featured: false,
-    year: 2023,
-    fullDescription:
-      'A comprehensive inventory management system designed for small to medium businesses. Features include barcode scanning, real-time stock tracking, automated reorder alerts, and detailed analytics dashboard.',
-    links: {
-      github: null,
-      demo: null,
-    },
-  },
-  {
-    slug: 'teas',
-    title: 'tsets',
-    description:
-      'Real-time inventory tracking system with barcode scanning and predictive stock alerts.',
-    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
-    techStack: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'],
-    category: 'Web Application',
-    featured: true,
-    year: 2023,
-    fullDescription:
-      'A comprehensive inventory management system designed for small to medium businesses. Features include barcode scanning, real-time stock tracking, automated reorder alerts, and detailed analytics dashboard.',
-    links: {
-      github: null,
-      demo: null,
-    },
-  },
-  {
-    slug: 'yaya',
-    title: 'yayayay',
-    description:
-      'Real-time inventory tracking system with barcode scanning and predictive stock alerts.',
-    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
-    techStack: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'],
-    category: 'Web Application',
-    featured: false,
-    year: 2023,
-    fullDescription:
-      'A comprehensive inventory management system designed for small to medium businesses. Features include barcode scanning, real-time stock tracking, automated reorder alerts, and detailed analytics dashboard.',
-    links: {
-      github: null,
-      demo: null,
-    },
-  },
-  {
-    slug: 'yaya',
-    title: 'yayayay',
-    description:
-      'Real-time inventory tracking system with barcode scanning and predictive stock alerts.',
-    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
-    techStack: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'],
-    category: 'Web Application',
-    featured: false,
-    year: 2023,
-    fullDescription:
-      'A comprehensive inventory management system designed for small to medium businesses. Features include barcode scanning, real-time stock tracking, automated reorder alerts, and detailed analytics dashboard.',
-    links: {
-      github: null,
-      demo: null,
-    },
-  },
-  {
-    slug: 'yaya',
-    title: 'yayayay',
-    description:
-      'Real-time inventory tracking system with barcode scanning and predictive stock alerts.',
-    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
+    thumbnail: '/image.png',
     techStack: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'],
     category: 'Web Application',
     featured: false,

@@ -266,12 +266,9 @@ onUnmounted(() => {
           >
             Credentials
           </div>
-          <h2 class="text-3xl md:text-5xl font-bold text-text-custom font-archivo">
+          <h2 class="text-3xl md:text-5xl font-bold text-text-custom font-archivo py-3">
             Certificates & Achievements
           </h2>
-          <p class="text-secondary-custom text-sm md:text-base mt-2">
-            Beberapa sertifikasi dan pencapaian profesional yang telah saya raih.
-          </p>
         </div>
 
         <div
