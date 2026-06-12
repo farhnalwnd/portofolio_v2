@@ -37,7 +37,7 @@ A personal portfolio for Farhan Alwanda, a Full-Stack Developer & AI Engineer. S
 - [Fixed] Add SEO meta tags and Open Graph to `index.html`.
 - [Fixed] Add router navigation guard to update `document.title`.
 - [Fixed] Add `loading="lazy"` to project card images.
-- [Fixed] Implement GSAP page transitions on `<router-view>` (App.vue).
+- [Cancelled] Implement GSAP page transitions on `<router-view>` (App.vue) (animasi diatur mandiri per page).
 - [Fixed] Create `usePageAnimation()` composable to DRY up GSAP boilerplate in views.
 - [Fixed] Split monolithic `AboutView.vue` (372 lines) into sub-components.
 - [Fixed] Move Google Fonts `@import` from `main.css` to HTML `<link>` for better performance.

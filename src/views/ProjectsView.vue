@@ -20,9 +20,6 @@ onMounted(() => {
         <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
           Projects & Work
         </h1>
-        <p class="text-xl text-secondary-custom leading-relaxed">
-          Showcase proyek yang telah dikerjakan dengan berbagai teknologi modern dan solusi inovatif
-        </p>
       </div>
     </div>
 
