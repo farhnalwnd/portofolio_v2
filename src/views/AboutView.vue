@@ -65,7 +65,6 @@ onMounted(async () => {
 
 onUnmounted(() => {
   ctx?.revert()
-  ScrollTrigger.getAll().forEach(t => t.kill())
 })
 </script>
 

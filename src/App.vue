@@ -1,6 +1,9 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
+import GSDevToolsPanel from './components/GSDevToolsPanel.vue'
+
+const isDev = import.meta.env.DEV
 </script>
 
 <template>
@@ -9,7 +12,7 @@ import Navbar from './components/Navbar.vue'
   >
     <Navbar />
 
-    <main class="pt-24 min-h-screen">
+    <main class="min-h-screen">
       <router-view />
     </main>
 
@@ -22,6 +25,8 @@ import Navbar from './components/Navbar.vue'
         class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 blur-[120px] rounded-full"
       ></div>
     </div>
+
+    <GSDevToolsPanel v-if="isDev" />
   </div>
 </template>
 

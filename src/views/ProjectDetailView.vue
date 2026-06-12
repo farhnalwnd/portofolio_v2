@@ -4,10 +4,12 @@ import { useRoute, useRouter } from 'vue-router'
 import gsap from 'gsap'
 import { Icon } from '@iconify/vue'
 import { projects } from '../data/projects.js'
+import { useGsapStore } from '../stores/gsap'
 
 const route = useRoute()
 const router = useRouter()
 
+const gsapStore = useGsapStore()
 let ctx
 const containerRef = ref(null)
 
@@ -51,10 +53,13 @@ onMounted(() => {
         },
         '-=0.4',
       )
+
+    gsapStore.setActiveTimeline(tl)
   }, containerRef.value)
 })
 
 onUnmounted(() => {
+  gsapStore.setActiveTimeline(null)
   ctx?.revert()
 })
 </script>

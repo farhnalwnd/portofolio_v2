@@ -1,10 +1,12 @@
 <script setup>
-import { onMounted, ref, onUnmounted, nextTick } from 'vue'
+import { onMounted, ref, onBeforeUnmount, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGsapStore } from '../stores/gsap'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const gsapStore = useGsapStore()
 let ctx
 const heroRef = ref(null)
 
@@ -30,8 +32,11 @@ onMounted(async () => {
         pin: true,
         scrub: 1,
         anticipatePin: 1,
+        markers: true,
       },
     })
+
+    gsapStore.setActiveTimeline(tl)
 
     tl.to('.scroll-indicator', { opacity: 0, visibility: 'hidden', duration: 0.3 })
       .to('.hero-name', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
@@ -42,16 +47,26 @@ onMounted(async () => {
       .to('.state-job', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
       .to({}, { duration: 1.8 })
       .to('.state-job', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
-      .to('.final-name', { visibility: 'visible', opacity: 1, scale: 1, duration: 1.15, ease: 'power3.out' })
-      .to('.role-item', { visibility: 'visible', opacity: 1, y: 0, stagger: 0.3, duration: 1, ease: 'power2.out' }, '-=0.6')
+      .to('.final-name', {
+        visibility: 'visible',
+        opacity: 1,
+        scale: 1,
+        duration: 1.15,
+        ease: 'power3.out',
+      })
+      .to(
+        '.role-item',
+        { visibility: 'visible', opacity: 1, y: 0, stagger: 0.3, duration: 1, ease: 'power2.out' },
+        '-=0.6',
+      )
   }, heroRef.value)
 
   ScrollTrigger.refresh()
 })
 
-onUnmounted(() => {
+onBeforeUnmount(() => {
+  gsapStore.setActiveTimeline(null)
   ctx?.revert()
-  ScrollTrigger.getAll().forEach(t => t.kill())
 })
 </script>
 
