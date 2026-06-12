@@ -109,46 +109,18 @@ onMounted(async () => {
       })
     }
 
-    // 3. Soft Skills entrance + float
-    gsap.from('.soft-skill-item', {
-      opacity: 0,
-      scale: 0.8,
-      stagger: 0.08,
-      duration: 0.6,
-      ease: 'back.out(1.4)',
-      scrollTrigger: {
-        trigger: '.soft-skills-section',
-        start: 'top 95%',
-        once: true,
-      },
-      onComplete: () => {
-        gsap.utils.toArray('.soft-skill-item').forEach((el) => {
-          gsap.to(el, {
-            y: 'random(-10, 10)',
-            x: 'random(-5, 5)',
-            rotation: 'random(-3, 3)',
-            duration: 'random(2.5, 4.5)',
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            delay: 'random(0, 1.5)',
-          })
-        })
-      },
-    })
-
-    // 4. Certificates entrance
-    gsap.from('.certificate-card', {
-      opacity: 0,
-      y: 50,
-      stagger: 0.08,
-      duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.certificates-section',
-        start: 'top 95%',
-        once: true,
-      },
+    // 3. Soft Skills float animation (runs immediately on mount)
+    gsap.utils.toArray('.soft-skill-item').forEach((el) => {
+      gsap.to(el, {
+        y: 'random(-10, 10)',
+        x: 'random(-5, 5)',
+        rotation: 'random(-3, 3)',
+        duration: 'random(2.5, 4.5)',
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: 'random(0, 1.5)',
+      })
     })
   }, containerRef.value)
 
@@ -164,33 +136,38 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="min-h-screen py-20 px-4">
-    <div class="max-w-7xl mx-auto">
+  <div ref="containerRef" class="min-h-screen py-20 px-4 overflow-x-hidden">
+    <div class="w-full max-w-7xl mx-auto">
       <div class="page-hero text-center mb-20">
-        <div
-          class="inline-block px-4 py-1.5 mb-4 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
-        >
-          About Me
-        </div>
         <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
           Skills & Expertise
         </h1>
-        <p class="text-xl text-secondary-custom max-w-3xl mx-auto leading-relaxed">
+        <p class="text-xl text-secondary-custom mx-auto leading-relaxed">
           Saya adalah seorang Full-Stack Developer dan AI Engineer yang berfokus pada pembuatan
           solusi teknologi modern, efisien, dan inovatif untuk berbagai kebutuhan bisnis dan
           industri.
         </p>
       </div>
+    </div>
 
-      <section class="hard-skills-section mb-32">
-        <h2 class="text-3xl md:text-5xl font-bold text-text-custom mb-16 font-archivo">
-          Technical Skills
-        </h2>
+    <section class="hard-skills-section mb-32 w-full">
+      <!-- Single pinned container for all categories -->
+      <div
+        class="skill-category-container py-12 relative w-full bg-white/[0.01] border-y border-white/5"
+      >
+        <div class="max-w-7xl mx-auto px-4 mb-12">
+          <h2 class="text-3xl md:text-5xl font-bold text-text-custom font-archivo">
+            Technical Skills
+          </h2>
+        </div>
 
-        <!-- Single pinned container for all categories -->
-        <div class="skill-category-container py-6 relative">
+        <div class="w-full overflow-hidden">
           <div
             class="skill-category-track flex flex-row gap-16 pb-4 md:w-max overflow-x-auto md:overflow-x-visible scrollbar-none"
+            style="
+              padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+              padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
+            "
           >
             <div
               v-for="category in skills.hardSkills"
@@ -254,8 +231,10 @@ onUnmounted(() => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
+    <div class="w-full max-w-7xl mx-auto">
       <section class="soft-skills-section mb-20 py-10">
         <h2 class="text-3xl md:text-4xl font-bold text-text-custom mb-10 font-archivo">
           Soft Skills
