@@ -1,24 +1,18 @@
 <script setup>
-import { onMounted, ref, onBeforeUnmount, nextTick } from 'vue'
+import { ref } from 'vue'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Icon } from '@iconify/vue'
 import { timeline } from '../data/education.js'
 import { useGsapStore } from '../stores/gsap'
+import { usePageAnimation } from '../composables/usePageAnimation.js'
 
 const gsapStore = useGsapStore()
-let ctx
-const pinContainerRef = ref(null)
 const headerRef = ref(null)
 const trackContainerRef = ref(null)
 const lineRef = ref(null)
 
-onMounted(async () => {
-  await nextTick()
-  window.scrollTo(0, 0)
-  ScrollTrigger.clearScrollMemory()
-
-  ctx = gsap.context(() => {
+const { containerRef: pinContainerRef } = usePageAnimation(
+  () => {
     const viewportWidth = window.innerWidth
     const isMobile = viewportWidth < 768
 
@@ -176,15 +170,13 @@ onMounted(async () => {
 
       gsapStore.setActiveTimeline(tl)
     }
-  }, pinContainerRef.value)
-
-  ScrollTrigger.refresh()
-})
-
-onBeforeUnmount(() => {
-  gsapStore.setActiveTimeline(null)
-  ctx?.revert()
-})
+  },
+  {
+    onCleanup: () => {
+      gsapStore.setActiveTimeline(null)
+    },
+  },
+)
 </script>
 
 <template>

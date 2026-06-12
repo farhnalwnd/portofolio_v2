@@ -1,7 +1,22 @@
 <script setup>
-import { RouterView } from 'vue-router'
+import { RouterView, useRoute } from 'vue-router'
 import Navbar from './components/Navbar.vue'
+import gsap from 'gsap'
 // import GSAPDebugOverlay from './components/GSAPDebugOverlay.vue'
+
+const route = useRoute()
+
+const onEnter = (el, done) => {
+  gsap.fromTo(
+    el,
+    { opacity: 0, y: 50 },
+    { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', onComplete: done },
+  )
+}
+
+const onLeave = (el, done) => {
+  gsap.to(el, { opacity: 0, y: -50, duration: 0.5, ease: 'power3.in', onComplete: done })
+}
 </script>
 
 <template>
@@ -11,7 +26,11 @@ import Navbar from './components/Navbar.vue'
     <Navbar />
 
     <main class="min-h-screen">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition mode="out-in" :css="false" @enter="onEnter" @leave="onLeave">
+          <component :is="Component" :key="route.path" />
+        </transition>
+      </router-view>
     </main>
 
     <!-- Decorative background elements for Glassmorphism -->

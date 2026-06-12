@@ -1,31 +1,31 @@
 <script setup>
-import { onMounted, ref, onBeforeUnmount, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import gsap from 'gsap'
 import { Icon } from '@iconify/vue'
 import { projects } from '../data/projects.js'
 import { useGsapStore } from '../stores/gsap'
 import { getTechIcon, getTechColor } from '../data/techIcons.js'
+import { usePageAnimation } from '../composables/usePageAnimation.js'
 
 const route = useRoute()
 const router = useRouter()
 
 const gsapStore = useGsapStore()
-let ctx
-const containerRef = ref(null)
 const imageError = ref(false)
 
 const project = computed(() => {
   return projects.find((p) => p.slug === route.params.slug)
 })
 
-onMounted(() => {
-  if (!project.value) {
-    router.push('/projects')
-    return
-  }
+if (!project.value) {
+  router.push('/projects')
+}
 
-  ctx = gsap.context(() => {
+const { containerRef } = usePageAnimation(
+  () => {
+    if (!project.value) return
+
     const tl = gsap.timeline()
 
     tl.from('.back-button', {
@@ -57,13 +57,13 @@ onMounted(() => {
       )
 
     gsapStore.setActiveTimeline(tl)
-  }, containerRef.value)
-})
-
-onBeforeUnmount(() => {
-  gsapStore.setActiveTimeline(null)
-  ctx?.revert()
-})
+  },
+  {
+    onCleanup: () => {
+      gsapStore.setActiveTimeline(null)
+    },
+  },
+)
 </script>
 
 <template>

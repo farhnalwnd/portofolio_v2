@@ -1,14 +1,12 @@
 <script setup>
-import { onMounted, ref, onBeforeUnmount, nextTick, computed } from 'vue'
+import { computed } from 'vue'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGsapStore } from '../stores/gsap'
 import { personalInfo } from '../data/personal.js'
+import { usePageAnimation } from '../composables/usePageAnimation.js'
 
 const gsapStore = useGsapStore()
-let ctx
 let mm
-const heroRef = ref(null)
 
 const firstName = computed(() => personalInfo.name.split(' ')[0])
 const lastName = computed(() => personalInfo.name.split(' ')[1])
@@ -21,15 +19,11 @@ const jobParts = computed(() => {
   return { company: parts[0], role: parts[1] }
 })
 
-onMounted(async () => {
-  await nextTick()
-  window.scrollTo(0, 0)
-  ScrollTrigger.clearScrollMemory()
+const { containerRef } = usePageAnimation(
+  () => {
+    mm = gsap.matchMedia()
 
-  mm = gsap.matchMedia()
-
-  mm.add('(prefers-reduced-motion: reduce)', () => {
-    ctx = gsap.context(() => {
+    mm.add('(prefers-reduced-motion: reduce)', () => {
       gsap.set('.hero-greeting', { opacity: 1, y: 0, visibility: 'visible' })
       gsap.set('.hero-firstname', { opacity: 1, visibility: 'visible' })
       gsap.set('.hero-lastname', { opacity: 1, visibility: 'visible' })
@@ -42,7 +36,7 @@ onMounted(async () => {
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: heroRef.value,
+          trigger: containerRef.value,
           start: 'top top',
           end: '+=3200',
           pin: true,
@@ -52,11 +46,9 @@ onMounted(async () => {
       })
 
       gsapStore.setActiveTimeline(tl)
-    }, heroRef.value)
-  })
+    })
 
-  mm.add('(prefers-reduced-motion: no-preference)', () => {
-    ctx = gsap.context(() => {
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
       gsap.set('.hero-greeting', { opacity: 1, y: 0, visibility: 'visible' })
       gsap.set('.hero-firstname', { opacity: 1, xPercent: -20, visibility: 'visible' })
       gsap.set('.hero-lastname', { opacity: 1, xPercent: 20, visibility: 'visible' })
@@ -69,7 +61,7 @@ onMounted(async () => {
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: heroRef.value,
+          trigger: containerRef.value,
           start: 'top top',
           end: '+=3200',
           pin: true,
@@ -116,26 +108,21 @@ onMounted(async () => {
           },
           '-=0.6',
         )
-    }, heroRef.value)
-  })
-
-  ScrollTrigger.refresh()
-})
-
-onBeforeUnmount(() => {
-  gsapStore.setActiveTimeline(null)
-  ctx?.revert()
-  mm?.revert()
-})
+    })
+  },
+  {
+    onCleanup: () => {
+      gsapStore.setActiveTimeline(null)
+      mm?.revert()
+    },
+  },
+)
 </script>
 
 <template>
-  <div class="relative w-full">
+  <div ref="containerRef" class="relative w-full">
     <!-- Pinned Hero Section -->
-    <section
-      ref="heroRef"
-      class="relative h-screen w-full flex items-center justify-center overflow-hidden"
-    >
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
       <div
         class="absolute -z-10 w-[50vw] h-[50vw] max-w-125 max-h-125 bg-accent-custom/10 blur-[140px] rounded-full"
       ></div>

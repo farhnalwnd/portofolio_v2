@@ -1,12 +1,8 @@
 <script setup>
-import { onMounted, ref, onBeforeUnmount, nextTick } from 'vue'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Icon } from '@iconify/vue'
 import { personalInfo } from '../data/personal.js'
-
-let ctx
-const containerRef = ref(null)
+import { usePageAnimation } from '../composables/usePageAnimation.js'
 
 const contactChannels = [
   {
@@ -57,44 +53,32 @@ const contactChannels = [
   },
 ]
 
-onMounted(async () => {
-  await nextTick()
-  window.scrollTo(0, 0)
-  ScrollTrigger.clearScrollMemory()
+const { containerRef } = usePageAnimation(() => {
+  gsap.fromTo(
+    '.page-hero',
+    { opacity: 0, y: 40 },
+    { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'all' },
+  )
 
-  ctx = gsap.context(() => {
-    gsap.fromTo(
-      '.page-hero',
-      { opacity: 0, y: 40 },
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'all' },
-    )
+  gsap.fromTo(
+    '.profile-card-container',
+    { opacity: 0, x: -40 },
+    { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', delay: 0.2, clearProps: 'all' },
+  )
 
-    gsap.fromTo(
-      '.profile-card-container',
-      { opacity: 0, x: -40 },
-      { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', delay: 0.2, clearProps: 'all' },
-    )
-
-    gsap.fromTo(
-      '.social-link-item',
-      { opacity: 0, x: 40 },
-      {
-        opacity: 1,
-        x: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: 'power3.out',
-        delay: 0.3,
-        clearProps: 'all',
-      },
-    )
-  }, containerRef.value)
-
-  ScrollTrigger.refresh()
-})
-
-onBeforeUnmount(() => {
-  ctx?.revert()
+  gsap.fromTo(
+    '.social-link-item',
+    { opacity: 0, x: 40 },
+    {
+      opacity: 1,
+      x: 0,
+      stagger: 0.1,
+      duration: 0.8,
+      ease: 'power3.out',
+      delay: 0.3,
+      clearProps: 'all',
+    },
+  )
 })
 </script>
 
