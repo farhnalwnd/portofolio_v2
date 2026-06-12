@@ -17,8 +17,8 @@ onMounted(async () => {
 
   ctx = gsap.context(() => {
     gsap.set('.hero-greeting', { opacity: 1, y: 0, visibility: 'visible' })
-    gsap.set('.hero-firstname', { opacity: 1, xPercent: -8, visibility: 'visible' })
-    gsap.set('.hero-lastname', { opacity: 1, xPercent: 8, visibility: 'visible' })
+    gsap.set('.hero-firstname', { opacity: 1, xPercent: -20, visibility: 'visible' })
+    gsap.set('.hero-lastname', { opacity: 1, xPercent: 20, visibility: 'visible' })
     gsap.set('.hero-role-text', { opacity: 1, y: 0, visibility: 'visible' })
     gsap.set('.scroll-indicator', { opacity: 1, visibility: 'visible' })
     gsap.set('.state-education', { opacity: 0, y: 50, visibility: 'hidden' })
@@ -39,7 +39,7 @@ onMounted(async () => {
 
     gsapStore.setActiveTimeline(tl)
 
-    tl.to('.scroll-indicator', { opacity: 0, visibility: 'hidden', duration: 0.3 })
+    tl.to('.scroll-indicator', { opacity: 0, duration: 0.7 })
       .to('.hero-firstname', { xPercent: -120, opacity: 0, duration: 1.2 })
       .to('.hero-lastname', { xPercent: 120, opacity: 0, duration: 1.2 }, '<')
       .to('.hero-greeting', { opacity: 0, y: -30, visibility: 'hidden', duration: 0.8 }, '-=1')
