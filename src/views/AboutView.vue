@@ -79,17 +79,17 @@ onMounted(async () => {
           const scrollWidth = track.scrollWidth - container.clientWidth
           if (scrollWidth > 0) {
             gsap.to(track, {
-              x: -scrollWidth,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: container,
-                pin: true,
-                scrub: 1,
-                start: 'top 20%',
-                end: () => `+=${scrollWidth}`,
-                invalidateOnRefresh: true,
-              },
-            })
+                x: -scrollWidth,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: container,
+                  pin: true,
+                  scrub: 1,
+                  start: 'top 20%',
+                  end: () => `+=${scrollWidth}`,
+                  invalidateOnRefresh: true,
+                },
+              })
           }
         }
       })
@@ -136,8 +136,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="min-h-screen py-20 px-4 overflow-x-hidden">
-    <div class="w-full max-w-7xl mx-auto">
+  <div ref="containerRef" class="min-h-screen py-28 px-4 overflow-x-hidden">
+    <div class="w-full">
       <div class="page-hero text-center mb-20">
         <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
           Skills & Expertise
@@ -153,21 +153,17 @@ onUnmounted(() => {
     <section class="hard-skills-section mb-32 w-full">
       <!-- Single pinned container for all categories -->
       <div
-        class="skill-category-container py-12 relative w-full bg-white/[0.01] border-y border-white/5"
+        class="skill-category-container py-12 relative w-full bg-white/1 border-y border-white/5"
       >
         <div class="max-w-7xl mx-auto px-4 mb-12">
-          <h2 class="text-3xl md:text-5xl font-bold text-text-custom font-archivo">
+          <h2 class="text-3xl md:text-5xl font-bold text-text-custom font-archivo pb-4">
             Technical Skills
           </h2>
         </div>
 
         <div class="w-full overflow-hidden">
           <div
-            class="skill-category-track flex flex-row gap-16 pb-4 md:w-max overflow-x-auto md:overflow-x-visible scrollbar-none"
-            style="
-              padding-left: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
-              padding-right: max(1rem, calc((100vw - 80rem) / 2 + 1rem));
-            "
+            class="skill-category-track flex flex-row gap-16 pb-4 md:w-max overflow-x-auto md:overflow-x-visible scrollbar-none px-12"
           >
             <div
               v-for="category in skills.hardSkills"
@@ -185,7 +181,7 @@ onUnmounted(() => {
                 <div
                   v-for="skill in category.items"
                   :key="skill.name"
-                  class="skill-card group relative p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-accent-custom/30 transition-all duration-300 flex flex-col justify-between overflow-hidden w-[280px] shrink-0 shadow-md h-[200px]"
+                  class="skill-card group relative p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-accent-custom/30 transition-all duration-300 flex flex-col justify-between overflow-hidden w-70 shrink-0 shadow-md h-50"
                 >
                   <!-- Decorative Accent Glow Background -->
                   <div
@@ -234,9 +230,9 @@ onUnmounted(() => {
       </div>
     </section>
 
-    <div class="w-full max-w-7xl mx-auto">
+    <div class="w-full mx-auto">
       <section class="soft-skills-section mb-20 py-10">
-        <h2 class="text-3xl md:text-4xl font-bold text-text-custom mb-10 font-archivo">
+        <h2 class="text-3xl md:text-4xl font-bold text-text-custom mb-10 font-archivo pb-4">
           Soft Skills
         </h2>
 

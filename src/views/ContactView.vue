@@ -10,42 +10,85 @@ gsap.registerPlugin(ScrollTrigger)
 let ctx
 const containerRef = ref(null)
 
+const contactChannels = [
+  {
+    name: 'Email',
+    icon: 'lucide:mail',
+    href: `mailto:${personalInfo.email}`,
+    label: personalInfo.email,
+    colorClass: 'group-hover:border-blue-500/50 group-hover:bg-blue-500/10',
+    iconColor: 'text-blue-600 dark:text-blue-400',
+    external: false,
+  },
+  {
+    name: 'WhatsApp',
+    icon: 'lucide:message-circle',
+    href: personalInfo.whatsapp,
+    label: personalInfo.phone,
+    colorClass: 'group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10',
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
+    external: true,
+  },
+  {
+    name: 'LinkedIn',
+    icon: 'lucide:linkedin',
+    href: personalInfo.linkedin,
+    label: 'linkedin.com/in/farhan-alwanda',
+    colorClass: 'group-hover:border-[#0077B5]/50 group-hover:bg-[#0077B5]/10',
+    iconColor: 'text-[#0077B5]',
+    external: true,
+  },
+  {
+    name: 'GitHub',
+    icon: 'lucide:github',
+    href: personalInfo.github,
+    label: 'github.com/farhan-alwanda',
+    colorClass: 'group-hover:border-black/50 dark:group-hover:border-white/50 group-hover:bg-black/5 dark:group-hover:bg-white/10',
+    iconColor: 'text-black dark:text-white',
+    external: true,
+  },
+  {
+    name: 'Instagram',
+    icon: 'lucide:instagram',
+    href: personalInfo.instagram,
+    label: '@farhan.alwanda',
+    colorClass: 'group-hover:border-[#E1306C]/50 group-hover:bg-[#E1306C]/10',
+    iconColor: 'text-[#E1306C]',
+    external: true,
+  },
+]
+
 onMounted(async () => {
   await nextTick()
   window.scrollTo(0, 0)
   ScrollTrigger.clearScrollMemory()
 
   ctx = gsap.context(() => {
-    gsap.from('.page-hero', {
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      ease: 'power3.out',
-    })
+    gsap.fromTo(
+      '.page-hero',
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'all' },
+    )
 
-    gsap.from('.contact-card', {
-      opacity: 0,
-      y: 50,
-      stagger: 0.2,
-      duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.contact-content',
-        start: 'top 70%',
-      },
-    })
+    gsap.fromTo(
+      '.profile-card-container',
+      { opacity: 0, x: -40 },
+      { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', delay: 0.2, clearProps: 'all' },
+    )
 
-    gsap.from('.social-link', {
-      opacity: 0,
-      scale: 0.8,
-      stagger: 0.1,
-      duration: 0.6,
-      ease: 'back.out(1.4)',
-      scrollTrigger: {
-        trigger: '.social-links-section',
-        start: 'top 70%',
+    gsap.fromTo(
+      '.social-link-item',
+      { opacity: 0, x: 40 },
+      {
+        opacity: 1,
+        x: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.3,
+        clearProps: 'all',
       },
-    })
+    )
   }, containerRef.value)
 
   ScrollTrigger.refresh()
@@ -57,155 +100,120 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="min-h-screen py-20 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="page-hero text-center mb-20">
-        <div
-          class="inline-block px-4 py-1.5 mb-4 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
-        >
-          Get in Touch
-        </div>
-        <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
+  <div ref="containerRef" class="min-h-screen py-24 px-4 relative overflow-hidden flex items-center justify-center">
+    <!-- Decorative Blurs -->
+    <div
+      class="absolute top-1/4 -left-48 w-96 h-96 bg-accent-custom/10 blur-[120px] rounded-full pointer-events-none"
+    ></div>
+    <div
+      class="absolute bottom-1/4 -right-48 w-96 h-96 bg-purple-500/10 blur-[120px] rounded-full pointer-events-none"
+    ></div>
+
+    <div class="w-full max-w-5xl mx-auto relative z-10">
+      <!-- Hero -->
+      <div class="page-hero text-center pb-10">
+        <h1 class="text-5xl md:text-6xl font-bold text-text-custom mb-4 font-archivo">
           Let's Connect
         </h1>
-        <p class="text-xl text-secondary-custom max-w-2xl mx-auto leading-relaxed">
-          Saya selalu terbuka untuk diskusi tentang proyek baru, peluang kolaborasi, atau sekadar
-          bertukar ide tentang teknologi.
-        </p>
       </div>
 
-      <div class="contact-content grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="contact-card space-y-8">
-          <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
-            <h2 class="text-2xl md:text-3xl font-bold text-text-custom mb-6 font-archivo">
-              Hubungi Saya
-            </h2>
+      <!-- Grid Layout with centered items (no vertical stretch) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+        <!-- Grid Kiri: Profile Card (Nempel Kanan, layout horizontal dengan foto di kiri) -->
+        <div class="profile-card-container w-full md:justify-self-end md:ml-auto max-w-xl">
+          <div
+            class="relative p-8 rounded-3xl bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl border border-black/10 dark:border-white/10 shadow-2xl flex flex-col gap-6 overflow-hidden"
+          >
+            <!-- Background Glow -->
+            <div
+              class="absolute -right-10 -top-10 w-32 h-32 bg-accent-custom/10 blur-2xl rounded-full"
+            ></div>
 
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="p-3 rounded-xl bg-accent-custom/10 text-accent-custom">
-                  <Icon icon="lucide:mail" class="text-xl" />
-                </div>
-                <div>
-                  <p class="text-sm text-secondary-custom">Email</p>
-                  <a
-                    :href="`mailto:${personalInfo.email}`"
-                    class="text-text-custom font-medium hover:text-accent-custom transition-colors"
-                  >
-                    {{ personalInfo.email }}
-                  </a>
+            <!-- Top Row: Profile (Left) + Name, Role, Moto (Right) -->
+            <div class="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+              <!-- Avatar / Photo Frame -->
+              <div
+                class="w-28 h-28 rounded-2xl bg-linear-to-br from-accent-custom to-purple-500 p-0.5 shadow-xl shadow-accent-custom/10 shrink-0 flex items-center justify-center relative overflow-hidden"
+              >
+                <div
+                  class="w-full h-full rounded-2xl bg-white dark:bg-zinc-900 flex items-center justify-center"
+                >
+                  <Icon icon="lucide:user" class="text-5xl text-accent-custom" />
                 </div>
               </div>
 
-              <div class="flex items-center gap-4">
-                <div class="p-3 rounded-xl bg-accent-custom/10 text-accent-custom">
-                  <Icon icon="lucide:phone" class="text-xl" />
-                </div>
-                <div>
-                  <p class="text-sm text-secondary-custom">Phone</p>
-                  <a
-                    :href="`tel:${personalInfo.phone}`"
-                    class="text-text-custom font-medium hover:text-accent-custom transition-colors"
-                  >
-                    {{ personalInfo.phone }}
-                  </a>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <div class="p-3 rounded-xl bg-accent-custom/10 text-accent-custom">
-                  <Icon icon="lucide:map-pin" class="text-xl" />
-                </div>
-                <div>
-                  <p class="text-sm text-secondary-custom">Location</p>
-                  <p class="text-text-custom font-medium">Cikarang, Jawa Barat, Indonesia</p>
-                </div>
+              <!-- Name, Role, Moto -->
+              <div class="flex-1 text-center sm:text-left">
+                <h2 class="text-2xl font-bold text-text-custom mb-1 font-archivo">
+                  {{ personalInfo.name }}
+                </h2>
+                <p class="text-sm font-semibold text-accent-custom mb-3">
+                  {{ personalInfo.title }}
+                </p>
+                <p class="text-xs md:text-sm text-secondary-custom leading-relaxed italic">
+                  "{{ personalInfo.description }}"
+                </p>
               </div>
             </div>
-          </div>
 
-          <div class="flex flex-wrap gap-4">
-            <a
-              :href="`mailto:${personalInfo.email}`"
-              class="inline-flex items-center gap-2 px-8 py-4 bg-accent-custom text-white rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-accent-custom/20"
+            <!-- Bottom Row: Location (Left) + Availability (Right) -->
+            <div
+              class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-black/5 dark:border-white/5 text-secondary-custom"
             >
-              <Icon icon="lucide:send" class="text-xl" />
-              Email Me
-            </a>
-            <a
-              :href="personalInfo.whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white rounded-full font-bold hover:scale-105 transition-transform shadow-xl shadow-[#25D366]/20"
-            >
-              <Icon icon="lucide:message-circle" class="text-xl" />
-              WhatsApp
-            </a>
+              <div class="flex items-center gap-2">
+                <Icon icon="lucide:map-pin" class="text-lg text-accent-custom" />
+                <span class="text-xs md:text-sm font-medium">Cikarang, Jawa Barat, Indonesia</span>
+              </div>
+
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20"
+              >
+                <span class="relative flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                  ></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="text-[9px] md:text-[10px] font-bold tracking-wide uppercase text-emerald-600 dark:text-emerald-400"
+                  >Available for Projects</span
+                >
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="contact-card relative">
-          <div
-            class="absolute inset-0 bg-gradient-to-br from-accent-custom/10 to-purple-500/10 rounded-3xl blur-3xl opacity-30"
-          ></div>
-
-          <div
-            class="relative p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl text-center"
+        <!-- Grid Kanan: Social Links (Nempel Kiri) -->
+        <div class="flex flex-col gap-4 md:justify-self-start md:mr-auto w-full max-w-sm justify-center">
+          <a
+            v-for="channel in contactChannels"
+            :key="channel.name"
+            :href="channel.href"
+            :target="channel.external ? '_blank' : undefined"
+            :rel="channel.external ? 'noopener noreferrer' : undefined"
+            class="social-link-item flex items-center gap-4 group p-3.5 rounded-2xl bg-white/70 dark:bg-white/[0.02] border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300"
           >
+            <!-- Icon Frame -->
             <div
-              class="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-accent-custom to-purple-500 p-1"
+              class="p-3 rounded-xl bg-white/10 dark:bg-white/5 border border-black/10 dark:border-white/10 transition-all duration-300 group-hover:scale-105 shrink-0"
+              :class="channel.colorClass"
             >
-              <div
-                class="w-full h-full rounded-full bg-background-custom flex items-center justify-center"
-              >
-                <Icon icon="lucide:user" class="text-5xl text-accent-custom" />
-              </div>
+              <Icon
+                :icon="channel.icon"
+                class="text-xl transition-colors duration-300"
+                :class="channel.iconColor"
+              />
             </div>
-
-            <h2 class="text-3xl font-bold text-text-custom mb-4 font-archivo">
-              {{ personalInfo.name }}
-            </h2>
-            <p class="text-xl text-secondary-custom mb-8">{{ personalInfo.title }}</p>
-
-            <div class="social-links-section flex justify-center gap-4">
-              <a
-                :href="personalInfo.github"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent-custom/30 transition-all duration-300 group"
-                aria-label="GitHub"
-              >
-                <Icon
-                  icon="lucide:github"
-                  class="text-2xl text-secondary-custom group-hover:text-accent-custom transition-colors"
-                />
-              </a>
-              <a
-                :href="personalInfo.linkedin"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#0077B5] transition-all duration-300 group"
-                aria-label="LinkedIn"
-              >
-                <Icon
-                  icon="lucide:linkedin"
-                  class="text-2xl text-secondary-custom group-hover:text-[#0077B5] transition-colors"
-                />
-              </a>
-              <a
-                :href="personalInfo.instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#E1306C] transition-all duration-300 group"
-                aria-label="Instagram"
-              >
-                <Icon
-                  icon="lucide:instagram"
-                  class="text-2xl text-secondary-custom group-hover:text-[#E1306C] transition-colors"
-                />
-              </a>
+            
+            <!-- Details -->
+            <div class="overflow-hidden">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-secondary-custom block mb-0.5">
+                {{ channel.name }}
+              </span>
+              <span class="text-sm text-text-custom font-semibold group-hover:text-accent-custom transition-colors truncate block">
+                {{ channel.label }}
+              </span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
