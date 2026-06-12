@@ -40,11 +40,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="flex justify-center p-4 md:p-6">
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 pointer-events-none">
+    <div class="flex justify-center p-4 md:p-6 pointer-events-none">
       <div
         :class="[
-          'flex items-center gap-2 px-4 md:px-6 py-3 rounded-full transition-all duration-300',
+          'flex items-center gap-2 px-4 md:px-6 py-3 rounded-full transition-all duration-300 pointer-events-auto',
           isScrolled
             ? 'bg-background-custom/80 backdrop-blur-2xl border border-white/10 shadow-2xl'
             : 'bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl',
@@ -92,7 +92,7 @@ onUnmounted(() => {
     >
       <div
         v-if="isMenuOpen"
-        class="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-background-custom/90 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl"
+        class="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-background-custom/90 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl pointer-events-auto"
       >
         <RouterLink
           v-for="link in navLinks"

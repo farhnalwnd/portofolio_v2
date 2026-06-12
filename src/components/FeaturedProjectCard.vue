@@ -15,7 +15,7 @@ const imageError = ref(false)
 <template>
   <router-link
     :to="`/projects/${project.slug}`"
-    class="featured-card group relative flex-shrink-0 snap-center block overflow-hidden rounded-2xl border border-white/10 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-accent-custom/20 hover:border-accent-custom/50 min-w-[85vw] md:min-w-[60vw] lg:min-w-[45vw] h-[60vh] md:h-[65vh]"
+    class="featured-card group relative shrink-0 snap-center block overflow-hidden rounded-2xl border border-white/10 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-accent-custom/20 hover:border-accent-custom/50 min-w-[85vw] md:min-w-[60vw] lg:min-w-[45vw] h-[60vh] md:h-[65vh]"
   >
     <div class="absolute inset-0 bg-primary-custom">
       <img
@@ -27,14 +27,14 @@ const imageError = ref(false)
       />
       <div
         v-else
-        class="absolute inset-0 bg-gradient-to-br from-accent-custom/30 via-purple-500/20 to-accent-custom/10 flex items-center justify-center text-secondary-custom"
+        class="absolute inset-0 bg-linear-to-br from-accent-custom/30 via-purple-500/20 to-accent-custom/10 flex items-center justify-center text-secondary-custom"
       >
         <Icon icon="lucide:image" class="text-9xl opacity-20" />
       </div>
     </div>
 
     <div
-      class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-500"
+      class="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-500"
     ></div>
 
     <div class="absolute inset-0 flex flex-col justify-end p-8 md:p-10 lg:p-12">
@@ -89,7 +89,7 @@ const imageError = ref(false)
     </div>
 
     <div
-      class="absolute inset-0 bg-gradient-to-r from-accent-custom/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+      class="absolute inset-0 bg-linear-to-r from-accent-custom/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
     ></div>
   </router-link>
 </template>

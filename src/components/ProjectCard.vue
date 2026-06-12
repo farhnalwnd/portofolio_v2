@@ -27,7 +27,7 @@ const imageError = ref(false)
       />
       <div
         v-else
-        class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent-custom/20 via-purple-500/10 to-accent-custom/5 text-secondary-custom transition-transform duration-500 group-hover:scale-110"
+        class="w-full h-full flex items-center justify-center bg-linear-to-br from-accent-custom/20 via-purple-500/10 to-accent-custom/5 text-secondary-custom transition-transform duration-500 group-hover:scale-110"
       >
         <Icon icon="lucide:image" class="text-6xl opacity-30" />
       </div>
@@ -76,7 +76,7 @@ const imageError = ref(false)
     </div>
 
     <div
-      class="absolute inset-0 bg-gradient-to-t from-accent-custom/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+      class="absolute inset-0 bg-linear-to-t from-accent-custom/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
     ></div>
   </router-link>
 </template>
