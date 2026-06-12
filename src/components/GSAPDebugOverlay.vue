@@ -25,10 +25,10 @@ watch(
         progress.value = newTimeline.progress() * 100
         timePosition.value = newTimeline.time()
 
-        const labels = newTimeline.labels
+        const labels = newTimeline.labels || {}
         const currentTime = newTimeline.time()
 
-        let activeLabel = 'Initial'
+        let activeLabel = Object.keys(labels).length > 0 ? 'Initial' : 'Active Tween'
         for (const [labelName, labelTime] of Object.entries(labels)) {
           if (currentTime >= labelTime) {
             activeLabel = labelName

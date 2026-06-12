@@ -1,40 +1,37 @@
-# Prompt Plan: Refactoring Motion Animation on `state-name-role` and Scroll Interactions
+# Prompt Plan: Refactoring Histories Page to alternating Zig-Zag Timeline with Scroll Animations
 
 ## Objective
-Melakukan refactoring pada komponen animasi, khususnya pada state `state-name-role` untuk memperbaiki layouting teks dan menambahkan efek scroll-linked animation (efek parallax/split teks saat scroll). Serta memastikan transisi global untuk state lainnya menggunakan efek fade yang konsisten.
+Mengubah struktur layout dan animasi pada halaman **Histories**. Setelah tampilan utama (*initial state*) di-scroll, card utama (*Latest Card*) akan bergeser ke kiri untuk menjadi bagian dari awal timeline. Selanjutnya, proses scroll akan memunculkan garis tali (timeline bar) di tengah layar, dan card dari `education.js` akan muncul secara bergantian di sisi kiri dan kanan tali tersebut dengan efek animasi masuk yang halus.
 
 ---
 
-## 1. Layouting & Translating Text (`state-name-role`)
-Ubah struktur dan inisial state layout pada blok `state-name-role` dengan ketentuan sebagai berikut:
-
-*   **Tambahkan Teks Baru:** Di atas blok Nama, tambahkan teks `"Hello, I'm"`. Give it a slight italic style (miring) using CSS/Tailwind (`italic`).
-*   **Split & Translate X Nama:** 
-    *   Pisahkan nama menjadi dua bagian/elemen terpisah: `Farhan` (First Name) dan `Alwanda` (Last Name).
-    *   **First Name (`Farhan`):** Berikan default offset/translate `-x` agar posisinya sedikit bergeser ke arah kiri dari posisi center awal.
-    *   **Last Name (`Alwanda`):** Berikan default offset/translate `+x` agar posisinya sedikit bergeser ke arah kanan dari posisi center awal.
+## 1. Initial State & First Scroll Transition
+* **Initial View:** Saat halaman pertama kali dibuka, *Latest Card* berada tepat di tengah viewport sebagai sorotan utama, dilengkapi dengan Header di bagian atas.
+* **First Scroll Action:** 
+    * Teks Header akan mengalami efek **Fade Out**.
+    * *Latest Card* akan mengecil secara proporsional dan melakukan **Translate X ke arah kiri** untuk memposisikan dirinya sebagai titik awal (node pertama) di sebelah kiri garis tengah.
 
 ---
 
-## 2. Scroll Animation Behavior (Scroll Down & Scroll Up)
-Implementasikan scroll trigger atau scroll-driven animation pada state ini dengan mekanika berikut:
+## 2. The Mid-Line (Tali Timeline) & Alternating Layout
+Setelah *Latest Card* berpindah ke kiri, elemen-elemen berikut akan aktif secara dinamis berbasis progress scroll:
 
-### Saat Scroll Ke Bawah (Scroll Down)
-*   **Nama (Split Effect):** Teks `Farhan` akan bergerak semakin jauh ke arah **kiri**, dan teks `Alwanda` akan bergerak semakin jauh ke arah **kanan** mengikuti intensitas scroll.
-*   **Elemen Lain (`Hello, I'm` & Skill/Role):** Mengalami efek **Fade Out** (opacity menurun menuju 0) seiring halaman di-scroll ke bawah.
-
-### Saat Scroll Ke Atas (Scroll Up)
-*   **Nama (Reversed Effect):** Teks `Farhan` masuk kembali dari arah **kiri**, dan teks `Alwanda` masuk kembali dari arah **kanan** hingga kembali ke posisi default translate awal mereka.
-*   **Elemen Lain (`Hello, I'm` & Skill/Role):** Mengalami efek **Fade In** (opacity kembali muncul menuju 1).
+* **Tali Timeline (Center Line):** Sebuah garis vertikal di tengah layar (`left: 50%` atau `justify-center`) akan memanjang ke bawah mengikuti arah scroll pengguna (*scroll-driven height/draw effect*).
+* **Alternating Cards (Data dari `education.js`):**
+    * Card yang di-render dari `education.js` harus tersusun secara **zig-zag (bergantian)** di sepanjang tali tengah.
+    * Jika *Latest Card* sudah berada di Kiri, maka card pertama dari `education.js` akan berada di **Kanan**, card berikutnya di **Kiri**, lalu **Kanan**, dan seterusnya (menggunakan kondisi indeks `index % 2 === 0`).
 
 ---
 
-## 3. Global States Consistency (State Selebihnya)
-Untuk semua state atau seksi komponen di luar `state-name-role`, pastikan perilakunya sudah seragam dan konsisten:
-*   Wajib menggunakan efek **Fade In** saat elemen memasuki viewport / aktif.
-*   Wajib menggunakan efek **Fade Out** saat elemen keluar dari viewport / tidak aktif.
+## 3. Scroll-Linked Animation Details
+Berikan efek interaksi mikro (*micro-interactions*) pada setiap card dan tali saat viewport mendeteksinya (*scroll-triggered* atau *scroll-linked*):
+
+* **Animasi Tali Tengah:** Garis timeline vertikal tampak seperti "digambar" dari atas ke bawah seiring bertambahnya progress scroll.
+* **Card Masuk dari Kiri (Index Genap):** Muncul dengan kombinasi **Fade In** dan sedikit sentuhan **Translate X dari kiri ke kanan** (seperti ditarik mendekati tali tengah) serta sedikit rotasi ringan (*subtle tilt*).
+* **Card Masuk dari Kanan (Index Ganjil):** Muncul dengan kombinasi **Fade In** dan **Translate X dari kanan ke kiri** (mendekati tali tengah).
+* **Scroll Reversed (Up):** Ketika di-scroll ke atas, semua komponen akan melakukan transisi mundur secara halus (*fade out* dan kembali ke posisi luar) hingga *Latest Card* kembali ke posisi tengah semula.
 
 ---
 
 ## Output yang Diharapkan
-Berikan update potongan kode (baik itu React dengan Framer Motion, GSAP, atau CSS Scroll-Driven Animations) yang bersih, modular, dan langsung mengimplementasikan logika pergeseran koordinat $X$ serta opacity sesuai blueprint di atas.
+Berikan struktur kode komponen yang diperbarui (disarankan menggunakan React, Tailwind CSS, dan Framer Motion/GSAP). Pastikan logika pembagian indeks ganjil/genap untuk posisi kiri-kanan berjalan otomatis berdasarkan urutan data di `education.js`.
