@@ -28,6 +28,33 @@ const techColors = [
   { bg: 'bg-amber-500/10', border: 'border-amber-500/30', text: 'text-amber-400' },
 ]
 
+const techIcons = {
+  'Vue.js': 'logos:vue',
+  Vue: 'logos:vue',
+  Laravel: 'logos:laravel',
+  Python: 'logos:python',
+  FastAPI: 'simple-icons:fastapi',
+  Docker: 'logos:docker-icon',
+  React: 'logos:react',
+  'Next.js': 'logos:nextjs-icon',
+  PostgreSQL: 'logos:postgresql',
+  MySQL: 'logos:mysql',
+  Redis: 'logos:redis',
+  OAuth2: 'mdi:shield-lock',
+  JWT: 'mdi:key',
+  Flutter: 'logos:flutter',
+  Go: 'logos:go',
+  'OpenAI API': 'simple-icons:openai',
+  'Tailwind CSS': 'logos:tailwindcss-icon',
+  ESP32: 'mdi:chip',
+  MQTT: 'mdi:access-point-network',
+  Filament: 'mdi:view-dashboard',
+}
+
+const getTechIcon = (techName) => {
+  return techIcons[techName] || 'mdi:code-tags'
+}
+
 onMounted(() => {
   if (!project.value) {
     router.push('/projects')
@@ -89,7 +116,7 @@ onUnmounted(() => {
         <span>Kembali ke Projects</span>
       </button>
 
-      <div class="project-hero mb-16 md:mb-24 text-center flex flex-col items-center">
+      <div class="project-hero pt-7 pb-14 md:pb-20 md:pt-14 text-center flex flex-col items-center">
         <div class="flex flex-wrap items-center justify-center gap-3 mb-6">
           <span
             class="inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-wider bg-accent-custom/10 text-accent-custom border border-accent-custom/20 rounded-full"
@@ -115,13 +142,10 @@ onUnmounted(() => {
         </p>
       </div>
 
-      <div class="project-section mb-16 md:mb-24">
-        <h2 class="text-2xl md:text-3xl font-bold text-text-custom mb-8 font-archivo text-center">
-          Tentang Project
-        </h2>
-        <div class="flex flex-col lg:flex-row gap-8 items-stretch">
+      <div class="project-section pb-10 md:pb-16">
+        <div class="flex flex-col lg:flex-row gap-8 items-stretch px-4">
           <div
-            class="w-full lg:w-1/2 rounded-2xl bg-white/5 border border-white/10 overflow-hidden relative aspect-video flex items-center justify-center min-h-[220px]"
+            class="w-full lg:w-1/2 rounded-2xl bg-white/5 border border-white/10 overflow-hidden relative aspect-video flex items-center justify-center min-h-55"
           >
             <img
               v-if="project.thumbnail && !imageError"
@@ -138,8 +162,11 @@ onUnmounted(() => {
             </div>
           </div>
           <div
-            class="flex-1 p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl flex items-center"
+            class="flex-1 p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl flex flex-col justify-center"
           >
+            <h2 class="text-2xl md:text-3xl font-bold text-text-custom mb-6 font-archivo">
+              Tentang Project
+            </h2>
             <p class="text-secondary-custom text-lg leading-relaxed">
               {{ project.fullDescription }}
             </p>
@@ -148,52 +175,56 @@ onUnmounted(() => {
       </div>
 
       <div class="project-section mb-16 md:mb-24">
-        <h2 class="text-2xl md:text-3xl font-bold text-text-custom mb-8 font-archivo text-center">
-          Tech Stack
-        </h2>
-        <div class="flex flex-wrap justify-center gap-4">
-          <div
-            v-for="(tech, index) in project.techStack"
-            :key="tech"
-            :class="`px-5 py-3 rounded-2xl backdrop-blur-xl border transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 ${techColors[index % techColors.length].bg} ${techColors[index % techColors.length].border}`"
-          >
-            <span :class="`font-semibold ${techColors[index % techColors.length].text}`">{{
-              tech
-            }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div v-if="project.links.github || project.links.demo" class="project-section mb-20">
-        <h2 class="text-2xl md:text-3xl font-bold text-text-custom mb-8 font-archivo text-center">
-          Links & Resources
-        </h2>
-        <div class="flex flex-wrap justify-center gap-6">
-          <a
-            v-if="project.links.github"
-            :href="project.links.github"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-3 px-8 py-4 bg-zinc-950 border border-zinc-800 rounded-2xl hover:bg-zinc-900 hover:border-accent-custom/50 hover:scale-[1.02] transition-all duration-300 shadow-xl group"
-          >
-            <Icon
-              icon="lucide:github"
-              class="text-2xl text-white group-hover:text-accent-custom transition-colors"
-            />
-            <span class="font-semibold text-white group-hover:text-accent-custom transition-colors"
-              >View on GitHub</span
+        <div
+          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-6 md:p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl"
+        >
+          <!-- Tech Stack on the left -->
+          <div class="flex flex-wrap gap-3">
+            <div
+              v-for="(tech, index) in project.techStack"
+              :key="tech"
+              :class="`px-4 py-2.5 rounded-xl backdrop-blur-xl border transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 ${techColors[index % techColors.length].bg} ${techColors[index % techColors.length].border}`"
             >
-          </a>
-          <a
-            v-if="project.links.demo"
-            :href="project.links.demo"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-3 px-8 py-4 bg-accent-custom text-white rounded-2xl hover:scale-[1.02] transition-transform shadow-xl shadow-accent-custom/30 font-semibold"
-          >
-            <Icon icon="lucide:external-link" class="text-2xl" />
-            <span>Live Demo</span>
-          </a>
+              <Icon
+                :icon="getTechIcon(tech)"
+                :class="`text-lg ${techColors[index % techColors.length].text}`"
+              />
+              <span
+                :class="`font-semibold text-sm ${techColors[index % techColors.length].text}`"
+                >{{ tech }}</span
+              >
+            </div>
+          </div>
+
+          <!-- Links on the right -->
+          <div v-if="project.links.github || project.links.demo" class="flex flex-wrap gap-4">
+            <a
+              v-if="project.links.github"
+              :href="project.links.github"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:bg-zinc-900 hover:border-accent-custom/50 hover:scale-[1.02] transition-all duration-300 shadow-lg group"
+            >
+              <Icon
+                icon="lucide:github"
+                class="text-xl text-white group-hover:text-accent-custom transition-colors"
+              />
+              <span
+                class="font-semibold text-sm text-white group-hover:text-accent-custom transition-colors"
+                >GitHub</span
+              >
+            </a>
+            <a
+              v-if="project.links.demo"
+              :href="project.links.demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-accent-custom text-white rounded-xl hover:scale-[1.02] transition-transform shadow-lg shadow-accent-custom/30 font-semibold"
+            >
+              <Icon icon="lucide:external-link" class="text-xl" />
+              <span class="text-sm">Demo</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
