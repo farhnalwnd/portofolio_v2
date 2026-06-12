@@ -1,11 +1,12 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import gsap from 'gsap'
 import { useGsapStore } from '../stores/gsap'
 import { personalInfo } from '../data/personal.js'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
 
 const gsapStore = useGsapStore()
+const heroRef = ref(null)
 let mm
 
 const firstName = computed(() => personalInfo.name.split(' ')[0])
@@ -36,7 +37,7 @@ const { containerRef } = usePageAnimation(
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.value,
+          trigger: heroRef.value,
           start: 'top top',
           end: '+=3200',
           pin: true,
@@ -61,7 +62,7 @@ const { containerRef } = usePageAnimation(
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.value,
+          trigger: heroRef.value,
           start: 'top top',
           end: '+=3200',
           pin: true,
@@ -122,7 +123,10 @@ const { containerRef } = usePageAnimation(
 <template>
   <div ref="containerRef" class="relative w-full">
     <!-- Pinned Hero Section -->
-    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section
+      ref="heroRef"
+      class="relative h-screen w-full flex items-center justify-center overflow-hidden"
+    >
       <div
         class="absolute -z-10 w-[50vw] h-[50vw] max-w-125 max-h-125 bg-accent-custom/10 blur-[140px] rounded-full"
       ></div>
