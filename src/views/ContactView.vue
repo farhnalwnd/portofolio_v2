@@ -122,7 +122,7 @@ onUnmounted(() => {
         <!-- Grid Kiri: Profile Card (Nempel Kanan, layout horizontal dengan foto di kiri) -->
         <div class="profile-card-container w-full md:justify-self-end md:ml-auto max-w-xl">
           <div
-            class="relative p-8 rounded-3xl bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl border border-black/10 dark:border-white/10 shadow-2xl flex flex-col gap-6 overflow-hidden"
+            class="relative p-8 rounded-3xl bg-white/80 dark:bg-white/3 backdrop-blur-2xl border border-black/10 dark:border-white/10 shadow-2xl flex flex-col gap-6 overflow-hidden"
           >
             <!-- Background Glow -->
             <div
@@ -190,7 +190,7 @@ onUnmounted(() => {
             :href="channel.href"
             :target="channel.external ? '_blank' : undefined"
             :rel="channel.external ? 'noopener noreferrer' : undefined"
-            class="social-link-item flex items-center gap-4 group p-3.5 rounded-2xl bg-white/70 dark:bg-white/[0.02] border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300"
+            class="social-link-item flex items-center gap-4 group p-3.5 rounded-2xl bg-white/70 dark:bg-white/4 border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:bg-white/4 transition-all duration-300"
           >
             <!-- Icon Frame -->
             <div

@@ -57,9 +57,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div v-if="isDev" class="fixed top-4 right-4 z-[10000] pointer-events-none">
+  <div v-if="isDev" class="fixed top-4 right-4 z-10000 pointer-events-none">
     <div
-      class="bg-black/90 backdrop-blur-xl border border-accent-custom/30 rounded-xl p-4 shadow-2xl pointer-events-auto min-w-[280px]"
+      class="bg-black/90 backdrop-blur-xl border border-accent-custom/30 rounded-xl p-4 shadow-2xl pointer-events-auto min-w-70"
     >
       <div class="text-xs font-bold uppercase tracking-wider text-accent-custom mb-3">
         GSAP Debug Overlay
