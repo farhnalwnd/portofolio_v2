@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 import GSDevToolsPanel from './components/GSDevToolsPanel.vue'
+import GSAPDebugOverlay from './components/GSAPDebugOverlay.vue'
 
 const isDev = import.meta.env.DEV
 </script>
@@ -27,6 +28,7 @@ const isDev = import.meta.env.DEV
     </div>
 
     <GSDevToolsPanel v-if="isDev" />
+    <GSAPDebugOverlay v-if="isDev" />
   </div>
 </template>
 

@@ -1,62 +1,40 @@
-# Portfolio Project Specification
+# Prompt Plan: Refactoring Motion Animation on `state-name-role` and Scroll Interactions
 
-## Tujuan
-1. **Personal Branding**: Menampilkan informasi mendalam tentang identitas profesional diri sendiri.
-2. **High-Impact First Impression**: Memberikan impresi visual yang kuat, interaktif, dan profesional saat pengunjung pertama kali membuka landing page.
-3. **Showcase Expertises**: Berfungsi sebagai platform interaktif untuk memamerkan skill, pengalaman kerja, proyek, dan sertifikasi yang dimiliki.
+## Objective
+Melakukan refactoring pada komponen animasi, khususnya pada state `state-name-role` untuk memperbaiki layouting teks dan menambahkan efek scroll-linked animation (efek parallax/split teks saat scroll). Serta memastikan transisi global untuk state lainnya menggunakan efek fade yang konsisten.
 
 ---
 
-## Fitur & Spesifikasi Komponen
+## 1. Layouting & Translating Text (`state-name-role`)
+Ubah struktur dan inisial state layout pada blok `state-name-role` dengan ketentuan sebagai berikut:
 
-### 1. Hero / Home Section (Introduction Sequence)
-* **Scroll-Driven Text Sequence**:
-    * Bagian perkenalan singkat ini akan berganti kontennya secara dinamis berbasis urutan scroll (*sequence layout*).
-    * **Urutan Kemunculan Konten (State Sequence)**:
-        1. **First State**: Menampilkan nama lengkap saya (**Farhan Alwanda**).
-        2. **Second State**: Di bawah nama, muncul deskripsi kecil mengenai *role* profesional saya saat ini.
-        3. **Third State**: Konten berganti menampilkan informasi **Pendidikan Terakhir** (Lulusan S1 Teknik Informatika / Informatika Engineering dari President University).
-        4. **Fourth State**: Konten berganti menampilkan informasi **Pekerjaan Terbaru** (Full-Stack Developer di Oneject Indonesia).
-        5. **Final State (Hero Highlight Motion)**: Di akhir urutan scroll seksi ini, nama saya akan keluar kembali, lalu mengunci posisinya tepat di tengah layar (*centered*). Setelah nama terkunci, tampilkan *role* utama yang saya sukai dan geluti, yaitu: **Full-Stack Developer** & **AI Engineer** (menggunakan efek mesin tik atau *staggered fade-in-up*).
-* **Skill Agent Target**: `.agent/skills/motion`, `.agents/skills` (GSAP ScrollTrigger & TextPlugin)
-
-### 2. Education & Career Section (Horizontal Timeline)
-* **Behavior (GSAP Pinning)**: 
-    * Menggunakan teknik *Virtual Horizontal Scroll via Vertical Scroll*. Ketika user melakukan scroll vertikal, halaman akan terkunci (*pinned*) dan konten bergerak secara horizontal.
-    * Tampilan awal (*default state*) adalah data **Last Education** (Pendidikan Terakhir) yang memenuhi layar (*viewport*).
-    * Saat user lanjut melakukan scroll ke bawah, timeline akan bergeser ke kiri menampilkan riwayat edukasi dan karier terdahulu (*time series sequential*). Setelah batas horizontal habis, halaman kembali bisa di-scroll vertikal seperti biasa.
-* **Skill Agent Target**: `.agents/skills` (GSAP ScrollTrigger & Pinning)
-
-### 3. Project Section
-* **Layout & Information**: 
-    * Menampilkan daftar proyek dalam bentuk grid/list menggunakan **Card Component** yang menyerupai layout blog modern.
-    * Setiap card menampilkan *thumbnail*, judul, deskripsi singkat, dan *tech stack tags* (seperti proyek IoT Catera, sistem SSO "The Bridge", atau Sortify).
-* **Animation**: Memberikan efek *hover state* yang halus pada card (seperti *scale up*, *shadow lift*) dan animasi *staggered fade-in* saat section ini memasuki *viewport*.
-* **Skill Agent Target**: `.agent/skills/vue`, `.agent/skills/ui-ux-pro-max`
-
-### 4. About & Skills Section
-* **Keahlian & Kompetensi**:
-    * **Hard Skills & Tools**: Tampilan grid ikon interaktif untuk tools development, frameworks, dan core hardware/cloud tech yang dikuasai (Laravel, Filament, Flutter, Go, Python/FastAPI, Docker, ESP32, MQTT).
-    * **Soft Skills**: Representasi visual yang minimalis.
-    * **Sertifikat**: Komponen slider/carousel atau modal pop-up untuk menampilkan sertifikasi profesional yang valid (seperti dari Dicoding atau IBM SkillsBuild).
-* **Skill Agent Target**: `.agent/skills/vue`, `.agent/skills/ui-ux-pro-max`
-
-### 5. Contact Section
-* **Minimalist Contact Form**:
-    * Sisi Kiri/Kanan: Hiasan visual berupa ilustrasi/gambar statis yang estetik beserta tautan media sosial aktif (Instagram, WhatsApp, LinkedIn, dan Email).
-    * Sisi Formulir: Input teks fungsional (`Name`, `Email`, `Message`) dengan validasi form (v-model di Vue). Form ini harus bisa memicu pengiriman pesan langsung ke email pemilik portofolio.
-* **Skill Agent Target**: `.agent/skills/vue`, `.agent/skills/ui-ux-pro-max`
+*   **Tambahkan Teks Baru:** Di atas blok Nama, tambahkan teks `"Hello, I'm"`. Give it a slight italic style (miring) using CSS/Tailwind (`italic`).
+*   **Split & Translate X Nama:** 
+    *   Pisahkan nama menjadi dua bagian/elemen terpisah: `Farhan` (First Name) dan `Alwanda` (Last Name).
+    *   **First Name (`Farhan`):** Berikan default offset/translate `-x` agar posisinya sedikit bergeser ke arah kiri dari posisi center awal.
+    *   **Last Name (`Alwanda`):** Berikan default offset/translate `+x` agar posisinya sedikit bergeser ke arah kanan dari posisi center awal.
 
 ---
 
-## Technical Stack & Agent Guidelines
+## 2. Scroll Animation Behavior (Scroll Down & Scroll Up)
+Implementasikan scroll trigger atau scroll-driven animation pada state ini dengan mekanika berikut:
 
-### Technology Stack
-* *Detail Framework dan Utilities dikonfigurasi berdasarkan isi dari `@AGENTS.md`.*
+### Saat Scroll Ke Bawah (Scroll Down)
+*   **Nama (Split Effect):** Teks `Farhan` akan bergerak semakin jauh ke arah **kiri**, dan teks `Alwanda` akan bergerak semakin jauh ke arah **kanan** mengikuti intensitas scroll.
+*   **Elemen Lain (`Hello, I'm` & Skill/Role):** Mengalami efek **Fade Out** (opacity menurun menuju 0) seiring halaman di-scroll ke bawah.
 
-### Agent Skills Reference
-Untuk memastikan hasil coding dan performa animasi optimal, manfaatkan modul internal berikut selama proses *code generation*:
-* **Motion Architecture**: Gunakan modul `.agent/skills/motion` untuk transisi mikro halaman.
-* **Vue Component Architecture**: Gunakan standar komponen modular berdasarkan `.agent/skills/vue`.
-* **UI/UX Design Tokens**: Terapkan prinsip desain premium dari `.agent/skills/ui-ux-pro-max` (jarak/spacing, harmoni warna, dan responsivitas).
-* **GSAP Core Implementation**: Untuk interaksi scroll kompleks di section Home dan Education, wajib merujuk pada *.agents/skills* (khususnya konfigurasi `ScrollTrigger` dan `TextPlugin` untuk animasi pergantian teks agar berjalan mulus).
+### Saat Scroll Ke Atas (Scroll Up)
+*   **Nama (Reversed Effect):** Teks `Farhan` masuk kembali dari arah **kiri**, dan teks `Alwanda` masuk kembali dari arah **kanan** hingga kembali ke posisi default translate awal mereka.
+*   **Elemen Lain (`Hello, I'm` & Skill/Role):** Mengalami efek **Fade In** (opacity kembali muncul menuju 1).
+
+---
+
+## 3. Global States Consistency (State Selebihnya)
+Untuk semua state atau seksi komponen di luar `state-name-role`, pastikan perilakunya sudah seragam dan konsisten:
+*   Wajib menggunakan efek **Fade In** saat elemen memasuki viewport / aktif.
+*   Wajib menggunakan efek **Fade Out** saat elemen keluar dari viewport / tidak aktif.
+
+---
+
+## Output yang Diharapkan
+Berikan update potongan kode (baik itu React dengan Framer Motion, GSAP, atau CSS Scroll-Driven Animations) yang bersih, modular, dan langsung mengimplementasikan logika pergeseran koordinat $X$ serta opacity sesuai blueprint di atas.

@@ -16,7 +16,9 @@ onMounted(async () => {
   ScrollTrigger.clearScrollMemory()
 
   ctx = gsap.context(() => {
-    gsap.set('.hero-name', { opacity: 1, y: 0, visibility: 'visible' })
+    gsap.set('.hero-greeting', { opacity: 1, y: 0, visibility: 'visible' })
+    gsap.set('.hero-firstname', { opacity: 1, xPercent: -8, visibility: 'visible' })
+    gsap.set('.hero-lastname', { opacity: 1, xPercent: 8, visibility: 'visible' })
     gsap.set('.hero-role-text', { opacity: 1, y: 0, visibility: 'visible' })
     gsap.set('.scroll-indicator', { opacity: 1, visibility: 'visible' })
     gsap.set('.state-education', { opacity: 0, y: 50, visibility: 'hidden' })
@@ -32,21 +34,27 @@ onMounted(async () => {
         pin: true,
         scrub: 1,
         anticipatePin: 1,
-        markers: true,
       },
     })
 
     gsapStore.setActiveTimeline(tl)
 
     tl.to('.scroll-indicator', { opacity: 0, visibility: 'hidden', duration: 0.3 })
-      .to('.hero-name', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
-      .to('.hero-role-text', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 }, '<')
+      .to('.hero-firstname', { xPercent: -120, opacity: 0, duration: 1.2 })
+      .to('.hero-lastname', { xPercent: 120, opacity: 0, duration: 1.2 }, '<')
+      .to('.hero-greeting', { opacity: 0, y: -30, visibility: 'hidden', duration: 0.8 }, '-=1')
+      .to('.hero-role-text', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 }, '-=0.6')
+      .addLabel('education')
       .to('.state-education', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
       .to({}, { duration: 1.8 })
+      .addLabel('education-hide')
       .to('.state-education', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
+      .addLabel('job')
       .to('.state-job', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
       .to({}, { duration: 1.8 })
+      .addLabel('job-hide')
       .to('.state-job', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
+      .addLabel('final')
       .to('.final-name', {
         visibility: 'visible',
         opacity: 1,
@@ -54,6 +62,7 @@ onMounted(async () => {
         duration: 1.15,
         ease: 'power3.out',
       })
+      .addLabel('roles')
       .to(
         '.role-item',
         { visibility: 'visible', opacity: 1, y: 0, stagger: 0.3, duration: 1, ease: 'power2.out' },
@@ -83,11 +92,21 @@ onBeforeUnmount(() => {
 
       <div class="relative w-full h-full flex items-center justify-center">
         <div class="state-name-role absolute inset-0 flex flex-col items-center justify-center">
-          <h1
-            class="hero-name font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom"
+          <p
+            class="hero-greeting italic text-xl md:text-2xl text-secondary-custom font-medium mb-2"
           >
-            Farhan <br class="hidden md:block" />Alwanda
-          </h1>
+            Hello, I'm
+          </p>
+          <div class="flex flex-col items-center">
+            <span
+              class="hero-firstname font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom leading-none"
+              >Farhan</span
+            >
+            <span
+              class="hero-lastname font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom leading-none"
+              >Alwanda</span
+            >
+          </div>
           <p class="hero-role-text mt-6 text-xl md:text-2xl text-secondary-custom font-medium">
             Full-Stack Developer & AI Engineer
           </p>
@@ -176,11 +195,13 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.hero-name {
+.hero-firstname,
+.hero-lastname {
   text-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 }
 
-.dark .hero-name {
+.dark .hero-firstname,
+.dark .hero-lastname {
   text-shadow: 0 0 60px rgba(59, 130, 246, 0.15);
 }
 </style>
