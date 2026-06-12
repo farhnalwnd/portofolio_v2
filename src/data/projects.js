@@ -4,7 +4,7 @@ export const projects = [
     title: 'Catera IoT',
     description:
       'IoT-based smart monitoring system using ESP32 and MQTT protocol for real-time data transmission and visualization.',
-    thumbnail: '/projects/catera-iot.jpg',
+    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
     techStack: ['ESP32', 'MQTT', 'Python', 'FastAPI', 'Vue.js', 'Docker'],
     category: 'IoT',
     featured: true,
@@ -21,7 +21,7 @@ export const projects = [
     title: 'The Bridge SSO',
     description:
       'Enterprise-grade Single Sign-On authentication system with OAuth2 and JWT implementation for seamless user management.',
-    thumbnail: '/projects/the-bridge-sso.jpg',
+    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
     techStack: ['Laravel', 'Filament', 'PostgreSQL', 'Redis', 'OAuth2', 'JWT'],
     category: 'Web Application',
     featured: true,
@@ -38,7 +38,7 @@ export const projects = [
     title: 'Sortify',
     description:
       'Smart task management and organization tool with AI-powered categorization and priority suggestions.',
-    thumbnail: '/projects/sortify.jpg',
+    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
     techStack: ['Flutter', 'Go', 'PostgreSQL', 'Docker', 'OpenAI API'],
     category: 'Mobile Application',
     featured: true,
@@ -55,7 +55,7 @@ export const projects = [
     title: 'Smart Inventory System',
     description:
       'Real-time inventory tracking system with barcode scanning and predictive stock alerts.',
-    thumbnail: '/projects/smart-inventory.jpg',
+    thumbnail: '/home/kuliah/project/SelfProject/portofolio-v2/image.png',
     techStack: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'],
     category: 'Web Application',
     featured: false,

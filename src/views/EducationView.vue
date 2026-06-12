@@ -200,7 +200,7 @@ onBeforeUnmount(() => {
       </div>
 
       <!-- Scrolling Track Container -->
-      <div ref="trackContainerRef" class="absolute inset-0 w-full h-full">
+      <div ref="trackContainerRef" class="absolute inset-y-10 w-full h-full">
         <!-- Center Timeline Line -->
         <div
           ref="lineRef"

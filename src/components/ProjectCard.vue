@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
 
 defineProps({
@@ -7,6 +8,8 @@ defineProps({
     required: true,
   },
 })
+
+const imageError = ref(false)
 </script>
 
 <template>
@@ -14,9 +17,17 @@ defineProps({
     :to="`/projects/${project.slug}`"
     class="project-card group block relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:border-accent-custom/30"
   >
-    <div class="aspect-video w-full overflow-hidden bg-primary-custom/50">
+    <div class="aspect-video w-full overflow-hidden bg-primary-custom/50 relative">
+      <img
+        v-if="project.thumbnail && !imageError"
+        :src="project.thumbnail"
+        :alt="project.title"
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        @error="imageError = true"
+      />
       <div
-        class="w-full h-full flex items-center justify-center text-secondary-custom transition-transform duration-500 group-hover:scale-110"
+        v-else
+        class="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent-custom/20 via-purple-500/10 to-accent-custom/5 text-secondary-custom transition-transform duration-500 group-hover:scale-110"
       >
         <Icon icon="lucide:image" class="text-6xl opacity-30" />
       </div>
