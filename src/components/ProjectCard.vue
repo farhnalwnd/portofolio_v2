@@ -80,12 +80,3 @@ const imageError = ref(false)
     ></div>
   </router-link>
 </template>
-
-<style scoped>
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-</style>

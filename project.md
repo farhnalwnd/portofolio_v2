@@ -22,14 +22,14 @@ A personal portfolio for Farhan Alwanda, a Full-Stack Developer & AI Engineer. S
 6. [Fixed] `GSDevToolsPanel.vue` calls `watch()` inside async `onMounted()`, causing memory leaks.
 
 ## Code Quality Issues
-- Remove unused `motion` package from dependencies.
-- Remove dead `counter.js` store and unused `logo.svg`.
-- Remove dead `certificates` array from `src/data/skills.js`.
-- Remove junk test entries from `projects.js` (`aaaaa`, `teas`).
-- Add 404 catch-all route to Vue Router.
-- Move `gsap.registerPlugin(ScrollTrigger)` from views to `main.js`.
-- Replace custom `line-clamp-2` CSS with Tailwind utilities.
-- Fix `ProjectsView.vue` empty state check (use `regularProjects.length`).
+- [Fixed] Remove unused `motion` package from dependencies.
+- [Fixed] Remove dead `counter.js` store and unused `logo.svg`.
+- [Fixed] Remove dead `certificates` array from `src/data/skills.js`.
+- [Fixed] Remove junk test entries from `projects.js` (`aaaaa`, `teas`).
+- [Fixed] Add 404 catch-all route to Vue Router.
+- [Fixed] Move `gsap.registerPlugin(ScrollTrigger)` from views to `main.js`.
+- [Fixed] Replace custom `line-clamp-2` CSS with Tailwind utilities.
+- [Fixed] Fix `ProjectsView.vue` empty state check (use `regularProjects.length`).
 - Use `personalInfo` data instead of hardcoded strings in `HomeView.vue`.
 - Add `prefers-reduced-motion` handling with `gsap.matchMedia()`.
 

@@ -6,8 +6,6 @@ import { Icon } from '@iconify/vue'
 import { timeline } from '../data/education.js'
 import { useGsapStore } from '../stores/gsap'
 
-gsap.registerPlugin(ScrollTrigger)
-
 const gsapStore = useGsapStore()
 let ctx
 const pinContainerRef = ref(null)

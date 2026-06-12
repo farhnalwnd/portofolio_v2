@@ -55,38 +55,4 @@ export const skills = {
     { name: 'Adaptability', icon: 'lucide:refresh-cw' },
     { name: 'Critical Thinking', icon: 'lucide:brain' },
   ],
-  certificates: [
-    {
-      id: 1,
-      name: 'Backend Development with Go',
-      issuer: 'Dicoding Indonesia',
-      year: 2024,
-      type: 'Backend',
-      credential: 'https://dicoding.com/certificates/example1',
-    },
-    {
-      id: 2,
-      name: 'Cloud Computing',
-      issuer: 'Dicoding Indonesia',
-      year: 2023,
-      type: 'Cloud',
-      credential: 'https://dicoding.com/certificates/example2',
-    },
-    {
-      id: 3,
-      name: 'Introduction to AI',
-      issuer: 'IBM SkillsBuild',
-      year: 2024,
-      type: 'AI',
-      credential: 'https://skillsbuild.org/certificates/example3',
-    },
-    {
-      id: 4,
-      name: 'IoT Development',
-      issuer: 'Dicoding Indonesia',
-      year: 2023,
-      type: 'IoT',
-      credential: 'https://dicoding.com/certificates/example4',
-    },
-  ],
 }

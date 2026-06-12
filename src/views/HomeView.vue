@@ -4,8 +4,6 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGsapStore } from '../stores/gsap'
 
-gsap.registerPlugin(ScrollTrigger)
-
 const gsapStore = useGsapStore()
 let ctx
 const heroRef = ref(null)

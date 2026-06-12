@@ -32,6 +32,10 @@ const routes = [
     name: 'contact',
     component: () => import('../views/ContactView.vue'),
   },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  },
 ]
 
 if (import.meta.env.DEV) {

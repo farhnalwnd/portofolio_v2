@@ -65,7 +65,7 @@ onMounted(() => {
         />
       </div>
 
-      <div v-if="projects.length === 0" class="text-center py-20">
+      <div v-if="regularProjects.length === 0" class="text-center py-20">
         <p class="text-secondary-custom text-lg">Tidak ada proyek yang tersedia saat ini.</p>
       </div>
     </div>

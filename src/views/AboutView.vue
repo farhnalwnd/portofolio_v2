@@ -6,8 +6,6 @@ import { Icon } from '@iconify/vue'
 import { skills } from '../data/skills.js'
 import { certificates } from '../data/certificates.js'
 
-gsap.registerPlugin(ScrollTrigger)
-
 const getColorClasses = (color) => {
   switch (color) {
     case 'purple':
@@ -79,17 +77,17 @@ onMounted(async () => {
           const scrollWidth = track.scrollWidth - container.clientWidth
           if (scrollWidth > 0) {
             gsap.to(track, {
-                x: -scrollWidth,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: container,
-                  pin: true,
-                  scrub: 1,
-                  start: 'top 20%',
-                  end: () => `+=${scrollWidth}`,
-                  invalidateOnRefresh: true,
-                },
-              })
+              x: -scrollWidth,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: container,
+                pin: true,
+                scrub: 1,
+                start: 'top 20%',
+                end: () => `+=${scrollWidth}`,
+                invalidateOnRefresh: true,
+              },
+            })
           }
         }
       })

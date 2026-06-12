@@ -5,8 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Icon } from '@iconify/vue'
 import { personalInfo } from '../data/personal.js'
 
-gsap.registerPlugin(ScrollTrigger)
-
 let ctx
 const containerRef = ref(null)
 
@@ -43,7 +41,8 @@ const contactChannels = [
     icon: 'lucide:github',
     href: personalInfo.github,
     label: 'github.com/farhan-alwanda',
-    colorClass: 'group-hover:border-black/50 dark:group-hover:border-white/50 group-hover:bg-black/5 dark:group-hover:bg-white/10',
+    colorClass:
+      'group-hover:border-black/50 dark:group-hover:border-white/50 group-hover:bg-black/5 dark:group-hover:bg-white/10',
     iconColor: 'text-black dark:text-white',
     external: true,
   },
@@ -100,7 +99,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="min-h-screen py-24 px-4 relative overflow-hidden flex items-center justify-center">
+  <div
+    ref="containerRef"
+    class="min-h-screen py-24 px-4 relative overflow-hidden flex items-center justify-center"
+  >
     <!-- Decorative Blurs -->
     <div
       class="absolute top-1/4 -left-48 w-96 h-96 bg-accent-custom/10 blur-[120px] rounded-full pointer-events-none"
@@ -174,7 +176,8 @@ onUnmounted(() => {
                   ></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span class="text-[9px] md:text-[10px] font-bold tracking-wide uppercase text-emerald-600 dark:text-emerald-400"
+                <span
+                  class="text-[9px] md:text-[10px] font-bold tracking-wide uppercase text-emerald-600 dark:text-emerald-400"
                   >Available for Projects</span
                 >
               </div>
@@ -183,7 +186,9 @@ onUnmounted(() => {
         </div>
 
         <!-- Grid Kanan: Social Links (Nempel Kiri) -->
-        <div class="flex flex-col gap-4 md:justify-self-start md:mr-auto w-full max-w-sm justify-center">
+        <div
+          class="flex flex-col gap-4 md:justify-self-start md:mr-auto w-full max-w-sm justify-center"
+        >
           <a
             v-for="channel in contactChannels"
             :key="channel.name"
@@ -203,13 +208,17 @@ onUnmounted(() => {
                 :class="channel.iconColor"
               />
             </div>
-            
+
             <!-- Details -->
             <div class="overflow-hidden">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-secondary-custom block mb-0.5">
+              <span
+                class="text-[10px] font-bold uppercase tracking-wider text-secondary-custom block mb-0.5"
+              >
                 {{ channel.name }}
               </span>
-              <span class="text-sm text-text-custom font-semibold group-hover:text-accent-custom transition-colors truncate block">
+              <span
+                class="text-sm text-text-custom font-semibold group-hover:text-accent-custom transition-colors truncate block"
+              >
                 {{ channel.label }}
               </span>
             </div>
