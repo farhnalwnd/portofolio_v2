@@ -30,8 +30,8 @@ A personal portfolio for Farhan Alwanda, a Full-Stack Developer & AI Engineer. S
 - [Fixed] Move `gsap.registerPlugin(ScrollTrigger)` from views to `main.js`.
 - [Fixed] Replace custom `line-clamp-2` CSS with Tailwind utilities.
 - [Fixed] Fix `ProjectsView.vue` empty state check (use `regularProjects.length`).
-- Use `personalInfo` data instead of hardcoded strings in `HomeView.vue`.
-- Add `prefers-reduced-motion` handling with `gsap.matchMedia()`.
+- [Fixed] Use `personalInfo` data instead of hardcoded strings in `HomeView.vue`.
+- [Fixed] Add `prefers-reduced-motion` handling with `gsap.matchMedia()`.
 
 ## Architectural Polish
 - Add SEO meta tags and Open Graph to `index.html`.

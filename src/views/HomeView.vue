@@ -1,72 +1,123 @@
 <script setup>
-import { onMounted, ref, onBeforeUnmount, nextTick } from 'vue'
+import { onMounted, ref, onBeforeUnmount, nextTick, computed } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGsapStore } from '../stores/gsap'
+import { personalInfo } from '../data/personal.js'
 
 const gsapStore = useGsapStore()
 let ctx
+let mm
 const heroRef = ref(null)
+
+const firstName = computed(() => personalInfo.name.split(' ')[0])
+const lastName = computed(() => personalInfo.name.split(' ')[1])
+const educationParts = computed(() => {
+  const parts = personalInfo.lastEducation.split(' - ')
+  return { institution: parts[0], program: parts[1] }
+})
+const jobParts = computed(() => {
+  const parts = personalInfo.lastJob.split(' - ')
+  return { company: parts[0], role: parts[1] }
+})
 
 onMounted(async () => {
   await nextTick()
   window.scrollTo(0, 0)
   ScrollTrigger.clearScrollMemory()
 
-  ctx = gsap.context(() => {
-    gsap.set('.hero-greeting', { opacity: 1, y: 0, visibility: 'visible' })
-    gsap.set('.hero-firstname', { opacity: 1, xPercent: -20, visibility: 'visible' })
-    gsap.set('.hero-lastname', { opacity: 1, xPercent: 20, visibility: 'visible' })
-    gsap.set('.hero-role-text', { opacity: 1, y: 0, visibility: 'visible' })
-    gsap.set('.scroll-indicator', { opacity: 1, visibility: 'visible' })
-    gsap.set('.state-education', { opacity: 0, y: 50, visibility: 'hidden' })
-    gsap.set('.state-job', { opacity: 0, y: 50, visibility: 'hidden' })
-    gsap.set('.final-name', { opacity: 0, scale: 0.85, visibility: 'hidden' })
-    gsap.set('.role-item', { opacity: 0, y: 30, visibility: 'hidden' })
+  mm = gsap.matchMedia()
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.value,
-        start: 'top top',
-        end: '+=3200',
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-      },
-    })
+  mm.add('(prefers-reduced-motion: reduce)', () => {
+    ctx = gsap.context(() => {
+      gsap.set('.hero-greeting', { opacity: 1, y: 0, visibility: 'visible' })
+      gsap.set('.hero-firstname', { opacity: 1, visibility: 'visible' })
+      gsap.set('.hero-lastname', { opacity: 1, visibility: 'visible' })
+      gsap.set('.hero-role-text', { opacity: 1, y: 0, visibility: 'visible' })
+      gsap.set('.scroll-indicator', { opacity: 1, visibility: 'visible' })
+      gsap.set('.state-education', { opacity: 1, visibility: 'visible' })
+      gsap.set('.state-job', { opacity: 1, visibility: 'visible' })
+      gsap.set('.final-name', { opacity: 1, scale: 1, visibility: 'visible' })
+      gsap.set('.role-item', { opacity: 1, y: 0, visibility: 'visible' })
 
-    gsapStore.setActiveTimeline(tl)
-
-    tl.to('.scroll-indicator', { opacity: 0, duration: 0.7 })
-      .to('.hero-firstname', { xPercent: -120, opacity: 0, duration: 1.2 })
-      .to('.hero-lastname', { xPercent: 120, opacity: 0, duration: 1.2 }, '<')
-      .to('.hero-greeting', { opacity: 0, y: -30, visibility: 'hidden', duration: 0.8 }, '-=1')
-      .to('.hero-role-text', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 }, '-=0.6')
-      .addLabel('education')
-      .to('.state-education', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
-      .to({}, { duration: 1.8 })
-      .addLabel('education-hide')
-      .to('.state-education', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
-      .addLabel('job')
-      .to('.state-job', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
-      .to({}, { duration: 1.8 })
-      .addLabel('job-hide')
-      .to('.state-job', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
-      .addLabel('final')
-      .to('.final-name', {
-        visibility: 'visible',
-        opacity: 1,
-        scale: 1,
-        duration: 1.15,
-        ease: 'power3.out',
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.value,
+          start: 'top top',
+          end: '+=3200',
+          pin: true,
+          scrub: false,
+          anticipatePin: 1,
+        },
       })
-      .addLabel('roles')
-      .to(
-        '.role-item',
-        { visibility: 'visible', opacity: 1, y: 0, stagger: 0.3, duration: 1, ease: 'power2.out' },
-        '-=0.6',
-      )
-  }, heroRef.value)
+
+      gsapStore.setActiveTimeline(tl)
+    }, heroRef.value)
+  })
+
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    ctx = gsap.context(() => {
+      gsap.set('.hero-greeting', { opacity: 1, y: 0, visibility: 'visible' })
+      gsap.set('.hero-firstname', { opacity: 1, xPercent: -20, visibility: 'visible' })
+      gsap.set('.hero-lastname', { opacity: 1, xPercent: 20, visibility: 'visible' })
+      gsap.set('.hero-role-text', { opacity: 1, y: 0, visibility: 'visible' })
+      gsap.set('.scroll-indicator', { opacity: 1, visibility: 'visible' })
+      gsap.set('.state-education', { opacity: 0, y: 50, visibility: 'hidden' })
+      gsap.set('.state-job', { opacity: 0, y: 50, visibility: 'hidden' })
+      gsap.set('.final-name', { opacity: 0, scale: 0.85, visibility: 'hidden' })
+      gsap.set('.role-item', { opacity: 0, y: 30, visibility: 'hidden' })
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.value,
+          start: 'top top',
+          end: '+=3200',
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+        },
+      })
+
+      gsapStore.setActiveTimeline(tl)
+
+      tl.to('.scroll-indicator', { opacity: 0, duration: 0.7 })
+        .to('.hero-firstname', { xPercent: -120, opacity: 0, duration: 1.2 })
+        .to('.hero-lastname', { xPercent: 120, opacity: 0, duration: 1.2 }, '<')
+        .to('.hero-greeting', { opacity: 0, y: -30, visibility: 'hidden', duration: 0.8 }, '-=1')
+        .to('.hero-role-text', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 }, '-=0.6')
+        .addLabel('education')
+        .to('.state-education', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
+        .to({}, { duration: 1.8 })
+        .addLabel('education-hide')
+        .to('.state-education', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
+        .addLabel('job')
+        .to('.state-job', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
+        .to({}, { duration: 1.8 })
+        .addLabel('job-hide')
+        .to('.state-job', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 })
+        .addLabel('final')
+        .to('.final-name', {
+          visibility: 'visible',
+          opacity: 1,
+          scale: 1,
+          duration: 1.15,
+          ease: 'power3.out',
+        })
+        .addLabel('roles')
+        .to(
+          '.role-item',
+          {
+            visibility: 'visible',
+            opacity: 1,
+            y: 0,
+            stagger: 0.3,
+            duration: 1,
+            ease: 'power2.out',
+          },
+          '-=0.6',
+        )
+    }, heroRef.value)
+  })
 
   ScrollTrigger.refresh()
 })
@@ -74,6 +125,7 @@ onMounted(async () => {
 onBeforeUnmount(() => {
   gsapStore.setActiveTimeline(null)
   ctx?.revert()
+  mm?.revert()
 })
 </script>
 
@@ -98,15 +150,15 @@ onBeforeUnmount(() => {
           <div class="flex flex-col items-center">
             <span
               class="hero-firstname font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom leading-none"
-              >Farhan</span
+              >{{ firstName }}</span
             >
             <span
               class="hero-lastname font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom leading-none"
-              >Alwanda</span
+              >{{ lastName }}</span
             >
           </div>
           <p class="hero-role-text mt-6 text-xl md:text-2xl text-secondary-custom font-medium">
-            Full-Stack Developer & AI Engineer
+            {{ personalInfo.title }}
           </p>
         </div>
 
@@ -117,9 +169,11 @@ onBeforeUnmount(() => {
             Pendidikan Terakhir
           </span>
           <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom mb-4">
-            S1 Teknik Informatika
+            {{ educationParts.program }}
           </h2>
-          <p class="text-xl md:text-2xl text-secondary-custom font-medium">President University</p>
+          <p class="text-xl md:text-2xl text-secondary-custom font-medium">
+            {{ educationParts.institution }}
+          </p>
         </div>
 
         <div class="state-job absolute inset-0 flex flex-col items-center justify-center">
@@ -129,23 +183,25 @@ onBeforeUnmount(() => {
             Pekerjaan Terbaru
           </span>
           <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom mb-4">
-            Full-Stack Developer
+            {{ jobParts.role }}
           </h2>
-          <p class="text-xl md:text-2xl text-secondary-custom font-medium">Oneject Indonesia</p>
+          <p class="text-xl md:text-2xl text-secondary-custom font-medium">
+            {{ jobParts.company }}
+          </p>
         </div>
 
         <div class="state-final absolute inset-0 flex flex-col items-center justify-center">
           <h1
             class="final-name font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom mb-8"
           >
-            Farhan <br class="hidden md:block" />Alwanda
+            {{ firstName }} <br class="hidden md:block" />{{ lastName }}
           </h1>
           <div class="flex flex-col items-center gap-2">
+            <span class="role-item text-2xl md:text-4xl font-semibold text-accent-custom">{{
+              personalInfo.title.split(' & ')[0]
+            }}</span>
             <span class="role-item text-2xl md:text-4xl font-semibold text-accent-custom"
-              >Full-Stack Developer</span
-            >
-            <span class="role-item text-2xl md:text-4xl font-semibold text-accent-custom"
-              >& AI Engineer</span
+              >& {{ personalInfo.title.split(' & ')[1] }}</span
             >
           </div>
         </div>
