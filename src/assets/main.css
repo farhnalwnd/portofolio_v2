@@ -28,7 +28,7 @@
   --secondary: #52525b;
   --accent: #0066ff;
   --accent-hover: #0052cc;
-  --accent-muted: rgba(0, 102, 255, 0.10);
+  --accent-muted: rgba(0, 102, 255, 0.1);
   --primary: #18181b;
   --border: #e4e4e7;
   --border-glass: rgba(0, 0, 0, 0.08);
@@ -46,7 +46,7 @@
   --accent-muted: rgba(51, 136, 255, 0.12);
   --primary: #18181b;
   --border: rgba(255, 255, 255, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.10);
+  --border-glass: rgba(255, 255, 255, 0.1);
   --muted: #18181b;
   --destructive: #ef4444;
 }
@@ -85,15 +85,27 @@ h6 {
 }
 
 @keyframes float-mesh-1 {
-  0% { transform: translate(0px, 0px) scale(1); }
-  50% { transform: translate(40px, -60px) scale(1.1); }
-  100% { transform: translate(0px, 0px) scale(1); }
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(40px, -60px) scale(1.1);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 
 @keyframes float-mesh-2 {
-  0% { transform: translate(0px, 0px) scale(1); }
-  50% { transform: translate(-40px, 40px) scale(0.9); }
-  100% { transform: translate(0px, 0px) scale(1); }
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 
 .animate-mesh-1 {

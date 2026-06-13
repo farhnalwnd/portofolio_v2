@@ -245,8 +245,8 @@ const { containerRef } = usePageAnimation(
 .final-name,
 .dark .hero-firstname,
 .dark .hero-lastname,
-.dark .final-name  {
-  text-shadow: 
+.dark .final-name {
+  text-shadow:
     0 0 20px rgba(0, 102, 255, 0.15),
     0 0 40px rgba(0, 102, 255, 0.1),
     0 0 80px rgba(0, 102, 255, 0.05);

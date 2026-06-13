@@ -12,7 +12,9 @@ defineProps({
 <template>
   <section class="hard-skills-section mb-32 w-full">
     <!-- Single pinned container for all categories -->
-    <div class="skill-category-container py-12 relative w-full bg-transparent backdrop-blur-2xl border-y border-black/5 dark:border-white/8">
+    <div
+      class="skill-category-container py-12 relative w-full bg-transparent backdrop-blur-2xl border-y border-black/5 dark:border-white/8"
+    >
       <div class="max-w-7xl mx-auto px-4 mb-12">
         <h2 class="text-3xl md:text-5xl font-bold text-text-custom font-archivo pb-4">
           Technical Skills
@@ -65,7 +67,9 @@ defineProps({
                     skill.name
                   }}</span>
                   <div class="flex items-center gap-3">
-                    <div class="grow h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
+                    <div
+                      class="grow h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden"
+                    >
                       <div
                         class="h-full bg-accent-custom rounded-full transition-all duration-1000"
                         :style="{ width: skill.level + '%' }"

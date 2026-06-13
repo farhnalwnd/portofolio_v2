@@ -224,7 +224,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
           <div
             class="w-full h-full p-8 md:p-10 rounded-3xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-lg dark:shadow-2xl flex flex-col justify-between pointer-events-auto"
           >
-            <div>
+            <div class="flex-1 min-h-0 overflow-y-auto pr-1 -mr-1 custom-scrollbar">
               <div class="flex items-center gap-3 mb-6">
                 <div
                   :class="[
@@ -248,13 +248,13 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                         : 'bg-purple-500/10 text-purple-400 border border-purple-500/20',
                     ]"
                   >
-                    {{ item.type === 'education' ? 'Pendidikan' : 'Karier' }}
+                    {{ item.type === 'education' ? 'Education' : 'Carier' }}
                   </span>
                 </div>
               </div>
 
               <h2
-                class="text-2xl md:text-3xl lg:text-4xl font-bold text-text-custom mb-4 font-archivo"
+                class="text-2xl md:text-3xl lg:text-4xl font-bold text-text-custom py-2 font-archivo"
               >
                 {{ item.title }}
               </h2>
@@ -263,24 +263,36 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                 <p class="text-lg md:text-xl text-accent-custom font-semibold">
                   {{ item.institution }}
                 </p>
-                <div class="flex items-center gap-4 text-secondary-custom">
-                  <div class="flex items-center gap-2">
-                    <Icon icon="lucide:calendar" class="text-lg" />
-                    <span class="text-sm md:text-base">{{ item.period }}</span>
-                  </div>
+                <div class="flex items-center justify-between text-secondary-custom">
                   <div class="flex items-center gap-2">
                     <Icon icon="lucide:map-pin" class="text-lg" />
                     <span class="text-sm md:text-base">{{ item.location }}</span>
                   </div>
+                  <div class="flex items-center gap-2">
+                    <Icon icon="lucide:calendar" class="text-lg" />
+                    <span class="text-sm md:text-base">{{ item.period }}</span>
+                  </div>
                 </div>
               </div>
 
-              <p class="text-secondary-custom text-sm md:text-base leading-relaxed">
-                {{ item.description }}
+              <p class="text-secondary-custom text-sm md:text-base leading-relaxed py-2">
+                {{ item.summary }}
               </p>
+              <ul class="space-y-2">
+                <li
+                  v-for="(point, i) in item.highlights"
+                  :key="i"
+                  class="flex items-start gap-2.5 text-sm md:text-base text-secondary-custom"
+                >
+                  <Icon icon="lucide:check-circle-2" class="mt-0.5 shrink-0 text-accent-custom" />
+                  <span class="leading-relaxed">{{ point }}</span>
+                </li>
+              </ul>
             </div>
 
-            <div class="flex items-center justify-between mt-6 pt-6 border-t border-black/5 dark:border-white/10">
+            <div
+              class="flex items-center justify-between mt-6 pt-6 border-t border-black/5 dark:border-white/10"
+            >
               <span class="text-sm text-secondary-custom">
                 {{ index === 0 ? 'Riwayat Terkini' : `${index + 1} / ${timeline.length}` }}
               </span>
@@ -307,3 +319,19 @@ const { containerRef: pinContainerRef } = usePageAnimation(
     </div>
   </div>
 </template>
+
+<style scoped>
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+</style>

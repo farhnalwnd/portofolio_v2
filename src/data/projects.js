@@ -56,7 +56,16 @@ export const projects = [
     description:
       'Undergraduate Thesis: IoT and AI-based automatic waste bin system capable of classifying and sorting waste in real-time.',
     thumbnail: '/image.png',
-    techStack: ['Python', 'Scikit-learn', 'ESP32', 'Raspberry Pi', 'Flutter', 'Go', 'PostgreSQL', 'Docker'],
+    techStack: [
+      'Python',
+      'Scikit-learn',
+      'ESP32',
+      'Raspberry Pi',
+      'Flutter',
+      'Go',
+      'PostgreSQL',
+      'Docker',
+    ],
     category: 'IoT & AI',
     featured: true,
     year: 2025,
