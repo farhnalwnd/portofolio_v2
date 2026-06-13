@@ -74,10 +74,10 @@ const { containerRef } = usePageAnimation(() => {
   <div ref="containerRef" class="relative min-h-screen py-28 px-4 overflow-x-hidden">
     <!-- Decorative Blobs -->
     <div
-      class="absolute top-[15%] -right-[10%] w-[35vw] h-[35vw] bg-accent-custom/15 dark:bg-accent-custom/25 blur-[95px] rounded-full animate-mesh-2 pointer-events-none"
+      class="fixed top-1/12 -right-1/12 w-[35vw] h-[35vw] bg-accent-custom/10 dark:bg-accent-custom/50 blur-[95px] rounded-full animate-mesh-2 pointer-events-none"
     ></div>
     <div
-      class="absolute top-[55%] -left-[10%] w-[40vw] h-[40vw] bg-purple-500/12 dark:bg-purple-500/20 blur-[90px] rounded-full animate-mesh-1 pointer-events-none"
+      class="fixed bottom-[5%] left-1/12 w-[30vw] h-[20vw] bg-purple-500/20 dark:bg-purple-500/40 blur-[90px] rounded-full animate-mesh-1 pointer-events-none"
     ></div>
 
     <div class="w-full relative z-10">

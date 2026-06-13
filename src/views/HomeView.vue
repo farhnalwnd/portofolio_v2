@@ -155,11 +155,11 @@ const { containerRef } = usePageAnimation(
 
         <div class="state-education absolute inset-0 flex flex-col items-center justify-center">
           <span
-            class="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
+            class="inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
           >
             Pendidikan Terakhir
           </span>
-          <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom mb-4">
+          <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom py-5">
             {{ educationParts.program }}
           </h2>
           <p class="text-xl md:text-2xl text-secondary-custom font-medium">
@@ -169,11 +169,11 @@ const { containerRef } = usePageAnimation(
 
         <div class="state-job absolute inset-0 flex flex-col items-center justify-center">
           <span
-            class="inline-block px-4 py-1.5 mb-6 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
+            class="inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
           >
             Pekerjaan Terbaru
           </span>
-          <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom mb-4">
+          <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom py-5">
             {{ jobParts.role }}
           </h2>
           <p class="text-xl md:text-2xl text-secondary-custom font-medium">
@@ -216,7 +216,7 @@ const { containerRef } = usePageAnimation(
         <h2 class="font-archivo text-3xl md:text-5xl font-bold mb-6 text-text-custom">
           Explore My Journey
         </h2>
-        <p class="text-secondary-custom text-lg md:text-xl mb-8 max-w-2xl mx-auto font-medium">
+        <p class="text-secondary-custom text-lg md:text-xl py-8 max-w-2xl mx-auto font-medium">
           Explore my journey, projects, and skills by navigating through the links above or clicking
           below.
         </p>
@@ -242,20 +242,13 @@ const { containerRef } = usePageAnimation(
 <style scoped>
 .hero-firstname,
 .hero-lastname,
-.final-name {
+.final-name,
+.dark .hero-firstname,
+.dark .hero-lastname,
+.dark .final-name  {
   text-shadow: 
     0 0 20px rgba(0, 102, 255, 0.15),
     0 0 40px rgba(0, 102, 255, 0.1),
     0 0 80px rgba(0, 102, 255, 0.05);
-}
-
-.dark .hero-firstname,
-.dark .hero-lastname,
-.dark .final-name {
-  text-shadow: 
-    0 0 25px rgba(51, 136, 255, 0.45),
-    0 0 50px rgba(51, 136, 255, 0.35),
-    0 0 85px rgba(51, 136, 255, 0.2),
-    0 0 130px rgba(51, 136, 255, 0.15);
 }
 </style>

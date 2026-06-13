@@ -46,8 +46,8 @@ onUnmounted(() => {
         :class="[
           'flex items-center gap-2 px-4 md:px-6 py-3 rounded-full transition-all duration-300 pointer-events-auto',
           isScrolled
-            ? 'bg-white/30 dark:bg-[#0A0A0F]/45 backdrop-blur-2xl border border-black/5 dark:border-white/8 shadow-lg dark:shadow-[0_8px_30px_rgba(0,0,0,0.7),_0_0_20px_rgba(51,136,255,0.15)]'
-            : 'bg-white/20 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-2xl dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]',
+            ? 'bg-white/70 dark:bg-[#0A0A0F]/45 backdrop-blur-2xl border border-black/5 dark:border-white/8 shadow-lg dark:0_8px_30px_rgba(0,0,0,0.7),0_0_20px_rgba(51,136,255,0.15)]'
+            : 'bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-2xl dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]',
         ]"
       >
         <div class="hidden md:flex items-center gap-1">

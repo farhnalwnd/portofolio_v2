@@ -12,7 +12,7 @@ defineProps({
 <template>
   <section class="hard-skills-section mb-32 w-full">
     <!-- Single pinned container for all categories -->
-    <div class="skill-category-container py-12 relative w-full bg-white/40 dark:bg-[#0A0A0F]/50 backdrop-blur-2xl border-y border-black/5 dark:border-white/8">
+    <div class="skill-category-container py-12 relative w-full bg-transparent backdrop-blur-2xl border-y border-black/5 dark:border-white/8">
       <div class="max-w-7xl mx-auto px-4 mb-12">
         <h2 class="text-3xl md:text-5xl font-bold text-text-custom font-archivo pb-4">
           Technical Skills
@@ -39,7 +39,7 @@ defineProps({
               <div
                 v-for="skill in category.items"
                 :key="skill.name"
-                class="skill-card group relative p-6 rounded-2xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 hover:border-accent-custom/30 hover:shadow-accent-custom/10 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden w-70 shrink-0 shadow-lg dark:shadow-2xl h-50 hover:scale-[1.02]"
+                class="skill-card group relative p-6 rounded-2xl bg-white dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 hover:border-accent-custom/30 hover:shadow-accent-custom/10 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden w-70 shrink-0 h-50 hover:scale-[1.02]"
               >
                 <!-- Decorative Accent Glow Background -->
                 <div

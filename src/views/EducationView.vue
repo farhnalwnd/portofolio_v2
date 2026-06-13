@@ -189,13 +189,13 @@ const { containerRef: pinContainerRef } = usePageAnimation(
     <div ref="pinContainerRef" class="relative w-full h-screen overflow-hidden">
       <!-- Decorative Blobs -->
       <div
-        class="absolute bottom-1/3 -left-[15%] w-[40vw] h-[40vw] bg-accent-custom/28 blur-[90px] rounded-full animate-mesh-1 pointer-events-none"
+        class="fixed bottom-2/4 -left-14 w-[30vw] h-[40vh] bg-accent-custom/40 blur-[90px] rounded-full animate-mesh-1 pointer-events-none"
       ></div>
       <div
-        class="absolute top-[50%] -right-[10%] w-[35vw] h-[35vw] bg-purple-500/22 blur-[80px] rounded-full animate-mesh-2 pointer-events-none"
+        class="fixed bottom-1/4 -right-1/12 w-[55vw] h-[40vh] bg-accent-custom/35 blur-[80px] rounded-full animate-mesh-2 pointer-events-none"
       ></div>
       <div
-        class="absolute bottom-[-5%] left-[20%] w-[30vw] h-[30vw] bg-accent-custom/12 dark:bg-accent-custom/20 blur-[80px] rounded-full animate-mesh-2 pointer-events-none"
+        class="fixed bottom-1/12 left-1/5 w-[30vw] h-[30vh] bg-purple-500/35 blur-[80px] rounded-full animate-mesh-2 pointer-events-none"
       ></div>
 
       <!-- Header Section -->
