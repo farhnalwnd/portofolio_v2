@@ -9,12 +9,39 @@ defineProps({
   },
 })
 
-const getSizeClasses = (size) => {
-  switch (size) {
-    case 'large':
-      return 'md:col-span-2'
-    case 'medium':
-      return 'md:col-span-2'
+const getGridClasses = (index) => {
+  switch (index) {
+    // Baris 1 & 2: Kolom 1 digabung (row-span-2)
+    case 0:
+      return 'md:col-span-1 md:col-start-1 md:row-start-1 md:row-span-2'
+    // Baris 1: Kolom 2
+    case 1:
+      return 'md:col-span-1 md:col-start-2 md:row-start-1'
+    // Baris 1: Kolom 3-4 (span-2)
+    case 2:
+      return 'md:col-span-2 md:col-start-3 md:row-start-1'
+    // Baris 2: Kolom 2-3 (span-2)
+    case 3:
+      return 'md:col-span-2 md:col-start-2 md:row-start-2'
+    // Baris 2: Kolom 4
+    case 4:
+      return 'md:col-span-1 md:col-start-4 md:row-start-2'
+    // Baris 3: Kolom 1 (tunggal), Kolom 2 (tunggal), Kolom 3-4 (span-2)
+    case 5:
+      return 'md:col-span-1 md:col-start-1 md:row-start-3'
+    case 6:
+      return 'md:col-span-1 md:col-start-2 md:row-start-3'
+    case 7:
+      return 'md:col-span-2 md:col-start-3 md:row-start-3'
+    // Baris 4: Kolom 1, Kolom 2, Kolom 3, Kolom 4 (masing-masing tunggal)
+    case 8:
+      return 'md:col-span-1 md:col-start-1 md:row-start-4'
+    case 9:
+      return 'md:col-span-1 md:col-start-2 md:row-start-4'
+    case 10:
+      return 'md:col-span-1 md:col-start-3 md:row-start-4'
+    case 11:
+      return 'md:col-span-1 md:col-start-4 md:row-start-4'
     default:
       return 'col-span-1'
   }
@@ -35,17 +62,17 @@ const getSizeClasses = (size) => {
     </div>
 
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-[30vh]"
+      class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[25vh]"
     >
       <a
-        v-for="cert in certificates"
+        v-for="(cert, index) in certificates"
         :key="cert.id"
         :href="cert.credential"
         target="_blank"
         rel="noopener noreferrer"
         :class="[
-          'certificate-card group relative p-6 rounded-2xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 flex flex-col justify-between overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] shadow-lg dark:shadow-2xl hover:shadow-accent-custom/10 max-h-[30vh]',
-          getSizeClasses(cert.size),
+          'certificate-card group relative p-6 rounded-2xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 flex flex-col justify-between overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] shadow-lg dark:shadow-2xl hover:shadow-accent-custom/10 h-full',
+          getGridClasses(index),
           getColorClasses(cert.color).border,
         ]"
       >
@@ -88,16 +115,16 @@ const getSizeClasses = (size) => {
               {{ cert.name }}
             </h3>
 
-            <!-- Show description on medium & large cards -->
+            <!-- Show description on medium & large cards
             <p
               v-if="cert.size !== 'small' && cert.description"
               class="text-xs text-secondary-custom line-clamp-2 pb-3 leading-relaxed"
             >
               {{ cert.description }}
-            </p>
+            </p> -->
 
-            <!-- Show skills tags on large cards -->
-            <div v-if="cert.size === 'large' && cert.skills" class="flex flex-wrap gap-1.5 pb-2">
+            <!-- Show skills tags on medium & large cards -->
+            <div v-if="cert.size !== 'small' && cert.skills" class="flex flex-wrap gap-1.5 pb-2">
               <span
                 v-for="s in cert.skills"
                 :key="s"

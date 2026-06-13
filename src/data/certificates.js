@@ -55,7 +55,12 @@ export const certificates = [
     color: 'emerald',
     size: 'medium',
     credential: 'https://dicoding.com/certificates/07Z67WK1JPQR',
-    skills: ['Supervised Learning', 'Unsupervised Learning', 'Feature Engineering', 'Hyperparameter Tuning'],
+    skills: [
+      'Supervised Learning',
+      'Unsupervised Learning',
+      'Feature Engineering',
+      'Hyperparameter Tuning',
+    ],
     description:
       'Mengembangkan proyek machine learning pada data tabular berdasarkan standar industri. Mempelajari workflow data, teknik klasifikasi (KNN, Decision Tree), regresi linear, clustering (K-Means), penanganan over/underfitting, serta optimasi akurasi model.',
   },
@@ -70,7 +75,13 @@ export const certificates = [
     color: 'orange',
     size: 'medium',
     credential: 'https://dicoding.com/certificates/07Z67R3Y2PQR',
-    skills: ['Python', 'Control Flow', 'Object-Oriented Programming', 'Unit Testing', 'PEP8 Style Guide'],
+    skills: [
+      'Python',
+      'Control Flow',
+      'Object-Oriented Programming',
+      'Unit Testing',
+      'PEP8 Style Guide',
+    ],
     description:
       'Memahami dasar sintaksis dan pemrograman berorientasi objek (OOP) menggunakan Python. Menguasai manipulasi struktur data (array, matriks), kontrol alur, unit testing otomatis, ekspresi sekuensial, serta pemanfaatan berbagai ekosistem library populer.',
   },
@@ -85,7 +96,12 @@ export const certificates = [
     color: 'emerald',
     size: 'medium',
     credential: 'https://dicoding.com/certificates/EYX4KL7E5PDL',
-    skills: ['Artificial Intelligence', 'Data for AI', 'Machine Learning Introduction', 'Deep Learning Basics'],
+    skills: [
+      'Artificial Intelligence',
+      'Data for AI',
+      'Machine Learning Introduction',
+      'Deep Learning Basics',
+    ],
     description:
       'Kelas kompetensi dasar untuk menelaah berbagai konsep fundamental dalam dunia Artificial Intelligence (AI), pemanfaatan data, serta pengenalan awal arsitektur Machine Learning dan Deep Learning beserta penerapannya.',
   },
