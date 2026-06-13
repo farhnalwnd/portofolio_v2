@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, computed } from 'vue'
+import { onMounted, onUnmounted, computed, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import FeaturedProjectCard from '../components/FeaturedProjectCard.vue'
 import ProjectCard from '../components/ProjectCard.vue'
@@ -8,8 +8,76 @@ import { projects } from '../data/projects.js'
 const featuredProjects = computed(() => projects.filter((p) => p.featured))
 const regularProjects = computed(() => projects.filter((p) => !p.featured))
 
+const sliderRef = ref(null)
+let isDown = false
+let startX = 0
+let scrollLeft = 0
+let animationFrameId = null
+const scrollSpeed = 0.5
+const isHovered = ref(false)
+
+const loopedProjects = computed(() => {
+  if (regularProjects.value.length === 0) return []
+  return [...regularProjects.value, ...regularProjects.value, ...regularProjects.value]
+})
+
+const startDrag = (e) => {
+  isDown = true
+  startX = e.pageX - sliderRef.value.offsetLeft
+  scrollLeft = sliderRef.value.scrollLeft
+}
+
+const stopDrag = () => {
+  isDown = false
+}
+
+const moveDrag = (e) => {
+  if (!isDown) return
+  e.preventDefault()
+  const x = e.pageX - sliderRef.value.offsetLeft
+  const walk = (x - startX) * 1.5
+  sliderRef.value.scrollLeft = scrollLeft - walk
+}
+
+const handleScroll = () => {
+  const container = sliderRef.value
+  if (!container) return
+
+  const originalWidth = container.scrollWidth / 3
+
+  if (container.scrollLeft >= originalWidth * 2) {
+    container.scrollLeft -= originalWidth
+  } else if (container.scrollLeft <= 0) {
+    container.scrollLeft += originalWidth
+  }
+}
+
+const startAutoScroll = () => {
+  const scroll = () => {
+    if (sliderRef.value && !isHovered.value && !isDown) {
+      sliderRef.value.scrollLeft += scrollSpeed
+    }
+    animationFrameId = requestAnimationFrame(scroll)
+  }
+  animationFrameId = requestAnimationFrame(scroll)
+}
+
 onMounted(() => {
   window.scrollTo(0, 0)
+
+  setTimeout(() => {
+    if (sliderRef.value) {
+      const originalWidth = sliderRef.value.scrollWidth / 3
+      sliderRef.value.scrollLeft = originalWidth
+      startAutoScroll()
+    }
+  }, 100)
+})
+
+onUnmounted(() => {
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId)
+  }
 })
 </script>
 
@@ -61,12 +129,21 @@ onMounted(() => {
         Other Projects
       </h2>
 
-      <div class="flex flex-wrap justify-evenly gap-8">
+      <div
+        ref="sliderRef"
+        class="flex overflow-x-auto gap-6 pb-6 no-scrollbar snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none"
+        @mousedown="startDrag"
+        @mouseup="stopDrag"
+        @mousemove="moveDrag"
+        @scroll="handleScroll"
+        @mouseenter="isHovered = true"
+        @mouseleave="() => { stopDrag(); isHovered = false }"
+      >
         <ProjectCard
-          v-for="project in regularProjects"
-          :key="project.slug"
+          v-for="(project, index) in loopedProjects"
+          :key="`${project.slug}-${index}`"
           :project="project"
-          class="w-full md:w-1/2 lg:w-1/4 shrink-0"
+          class="w-[85vw] md:w-[45vw] lg:w-[28vw] shrink-0 snap-center"
         />
       </div>
 

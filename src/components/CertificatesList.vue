@@ -12,7 +12,7 @@ defineProps({
 const getSizeClasses = (size) => {
   switch (size) {
     case 'large':
-      return 'md:col-span-2 md:row-span-2'
+      return 'md:col-span-2'
     case 'medium':
       return 'md:col-span-2'
     default:
@@ -35,7 +35,7 @@ const getSizeClasses = (size) => {
     </div>
 
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-[260px]"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-[30vh]"
     >
       <a
         v-for="cert in certificates"
@@ -44,7 +44,7 @@ const getSizeClasses = (size) => {
         target="_blank"
         rel="noopener noreferrer"
         :class="[
-          'certificate-card group relative p-6 rounded-2xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 flex flex-col justify-between overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] shadow-lg dark:shadow-2xl hover:shadow-accent-custom/10',
+          'certificate-card group relative p-6 rounded-2xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 flex flex-col justify-between overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] shadow-lg dark:shadow-2xl hover:shadow-accent-custom/10 max-h-[30vh]',
           getSizeClasses(cert.size),
           getColorClasses(cert.color).border,
         ]"
@@ -59,7 +59,7 @@ const getSizeClasses = (size) => {
 
         <div class="relative z-10 flex flex-col justify-between h-full w-full">
           <div>
-            <div class="flex items-start justify-between mb-3">
+            <div class="flex items-start justify-between pb-3">
               <span
                 :class="[
                   'inline-block px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider border rounded-full',
@@ -83,7 +83,7 @@ const getSizeClasses = (size) => {
             </div>
 
             <h3
-              class="text-base md:text-lg font-bold text-text-custom mb-2 group-hover:text-accent-custom transition-colors font-archivo line-clamp-2"
+              class="text-base md:text-lg font-bold text-text-custom pb-2 group-hover:text-accent-custom transition-colors font-archivo line-clamp-2"
             >
               {{ cert.name }}
             </h3>
@@ -91,13 +91,13 @@ const getSizeClasses = (size) => {
             <!-- Show description on medium & large cards -->
             <p
               v-if="cert.size !== 'small' && cert.description"
-              class="text-xs text-secondary-custom line-clamp-2 mb-3 leading-relaxed"
+              class="text-xs text-secondary-custom line-clamp-2 pb-3 leading-relaxed"
             >
               {{ cert.description }}
             </p>
 
             <!-- Show skills tags on large cards -->
-            <div v-if="cert.size === 'large' && cert.skills" class="flex flex-wrap gap-1.5 mb-2">
+            <div v-if="cert.size === 'large' && cert.skills" class="flex flex-wrap gap-1.5 pb-2">
               <span
                 v-for="s in cert.skills"
                 :key="s"
