@@ -71,8 +71,16 @@ const { containerRef } = usePageAnimation(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="min-h-screen py-28 px-4 overflow-x-hidden">
-    <div class="w-full">
+  <div ref="containerRef" class="relative min-h-screen py-28 px-4 overflow-x-hidden">
+    <!-- Decorative Blobs -->
+    <div
+      class="absolute top-[15%] -right-[10%] w-[35vw] h-[35vw] bg-accent-custom/15 dark:bg-accent-custom/25 blur-[95px] rounded-full animate-mesh-2 pointer-events-none"
+    ></div>
+    <div
+      class="absolute top-[55%] -left-[10%] w-[40vw] h-[40vw] bg-purple-500/12 dark:bg-purple-500/20 blur-[90px] rounded-full animate-mesh-1 pointer-events-none"
+    ></div>
+
+    <div class="w-full relative z-10">
       <div class="page-hero text-center mb-20">
         <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
           Skills & Expertise

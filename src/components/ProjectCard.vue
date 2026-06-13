@@ -15,7 +15,7 @@ const imageError = ref(false)
 <template>
   <router-link
     :to="`/projects/${project.slug}`"
-    class="project-card group block relative overflow-hidden rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl transition-all duration-300 ease-out hover:scale-[1.02] hover:border-accent-custom/30 hover:shadow-xl hover:shadow-accent-custom/10"
+    class="project-card group block relative overflow-hidden rounded-2xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-lg dark:shadow-2xl transition-all duration-300 ease-out hover:scale-[1.02] hover:border-accent-custom/30 hover:shadow-xl hover:shadow-accent-custom/10"
   >
     <div class="aspect-video w-full overflow-hidden bg-primary-custom/50 relative">
       <img

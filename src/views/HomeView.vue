@@ -128,7 +128,7 @@ const { containerRef } = usePageAnimation(
       class="relative h-screen w-full flex items-center justify-center overflow-hidden"
     >
       <div
-        class="absolute -z-10 w-[50vw] h-[50vw] max-w-125 max-h-125 bg-accent-custom/8 dark:bg-accent-custom/10 blur-[140px] rounded-full"
+        class="absolute -z-10 w-[70vw] h-[70vw] max-w-180 max-h-180 bg-accent-custom/16 dark:bg-accent-custom/20 blur-[110px] rounded-full"
       ></div>
 
       <div class="relative w-full h-full flex items-center justify-center">
@@ -241,12 +241,21 @@ const { containerRef } = usePageAnimation(
 
 <style scoped>
 .hero-firstname,
-.hero-lastname {
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+.hero-lastname,
+.final-name {
+  text-shadow: 
+    0 0 20px rgba(0, 102, 255, 0.15),
+    0 0 40px rgba(0, 102, 255, 0.1),
+    0 0 80px rgba(0, 102, 255, 0.05);
 }
 
 .dark .hero-firstname,
-.dark .hero-lastname {
-  text-shadow: 0 0 60px rgba(51, 136, 255, 0.3);
+.dark .hero-lastname,
+.dark .final-name {
+  text-shadow: 
+    0 0 25px rgba(51, 136, 255, 0.45),
+    0 0 50px rgba(51, 136, 255, 0.35),
+    0 0 85px rgba(51, 136, 255, 0.2),
+    0 0 130px rgba(51, 136, 255, 0.15);
 }
 </style>

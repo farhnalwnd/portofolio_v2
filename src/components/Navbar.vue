@@ -46,8 +46,8 @@ onUnmounted(() => {
         :class="[
           'flex items-center gap-2 px-4 md:px-6 py-3 rounded-full transition-all duration-300 pointer-events-auto',
           isScrolled
-            ? 'bg-white/75 dark:bg-[#0A0A0F]/80 backdrop-blur-2xl border border-black/5 dark:border-white/8 shadow-lg dark:shadow-2xl'
-            : 'bg-white/75 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-2xl',
+            ? 'bg-white/30 dark:bg-[#0A0A0F]/45 backdrop-blur-2xl border border-black/5 dark:border-white/8 shadow-lg dark:shadow-[0_8px_30px_rgba(0,0,0,0.7),_0_0_20px_rgba(51,136,255,0.15)]'
+            : 'bg-white/20 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-2xl dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]',
         ]"
       >
         <div class="hidden md:flex items-center gap-1">
@@ -95,7 +95,7 @@ onUnmounted(() => {
     >
       <div
         v-if="isMenuOpen"
-        class="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-white/90 dark:bg-[#0A0A0F]/90 backdrop-blur-2xl rounded-2xl border border-black/5 dark:border-white/10 shadow-2xl pointer-events-auto"
+        class="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-white/40 dark:bg-[#0A0A0F]/45 backdrop-blur-2xl rounded-2xl border border-black/5 dark:border-white/10 shadow-2xl dark:shadow-[0_8px_30px_rgba(0,0,0,0.6),_0_0_20px_rgba(51,136,255,0.1)] pointer-events-auto"
       >
         <RouterLink
           v-for="link in navLinks"

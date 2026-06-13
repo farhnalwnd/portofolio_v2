@@ -23,7 +23,7 @@ const { containerRef } = usePageAnimation(() => {
     {
       opacity: 1,
       x: 0,
-      stagger: 0.1,
+      stagger: 0.3,
       duration: 0.8,
       ease: 'power3.out',
       delay: 0.3,
@@ -40,10 +40,10 @@ const { containerRef } = usePageAnimation(() => {
   >
     <!-- Decorative Blurs -->
     <div
-      class="absolute top-1/4 -left-48 w-96 h-96 bg-accent-custom/10 blur-[120px] rounded-full pointer-events-none"
+      class="fixed top-2/4 right-1/6 w-96 h-96 bg-accent-custom/40 blur-[120px] rounded-full pointer-events-none"
     ></div>
     <div
-      class="absolute bottom-1/4 -right-48 w-96 h-96 bg-purple-500/10 blur-[120px] rounded-full pointer-events-none"
+      class="fixed bottom-[35%] left-1/12 w-96 h-96 bg-purple-500/40 blur-[120px] rounded-full pointer-events-none"
     ></div>
 
     <div class="w-full max-w-5xl mx-auto relative z-10">
@@ -59,7 +59,7 @@ const { containerRef } = usePageAnimation(() => {
         <!-- Grid Kiri: Profile Card (Nempel Kanan, layout horizontal dengan foto di kiri) -->
         <div class="profile-card-container w-full md:justify-self-end md:ml-auto max-w-xl">
           <div
-            class="relative p-8 rounded-3xl bg-white/80 dark:bg-[#0A0A0F]/80 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 flex flex-col gap-6 overflow-hidden"
+            class="relative p-8 rounded-3xl bg-white/5 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 flex flex-col gap-6 overflow-hidden"
           >
             <!-- Background Glow -->
             <div

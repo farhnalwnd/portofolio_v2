@@ -44,7 +44,7 @@ const getSizeClasses = (size) => {
         target="_blank"
         rel="noopener noreferrer"
         :class="[
-          'certificate-card group relative p-6 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 flex flex-col justify-between overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] shadow-lg dark:shadow-2xl hover:shadow-accent-custom/10',
+          'certificate-card group relative p-6 rounded-2xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 flex flex-col justify-between overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] shadow-lg dark:shadow-2xl hover:shadow-accent-custom/10',
           getSizeClasses(cert.size),
           getColorClasses(cert.color).border,
         ]"

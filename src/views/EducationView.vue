@@ -187,6 +187,17 @@ const { containerRef: pinContainerRef } = usePageAnimation(
 <template>
   <div class="w-full">
     <div ref="pinContainerRef" class="relative w-full h-screen overflow-hidden">
+      <!-- Decorative Blobs -->
+      <div
+        class="absolute bottom-1/3 -left-[15%] w-[40vw] h-[40vw] bg-accent-custom/28 blur-[90px] rounded-full animate-mesh-1 pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-[50%] -right-[10%] w-[35vw] h-[35vw] bg-purple-500/22 blur-[80px] rounded-full animate-mesh-2 pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-[-5%] left-[20%] w-[30vw] h-[30vw] bg-accent-custom/12 dark:bg-accent-custom/20 blur-[80px] rounded-full animate-mesh-2 pointer-events-none"
+      ></div>
+
       <!-- Header Section -->
       <div ref="headerRef" class="absolute top-28 left-1/2 -translate-x-1/2 z-30">
         <h1 class="text-4xl md:text-6xl font-bold text-text-custom font-archivo text-center">
@@ -211,7 +222,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
           :style="{ top: `${20 + index * 75}vh` }"
         >
           <div
-            class="w-full h-full p-8 md:p-10 rounded-3xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl flex flex-col justify-between pointer-events-auto"
+            class="w-full h-full p-8 md:p-10 rounded-3xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-lg dark:shadow-2xl flex flex-col justify-between pointer-events-auto"
           >
             <div>
               <div class="flex items-center gap-3 mb-6">

@@ -14,8 +14,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen overflow-hidden">
-    <div class="pt-28 pb-10 px-4">
+  <div class="min-h-screen overflow-hidden relative">
+    <!-- Decorative Blobs -->
+    <div
+      class="absolute top-[10%] -left-[10%] w-[35vw] h-[35vw] bg-accent-custom/15 dark:bg-accent-custom/25 blur-[95px] rounded-full animate-mesh-1 pointer-events-none"
+    ></div>
+    <div
+      class="absolute top-[60%] -right-[10%] w-[40vw] h-[40vw] bg-purple-500/12 dark:bg-purple-500/20 blur-[90px] rounded-full animate-mesh-2 pointer-events-none"
+    ></div>
+
+    <div class="pt-28 pb-10 px-4 relative z-10">
       <div class="page-title text-center mb-16">
         <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
           Projects & Work
