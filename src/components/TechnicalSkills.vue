@@ -21,9 +21,9 @@ defineProps({
         </h2>
       </div>
 
-      <div class="w-full overflow-hidden">
+      <div class="w-full overflow-x-auto scrollbar-none">
         <div
-          class="skill-category-track flex flex-row gap-8 md:gap-16 pb-4 md:w-max overflow-x-auto md:overflow-x-visible scrollbar-none px-4 md:px-12"
+          class="skill-category-track flex flex-row gap-8 md:gap-16 pb-4 w-max overflow-x-visible scrollbar-none px-4 md:px-12"
         >
           <div
             v-for="category in skills.hardSkills"
