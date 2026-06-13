@@ -138,7 +138,7 @@ const { containerRef } = usePageAnimation(
           >
             Hello, I'm
           </p>
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center py-2">
             <span
               class="hero-firstname font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom leading-none"
               >{{ firstName }}</span
@@ -183,9 +183,9 @@ const { containerRef } = usePageAnimation(
 
         <div class="state-final absolute inset-0 flex flex-col items-center justify-center">
           <h1
-            class="final-name font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom mb-8"
+            class="final-name font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom pb-8"
           >
-            {{ firstName }} <br class="hidden md:block" />{{ lastName }}
+            {{ firstName }} {{ lastName }}
           </h1>
           <div class="flex flex-col items-center gap-2">
             <span class="role-item text-2xl md:text-4xl font-semibold text-accent-custom">{{

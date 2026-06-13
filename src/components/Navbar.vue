@@ -95,7 +95,7 @@ onUnmounted(() => {
     >
       <div
         v-if="isMenuOpen"
-        class="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-white/40 dark:bg-[#0A0A0F]/45 backdrop-blur-2xl rounded-2xl border border-black/5 dark:border-white/10 shadow-2xl dark:shadow-[0_8px_30px_rgba(0,0,0,0.6),_0_0_20px_rgba(51,136,255,0.1)] pointer-events-auto"
+        class="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-white/40 dark:bg-[#0A0A0F]/45 backdrop-blur-2xl rounded-2xl border border-black/5 dark:border-white/10 shadow-2xl dark:shadow-[0_8px_30px_rgba(0,0,0,0.6),0_0_20px_rgba(51,136,255,0.1)] pointer-events-auto"
       >
         <RouterLink
           v-for="link in navLinks"
