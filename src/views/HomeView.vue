@@ -140,58 +140,65 @@ const { containerRef } = usePageAnimation(
           </p>
           <div class="flex flex-col items-center py-2">
             <span
-              class="hero-firstname font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom leading-none"
+              class="hero-firstname font-archivo text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom leading-none"
               >{{ firstName }}</span
             >
             <span
-              class="hero-lastname font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom leading-none"
+              class="hero-lastname font-archivo text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom leading-none"
               >{{ lastName }}</span
             >
           </div>
-          <p class="hero-role-text mt-6 text-xl md:text-2xl text-secondary-custom font-medium">
+          <p
+            class="hero-role-text mt-6 text-lg sm:text-xl md:text-2xl text-secondary-custom font-medium text-center px-4"
+          >
             {{ personalInfo.title }}
           </p>
         </div>
 
-        <div class="state-education absolute inset-0 flex flex-col items-center justify-center">
+        <div class="state-education absolute inset-0 flex flex-col items-center justify-center p-4">
           <span
             class="inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
           >
             Pendidikan Terakhir
           </span>
-          <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom py-5">
+          <h2
+            class="font-archivo text-3xl sm:text-4xl md:text-6xl font-bold text-text-custom py-5 text-center"
+          >
             {{ educationParts.program }}
           </h2>
-          <p class="text-xl md:text-2xl text-secondary-custom font-medium">
+          <p class="text-lg sm:text-xl md:text-2xl text-secondary-custom font-medium text-center">
             {{ educationParts.institution }}
           </p>
         </div>
 
-        <div class="state-job absolute inset-0 flex flex-col items-center justify-center">
+        <div class="state-job absolute inset-0 flex flex-col items-center justify-center p-4">
           <span
             class="inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-custom border border-accent-custom/20 rounded-full bg-accent-custom/5"
           >
             Pekerjaan Terbaru
           </span>
-          <h2 class="font-archivo text-4xl md:text-6xl font-bold text-text-custom py-5">
+          <h2
+            class="font-archivo text-3xl sm:text-4xl md:text-6xl font-bold text-text-custom py-5 text-center"
+          >
             {{ jobParts.role }}
           </h2>
-          <p class="text-xl md:text-2xl text-secondary-custom font-medium">
+          <p class="text-lg sm:text-xl md:text-2xl text-secondary-custom font-medium text-center">
             {{ jobParts.company }}
           </p>
         </div>
 
-        <div class="state-final absolute inset-0 flex flex-col items-center justify-center">
+        <div class="state-final absolute inset-0 flex flex-col items-center justify-center p-4">
           <h1
-            class="final-name font-archivo text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom pb-8"
+            class="final-name font-archivo text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-text-custom pb-8 text-center"
           >
             {{ firstName }} {{ lastName }}
           </h1>
-          <div class="flex flex-col items-center gap-2">
-            <span class="role-item text-2xl md:text-4xl font-semibold text-accent-custom">{{
-              personalInfo.title.split(' & ')[0]
-            }}</span>
-            <span class="role-item text-2xl md:text-4xl font-semibold text-accent-custom"
+          <div class="flex flex-col items-center gap-2 text-center">
+            <span
+              class="role-item text-xl sm:text-2xl md:text-4xl font-semibold text-accent-custom"
+              >{{ personalInfo.title.split(' & ')[0] }}</span
+            >
+            <span class="role-item text-xl sm:text-2xl md:text-4xl font-semibold text-accent-custom"
               >& {{ personalInfo.title.split(' & ')[1] }}</span
             >
           </div>

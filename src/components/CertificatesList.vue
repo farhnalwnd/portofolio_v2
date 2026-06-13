@@ -61,9 +61,7 @@ const getGridClasses = (index) => {
       </h2>
     </div>
 
-    <div
-      class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[25vh]"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-auto md:auto-rows-[25vh]">
       <a
         v-for="(cert, index) in certificates"
         :key="cert.id"

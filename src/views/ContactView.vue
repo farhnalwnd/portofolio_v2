@@ -49,17 +49,19 @@ const { containerRef } = usePageAnimation(() => {
     <div class="w-full max-w-5xl mx-auto relative z-10">
       <!-- Hero -->
       <div class="page-hero text-center pb-10">
-        <h1 class="text-5xl md:text-6xl font-bold text-text-custom mb-4 font-archivo">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-text-custom mb-4 font-archivo">
           Let's Connect
         </h1>
       </div>
 
       <!-- Grid Layout with centered items (no vertical stretch) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-center">
         <!-- Grid Kiri: Profile Card (Nempel Kanan, layout horizontal dengan foto di kiri) -->
-        <div class="profile-card-container w-full md:justify-self-end md:ml-auto max-w-xl">
+        <div
+          class="profile-card-container w-full md:justify-self-end md:ml-auto max-w-xl mx-auto md:mx-0"
+        >
           <div
-            class="relative p-8 rounded-3xl bg-white/5 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 flex flex-col gap-6 overflow-hidden"
+            class="relative p-6 sm:p-8 rounded-3xl bg-white/5 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 flex flex-col gap-6 overflow-hidden"
           >
             <!-- Background Glow -->
             <div
@@ -122,7 +124,7 @@ const { containerRef } = usePageAnimation(() => {
 
         <!-- Grid Kanan: Social Links (Nempel Kiri) -->
         <div
-          class="flex flex-col gap-4 md:justify-self-start md:mr-auto w-full max-w-sm justify-center"
+          class="flex flex-col gap-4 md:justify-self-start md:mr-auto w-full max-w-xl md:max-w-sm mx-auto md:mx-0"
         >
           <a
             v-for="channel in contactChannels"

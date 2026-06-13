@@ -48,7 +48,7 @@ onMounted(() => {
 
     <div class="pt-28 pb-10 px-4 relative z-10">
       <div class="page-title text-center mb-16">
-        <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
           Projects & Work
         </h1>
       </div>
@@ -57,9 +57,9 @@ onMounted(() => {
     <div v-if="featuredProjects.length > 0" class="w-full overflow-hidden pb-16 md:pb-20">
       <div class="px-4 md:px-8 lg:px-12 pb-8">
         <h2
-          class="text-3xl md:text-4xl lg:text-5xl font-black text-text-custom font-archivo flex items-center gap-3 max-w-7xl mx-auto tracking-tight"
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-text-custom font-archivo flex items-center gap-3 max-w-7xl mx-auto tracking-tight"
         >
-          <Icon icon="lucide:star" class="text-purple-500 text-3xl md:text-4xl" />
+          <Icon icon="lucide:star" class="text-purple-500 text-2xl sm:text-3xl md:text-4xl" />
           Featured Projects
         </h2>
       </div>
@@ -78,9 +78,12 @@ onMounted(() => {
     <div class="max-w-full mx-auto px-4 pt-16 md:pt-20 pb-32 md:pb-48">
       <h2
         v-if="regularProjects.length > 0"
-        class="text-3xl md:text-4xl lg:text-5xl font-black text-text-custom pb-8 font-archivo flex items-center gap-3 tracking-tight"
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-text-custom pb-8 font-archivo flex items-center gap-3 tracking-tight"
       >
-        <Icon icon="lucide:layout-grid" class="text-accent-custom text-3xl md:text-4xl" />
+        <Icon
+          icon="lucide:layout-grid"
+          class="text-accent-custom text-2xl sm:text-3xl md:text-4xl"
+        />
         Other Projects
       </h2>
 

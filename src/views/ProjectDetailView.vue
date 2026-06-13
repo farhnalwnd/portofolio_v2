@@ -71,7 +71,7 @@ const { containerRef } = usePageAnimation(
     <div class="max-w-full mx-auto">
       <button
         @click="router.push('/projects')"
-        class="back-button inline-flex items-center gap-2 px-5 py-2.5 mb-16 text-text-custom bg-white/70 dark:bg-white/5 border border-black/8 dark:border-white/10 rounded-full hover:bg-accent-custom hover:text-white dark:hover:bg-accent-custom dark:hover:text-white hover:border-accent-custom dark:hover:border-accent-custom transition-all duration-300 ease-out group font-medium shadow-lg dark:shadow-2xl cursor-pointer"
+        class="back-button inline-flex items-center gap-2 px-5 py-2.5 mb-8 sm:mb-16 text-text-custom bg-white/70 dark:bg-white/5 border border-black/8 dark:border-white/10 rounded-full hover:bg-accent-custom hover:text-white dark:hover:bg-accent-custom dark:hover:text-white hover:border-accent-custom dark:hover:border-accent-custom transition-all duration-300 ease-out group font-medium shadow-lg dark:shadow-2xl cursor-pointer"
       >
         <Icon
           icon="lucide:arrow-left"
@@ -80,7 +80,7 @@ const { containerRef } = usePageAnimation(
         <span>Kembali ke Projects</span>
       </button>
 
-      <div class="project-hero pt-7 pb-14 md:pb-20 md:pt-14 text-center flex flex-col items-center">
+      <div class="project-hero pt-4 pb-8 md:pb-20 md:pt-14 text-center flex flex-col items-center">
         <div class="flex flex-wrap items-center justify-center gap-3 mb-6">
           <span
             class="inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-wider bg-accent-custom/10 text-accent-custom border border-accent-custom/20 rounded-full"
@@ -97,11 +97,15 @@ const { containerRef } = usePageAnimation(
           <span class="text-secondary-custom text-sm">{{ project.year }}</span>
         </div>
 
-        <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo leading-tight">
+        <h1
+          class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-text-custom mb-4 sm:mb-6 font-archivo leading-tight"
+        >
           {{ project.title }}
         </h1>
 
-        <p class="text-xl md:text-2xl text-secondary-custom leading-relaxed max-w-3xl">
+        <p
+          class="text-base sm:text-lg md:text-xl lg:text-2xl text-secondary-custom leading-relaxed max-w-3xl px-4"
+        >
           {{ project.description }}
         </p>
       </div>
@@ -126,12 +130,14 @@ const { containerRef } = usePageAnimation(
             </div>
           </div>
           <div
-            class="flex-1 p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl flex flex-col justify-center"
+            class="flex-1 p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl flex flex-col justify-center"
           >
-            <h2 class="text-2xl md:text-3xl font-bold text-text-custom mb-6 font-archivo">
+            <h2
+              class="text-xl sm:text-2xl md:text-3xl font-bold text-text-custom mb-4 sm:mb-6 font-archivo"
+            >
               Tentang Project
             </h2>
-            <p class="text-secondary-custom text-lg leading-relaxed">
+            <p class="text-secondary-custom text-sm sm:text-base md:text-lg leading-relaxed">
               {{ project.fullDescription }}
             </p>
           </div>
@@ -140,22 +146,30 @@ const { containerRef } = usePageAnimation(
 
       <div class="project-section mb-16 md:mb-24">
         <div
-          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-6 md:p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl"
+          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-4 sm:p-6 md:p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl"
         >
           <!-- Tech Stack on the left -->
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-2 md:gap-3">
             <div
               v-for="tech in project.techStack"
               :key="tech"
-              :class="`px-4 py-2.5 rounded-xl backdrop-blur-xl border transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-2 ${getTechColor(tech).bg} ${getTechColor(tech).border}`"
+              :class="`px-3 py-2 md:px-4 md:py-2.5 rounded-xl backdrop-blur-xl border transition-all duration-300 hover:scale-105 shadow-md flex items-center gap-1.5 md:gap-2 ${getTechColor(tech).bg} ${getTechColor(tech).border}`"
             >
-              <Icon :icon="getTechIcon(tech)" :class="`text-lg ${getTechColor(tech).text}`" />
-              <span :class="`font-semibold text-sm ${getTechColor(tech).text}`">{{ tech }}</span>
+              <Icon
+                :icon="getTechIcon(tech)"
+                :class="`text-base md:text-lg ${getTechColor(tech).text}`"
+              />
+              <span :class="`font-semibold text-xs md:text-sm ${getTechColor(tech).text}`">{{
+                tech
+              }}</span>
             </div>
           </div>
 
           <!-- Links on the right -->
-          <div v-if="project.links.github || project.links.demo" class="flex flex-wrap gap-4">
+          <div
+            v-if="project.links.github || project.links.demo"
+            class="flex flex-wrap gap-4 w-full md:w-auto justify-stretch md:justify-end"
+          >
             <a
               v-if="project.links.github"
               :href="project.links.github"

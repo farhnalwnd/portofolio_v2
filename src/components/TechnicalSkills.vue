@@ -23,7 +23,7 @@ defineProps({
 
       <div class="w-full overflow-hidden">
         <div
-          class="skill-category-track flex flex-row gap-16 pb-4 md:w-max overflow-x-auto md:overflow-x-visible scrollbar-none px-12"
+          class="skill-category-track flex flex-row gap-8 md:gap-16 pb-4 md:w-max overflow-x-auto md:overflow-x-visible scrollbar-none px-4 md:px-12"
         >
           <div
             v-for="category in skills.hardSkills"
@@ -31,7 +31,7 @@ defineProps({
             class="category-block shrink-0"
           >
             <h3
-              class="text-xl md:text-2xl font-semibold text-accent-custom pb-2 flex items-center gap-2"
+              class="text-xl md:text-2xl font-semibold text-accent-custom pb-1 md:pb-2 flex items-center gap-2"
             >
               <span class="w-2.5 h-2.5 rounded-full bg-accent-custom"></span>
               {{ category.category }}
@@ -41,7 +41,7 @@ defineProps({
               <div
                 v-for="skill in category.items"
                 :key="skill.name"
-                class="skill-card group relative p-6 rounded-2xl bg-white dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 hover:border-accent-custom/30 hover:shadow-accent-custom/10 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden w-70 shrink-0 h-50 hover:scale-[1.02]"
+                class="skill-card group relative p-5 md:p-6 rounded-2xl bg-white dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 hover:border-accent-custom/30 hover:shadow-accent-custom/10 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden w-64 md:w-70 shrink-0 h-44 md:h-50 hover:scale-[1.02]"
               >
                 <!-- Decorative Accent Glow Background -->
                 <div
