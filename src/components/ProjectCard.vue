@@ -15,7 +15,7 @@ const imageError = ref(false)
 <template>
   <router-link
     :to="`/projects/${project.slug}`"
-    class="project-card group block relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:border-accent-custom/30"
+    class="project-card group block relative overflow-hidden rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl transition-all duration-300 ease-out hover:scale-[1.02] hover:border-accent-custom/30 hover:shadow-xl hover:shadow-accent-custom/10"
   >
     <div class="aspect-video w-full overflow-hidden bg-primary-custom/50 relative">
       <img
@@ -63,7 +63,7 @@ const imageError = ref(false)
         <span
           v-for="tech in project.techStack.slice(0, 4)"
           :key="tech"
-          class="px-2 py-1 text-xs font-medium bg-white/5 text-text-custom/70 rounded-md border border-white/5"
+          class="px-2 py-1 text-xs font-medium bg-black/5 dark:bg-white/5 text-secondary-custom rounded-md border border-black/5 dark:border-white/5"
         >
           {{ tech }}
         </span>

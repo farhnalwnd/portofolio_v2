@@ -19,7 +19,7 @@ defineProps({
       <div
         v-for="skill in skills.softSkills"
         :key="skill.name"
-        class="soft-skill-item p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300 flex flex-col items-center justify-center text-center group cursor-pointer aspect-square shadow-lg"
+        class="soft-skill-item p-6 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 hover:border-purple-500/30 hover:scale-[1.02] hover:shadow-purple-500/10 transition-all duration-300 ease-out flex flex-col items-center justify-center text-center group cursor-pointer aspect-square shadow-lg dark:shadow-2xl"
       >
         <div class="relative mb-3 flex items-center justify-center">
           <div

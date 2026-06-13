@@ -12,7 +12,7 @@ defineProps({
 <template>
   <section class="hard-skills-section mb-32 w-full">
     <!-- Single pinned container for all categories -->
-    <div class="skill-category-container py-12 relative w-full bg-white/1 border-y border-white/5">
+    <div class="skill-category-container py-12 relative w-full bg-white/5 dark:bg-white/1 border-y border-black/5 dark:border-white/5">
       <div class="max-w-7xl mx-auto px-4 mb-12">
         <h2 class="text-3xl md:text-5xl font-bold text-text-custom font-archivo pb-4">
           Technical Skills
@@ -39,7 +39,7 @@ defineProps({
               <div
                 v-for="skill in category.items"
                 :key="skill.name"
-                class="skill-card group relative p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-accent-custom/30 transition-all duration-300 flex flex-col justify-between overflow-hidden w-70 shrink-0 shadow-md h-50"
+                class="skill-card group relative p-6 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 hover:border-accent-custom/30 hover:shadow-accent-custom/10 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden w-70 shrink-0 shadow-lg dark:shadow-2xl h-50 hover:scale-[1.02]"
               >
                 <!-- Decorative Accent Glow Background -->
                 <div
@@ -65,7 +65,7 @@ defineProps({
                     skill.name
                   }}</span>
                   <div class="flex items-center gap-3">
-                    <div class="grow h-1.5 bg-white/10 rounded-full overflow-hidden">
+                    <div class="grow h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
                       <div
                         class="h-full bg-accent-custom rounded-full transition-all duration-1000"
                         :style="{ width: skill.level + '%' }"

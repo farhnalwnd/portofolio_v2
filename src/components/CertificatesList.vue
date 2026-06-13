@@ -44,7 +44,7 @@ const getSizeClasses = (size) => {
         target="_blank"
         rel="noopener noreferrer"
         :class="[
-          'certificate-card group relative p-6 rounded-2xl bg-white/5 backdrop-blur-xl border flex flex-col justify-between overflow-hidden transition-all duration-300 hover:scale-[1.02] shadow-lg',
+          'certificate-card group relative p-6 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 flex flex-col justify-between overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] shadow-lg dark:shadow-2xl hover:shadow-accent-custom/10',
           getSizeClasses(cert.size),
           getColorClasses(cert.color).border,
         ]"
@@ -101,7 +101,7 @@ const getSizeClasses = (size) => {
               <span
                 v-for="s in cert.skills"
                 :key="s"
-                class="text-[10px] font-semibold px-2 py-0.5 rounded bg-white/5 text-secondary-custom border border-white/5"
+                class="text-[10px] font-semibold px-2 py-0.5 rounded bg-black/5 dark:bg-white/5 text-secondary-custom border border-black/5 dark:border-white/5"
               >
                 {{ s }}
               </span>
@@ -109,7 +109,7 @@ const getSizeClasses = (size) => {
           </div>
 
           <div
-            class="space-y-1.5 pt-3 border-t border-white/5 w-full flex items-center justify-between text-secondary-custom text-xs"
+            class="space-y-1.5 pt-3 border-t border-black/5 dark:border-white/5 w-full flex items-center justify-between text-secondary-custom text-xs"
           >
             <div class="flex items-center gap-1.5">
               <span class="font-medium text-text-custom/80">{{ cert.issuer }}</span>

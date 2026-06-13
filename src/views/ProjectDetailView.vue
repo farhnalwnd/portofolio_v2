@@ -71,7 +71,7 @@ const { containerRef } = usePageAnimation(
     <div class="max-w-full mx-auto">
       <button
         @click="router.push('/projects')"
-        class="back-button inline-flex items-center gap-2 px-5 py-2.5 mb-16 text-text-custom bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/20 rounded-full hover:bg-zinc-900/90 hover:text-blue-400 hover:border-zinc-900/90 dark:hover:bg-white/90 dark:hover:text-accent-custom dark:hover:border-white/90 transition-all duration-300 group font-medium shadow-md"
+        class="back-button inline-flex items-center gap-2 px-5 py-2.5 mb-16 text-text-custom bg-white/70 dark:bg-white/5 border border-black/8 dark:border-white/10 rounded-full hover:bg-accent-custom hover:text-white dark:hover:bg-accent-custom dark:hover:text-white hover:border-accent-custom dark:hover:border-accent-custom transition-all duration-300 ease-out group font-medium shadow-lg dark:shadow-2xl cursor-pointer"
       >
         <Icon
           icon="lucide:arrow-left"
@@ -109,7 +109,7 @@ const { containerRef } = usePageAnimation(
       <div class="project-section pb-10 md:pb-16">
         <div class="flex flex-col lg:flex-row gap-8 items-stretch px-4">
           <div
-            class="w-full lg:w-1/2 rounded-2xl bg-white/5 border border-white/10 overflow-hidden relative aspect-video flex items-center justify-center min-h-55"
+            class="w-full lg:w-1/2 rounded-2xl bg-white/70 dark:bg-white/5 border border-black/8 dark:border-white/10 overflow-hidden relative aspect-video flex items-center justify-center min-h-55 shadow-lg dark:shadow-2xl"
           >
             <img
               v-if="project.thumbnail && !imageError"
@@ -126,7 +126,7 @@ const { containerRef } = usePageAnimation(
             </div>
           </div>
           <div
-            class="flex-1 p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl flex flex-col justify-center"
+            class="flex-1 p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl flex flex-col justify-center"
           >
             <h2 class="text-2xl md:text-3xl font-bold text-text-custom mb-6 font-archivo">
               Tentang Project
@@ -140,7 +140,7 @@ const { containerRef } = usePageAnimation(
 
       <div class="project-section mb-16 md:mb-24">
         <div
-          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-6 md:p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl"
+          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-6 md:p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl"
         >
           <!-- Tech Stack on the left -->
           <div class="flex flex-wrap gap-3">
@@ -177,7 +177,7 @@ const { containerRef } = usePageAnimation(
               :href="project.links.demo"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-6 py-3 bg-accent-custom text-white rounded-xl hover:scale-[1.02] transition-transform shadow-lg shadow-accent-custom/30 font-semibold"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-accent-custom hover:bg-accent-hover-custom text-white rounded-xl shadow-lg shadow-accent-custom/25 hover:shadow-accent-custom/40 transition-all duration-300 hover:scale-[1.02] font-semibold"
             >
               <Icon icon="lucide:external-link" class="text-xl" />
               <span class="text-sm">Demo</span>

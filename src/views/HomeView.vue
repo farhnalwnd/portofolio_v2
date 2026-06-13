@@ -128,7 +128,7 @@ const { containerRef } = usePageAnimation(
       class="relative h-screen w-full flex items-center justify-center overflow-hidden"
     >
       <div
-        class="absolute -z-10 w-[50vw] h-[50vw] max-w-125 max-h-125 bg-accent-custom/10 blur-[140px] rounded-full"
+        class="absolute -z-10 w-[50vw] h-[50vw] max-w-125 max-h-125 bg-accent-custom/8 dark:bg-accent-custom/10 blur-[140px] rounded-full"
       ></div>
 
       <div class="relative w-full h-full flex items-center justify-center">
@@ -223,13 +223,13 @@ const { containerRef } = usePageAnimation(
         <div class="flex flex-wrap justify-center gap-4">
           <router-link
             to="/projects"
-            class="px-6 py-3 bg-accent-custom text-white font-medium rounded-lg hover:bg-accent-custom/90 transition duration-300"
+            class="px-6 py-3 bg-accent-custom text-white font-medium rounded-xl hover:bg-accent-hover-custom transition-all duration-300 shadow-lg shadow-accent-custom/25 hover:shadow-accent-custom/40 hover:scale-[1.02]"
           >
             View Projects
           </router-link>
           <router-link
             to="/about"
-            class="px-6 py-3 border border-text-custom/15 text-text-custom font-medium rounded-lg hover:bg-text-custom/5 transition duration-300"
+            class="px-6 py-3 border border-accent-custom/20 text-accent-custom font-medium rounded-xl hover:bg-accent-custom/5 transition-all duration-300"
           >
             About Me
           </router-link>
@@ -247,6 +247,6 @@ const { containerRef } = usePageAnimation(
 
 .dark .hero-firstname,
 .dark .hero-lastname {
-  text-shadow: 0 0 60px rgba(59, 130, 246, 0.15);
+  text-shadow: 0 0 60px rgba(51, 136, 255, 0.3);
 }
 </style>

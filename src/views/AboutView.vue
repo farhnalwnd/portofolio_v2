@@ -8,6 +8,8 @@ import SoftSkills from '../components/SoftSkills.vue'
 import CertificatesList from '../components/CertificatesList.vue'
 
 const { containerRef } = usePageAnimation(() => {
+  const mm = gsap.matchMedia()
+
   gsap.from('.page-hero', {
     opacity: 0,
     y: 40,
@@ -15,29 +17,30 @@ const { containerRef } = usePageAnimation(() => {
     ease: 'power3.out',
   })
 
-  const viewportWidth = window.innerWidth
-  if (viewportWidth >= 768) {
+  mm.add('(min-width: 768px)', () => {
     gsap.utils.toArray('.skill-category-container').forEach((container) => {
       const track = container.querySelector('.skill-category-track')
       if (track) {
-        const scrollWidth = track.scrollWidth - container.clientWidth
-        if (scrollWidth > 0) {
+        const getScrollWidth = () => track.scrollWidth - container.clientWidth
+        if (getScrollWidth() > 0) {
           gsap.to(track, {
-            x: -scrollWidth,
+            x: () => -getScrollWidth(),
             ease: 'none',
             scrollTrigger: {
               trigger: container,
               pin: true,
               scrub: 1,
               start: 'top 20%',
-              end: () => `+=${scrollWidth}`,
+              end: () => `+=${getScrollWidth()}`,
               invalidateOnRefresh: true,
             },
           })
         }
       }
     })
-  } else {
+  })
+
+  mm.add('(max-width: 767px)', () => {
     gsap.from('.skill-card', {
       opacity: 0,
       y: 40,
@@ -50,7 +53,7 @@ const { containerRef } = usePageAnimation(() => {
         once: true,
       },
     })
-  }
+  })
 
   gsap.utils.toArray('.soft-skill-item').forEach((el) => {
     gsap.to(el, {

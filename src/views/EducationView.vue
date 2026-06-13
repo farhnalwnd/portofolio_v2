@@ -13,19 +13,20 @@ const lineRef = ref(null)
 
 const { containerRef: pinContainerRef } = usePageAnimation(
   () => {
-    const viewportWidth = window.innerWidth
-    const isMobile = viewportWidth < 768
-
+    const mm = gsap.matchMedia()
     const cardGap = 75 // vh
     const numCards = timeline.length
     const cards = gsap.utils.toArray('.timeline-card')
+    const line = lineRef.value
 
-    if (isMobile) {
+    mm.add('(max-width: 767px)', () => {
       cards.forEach((card, index) => {
         gsap.set(card, {
           xPercent: -50,
+          x: 0,
           y: index === 0 ? 0 : 50,
           opacity: index === 0 ? 1 : 0,
+          rotation: 0,
         })
       })
 
@@ -35,7 +36,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
           pin: true,
           scrub: 1,
           start: 'top top',
-          end: () => `+=${viewportWidth * 2}`,
+          end: () => `+=${window.innerWidth * 2}`,
           anticipatePin: 1,
         },
       })
@@ -73,7 +74,9 @@ const { containerRef: pinContainerRef } = usePageAnimation(
       })
 
       gsapStore.setActiveTimeline(tl)
-    } else {
+    })
+
+    mm.add('(min-width: 768px)', () => {
       const gapPx = 24 // px gap from center line
 
       cards.forEach((card, index) => {
@@ -81,6 +84,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
           gsap.set(card, {
             xPercent: -50,
             x: 0,
+            y: 0,
             opacity: 1,
             rotation: 0,
           })
@@ -89,15 +93,16 @@ const { containerRef: pinContainerRef } = usePageAnimation(
           gsap.set(card, {
             xPercent: isLeft ? -100 : 0,
             x: isLeft ? -200 : 200,
+            y: 0,
             opacity: 0,
             rotation: isLeft ? -5 : 5,
           })
         }
       })
 
-      const line = lineRef.value
       gsap.set(line, {
         scaleY: 0,
+        transformOrigin: 'top center',
       })
 
       const tl = gsap.timeline({
@@ -106,7 +111,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
           pin: true,
           scrub: 1,
           start: 'top top',
-          end: () => `+=${viewportWidth * 5}`,
+          end: () => `+=${window.innerWidth * 5}`,
           anticipatePin: 1,
         },
       })
@@ -169,7 +174,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
       })
 
       gsapStore.setActiveTimeline(tl)
-    }
+    })
   },
   {
     onCleanup: () => {
@@ -194,7 +199,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
         <!-- Center Timeline Line -->
         <div
           ref="lineRef"
-          class="absolute left-1/2 -translate-x-1/2 w-0.5 bg-accent-custom/20 origin-top z-0 hidden md:block"
+          class="absolute left-1/2 -translate-x-1/2 w-0.5 bg-accent-custom/30 origin-top z-0 hidden md:block"
           :style="{ top: '50vh', height: `${(timeline.length - 1) * 75}vh` }"
         ></div>
 
@@ -206,7 +211,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
           :style="{ top: `${20 + index * 75}vh` }"
         >
           <div
-            class="w-full h-full p-8 md:p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between pointer-events-auto"
+            class="w-full h-full p-8 md:p-10 rounded-3xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl flex flex-col justify-between pointer-events-auto"
           >
             <div>
               <div class="flex items-center gap-3 mb-6">
@@ -264,7 +269,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
               </p>
             </div>
 
-            <div class="flex items-center justify-between mt-6 pt-6 border-t border-white/10">
+            <div class="flex items-center justify-between mt-6 pt-6 border-t border-black/5 dark:border-white/10">
               <span class="text-sm text-secondary-custom">
                 {{ index === 0 ? 'Riwayat Terkini' : `${index + 1} / ${timeline.length}` }}
               </span>
@@ -280,7 +285,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                   :key="i"
                   :class="[
                     'w-2 h-2 rounded-full transition-all',
-                    i === index + 1 ? 'bg-accent-custom w-8' : 'bg-white/20',
+                    i === index + 1 ? 'bg-accent-custom w-8' : 'bg-black/10 dark:bg-white/20',
                   ]"
                 ></div>
               </div>

@@ -46,8 +46,8 @@ onUnmounted(() => {
         :class="[
           'flex items-center gap-2 px-4 md:px-6 py-3 rounded-full transition-all duration-300 pointer-events-auto',
           isScrolled
-            ? 'bg-background-custom/80 backdrop-blur-2xl border border-white/10 shadow-2xl'
-            : 'bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl',
+            ? 'bg-white/75 dark:bg-[#0A0A0F]/80 backdrop-blur-2xl border border-black/5 dark:border-white/8 shadow-lg dark:shadow-2xl'
+            : 'bg-white/75 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-2xl',
         ]"
       >
         <div class="hidden md:flex items-center gap-1">
@@ -63,21 +63,24 @@ onUnmounted(() => {
         </div>
 
         <button
-          class="md:hidden p-2 rounded-full hover:bg-white/10 transition-colors text-secondary-custom"
+          class="md:hidden p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-secondary-custom"
           @click="toggleMenu"
           :aria-label="isMenuOpen ? 'Close menu' : 'Open menu'"
         >
           <Icon :icon="isMenuOpen ? 'lucide:x' : 'lucide:menu'" class="text-xl" />
         </button>
 
-        <div class="h-4 w-px bg-white/20 mx-1 md:mx-2"></div>
+        <div class="h-4 w-px bg-black/10 dark:bg-white/20 mx-1 md:mx-2"></div>
 
         <button
           @click="toggleDark()"
-          class="p-2 rounded-full hover:bg-white/10 transition-colors text-secondary-custom hover:text-text-custom"
+          class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-300 text-secondary-custom hover:text-text-custom group"
           aria-label="Toggle Dark Mode"
         >
-          <Icon :icon="isDark ? 'ph:moon-stars-bold' : 'ph:sun-bold'" class="text-xl" />
+          <Icon
+            :icon="isDark ? 'ph:moon-stars-bold' : 'ph:sun-bold'"
+            class="text-xl transition-transform duration-500 ease-out group-hover:rotate-45"
+          />
         </button>
       </div>
     </div>
@@ -92,7 +95,7 @@ onUnmounted(() => {
     >
       <div
         v-if="isMenuOpen"
-        class="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-background-custom/90 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl pointer-events-auto"
+        class="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-white/90 dark:bg-[#0A0A0F]/90 backdrop-blur-2xl rounded-2xl border border-black/5 dark:border-white/10 shadow-2xl pointer-events-auto"
       >
         <RouterLink
           v-for="link in navLinks"
@@ -112,7 +115,7 @@ onUnmounted(() => {
 @reference "../assets/main.css";
 
 .nav-link {
-  @apply px-4 py-2 text-sm font-medium text-secondary-custom transition-colors hover:text-text-custom rounded-full;
+  @apply px-4 py-2 text-sm font-medium text-secondary-custom transition-all duration-300 hover:text-accent-custom hover:bg-accent-custom/5 rounded-full;
 }
 
 .nav-link.router-link-active {
@@ -120,7 +123,7 @@ onUnmounted(() => {
 }
 
 .mobile-nav-link {
-  @apply block px-4 py-3 text-sm font-medium text-secondary-custom transition-colors hover:text-text-custom hover:bg-white/5 rounded-xl;
+  @apply block px-4 py-3 text-sm font-medium text-secondary-custom transition-all duration-300 hover:text-accent-custom hover:bg-accent-custom/5 rounded-xl;
 }
 
 .mobile-nav-link.router-link-active {
