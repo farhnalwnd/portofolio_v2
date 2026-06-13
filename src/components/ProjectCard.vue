@@ -50,7 +50,7 @@ const imageError = ref(false)
       </div>
 
       <h3
-        class="text-2xl font-bold text-text-custom mb-2 font-archivo group-hover:text-accent-custom transition-colors"
+        class="text-2xl font-bold text-text-custom py-2 font-archivo group-hover:text-accent-custom transition-colors"
       >
         {{ project.title }}
       </h3>
@@ -59,7 +59,7 @@ const imageError = ref(false)
         {{ project.description }}
       </p>
 
-      <div class="flex flex-wrap gap-2">
+      <div class="flex flex-wrap gap-2 pt-2">
         <span
           v-for="tech in project.techStack.slice(0, 4)"
           :key="tech"
