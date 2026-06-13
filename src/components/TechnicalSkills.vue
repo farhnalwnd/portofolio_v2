@@ -12,7 +12,7 @@ defineProps({
 <template>
   <section class="hard-skills-section mb-32 w-full">
     <!-- Single pinned container for all categories -->
-    <div class="skill-category-container py-12 relative w-full bg-white/5 dark:bg-white/1 border-y border-black/5 dark:border-white/5">
+    <div class="skill-category-container py-12 relative w-full bg-white/80 dark:bg-[#0A0A0F]/80 backdrop-blur-2xl border-y border-black/5 dark:border-white/8">
       <div class="max-w-7xl mx-auto px-4 mb-12">
         <h2 class="text-3xl md:text-5xl font-bold text-text-custom font-archivo pb-4">
           Technical Skills

@@ -65,7 +65,7 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to) => {
   if (to.name === 'project-detail') {
     const slug = to.params.slug
     const project = projects.find((p) => p.slug === slug)
@@ -77,7 +77,6 @@ router.beforeEach((to, from, next) => {
   } else {
     document.title = to.meta.title || 'Farhan Alwanda - Portfolio'
   }
-  next()
 })
 
 export default router

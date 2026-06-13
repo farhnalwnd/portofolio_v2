@@ -210,7 +210,7 @@ const { containerRef } = usePageAnimation(
 
     <!-- Subsequent Section (Provides DOM height for scrolling) -->
     <section
-      class="relative min-h-screen w-full flex flex-col items-center justify-center bg-background-custom/50 backdrop-blur-xs border-t border-text-custom/5"
+      class="relative min-h-screen w-full flex flex-col items-center justify-center bg-white/80 dark:bg-[#0A0A0F]/80 backdrop-blur-2xl border-t border-black/5 dark:border-white/8"
     >
       <div class="max-w-4xl mx-auto px-6 text-center">
         <h2 class="font-archivo text-3xl md:text-5xl font-bold mb-6 text-text-custom">

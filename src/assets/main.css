@@ -1,7 +1,7 @@
 @import './base.css';
 @import 'tailwindcss';
 
-@variant dark selector;
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-background-custom: var(--bg);
