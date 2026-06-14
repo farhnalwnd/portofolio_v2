@@ -132,7 +132,7 @@ const { containerRef } = usePageAnimation(() => {
             :href="channel.href"
             :target="channel.external ? '_blank' : undefined"
             :rel="channel.external ? 'noopener noreferrer' : undefined"
-            class="social-link-item flex items-center gap-4 group p-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-black/5 dark:border-white/8 hover:border-accent-custom/30 dark:hover:border-accent-custom/50 transition-all duration-300 ease-out shadow-lg dark:shadow-xl cursor-pointer"
+            class="social-link-item flex items-center gap-4 group p-3.5 rounded-2xl bg-white/5 dark:bg-white/5 border border-black/5 dark:border-white/8 hover:border-accent-custom/30 dark:hover:border-accent-custom/50 transition-all duration-300 ease-out shadow-lg dark:shadow-xl cursor-pointer"
           >
             <!-- Icon Frame -->
             <div

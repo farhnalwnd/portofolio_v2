@@ -216,7 +216,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
           >
             <div
               :key="activeIndex"
-              class="w-full max-w-[85vw] h-[55vh] p-5 rounded-3xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-lg dark:shadow-2xl flex flex-col justify-between"
+              class="w-full max-w-[85vw] h-[55vh] p-5 rounded-3xl bg-white/10 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-lg dark:shadow-2xl flex flex-col justify-between"
             >
               <div class="flex-1 min-h-0 overflow-y-auto pr-1 -mr-1 custom-scrollbar">
                 <div class="flex items-center gap-3 mb-4">
@@ -278,9 +278,9 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                   <li
                     v-for="(point, i) in timeline[activeIndex].highlights"
                     :key="i"
-                    class="flex items-start gap-2.5 text-xs text-secondary-custom"
+                    class="flex items-center gap-2.5 text-xs py-1 text-secondary-custom"
                   >
-                    <Icon icon="lucide:check-circle-2" class="mt-0.5 shrink-0 text-accent-custom" />
+                    <Icon icon="lucide:check-circle-2" class="shrink-0 text-accent-custom" />
                     <span class="leading-relaxed">{{ point }}</span>
                   </li>
                 </ul>
@@ -416,9 +416,9 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                 <li
                   v-for="(point, i) in item.highlights"
                   :key="i"
-                  class="flex items-start gap-2.5 text-base text-secondary-custom"
+                  class="flex items-center gap-2.5 text-base text-secondary-custom"
                 >
-                  <Icon icon="lucide:check-circle-2" class="mt-0.5 shrink-0 text-accent-custom" />
+                  <Icon icon="lucide:check-circle-2" class="shrink-0 text-accent-custom" />
                   <span class="leading-relaxed">{{ point }}</span>
                 </li>
               </ul>

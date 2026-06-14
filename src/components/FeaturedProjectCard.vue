@@ -15,7 +15,7 @@ const imageError = ref(false)
 <template>
   <router-link
     :to="`/projects/${project.slug}`"
-    class="featured-card group relative shrink-0 snap-center block overflow-hidden rounded-2xl bg-white/80 dark:bg-white/8 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-accent-custom/30 dark:hover:border-accent-custom/50 hover:shadow-accent-custom/10 dark:hover:shadow-accent-custom/20 min-w-[85vw] md:min-w-[60vw] lg:min-w-[45vw] h-[60vh] md:h-[65vh]"
+    class="featured-card group relative shrink-0 snap-center block overflow-hidden rounded-2xl bg-white/80 dark:bg-white/8 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-accent-custom/30 dark:hover:border-accent-custom/50 hover:shadow-accent-custom/10 dark:hover:shadow-accent-custom/20 min-w-[85vw] md:min-w-[60vw] lg:min-w-[45vw] aspect-[4/3] md:aspect-auto md:h-[65vh]"
   >
     <div class="absolute inset-0 bg-primary-custom">
       <img
