@@ -95,7 +95,8 @@ onMounted(async () => {
   await nextTick()
 
   ctx = gsap.context(() => {
-    gsap.utils.toArray('.mobile-marquee-track').forEach((track, index) => {
+    const tracks = gsap.utils.toArray('.mobile-marquee-track')
+    tracks.forEach((track, index) => {
       const direction = index % 2 === 0 ? 'left' : 'right'
       setupMarquee(track, direction)
     })
@@ -113,7 +114,7 @@ onUnmounted(() => {
     <h2 class="text-3xl font-bold text-text-custom font-archivo pb-6">Technical Skills</h2>
 
     <div
-      v-for="(category, index) in skills.hardSkills"
+      v-for="category in skills.hardSkills"
       :key="category.category"
       class="mobile-skill-category mb-8"
     >
@@ -123,9 +124,7 @@ onUnmounted(() => {
       </h3>
 
       <div class="w-full overflow-hidden py-2 -mx-4 px-4">
-        <div
-          class="mobile-marquee-track flex gap-4 w-max cursor-grab active:cursor-grabbing"
-        >
+        <div class="mobile-marquee-track flex gap-4 w-max cursor-grab active:cursor-grabbing">
           <template v-for="n in 2" :key="n">
             <div
               v-for="skill in category.items"
