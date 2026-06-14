@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
+import { useAppBreakpoints } from '../composables/useBreakpoints.js'
 
 defineProps({
   project: {
@@ -9,6 +10,7 @@ defineProps({
   },
 })
 
+const { isDesktop } = useAppBreakpoints()
 const imageError = ref(false)
 </script>
 
@@ -43,7 +45,7 @@ const imageError = ref(false)
         <span
           class="inline-block px-3 py-1 md:px-4 md:py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-widest bg-accent-custom text-white border border-accent-custom/50 rounded-full shadow-lg shadow-accent-custom/30"
         >
-          {{ project.category }}
+          {{ isDesktop ? project.category : (project.categoryShort || project.category) }}
         </span>
         <span
           class="inline-flex items-center gap-1 px-2.5 py-1 md:px-3 md:py-1.5 text-[10px] sm:text-xs font-semibold bg-purple-500 text-white border border-purple-400/50 rounded-full shadow-lg"
@@ -61,12 +63,12 @@ const imageError = ref(false)
       </h3>
 
       <p
-        class="text-white/80 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6 line-clamp-2 sm:line-clamp-3 max-w-3xl"
+        class="hidden md:block text-white/80 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6 line-clamp-2 sm:line-clamp-3 max-w-3xl"
       >
         {{ project.description }}
       </p>
 
-      <div class="flex flex-wrap gap-2 py-2">
+      <div class="hidden md:flex flex-wrap gap-2 py-2 mb-4">
         <span
           v-for="(tech, idx) in project.techStack"
           :key="tech"
