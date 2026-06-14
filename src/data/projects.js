@@ -7,6 +7,7 @@ export const projects = [
     thumbnail: '/image.png',
     techStack: ['Python', 'FastAPI', 'Sentence-Transformers', 'PyTorch', 'Vue.js', 'Docker'],
     category: 'Artificial Intelligence',
+    categoryShort: 'AI',
     featured: true,
     year: 2026,
     fullDescription:
@@ -24,6 +25,7 @@ export const projects = [
     thumbnail: '/image.png',
     techStack: ['ESP32', 'RFID', 'Node-RED', 'Laravel', 'Filament', 'MySQL'],
     category: 'IoT & Web Application',
+    categoryShort: 'IoT & Web',
     featured: true,
     year: 2026,
     fullDescription:
@@ -41,6 +43,7 @@ export const projects = [
     thumbnail: '/image.png',
     techStack: ['Laravel', 'Filament', 'OAuth2', 'JWT', 'PostgreSQL', 'Redis'],
     category: 'Web Application',
+    categoryShort: 'Web App',
     featured: true,
     year: 2026,
     fullDescription:
@@ -67,6 +70,7 @@ export const projects = [
       'Docker',
     ],
     category: 'IoT & AI',
+    categoryShort: 'IoT & AI',
     featured: true,
     year: 2025,
     fullDescription:
