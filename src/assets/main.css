@@ -115,3 +115,10 @@ h6 {
 .animate-mesh-2 {
   animation: float-mesh-2 30s infinite ease-in-out;
 }
+
+@media (max-width: 767px) {
+  .animate-mesh-1,
+  .animate-mesh-2 {
+    animation: none;
+  }
+}
