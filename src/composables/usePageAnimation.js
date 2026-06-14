@@ -15,9 +15,12 @@ export function usePageAnimation(animationCallback, { onCleanup } = {}) {
       ctx = gsap.context(animationCallback, containerRef.value)
     }
 
-    setTimeout(() => {
-      ScrollTrigger.refresh()
-    }, 100)
+    // Gunakan requestAnimationFrame ganda untuk menjamin DOM sudah terender sepenuhnya sebelum refresh ScrollTrigger
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh()
+      })
+    })
   })
 
   onBeforeUnmount(() => {

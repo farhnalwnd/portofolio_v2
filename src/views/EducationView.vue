@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import gsap from 'gsap'
 import { Icon } from '@iconify/vue'
+import { useWindowSize } from '@vueuse/core'
 import { timeline } from '../data/education.js'
 import { useGsapStore } from '../stores/gsap'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
@@ -11,70 +12,57 @@ const headerRef = ref(null)
 const trackContainerRef = ref(null)
 const lineRef = ref(null)
 
+const { width } = useWindowSize()
+const isMobile = computed(() => width.value < 768)
+const activeIndex = ref(0)
+
+const nextSlide = () => {
+  if (activeIndex.value < timeline.length - 1) {
+    activeIndex.value++
+  }
+}
+
+const prevSlide = () => {
+  if (activeIndex.value > 0) {
+    activeIndex.value--
+  }
+}
+
+const setSlide = (index) => {
+  activeIndex.value = index
+}
+
+const touchStart = ref(0)
+const touchEnd = ref(0)
+
+const handleTouchStart = (e) => {
+  touchStart.value = e.targetTouches[0].clientX
+  touchEnd.value = e.targetTouches[0].clientX
+}
+
+const handleTouchMove = (e) => {
+  touchEnd.value = e.targetTouches[0].clientX
+}
+
+const handleTouchEnd = () => {
+  const diff = touchStart.value - touchEnd.value
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      nextSlide()
+    } else {
+      prevSlide()
+    }
+  }
+}
+
 const { containerRef: pinContainerRef } = usePageAnimation(
   () => {
+    // Only register desktop matchMedia since mobile is a Carousel
     const mm = gsap.matchMedia()
     const cardGap = 75 // vh
     const numCards = timeline.length
     const cards = gsap.utils.toArray('.timeline-card')
     const line = lineRef.value
-
-    mm.add('(max-width: 767px)', () => {
-      cards.forEach((card, index) => {
-        gsap.set(card, {
-          xPercent: -50,
-          x: 0,
-          y: index === 0 ? 0 : 50,
-          opacity: index === 0 ? 1 : 0,
-          rotation: 0,
-        })
-      })
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: pinContainerRef.value,
-          pin: true,
-          scrub: 1,
-          start: 'top top',
-          end: () => `+=${window.innerWidth * 2}`,
-          anticipatePin: 1,
-        },
-      })
-
-      tl.to(headerRef.value, {
-        opacity: 0,
-        y: -30,
-        duration: 0.5,
-      })
-
-      const totalScrollY = (numCards - 1) * cardGap
-      tl.to(
-        trackContainerRef.value,
-        {
-          y: `-=${totalScrollY}vh`,
-          duration: numCards - 1,
-          ease: 'none',
-        },
-        '-=0.2',
-      )
-
-      cards.forEach((card, index) => {
-        if (index > 0) {
-          tl.to(
-            card,
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              ease: 'power2.out',
-            },
-            index - 0.5,
-          )
-        }
-      })
-
-      gsapStore.setActiveTimeline(tl)
-    })
 
     mm.add('(min-width: 768px)', () => {
       const gapPx = 24 // px gap from center line
@@ -208,12 +196,157 @@ const { containerRef: pinContainerRef } = usePageAnimation(
         </h1>
       </div>
 
-      <!-- Scrolling Track Container -->
-      <div ref="trackContainerRef" class="absolute inset-y-10 w-full h-full">
+      <!-- Mobile Carousel -->
+      <div
+        v-if="isMobile"
+        class="absolute inset-0 top-28 bottom-16 flex flex-col items-center"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
+      >
+        <div class="relative flex-1 w-full flex items-center justify-center px-4">
+          <Transition
+            enter-active-class="transition-all duration-300 ease-out"
+            enter-from-class="opacity-0 scale-95 translate-x-8"
+            enter-to-class="opacity-100 scale-100 translate-x-0"
+            leave-active-class="transition-all duration-200 ease-in"
+            leave-from-class="opacity-100 scale-100 translate-x-0"
+            leave-to-class="opacity-0 scale-95 -translate-x-8"
+            mode="out-in"
+          >
+            <div
+              :key="activeIndex"
+              class="w-full max-w-[85vw] h-[55vh] p-5 rounded-3xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-lg dark:shadow-2xl flex flex-col justify-between"
+            >
+              <div class="flex-1 min-h-0 overflow-y-auto pr-1 -mr-1 custom-scrollbar">
+                <div class="flex items-center gap-3 mb-4">
+                  <div
+                    :class="[
+                      'p-2.5 rounded-xl',
+                      timeline[activeIndex].type === 'education'
+                        ? 'bg-accent-custom/10 text-accent-custom'
+                        : 'bg-purple-500/10 text-purple-400',
+                    ]"
+                  >
+                    <Icon
+                      :icon="
+                        timeline[activeIndex].type === 'education'
+                          ? 'lucide:graduation-cap'
+                          : 'lucide:briefcase'
+                      "
+                      class="text-2xl"
+                    />
+                  </div>
+                  <div>
+                    <span
+                      :class="[
+                        'inline-block px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-full',
+                        timeline[activeIndex].type === 'education'
+                          ? 'bg-accent-custom/10 text-accent-custom border border-accent-custom/20'
+                          : 'bg-purple-500/10 text-purple-400 border border-purple-500/20',
+                      ]"
+                    >
+                      {{ timeline[activeIndex].type === 'education' ? 'Education' : 'Carier' }}
+                    </span>
+                  </div>
+                </div>
+
+                <h2 class="text-xl font-bold text-text-custom py-1 font-archivo">
+                  {{ timeline[activeIndex].title }}
+                </h2>
+
+                <div class="flex flex-col gap-2 mb-4">
+                  <p class="text-base text-accent-custom font-semibold">
+                    {{ timeline[activeIndex].institution }}
+                  </p>
+                  <div class="flex items-center justify-between text-secondary-custom">
+                    <div class="flex items-center gap-2">
+                      <Icon icon="lucide:map-pin" class="text-base" />
+                      <span class="text-xs">{{ timeline[activeIndex].location }}</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <Icon icon="lucide:calendar" class="text-base" />
+                      <span class="text-xs">{{ timeline[activeIndex].period }}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="text-secondary-custom text-xs leading-relaxed py-1">
+                  {{ timeline[activeIndex].summary }}
+                </p>
+                <ul class="space-y-1.5">
+                  <li
+                    v-for="(point, i) in timeline[activeIndex].highlights"
+                    :key="i"
+                    class="flex items-start gap-2.5 text-xs text-secondary-custom"
+                  >
+                    <Icon icon="lucide:check-circle-2" class="mt-0.5 shrink-0 text-accent-custom" />
+                    <span class="leading-relaxed">{{ point }}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="flex items-center justify-between mt-3 pt-3 border-t border-black/5 dark:border-white/10"
+              >
+                <span class="text-xs text-secondary-custom">
+                  {{
+                    activeIndex === 0
+                      ? 'Riwayat Terkini'
+                      : `${activeIndex + 1} / ${timeline.length}`
+                  }}
+                </span>
+                <div
+                  v-if="activeIndex === 0"
+                  class="px-2.5 py-0.5 rounded-full bg-accent-custom/20 text-accent-custom text-[10px] font-semibold"
+                >
+                  Latest
+                </div>
+              </div>
+            </div>
+          </Transition>
+        </div>
+
+        <!-- Carousel Controls -->
+        <div class="flex items-center justify-center gap-6 pb-4 pt-2 w-full">
+          <button
+            :disabled="activeIndex === 0"
+            class="p-2.5 rounded-full bg-white/50 dark:bg-white/10 border border-black/5 dark:border-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:bg-accent-custom/10 hover:border-accent-custom/30 active:scale-95"
+            @click="prevSlide"
+          >
+            <Icon icon="lucide:chevron-left" class="text-xl text-text-custom" />
+          </button>
+
+          <div class="flex gap-2">
+            <button
+              v-for="(_, index) in timeline"
+              :key="index"
+              :class="[
+                'h-2 rounded-full transition-all duration-300',
+                index === activeIndex
+                  ? 'bg-accent-custom w-6'
+                  : 'bg-black/10 dark:bg-white/20 w-2 hover:bg-accent-custom/50',
+              ]"
+              @click="setSlide(index)"
+            ></button>
+          </div>
+
+          <button
+            :disabled="activeIndex === timeline.length - 1"
+            class="p-2.5 rounded-full bg-white/50 dark:bg-white/10 border border-black/5 dark:border-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:bg-accent-custom/10 hover:border-accent-custom/30 active:scale-95"
+            @click="nextSlide"
+          >
+            <Icon icon="lucide:chevron-right" class="text-xl text-text-custom" />
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop Scrolling Track Container -->
+      <div v-else ref="trackContainerRef" class="absolute inset-y-10 w-full h-full">
         <!-- Center Timeline Line -->
         <div
           ref="lineRef"
-          class="absolute left-1/2 -translate-x-1/2 w-0.5 bg-accent-custom/30 origin-top z-0 hidden md:block"
+          class="absolute left-1/2 -translate-x-1/2 w-0.5 bg-accent-custom/30 origin-top z-0"
           :style="{ top: '50vh', height: `${(timeline.length - 1) * 75}vh` }"
         ></div>
 
@@ -221,17 +354,17 @@ const { containerRef: pinContainerRef } = usePageAnimation(
         <div
           v-for="(item, index) in timeline"
           :key="index"
-          class="timeline-card absolute left-1/2 w-[85vw] md:w-[45vw] lg:w-[32vw] h-[60vh] z-10 pointer-events-none"
+          class="timeline-card absolute left-1/2 -translate-x-1/2 w-[45vw] lg:w-[32vw] h-[60vh] z-10 pointer-events-none"
           :style="{ top: `${20 + index * 75}vh` }"
         >
           <div
-            class="w-full h-full p-6 sm:p-8 md:p-10 rounded-3xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-lg dark:shadow-2xl flex flex-col justify-between pointer-events-auto"
+            class="w-full h-full p-10 rounded-3xl bg-white/35 dark:bg-white/10 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-lg dark:shadow-2xl flex flex-col justify-between pointer-events-auto"
           >
             <div class="flex-1 min-h-0 overflow-y-auto pr-1 -mr-1 custom-scrollbar">
-              <div class="flex items-center gap-3 mb-4 md:mb-6">
+              <div class="flex items-center gap-3 mb-6">
                 <div
                   :class="[
-                    'p-2.5 md:p-3 rounded-xl',
+                    'p-3 rounded-xl',
                     item.type === 'education'
                       ? 'bg-accent-custom/10 text-accent-custom'
                       : 'bg-purple-500/10 text-purple-400',
@@ -239,7 +372,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                 >
                   <Icon
                     :icon="item.type === 'education' ? 'lucide:graduation-cap' : 'lucide:briefcase'"
-                    class="text-2xl md:text-3xl"
+                    class="text-3xl"
                   />
                 </div>
                 <div>
@@ -256,36 +389,34 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                 </div>
               </div>
 
-              <h2
-                class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-text-custom py-1 md:py-2 font-archivo"
-              >
+              <h2 class="text-3xl lg:text-4xl font-bold text-text-custom py-2 font-archivo">
                 {{ item.title }}
               </h2>
 
-              <div class="flex flex-col gap-2 mb-4 md:mb-6">
-                <p class="text-base sm:text-lg md:text-xl text-accent-custom font-semibold">
+              <div class="flex flex-col gap-2 mb-6">
+                <p class="text-xl text-accent-custom font-semibold">
                   {{ item.institution }}
                 </p>
                 <div class="flex items-center justify-between text-secondary-custom">
                   <div class="flex items-center gap-2">
-                    <Icon icon="lucide:map-pin" class="text-base md:text-lg" />
-                    <span class="text-xs md:text-base">{{ item.location }}</span>
+                    <Icon icon="lucide:map-pin" class="text-lg" />
+                    <span class="text-base">{{ item.location }}</span>
                   </div>
                   <div class="flex items-center gap-2">
-                    <Icon icon="lucide:calendar" class="text-base md:text-lg" />
-                    <span class="text-xs md:text-base">{{ item.period }}</span>
+                    <Icon icon="lucide:calendar" class="text-lg" />
+                    <span class="text-base">{{ item.period }}</span>
                   </div>
                 </div>
               </div>
 
-              <p class="text-secondary-custom text-xs sm:text-sm md:text-base leading-relaxed py-2">
+              <p class="text-secondary-custom text-base leading-relaxed py-2">
                 {{ item.summary }}
               </p>
-              <ul class="space-y-1.5 md:space-y-2">
+              <ul class="space-y-2">
                 <li
                   v-for="(point, i) in item.highlights"
                   :key="i"
-                  class="flex items-start gap-2.5 text-xs sm:text-sm md:text-base text-secondary-custom"
+                  class="flex items-start gap-2.5 text-base text-secondary-custom"
                 >
                   <Icon icon="lucide:check-circle-2" class="mt-0.5 shrink-0 text-accent-custom" />
                   <span class="leading-relaxed">{{ point }}</span>
@@ -294,7 +425,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
             </div>
 
             <div
-              class="flex items-center justify-between mt-4 pt-4 md:mt-6 md:pt-6 border-t border-black/5 dark:border-white/10"
+              class="flex items-center justify-between mt-6 pt-6 border-t border-black/5 dark:border-white/10"
             >
               <span class="text-sm text-secondary-custom">
                 {{ index === 0 ? 'Riwayat Terkini' : `${index + 1} / ${timeline.length}` }}

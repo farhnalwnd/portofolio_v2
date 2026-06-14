@@ -41,17 +41,18 @@ const { containerRef } = usePageAnimation(() => {
   })
 
   mm.add('(max-width: 767px)', () => {
-    gsap.from('.skill-card', {
-      opacity: 0,
-      y: 40,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.hard-skills-section',
-        start: 'top 85%',
-        once: true,
-      },
+    gsap.utils.toArray('.mobile-skill-category').forEach((section) => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 90%',
+          once: true,
+        },
+      })
     })
   })
 
@@ -71,7 +72,7 @@ const { containerRef } = usePageAnimation(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="relative min-h-screen py-28 px-4 overflow-x-hidden">
+  <div ref="containerRef" class="relative min-h-screen py-28 px-4">
     <!-- Decorative Blobs -->
     <div
       class="fixed top-1/12 -right-1/12 w-[35vw] h-[35vw] bg-accent-custom/10 dark:bg-accent-custom/50 blur-[95px] rounded-full animate-mesh-2 pointer-events-none"
