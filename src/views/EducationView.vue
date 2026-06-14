@@ -7,7 +7,7 @@ const { isMobile } = useAppBreakpoints()
 </script>
 
 <template>
-  <div class="w-full h-screen overflow-hidden relative">
+  <div class="w-full">
     <!-- Decorative Blobs -->
     <div
       class="fixed bottom-2/4 -left-14 w-[30vw] h-[40vh] bg-accent-custom/40 blur-[90px] rounded-full animate-mesh-1 pointer-events-none"

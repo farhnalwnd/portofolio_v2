@@ -4,11 +4,13 @@ import { skills } from '../data/skills.js'
 import { certificates } from '../data/certificates.js'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
 import { useAppBreakpoints } from '../composables/useBreakpoints.js'
+import { useResponsiveTheme } from '../composables/useResponsiveTheme.js'
 import TechnicalSkills from '../components/TechnicalSkills.vue'
 import SoftSkills from '../components/SoftSkills.vue'
 import CertificatesList from '../components/CertificatesList.vue'
 
 const { isDesktop } = useAppBreakpoints()
+const { text, spacing } = useResponsiveTheme()
 
 const { containerRef } = usePageAnimation(() => {
   gsap.from('.page-hero', {
@@ -71,7 +73,7 @@ const { containerRef } = usePageAnimation(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="relative min-h-screen py-28 px-4">
+  <div ref="containerRef" :class="['relative min-h-screen py-28 px-4', spacing.containerPadding]">
     <!-- Decorative Blobs -->
     <div
       class="fixed top-1/12 -right-1/12 w-[35vw] h-[35vw] bg-accent-custom/10 dark:bg-accent-custom/50 blur-[95px] rounded-full animate-mesh-2 pointer-events-none"
@@ -82,7 +84,7 @@ const { containerRef } = usePageAnimation(() => {
 
     <div class="w-full relative z-10">
       <div class="page-hero text-center mb-20">
-        <h1 class="text-5xl md:text-7xl font-bold text-text-custom mb-6 font-archivo">
+        <h1 :class="['font-bold text-text-custom mb-6 font-archivo', text.sectionTitle]">
           Skills & Expertise
         </h1>
       </div>

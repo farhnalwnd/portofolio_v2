@@ -3,6 +3,9 @@ import gsap from 'gsap'
 import { Icon } from '@iconify/vue'
 import { personalInfo, contactChannels } from '../data/personal.js'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
+import { useResponsiveTheme } from '../composables/useResponsiveTheme.js'
+
+const { text, spacing } = useResponsiveTheme()
 
 const { containerRef } = usePageAnimation(() => {
   gsap.fromTo(
@@ -36,7 +39,7 @@ const { containerRef } = usePageAnimation(() => {
 <template>
   <div
     ref="containerRef"
-    class="min-h-screen py-24 px-4 relative overflow-hidden flex items-center justify-center"
+    :class="['min-h-screen py-24 px-4 relative overflow-hidden flex items-center justify-center', spacing.containerPadding]"
   >
     <!-- Decorative Blurs -->
     <div
@@ -49,7 +52,7 @@ const { containerRef } = usePageAnimation(() => {
     <div class="w-full max-w-5xl mx-auto relative z-10">
       <!-- Hero -->
       <div class="page-hero text-center pb-10">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-text-custom mb-4 font-archivo">
+        <h1 :class="['font-bold text-text-custom mb-4 font-archivo', text.sectionTitle]">
           Let's Connect
         </h1>
       </div>
@@ -61,7 +64,7 @@ const { containerRef } = usePageAnimation(() => {
           class="profile-card-container w-full md:justify-self-end md:ml-auto max-w-xl mx-auto md:mx-0"
         >
           <div
-            class="relative p-6 sm:p-8 rounded-3xl bg-white/5 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 flex flex-col gap-6 overflow-hidden"
+            :class="['relative rounded-3xl bg-white/5 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 flex flex-col gap-6 overflow-hidden', spacing.cardPadding]"
           >
             <!-- Background Glow -->
             <div
