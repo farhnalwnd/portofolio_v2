@@ -98,9 +98,9 @@ const { containerRef } = usePageAnimation(() => {
     <!-- Featured Projects Grid -->
     <div
       v-if="featuredProjects.length > 0"
-      :class="['w-full pb-16 md:pb-20 relative z-10', spacing.containerPadding]"
+      class="w-full pb-16 md:pb-20 relative z-10"
     >
-      <div class="featured-section-title pb-8">
+      <div :class="['featured-section-title pb-8', spacing.containerPadding]">
         <h2
           class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-text-custom font-archivo flex items-center gap-3 tracking-tight"
         >
@@ -109,7 +109,7 @@ const { containerRef } = usePageAnimation(() => {
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div class="flex overflow-x-auto gap-6 snap-x snap-mandatory px-4 md:px-8 lg:px-12 pb-6 no-scrollbar">
         <FeaturedProjectCard
           v-for="project in featuredProjects"
           :key="project.slug"
@@ -151,5 +151,11 @@ const { containerRef } = usePageAnimation(() => {
 </template>
 
 <style scoped>
-/* Scoped styles removed as no-scrollbar classes are no longer needed for grids */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 </style>
