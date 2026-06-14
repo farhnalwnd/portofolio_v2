@@ -278,9 +278,11 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                   <li
                     v-for="(point, i) in timeline[activeIndex].highlights"
                     :key="i"
-                    class="flex items-center gap-2.5 text-xs py-1 text-secondary-custom"
+                    class="flex items-start gap-2.5 text-xs py-1 text-secondary-custom"
                   >
-                    <Icon icon="lucide:check-circle-2" class="shrink-0 text-accent-custom" />
+                    <div class="shrink-0 md:pt-1 lg:pt-1.5">
+                      <Icon icon="lucide:check-circle-2" class="text-accent-custom text-sm" />
+                    </div>
                     <span class="leading-relaxed">{{ point }}</span>
                   </li>
                 </ul>
@@ -416,9 +418,11 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                 <li
                   v-for="(point, i) in item.highlights"
                   :key="i"
-                  class="flex items-center gap-2.5 text-base text-secondary-custom"
+                  class="flex items-start gap-2.5 text-base text-secondary-custom"
                 >
-                  <Icon icon="lucide:check-circle-2" class="shrink-0 text-accent-custom" />
+                  <div class="shrink-0 md:pt-1 lg:pt-1.5">
+                    <Icon icon="lucide:check-circle-2" class="text-accent-custom text-sm" />
+                  </div>
                   <span class="leading-relaxed">{{ point }}</span>
                 </li>
               </ul>
