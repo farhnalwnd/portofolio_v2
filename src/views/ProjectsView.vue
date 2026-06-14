@@ -4,6 +4,9 @@ import { Icon } from '@iconify/vue'
 import FeaturedProjectCard from '../components/FeaturedProjectCard.vue'
 import ProjectCard from '../components/ProjectCard.vue'
 import { projects } from '../data/projects.js'
+import { useAppBreakpoints } from '../composables/useBreakpoints.js'
+
+const { isDesktop } = useAppBreakpoints()
 
 const featuredProjects = computed(() => projects.filter((p) => p.featured))
 const regularProjects = computed(() => projects.filter((p) => !p.featured))
@@ -14,6 +17,7 @@ let startX = 0
 let scrollLeft = 0
 
 const startDrag = (e) => {
+  if (!isDesktop.value) return
   isDown = true
   startX = e.pageX - sliderRef.value.offsetLeft
   scrollLeft = sliderRef.value.scrollLeft
@@ -24,7 +28,7 @@ const stopDrag = () => {
 }
 
 const moveDrag = (e) => {
-  if (!isDown) return
+  if (!isDown || !isDesktop.value) return
   e.preventDefault()
   const x = e.pageX - sliderRef.value.offsetLeft
   const walk = (x - startX) * 1.5

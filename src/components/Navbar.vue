@@ -3,9 +3,11 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { Icon } from '@iconify/vue'
 import { useDark, useToggle } from '@vueuse/core'
+import { useAppBreakpoints } from '../composables/useBreakpoints.js'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+const { isDesktop } = useAppBreakpoints()
 
 const isMenuOpen = ref(false)
 const isScrolled = ref(false)
@@ -50,7 +52,7 @@ onUnmounted(() => {
             : 'bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-2xl dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]',
         ]"
       >
-        <div class="hidden md:flex items-center gap-1">
+        <div v-show="isDesktop" class="flex items-center gap-1">
           <RouterLink
             v-for="link in navLinks"
             :key="link.path"
@@ -63,7 +65,8 @@ onUnmounted(() => {
         </div>
 
         <button
-          class="md:hidden p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-secondary-custom"
+          v-show="!isDesktop"
+          class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-secondary-custom"
           @click="toggleMenu"
           :aria-label="isMenuOpen ? 'Close menu' : 'Open menu'"
         >

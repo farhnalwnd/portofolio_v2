@@ -3,13 +3,14 @@ import gsap from 'gsap'
 import { skills } from '../data/skills.js'
 import { certificates } from '../data/certificates.js'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
+import { useAppBreakpoints } from '../composables/useBreakpoints.js'
 import TechnicalSkills from '../components/TechnicalSkills.vue'
 import SoftSkills from '../components/SoftSkills.vue'
 import CertificatesList from '../components/CertificatesList.vue'
 
-const { containerRef } = usePageAnimation(() => {
-  const mm = gsap.matchMedia()
+const { isDesktop } = useAppBreakpoints()
 
+const { containerRef } = usePageAnimation(() => {
   gsap.from('.page-hero', {
     opacity: 0,
     y: 40,
@@ -17,7 +18,7 @@ const { containerRef } = usePageAnimation(() => {
     ease: 'power3.out',
   })
 
-  mm.add('(min-width: 768px)', () => {
+  if (isDesktop.value) {
     gsap.utils.toArray('.skill-category-container').forEach((container) => {
       const track = container.querySelector('.skill-category-track')
       if (track) {
@@ -38,9 +39,7 @@ const { containerRef } = usePageAnimation(() => {
         }
       }
     })
-  })
-
-  mm.add('(max-width: 767px)', () => {
+  } else {
     gsap.utils.toArray('.mobile-skill-category').forEach((section) => {
       gsap.from(section, {
         opacity: 0,
@@ -54,7 +53,7 @@ const { containerRef } = usePageAnimation(() => {
         },
       })
     })
-  })
+  }
 
   gsap.utils.toArray('.soft-skill-item').forEach((el) => {
     gsap.to(el, {

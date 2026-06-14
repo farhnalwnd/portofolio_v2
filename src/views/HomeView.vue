@@ -4,6 +4,9 @@ import gsap from 'gsap'
 import { useGsapStore } from '../stores/gsap'
 import { personalInfo } from '../data/personal.js'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
+import { useAppBreakpoints } from '../composables/useBreakpoints.js'
+
+const { isMobile } = useAppBreakpoints()
 
 const gsapStore = useGsapStore()
 const heroRef = ref(null)
@@ -39,7 +42,7 @@ const { containerRef } = usePageAnimation(
         scrollTrigger: {
           trigger: heroRef.value,
           start: 'top top',
-          end: '+=3200',
+          end: () => isMobile.value ? '+=1600' : '+=3200',
           pin: true,
           scrub: false,
           anticipatePin: 1,
@@ -64,7 +67,7 @@ const { containerRef } = usePageAnimation(
         scrollTrigger: {
           trigger: heroRef.value,
           start: 'top top',
-          end: '+=3200',
+          end: () => isMobile.value ? '+=1600' : '+=3200',
           pin: true,
           scrub: 1,
           anticipatePin: 1,
