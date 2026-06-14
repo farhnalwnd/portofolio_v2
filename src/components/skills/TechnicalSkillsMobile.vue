@@ -14,8 +14,7 @@ defineProps({
 })
 
 let ctx
-const draggables = []
-const tweens = []
+const cleanups = []
 
 function setupMarquee(track, direction) {
   const items = track.querySelectorAll('.skill-card')
@@ -23,57 +22,73 @@ function setupMarquee(track, direction) {
 
   const speed = 0.5
   const trackWidth = track.scrollWidth / 2
+  const start = direction === 'left' ? 0 : -trackWidth
+  const end = direction === 'left' ? -trackWidth : 0
 
-  gsap.set(track, { x: direction === 'left' ? 0 : -trackWidth })
+  gsap.set(track, { x: start })
 
-  const tween = gsap.to(track, {
-    x: direction === 'left' ? -trackWidth : 0,
-    duration: trackWidth / (speed * 60),
-    ease: 'none',
-    repeat: -1,
-    paused: false,
-  })
+  let activeTween = null
+  let isDragging = false
 
-  tweens.push(tween)
+  function startLoop() {
+    if (isDragging) return
+
+    const currentX = gsap.getProperty(track, 'x')
+    const remaining = Math.abs(currentX - end)
+
+    if (remaining <= 0.5) {
+      gsap.set(track, { x: start })
+    }
+
+    const fromX = gsap.getProperty(track, 'x')
+    const toX = end
+    const distance = Math.abs(toX - fromX)
+    const duration = distance / (speed * 60)
+
+    activeTween = gsap.to(track, {
+      x: toX,
+      duration,
+      ease: 'none',
+      onComplete() {
+        gsap.set(track, { x: start })
+        startLoop()
+      },
+    })
+  }
+
+  startLoop()
 
   const draggable = Draggable.create(track, {
     type: 'x',
     inertia: false,
     edgeResistance: 0.75,
     onDragStart() {
-      tween.pause()
+      isDragging = true
+      if (activeTween) {
+        activeTween.kill()
+        activeTween = null
+      }
     },
     onDrag() {
-      const currentX = gsap.getProperty(track, 'x')
+      const x = gsap.getProperty(track, 'x')
       if (direction === 'left') {
-        if (currentX <= -trackWidth) {
-          gsap.set(track, { x: currentX + trackWidth })
-        } else if (currentX >= 0) {
-          gsap.set(track, { x: currentX - trackWidth })
-        }
+        if (x <= -trackWidth) gsap.set(track, { x: x + trackWidth })
+        else if (x >= 0) gsap.set(track, { x: x - trackWidth })
       } else {
-        if (currentX >= 0) {
-          gsap.set(track, { x: currentX - trackWidth })
-        } else if (currentX <= -trackWidth) {
-          gsap.set(track, { x: currentX + trackWidth })
-        }
+        if (x >= 0) gsap.set(track, { x: x - trackWidth })
+        else if (x <= -trackWidth) gsap.set(track, { x: x + trackWidth })
       }
     },
     onDragEnd() {
-      const currentX = gsap.getProperty(track, 'x')
-      const progress = (currentX % trackWidth) / trackWidth
-
-      if (direction === 'left') {
-        gsap.set(track, { x: -Math.abs(progress * trackWidth) })
-      } else {
-        gsap.set(track, { x: -trackWidth + Math.abs(progress * trackWidth) })
-      }
-
-      tween.resume()
+      isDragging = false
+      startLoop()
     },
   })[0]
 
-  draggables.push(draggable)
+  cleanups.push(() => {
+    if (activeTween) activeTween.kill()
+    draggable.kill()
+  })
 }
 
 onMounted(async () => {
@@ -88,8 +103,7 @@ onMounted(async () => {
 })
 
 onUnmounted(() => {
-  draggables.forEach((d) => d.kill())
-  tweens.forEach((t) => t.kill())
+  cleanups.forEach((fn) => fn())
   ctx?.revert()
 })
 </script>
@@ -108,10 +122,9 @@ onUnmounted(() => {
         {{ category.category }}
       </h3>
 
-      <div class="marquee-mask w-full overflow-hidden py-2 -mx-4 px-4">
+      <div class="w-full overflow-hidden py-2 -mx-4 px-4">
         <div
           class="mobile-marquee-track flex gap-4 w-max cursor-grab active:cursor-grabbing"
-          :data-direction="index % 2 === 0 ? 'left' : 'right'"
         >
           <template v-for="n in 2" :key="n">
             <div

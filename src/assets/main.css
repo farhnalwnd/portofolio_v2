@@ -122,7 +122,3 @@ h6 {
     animation: none;
   }
 }
-
-.marquee-mask {
-  mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
-}
