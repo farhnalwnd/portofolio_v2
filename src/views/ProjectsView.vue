@@ -96,10 +96,7 @@ const { containerRef } = usePageAnimation(() => {
     </div>
 
     <!-- Featured Projects Grid -->
-    <div
-      v-if="featuredProjects.length > 0"
-      class="w-full pb-16 md:pb-20 relative z-10"
-    >
+    <div v-if="featuredProjects.length > 0" class="w-full pb-16 md:pb-20 relative z-10">
       <div :class="['featured-section-title pb-8', spacing.containerPadding]">
         <h2
           class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-text-custom font-archivo flex items-center gap-3 tracking-tight"
@@ -109,7 +106,9 @@ const { containerRef } = usePageAnimation(() => {
         </h2>
       </div>
 
-      <div class="flex overflow-x-auto gap-6 snap-x snap-mandatory px-4 md:px-8 lg:px-12 pb-6 no-scrollbar">
+      <div
+        class="flex overflow-x-auto gap-6 snap-x snap-mandatory px-4 md:px-8 lg:px-12 pb-6 no-scrollbar"
+      >
         <FeaturedProjectCard
           v-for="project in featuredProjects"
           :key="project.slug"
@@ -120,7 +119,10 @@ const { containerRef } = usePageAnimation(() => {
 
     <!-- Other Projects Grid -->
     <div
-      :class="['w-full mx-auto pt-16 md:pt-20 pb-32 md:pb-48 relative z-10', spacing.containerPadding]"
+      :class="[
+        'w-full mx-auto pt-16 md:pt-20 pb-32 md:pb-48 relative z-10',
+        spacing.containerPadding,
+      ]"
     >
       <div v-if="regularProjects.length > 0" class="regular-section-title pb-8">
         <h2

@@ -60,13 +60,9 @@ defineProps({
               </div>
 
               <div class="w-full z-10">
-                <span class="text-text-custom font-bold text-lg block mb-2">{{
-                  skill.name
-                }}</span>
+                <span class="text-text-custom font-bold text-lg block mb-2">{{ skill.name }}</span>
                 <div class="flex items-center gap-3">
-                  <div
-                    class="grow h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden"
-                  >
+                  <div class="grow h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
                     <div
                       class="h-full bg-accent-custom rounded-full transition-all duration-1000"
                       :style="{ width: skill.level + '%' }"

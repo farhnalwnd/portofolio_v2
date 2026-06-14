@@ -45,7 +45,7 @@ const imageError = ref(false)
         <span
           class="inline-block px-3 py-1 md:px-4 md:py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-widest bg-accent-custom text-white border border-accent-custom/50 rounded-full shadow-lg shadow-accent-custom/30"
         >
-          {{ isDesktop ? project.category : (project.categoryShort || project.category) }}
+          {{ isDesktop ? project.category : project.categoryShort || project.category }}
         </span>
         <span
           class="inline-flex items-center gap-1 px-2.5 py-1 md:px-3 md:py-1.5 text-[10px] sm:text-xs font-semibold bg-purple-500 text-white border border-purple-400/50 rounded-full shadow-lg"

@@ -42,7 +42,7 @@ const { containerRef } = usePageAnimation(
         scrollTrigger: {
           trigger: heroRef.value,
           start: 'top top',
-          end: () => isMobile.value ? '+=1600' : '+=3200',
+          end: () => (isMobile.value ? '+=1600' : '+=3200'),
           pin: true,
           scrub: false,
           anticipatePin: 1,
@@ -67,7 +67,7 @@ const { containerRef } = usePageAnimation(
         scrollTrigger: {
           trigger: heroRef.value,
           start: 'top top',
-          end: () => isMobile.value ? '+=1600' : '+=3200',
+          end: () => (isMobile.value ? '+=1600' : '+=3200'),
           pin: true,
           scrub: 1,
           anticipatePin: 1,

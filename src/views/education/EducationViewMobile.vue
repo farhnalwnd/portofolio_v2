@@ -150,9 +150,7 @@ const handleTouchEnd = () => {
             >
               <span class="text-xs text-secondary-custom">
                 {{
-                  activeIndex === 0
-                    ? 'Riwayat Terkini'
-                    : `${activeIndex + 1} / ${timeline.length}`
+                  activeIndex === 0 ? 'Riwayat Terkini' : `${activeIndex + 1} / ${timeline.length}`
                 }}
               </span>
               <div

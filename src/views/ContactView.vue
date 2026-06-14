@@ -39,7 +39,10 @@ const { containerRef } = usePageAnimation(() => {
 <template>
   <div
     ref="containerRef"
-    :class="['min-h-screen py-24 px-4 relative overflow-hidden flex items-center justify-center', spacing.containerPadding]"
+    :class="[
+      'min-h-screen py-24 px-4 relative overflow-hidden flex items-center justify-center',
+      spacing.containerPadding,
+    ]"
   >
     <!-- Decorative Blurs -->
     <div
@@ -64,7 +67,10 @@ const { containerRef } = usePageAnimation(() => {
           class="profile-card-container w-full md:justify-self-end md:ml-auto max-w-xl mx-auto md:mx-0"
         >
           <div
-            :class="['relative rounded-3xl bg-white/5 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 flex flex-col gap-6 overflow-hidden', spacing.cardPadding]"
+            :class="[
+              'relative rounded-3xl bg-white/5 backdrop-blur-2xl border border-black/5 dark:border-white/12 shadow-xl dark:shadow-2xl dark:shadow-accent-custom/5 flex flex-col gap-6 overflow-hidden',
+              spacing.cardPadding,
+            ]"
           >
             <!-- Background Glow -->
             <div
