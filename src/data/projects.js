@@ -18,151 +18,115 @@ export const projects = [
     },
   },
   {
-    slug: 'catera-iot',
-    title: 'Catera (Catering Tap Entry & Record Access)',
-    description:
-      'Corporate IoT-based meal quota management system with automated employee verification and real-time database synchronization.',
-    thumbnail: '/image.png',
-    techStack: ['ESP32', 'RFID', 'Node-RED', 'Laravel', 'Filament', 'MySQL'],
-    category: 'IoT & Web Application',
-    categoryShort: 'IoT & Web',
-    featured: true,
-    year: 2026,
-    fullDescription:
-      'An end-to-end IoT solution developed for corporate meal quota management at Oneject Indonesia. Jobdesk and features include: Integrating ESP32 microcontrollers and RFID hardware with Node-RED for efficient data routing; creating smart data processing flows for automated employee verification at tap entry points; and developing a centralized administrative dashboard using Laravel and Filament for real-time synchronization and record access.',
-    links: {
-      github: 'https://github.com/farhan-alwanda/catera-iot',
-      demo: null,
-    },
+    "slug": "catera",
+    "title": "Catera (Catering Tap Entry & Record Access)",
+    "description": "An IoT-based meal quota management system with automated employee verification and real-time synchronization.",
+    "thumbnail": "/image.png",
+    "techStack": ["ESP32", "RFID", "Node-RED", "Laravel", "Filament", "Livewire"],
+    "category": "Internet of Things",
+    "categoryShort": "IoT",
+    "featured": false,
+    "year": 2026,
+    "fullDescription": "Catera is an end-to-end digital solution designed for corporate meal quota management. By combining ESP32 microcontrollers and RFID technology, the system enables automated employee verification at tap entry points. Node-RED handles smart data processing and real-time database synchronization with a Laravel Filament backend, ensuring seamless and secure administration.",
+    "links": {
+      "github": "https://github.com/farhan-alwanda/catera",
+      "demo": null
+    }
   },
   {
-    slug: 'the-bridge-sso',
-    title: 'The Bridge SSO (IT-Framework CMS)',
-    description:
-      'Enterprise centralized portal architecture with Single Sign-On and dynamic access permission mapping.',
-    thumbnail: '/image.png',
-    techStack: ['Laravel', 'Filament', 'OAuth2', 'JWT', 'PostgreSQL', 'Redis'],
-    category: 'Web Application',
-    categoryShort: 'Web App',
-    featured: true,
-    year: 2026,
-    fullDescription:
-      'An enterprise authentication and portal solution developed to integrate multiple internal corporate modules at Oneject Indonesia. Jobdesk and features include: Designing a centralized portal architecture using Laravel and the Filament admin panel; implementing secure token-based OAuth2 and JWT authentication standards with custom ticket-based session bridging; and creating a dynamic role-based access control (RBAC) system for comprehensive audit logging and permission mapping.',
-    links: {
-      github: 'https://github.com/farhan-alwanda/the-bridge-sso',
-      demo: null,
-    },
+    "slug": "it-framework-cms",
+    "title": "SSO Portal Management",
+    "description": "A centralized secure portal ecosystem with dynamic access permissions and centralized authentication.",
+    "thumbnail": "/image.png",
+    "techStack": ["Laravel", "Filament", "PHP", "Tailwind CSS", "laravel schantum", "flutter"],
+    "category": "Web Development",
+    "categoryShort": "Web",
+    "featured": true,
+    "year": 2026,
+    "fullDescription": "The IT-Framework CMS is a centralized portal architecture engineered to integrate various internal corporate systems into a single secure ecosystem. Developed using Laravel, flutter and Filament, it implements a highly secure centralized authentication mechanism alongside dynamic access permission mapping, giving administrators granular control over user roles across platforms.",
+    "links": {
+      "github": "https://github.com/farhan-alwanda/it-framework-cms",
+      "demo": null
+    }
   },
   {
-    slug: 'sortify',
-    title: 'Sortify',
-    description:
-      'Undergraduate Thesis: IoT and AI-based automatic waste bin system capable of classifying and sorting waste in real-time.',
-    thumbnail: '/image.png',
-    techStack: [
-      'Python',
-      'Scikit-learn',
-      'ESP32',
-      'Raspberry Pi',
-      'Flutter',
-      'Go',
-      'PostgreSQL',
-      'Docker',
-    ],
-    category: 'IoT & AI',
-    categoryShort: 'IoT & AI',
-    featured: true,
-    year: 2025,
-    fullDescription:
-      'An intelligent waste management system developed as an undergraduate graduation requirement at President University. Jobdesk and features include: Designing and building hardware systems using ESP32 and Raspberry Pi microcontrollers for sensor integration; custom training machine learning models to classify and sort different types of waste automatically in real-time; developing a cross-platform mobile app using Flutter for monitoring; and writing high-performance backend services in Go with PostgreSQL and Docker infrastructure.',
-    links: {
-      github: 'https://github.com/farhan-alwanda/sortify',
-      demo: null,
-    },
+    "slug": "internal-financial-management-system",
+    "title": "Internal Financial Management System",
+    "description": "An automated budget tracking and interdepartmental loan application built for enterprise financial workflows.",
+    "thumbnail": "/image.png",
+    "techStack": ["Laravel", "Alpine.js", "AJAX", "PHP", "MySQL"],
+    "category": "Web Development",
+    "categoryShort": "Web",
+    "featured": false,
+    "year": 2025,
+    "fullDescription": "An enterprise-grade budget management application serving over 100 internal users. Built with Laravel and Alpine.js, the platform optimizes financial workflows by featuring an automated fund tracking module and dynamic, AJAX-based interdepartmental loan features to streamline corporate administration.",
+    "links": {
+      "github": "https://github.com/farhan-alwanda/internal-financial-management",
+      "demo": null
+    }
   },
   {
-    slug: 'internal-financial-system',
-    title: 'Internal Financial Management System',
-    description:
-      'Corporate budget management application featuring automated fund tracking and interdepartmental loans.',
-    thumbnail: '/image.png',
-    techStack: ['Laravel', 'Alpine.js', 'AJAX', 'PostgreSQL', 'Tailwind CSS'],
-    category: 'Web Application',
-    featured: false,
-    year: 2025,
-    fullDescription:
-      'A robust financial web application developed during tenure at Sinar Meadow International Indonesia. Jobdesk and features include: Architecting a budget management application serving over 100 enterprise users; writing and integrating an automated fund tracking module to optimize financial workflows; and implementing seamless, dynamic AJAX-based interdepartmental loan features for a responsive user interface.',
-    links: {
-      github: null,
-      demo: null,
-    },
+    "slug": "sales-portfolio-cms",
+    "title": "Sales Portfolio CMS",
+    "description": "A modern, mobile-first custom CMS to digitize and expand corporate digital marketing reach.",
+    "thumbnail": "/image.png",
+    "techStack": ["Laravel", "Filament", "Tailwind CSS", "TALL Stack"],
+    "category": "Web Development",
+    "categoryShort": "Web",
+    "featured": false,
+    "year": 2025,
+    "fullDescription": "Developed for Sinar Meadow International Indonesia, this custom Content Management System leverages the TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) via Filament to digitize the company's product portfolio. It features a modern, mobile-first design tailored to significantly expand the company's digital marketing and B2B engagement.",
+    "links": {
+      "github": "https://github.com/farhan-alwanda/sales-portfolio-cms",
+      "demo": null
+    }
   },
   {
-    slug: 'sales-portfolio-cms',
-    title: 'Sales Portfolio CMS',
-    description:
-      'Custom TALL Stack CMS designed to digitize corporate product portfolios with a mobile-first approach.',
-    thumbnail: '/image.png',
-    techStack: ['Laravel', 'Filament', 'Alpine.js', 'Tailwind CSS', 'MySQL'],
-    category: 'Web Application',
-    featured: false,
-    year: 2025,
-    fullDescription:
-      'A custom content management system built for Sinar Meadow International Indonesia to expand its digital marketing reach. Jobdesk and features include: Developing the full platform using the TALL Stack (Tailwind CSS, Alpine.js, Laravel, Livewire) and Filament admin panel; and translating requirements into a modern, highly responsive mobile-first design to digitize the complete corporate product portfolio.',
-    links: {
-      github: null,
-      demo: null,
-    },
+    "slug": "automated-stock-monitoring-system",
+    "title": "Automated Stock Monitoring System",
+    "description": "A real-time inventory system with automated threshold detection and automated Excel reporting.",
+    "thumbnail": "/image.png",
+    "techStack": ["Laravel", "Laravel Jobs", "Laravel Mail", "PHP"],
+    "category": "Web Development",
+    "categoryShort": "Web",
+    "featured": false,
+    "year": 2025,
+    "fullDescription": "This backend automation project monitors warehouse inventory levels in real time. Built using Laravel Jobs and Mail, the system immediately detects when critical stock thresholds are breached and compiled detailed warehouse accuracy reports sent automatically via email in Excel format.",
+    "links": {
+      "github": "https://github.com/farhan-alwanda/automated-stock-monitoring",
+      "demo": null
+    }
   },
   {
-    slug: 'automated-stock-monitoring',
-    title: 'Automated Stock Monitoring System',
-    description:
-      'Real-time inventory threshold detection system with automated Excel report generation and mail queues.',
-    thumbnail: '/image.png',
-    techStack: ['Laravel', 'Laravel Jobs', 'Laravel Mail', 'Excel Automation', 'MySQL'],
-    category: 'Web Application / Backend DevOps',
-    featured: false,
-    year: 2025,
-    fullDescription:
-      'An inventory alert system engineered for Sinar Meadow International Indonesia. Jobdesk and features include: Designing a backend background automation framework using Laravel Jobs and Mail; writing logic to detect critical inventory thresholds in real time; and automatically compiling warehouse data and generating analytical reports sent directly via email in Excel format to ensure data accuracy.',
-    links: {
-      github: null,
-      demo: null,
-    },
+    "slug": "warehouse-requisition-approval-system",
+    "title": "Warehouse Requisition System",
+    "description": "An end-to-end goods requisition system with multi-level approval workflows and secure audit logging.",
+    "thumbnail": "/image.png",
+    "techStack": ["Laravel", "PHP", "PDF-Generator", "MySQL"],
+    "category": "Web Development",
+    "categoryShort": "Web",
+    "featured": true,
+    "year": 2025,
+    "fullDescription": "An end-to-end corporate supply chain administrative system equipped with a dynamic multi-level approval flow. To maximize transparency and speed up warehouse administration, the platform includes automated audit logging and a PDF report generator module.",
+    "links": {
+      "github": "https://github.com/farhan-alwanda/warehouse-requisition-approval",
+      "demo": null
+    }
   },
   {
-    slug: 'warehouse-requisition-system',
-    title: 'Warehouse Requisition & Approval System',
-    description:
-      'End-to-end goods requisition system with dynamic multi-level approval flows and comprehensive audit logs.',
-    thumbnail: '/image.png',
-    techStack: ['Laravel', 'Filament', 'PDF Generator', 'PostgreSQL'],
-    category: 'Web Application',
-    featured: false,
-    year: 2025,
-    fullDescription:
-      'An administrative web ecosystem built for Sinar Meadow International Indonesia. Jobdesk and features include: Developing an end-to-end goods requisition platform to streamline warehouse administration; structuring a complex, dynamic multi-level approval flow based on user roles; and integrating a automated PDF report generator and precise audit logs for corporate transparency.',
-    links: {
-      github: null,
-      demo: null,
-    },
-  },
-  {
-    slug: 'smart-inventory',
-    title: 'Smart Inventory System',
-    description:
-      'Real-time inventory tracking system with barcode scanning and predictive stock alerts.',
-    thumbnail: '/image.png',
-    techStack: ['Laravel', 'Vue.js', 'MySQL', 'Tailwind CSS'],
-    category: 'Web Application',
-    featured: false,
-    year: 2023,
-    fullDescription:
-      'A comprehensive inventory management system designed for small to medium businesses. Features include barcode scanning, real-time stock tracking, automated reorder alerts, and detailed analytics dashboard.',
-    links: {
-      github: null,
-      demo: null,
-    },
-  },
+    "slug": "sortify",
+    "title": "Sortify",
+    "description": "An IoT and AI-powered automatic waste bin system capable of classifying and sorting waste in real-time.",
+    "thumbnail": "/image.png",
+    "techStack": ["Python", "Machine Learning", "IoT", "Smart Sensors", "ESP32"],
+    "category": "Artificial Intelligence & IoT",
+    "categoryShort": "AI & IoT",
+    "featured": true,
+    "year": 2026,
+    "fullDescription": "Sortify was designed and implemented as an undergraduate thesis project at President University. The system integrates artificial intelligence with Internet of Things hardware to create an automatic waste bin capable of recognizing, classifying, and physically sorting different types of waste in real-time utilizing smart sensor data and machine learning models.",
+    "links": {
+      "github": "https://github.com/farhan-alwanda/Sortify",
+      "demo": null
+    }
+  }
 ]

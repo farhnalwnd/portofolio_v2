@@ -3,20 +3,20 @@ export const skills = {
     {
       category: 'Frontend',
       items: [
-        { name: 'Vue.js', icon: 'logos:vue', level: 95 },
+        { name: 'Vue.js', icon: 'logos:vue', level: 60 },
         { name: 'Tailwind CSS', icon: 'logos:tailwindcss', level: 90 },
         { name: 'JavaScript', icon: 'logos:javascript', level: 92 },
-        { name: 'Flutter', icon: 'logos:flutter', level: 75 },
+        { name: 'Flutter', icon: 'logos:flutter', level: 50 },
       ],
     },
     {
       category: 'Backend',
       items: [
-        { name: 'Laravel', icon: 'logos:laravel', level: 88 },
+        { name: 'Laravel', icon: 'logos:laravel', level: 93 },
         { name: 'Filament', icon: 'lucide:component', level: 85 },
-        { name: 'Go', icon: 'logos:go', level: 80 },
+        { name: 'Go', icon: 'logos:go', level: 75 },
         { name: 'Python', icon: 'logos:python', level: 82 },
-        { name: 'FastAPI', icon: 'lucide:zap', level: 78 },
+        { name: 'FastAPI', icon: 'lucide:zap', level: 80 },
       ],
     },
     {
@@ -25,7 +25,7 @@ export const skills = {
         { name: 'PostgreSQL', icon: 'logos:postgresql', level: 85 },
         { name: 'MySQL', icon: 'logos:mysql', level: 88 },
         { name: 'Redis', icon: 'logos:redis', level: 70 },
-        { name: 'MongoDB', icon: 'logos:mongodb', level: 65 },
+        { name: 'MongoDB', icon: 'logos:mongodb', level: 75 },
       ],
     },
     {
@@ -34,16 +34,16 @@ export const skills = {
         { name: 'Docker', icon: 'logos:docker-icon', level: 82 },
         { name: 'Git', icon: 'logos:git-icon', level: 90 },
         { name: 'Linux', icon: 'logos:linux-tux', level: 80 },
-        { name: 'Nginx', icon: 'logos:nginx', level: 72 },
+        { name: 'Nginx', icon: 'logos:nginx', level: 83 },
       ],
     },
     {
       category: 'IoT & Hardware',
       items: [
-        { name: 'ESP32', icon: 'lucide:cpu', level: 78 },
+        { name: 'ESP32', icon: 'lucide:cpu', level: 85 },
         { name: 'MQTT', icon: 'lucide:radio', level: 82 },
-        { name: 'Arduino', icon: 'lucide:microchip', level: 70 },
-        { name: 'Raspberry Pi', icon: 'lucide:server', level: 65 },
+        { name: 'Arduino', icon: 'lucide:microchip', level: 80 },
+        { name: 'Raspberry Pi', icon: 'lucide:server', level: 85 },
       ],
     },
   ],

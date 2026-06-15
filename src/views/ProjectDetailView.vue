@@ -133,9 +133,9 @@ const { containerRef } = usePageAnimation(
             class="flex-1 p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl flex flex-col justify-center"
           >
             <h2
-              class="text-xl sm:text-2xl md:text-3xl font-bold text-text-custom mb-4 sm:mb-6 font-archivo"
+              class="text-xl sm:text-2xl md:text-3xl font-bold text-text-custom pb-4 sm:mb-6 font-archivo"
             >
-              Tentang Project
+              About Project
             </h2>
             <p class="text-secondary-custom text-sm sm:text-base md:text-lg leading-relaxed">
               {{ project.fullDescription }}

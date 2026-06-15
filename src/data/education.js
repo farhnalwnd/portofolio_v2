@@ -36,7 +36,6 @@ export const timeline = [
     highlights: [
       'Developed Financial Management System with Laravel & Alpine.js',
       'Built Sales Portfolio CMS using TALL Stack & Tailwind CSS',
-      'Automated stock monitoring via Laravel Jobs & Mail',
       'Implemented Warehouse Requisition with multi-level approval',
     ],
     location: 'Bekasi, Indonesia',
@@ -56,18 +55,17 @@ export const timeline = [
     location: 'Cikarang, Indonesia',
   },
   {
-    type: 'career',
-    title: 'Backend Developer Intern',
-    institution: 'GaoTech Inc. (Tech Startup Indonesia)',
-    period: '2022 - 2023',
-    summary:
-      'Contributed to backend development and infrastructure in a fast-paced startup environment.',
-    highlights: [
-      'Developed RESTful APIs using Go & PostgreSQL',
-      'Implemented microservices architecture patterns',
-      'Contributed to CI/CD pipeline improvements',
+    "type": "career",
+    "title": "Web Developer Intern",
+    "institution": "GaoTech Inc.",
+    "period": "Aug 2024 - Oct 2024",
+    "summary": "Built an e-commerce platform based on WordPress.",
+    "highlights": [
+      "Built and developed e-commerce platforms utilizing WordPress",
+      "Performed advanced feature, theme, and functionality customizations according to business requests",
+      "Utilized and configured various optimization plugins to enhance website performance, speed, and security"
     ],
-    location: 'Jakarta, Indonesia',
+    "location": "Jakarta, Indonesia"
   },
   {
     type: 'education',
@@ -78,7 +76,7 @@ export const timeline = [
       'Graduated with GPA 3.60/4.00 and 75% Academic Scholarship. Thesis: IoT & AI-based waste sorting system.',
     highlights: [
       'Designed Sortify — IoT waste bin with real-time classification',
-      'Integrated smart sensors with ML models for waste sorting',
+      "Actively participated in campus events and competitions",
       'Achieved 75% Academic Scholarship throughout studies',
     ],
     location: 'Cikarang, Indonesia',
@@ -87,7 +85,7 @@ export const timeline = [
     type: 'education',
     title: 'Madrasah Aliyah — Science Major',
     institution: 'MAS Diniyyah Pasia',
-    period: '2019 - 2022',
+    period: 'Jul 2019 - May 2022',
     summary:
       'Focused on mathematics, physics, and computer science with active student leadership.',
     highlights: [
