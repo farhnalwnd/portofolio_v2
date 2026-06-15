@@ -10,10 +10,10 @@ const routes = [
     meta: { title: 'Farhan Alwanda - Full-Stack Developer & AI Engineer' },
   },
   {
-    path: '/education',
-    name: 'education',
+    path: '/timeline',
+    name: 'timeline',
     component: () => import('../views/EducationView.vue'),
-    meta: { title: 'Pendidikan & Karier | Farhan Alwanda' },
+    meta: { title: 'Education & Career Timeline | Farhan Alwanda' },
   },
   {
     path: '/projects',
@@ -28,8 +28,8 @@ const routes = [
     meta: { title: 'Project Detail | Farhan Alwanda' },
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/skills',
+    name: 'skills',
     component: () => import('../views/AboutView.vue'),
     meta: { title: 'Skills & Expertise | Farhan Alwanda' },
   },

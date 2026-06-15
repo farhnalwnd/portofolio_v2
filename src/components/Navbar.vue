@@ -14,9 +14,9 @@ const isScrolled = ref(false)
 
 const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'Education', path: '/education' },
+  { name: 'Timeline', path: '/timeline' },
   { name: 'Projects', path: '/projects' },
-  { name: 'About', path: '/about' },
+  { name: 'Skills', path: '/skills' },
   { name: 'Contact', path: '/contact' },
 ]
 

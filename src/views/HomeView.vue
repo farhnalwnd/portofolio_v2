@@ -224,24 +224,30 @@ const { containerRef } = usePageAnimation(
     >
       <div class="max-w-4xl mx-auto px-6 text-center">
         <h2 class="font-archivo text-3xl md:text-5xl font-bold mb-6 text-text-custom">
-          Explore My Journey
+          Ready to See What I've Built?
         </h2>
         <p class="text-secondary-custom text-lg md:text-xl py-8 max-w-2xl mx-auto font-medium">
-          Explore my journey, projects, and skills by navigating through the links above or clicking
-          below.
+          Specialized in full-stack development and AI engineering. Check out my featured work or
+          dive into my technical background.
         </p>
         <div class="flex flex-wrap justify-center gap-4">
           <router-link
             to="/projects"
             class="px-6 py-3 bg-accent-custom text-white font-medium rounded-xl hover:bg-accent-hover-custom transition-all duration-300 shadow-lg shadow-accent-custom/25 hover:shadow-accent-custom/40 hover:scale-[1.02]"
           >
-            View Projects
+            View Featured Projects
           </router-link>
           <router-link
-            to="/about"
+            to="/timeline"
             class="px-6 py-3 border border-accent-custom/20 text-accent-custom font-medium rounded-xl hover:bg-accent-custom/5 transition-all duration-300"
           >
-            About Me
+            My Timeline
+          </router-link>
+          <router-link
+            to="/skills"
+            class="px-6 py-3 border border-accent-custom/20 text-accent-custom font-medium rounded-xl hover:bg-accent-custom/5 transition-all duration-300"
+          >
+            Technical Skills
           </router-link>
         </div>
       </div>

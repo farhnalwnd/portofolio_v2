@@ -69,8 +69,8 @@ portofolio-v2/
 │   │   └── counter.js        # Scaffold store (placeholder, belum dipakai)
 │   ├── views/
 │   │   ├── HomeView.vue          # Landing page — route: /
-│   │   ├── AboutView.vue         # Tentang saya — route: /about
-│   │   ├── EducationView.vue     # Riwayat pendidikan — route: /education
+│   │   ├── AboutView.vue         # Skills & Expertise — route: /skills
+│   │   ├── EducationView.vue     # Riwayat pendidikan & karier — route: /timeline
 │   │   ├── ProjectsView.vue      # Daftar project — route: /projects
 │   │   ├── ProjectDetailView.vue # Detail project — route: /projects/:slug
 │   │   ├── ContactView.vue       # Kontak — route: /contact
@@ -94,10 +94,10 @@ portofolio-v2/
 | Path | Name | View | Load |
 |---|---|---|---|
 | `/` | `home` | `HomeView.vue` | Eager |
-| `/education` | `education` | `EducationView.vue` | Lazy |
+| `/timeline` | `timeline` | `EducationView.vue` | Lazy |
 | `/projects` | `projects` | `ProjectsView.vue` | Lazy |
 | `/projects/:slug` | `project-detail` | `ProjectDetailView.vue` | Lazy |
-| `/about` | `about` | `AboutView.vue` | Lazy |
+| `/skills` | `skills` | `AboutView.vue` | Lazy |
 | `/contact` | `contact` | `ContactView.vue` | Lazy |
 | `/test` | `test` | `TestView.vue` | Lazy |
 

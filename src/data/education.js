@@ -55,17 +55,17 @@ export const timeline = [
     location: 'Cikarang, Indonesia',
   },
   {
-    "type": "career",
-    "title": "Web Developer Intern",
-    "institution": "GaoTech Inc.",
-    "period": "Aug 2024 - Oct 2024",
-    "summary": "Built an e-commerce platform based on WordPress.",
-    "highlights": [
-      "Built and developed e-commerce platforms utilizing WordPress",
-      "Performed advanced feature, theme, and functionality customizations according to business requests",
-      "Utilized and configured various optimization plugins to enhance website performance, speed, and security"
+    type: 'career',
+    title: 'Web Developer Intern',
+    institution: 'GaoTech Inc.',
+    period: 'Aug 2024 - Oct 2024',
+    summary: 'Built an e-commerce platform based on WordPress.',
+    highlights: [
+      'Built and developed e-commerce platforms utilizing WordPress',
+      'Performed advanced feature, theme, and functionality customizations according to business requests',
+      'Utilized and configured various optimization plugins to enhance website performance, speed, and security',
     ],
-    "location": "Jakarta, Indonesia"
+    location: 'Jakarta, Indonesia',
   },
   {
     type: 'education',
@@ -76,7 +76,7 @@ export const timeline = [
       'Graduated with GPA 3.60/4.00 and 75% Academic Scholarship. Thesis: IoT & AI-based waste sorting system.',
     highlights: [
       'Designed Sortify — IoT waste bin with real-time classification',
-      "Actively participated in campus events and competitions",
+      'Actively participated in campus events and competitions',
       'Achieved 75% Academic Scholarship throughout studies',
     ],
     location: 'Cikarang, Indonesia',
