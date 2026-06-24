@@ -82,8 +82,8 @@ const { containerRef } = usePageAnimation(
         <span>Back</span>
       </button>
 
-      <div class="project-hero pt-4 pb-8 md:pb-20 md:pt-14 text-center flex flex-col items-center">
-        <div class="flex flex-wrap items-center justify-center gap-3 mb-6">
+      <div class="project-hero py-7 md:pb-20 md:pt-14 text-center flex flex-col items-center">
+        <div class="flex flex-wrap items-center justify-center gap-3 pb-5">
           <span
             class="inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-wider bg-accent-custom/10 text-accent-custom border border-accent-custom/20 rounded-full"
           >
