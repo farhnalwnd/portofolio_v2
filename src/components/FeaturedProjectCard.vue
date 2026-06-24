@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import { Icon } from '@iconify/vue'
+import IconImage from '~icons/lucide/image'
+import IconStar from '~icons/lucide/star'
+import IconArrowRight from '~icons/lucide/arrow-right'
 import { useAppBreakpoints } from '../composables/useBreakpoints.js'
 
 defineProps({
@@ -32,7 +34,7 @@ const imageError = ref(false)
         v-else
         class="absolute inset-0 bg-linear-to-br from-accent-custom/30 via-purple-500/20 to-accent-custom/10 flex items-center justify-center text-secondary-custom"
       >
-        <Icon icon="lucide:image" class="text-9xl opacity-20" />
+        <IconImage class="text-9xl opacity-20" />
       </div>
     </div>
 
@@ -50,7 +52,7 @@ const imageError = ref(false)
         <span
           class="inline-flex items-center gap-1 px-2.5 py-1 md:px-3 md:py-1.5 text-[10px] sm:text-xs font-semibold bg-purple-500 text-white border border-purple-400/50 rounded-full shadow-lg"
         >
-          <Icon icon="lucide:star" class="text-xs sm:text-sm" />
+          <IconStar class="text-xs sm:text-sm" />
           Featured
         </span>
         <span class="text-white/70 text-xs sm:text-sm font-medium">{{ project.year }}</span>
@@ -96,8 +98,7 @@ const imageError = ref(false)
 
       <div class="flex items-center gap-2 text-white group-hover:gap-3 transition-all">
         <span class="text-xs sm:text-sm md:text-base font-semibold">View Project</span>
-        <Icon
-          icon="lucide:arrow-right"
+        <IconArrowRight
           class="text-sm sm:text-lg md:text-xl transition-transform group-hover:translate-x-1"
         />
       </div>

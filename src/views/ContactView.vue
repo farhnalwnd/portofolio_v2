@@ -1,6 +1,8 @@
 <script setup>
 import gsap from 'gsap'
-import { Icon } from '@iconify/vue'
+import Icon from '../components/icons/Icon.vue'
+import IconUser from '~icons/lucide/user'
+import IconMapPin from '~icons/lucide/map-pin'
 import { personalInfo, contactChannels } from '../data/personal.js'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
 import { useResponsiveTheme } from '../composables/useResponsiveTheme.js'
@@ -86,7 +88,7 @@ const { containerRef } = usePageAnimation(() => {
                 <div
                   class="w-full h-full rounded-2xl bg-white dark:bg-zinc-900 flex items-center justify-center"
                 >
-                  <Icon icon="lucide:user" class="text-5xl text-accent-custom" />
+                  <IconUser class="text-5xl text-accent-custom" />
                 </div>
               </div>
 
@@ -109,7 +111,7 @@ const { containerRef } = usePageAnimation(() => {
               class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-black/5 dark:border-white/8 text-secondary-custom"
             >
               <div class="flex items-center gap-2">
-                <Icon icon="lucide:map-pin" class="text-lg text-accent-custom" />
+                <IconMapPin class="text-lg text-accent-custom" />
                 <span class="text-xs md:text-sm font-medium">Cikarang, Jawa Barat, Indonesia</span>
               </div>
 

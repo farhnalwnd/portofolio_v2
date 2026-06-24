@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
-import { Icon } from '@iconify/vue'
+import Icon from './icons/Icon.vue'
 import { useDark, useToggle } from '@vueuse/core'
 import { useAppBreakpoints } from '../composables/useBreakpoints.js'
 

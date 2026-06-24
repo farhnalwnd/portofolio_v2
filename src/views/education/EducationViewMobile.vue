@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from 'vue'
-import { Icon } from '@iconify/vue'
+import Icon from '../../components/icons/Icon.vue'
+import IconMapPin from '~icons/lucide/map-pin'
+import IconCalendar from '~icons/lucide/calendar'
+import IconCheckCircle2 from '~icons/lucide/check-circle-2'
+import IconChevronLeft from '~icons/lucide/chevron-left'
+import IconChevronRight from '~icons/lucide/chevron-right'
 import { timeline } from '../../data/education.js'
 
 const activeIndex = ref(0)
@@ -116,13 +121,13 @@ const handleTouchEnd = () => {
                 <p class="text-base text-accent-custom font-semibold">
                   {{ timeline[activeIndex].institution }}
                 </p>
-                <div class="flex items-center justify-between text-secondary-custom">
+                <div class="flex flex-col gap-2 mb-4">
                   <div class="flex items-center gap-2">
-                    <Icon icon="lucide:map-pin" class="text-base" />
+                    <IconMapPin class="text-base" />
                     <span class="text-xs">{{ timeline[activeIndex].location }}</span>
                   </div>
                   <div class="flex items-center gap-2">
-                    <Icon icon="lucide:calendar" class="text-base" />
+                    <IconCalendar class="text-base" />
                     <span class="text-xs">{{ timeline[activeIndex].period }}</span>
                   </div>
                 </div>
@@ -138,7 +143,7 @@ const handleTouchEnd = () => {
                   class="flex items-start gap-2.5 text-xs py-1 text-secondary-custom"
                 >
                   <div class="shrink-0 md:pt-1 lg:pt-1.5">
-                    <Icon icon="lucide:check-circle-2" class="text-accent-custom text-sm" />
+                    <IconCheckCircle2 class="text-accent-custom text-sm" />
                   </div>
                   <span class="leading-relaxed">{{ point }}</span>
                 </li>
@@ -171,7 +176,7 @@ const handleTouchEnd = () => {
           class="p-2.5 rounded-full bg-white/50 dark:bg-white/10 border border-black/5 dark:border-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:bg-accent-custom/10 hover:border-accent-custom/30 active:scale-95"
           @click="prevSlide"
         >
-          <Icon icon="lucide:chevron-left" class="text-xl text-text-custom" />
+          <IconChevronLeft class="text-xl text-text-custom" />
         </button>
 
         <div class="flex gap-2">
@@ -193,7 +198,7 @@ const handleTouchEnd = () => {
           class="p-2.5 rounded-full bg-white/50 dark:bg-white/10 border border-black/5 dark:border-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:bg-accent-custom/10 hover:border-accent-custom/30 active:scale-95"
           @click="nextSlide"
         >
-          <Icon icon="lucide:chevron-right" class="text-xl text-text-custom" />
+          <IconChevronRight class="text-xl text-text-custom" />
         </button>
       </div>
     </div>

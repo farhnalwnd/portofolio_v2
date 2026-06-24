@@ -1,5 +1,5 @@
 <script setup>
-import { Icon } from '@iconify/vue'
+import Icon from '../icons/Icon.vue'
 import { onMounted, onUnmounted, nextTick } from 'vue'
 import { gsap } from 'gsap'
 import { Draggable } from 'gsap/Draggable'

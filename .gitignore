@@ -15,7 +15,8 @@ coverage
 *.local
 
 # Editor directories and files
-.vscode/*
+.vscode/
+.opencode/
 skills-lock.json
 .agents/
 .agent/

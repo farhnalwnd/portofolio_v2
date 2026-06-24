@@ -32,7 +32,7 @@ export const techIcons = {
   AWS: 'logos:aws',
   Firebase: 'logos:firebase',
   Supabase: 'logos:supabase-icon',
-  Arduino: 'mdi:microchip',
+  Arduino: 'mdi:chip',
   'Raspberry Pi': 'mdi:raspberry-pi',
 }
 

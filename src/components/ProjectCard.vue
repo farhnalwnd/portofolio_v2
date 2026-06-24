@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import { Icon } from '@iconify/vue'
+import IconImage from '~icons/lucide/image'
+import IconStar from '~icons/lucide/star'
 
 defineProps({
   project: {
@@ -30,7 +31,7 @@ const imageError = ref(false)
         v-else
         class="w-full h-full flex items-center justify-center bg-linear-to-br from-accent-custom/20 via-purple-500/10 to-accent-custom/5 text-secondary-custom transition-transform duration-500 group-hover:scale-110"
       >
-        <Icon icon="lucide:image" class="text-6xl opacity-30" />
+        <IconImage class="text-6xl opacity-30" />
       </div>
     </div>
 
@@ -45,7 +46,7 @@ const imageError = ref(false)
           v-if="project.featured"
           class="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-full"
         >
-          <Icon icon="lucide:star" class="text-sm" />
+          <IconStar class="text-sm" />
         </span>
       </div>
 

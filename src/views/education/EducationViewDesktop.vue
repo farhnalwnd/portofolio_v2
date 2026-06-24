@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 import gsap from 'gsap'
-import { Icon } from '@iconify/vue'
+import Icon from '../../components/icons/Icon.vue'
+import IconMapPin from '~icons/lucide/map-pin'
+import IconCalendar from '~icons/lucide/calendar'
+import IconCheckCircle2 from '~icons/lucide/check-circle-2'
 import { timeline } from '../../data/education.js'
 import { useGsapStore } from '../../stores/gsap'
 import { usePageAnimation } from '../../composables/usePageAnimation.js'
@@ -194,11 +197,11 @@ const { containerRef: pinContainerRef } = usePageAnimation(
               </p>
               <div class="flex items-center justify-between text-secondary-custom">
                 <div class="flex items-center gap-2">
-                  <Icon icon="lucide:map-pin" class="text-lg" />
+                  <IconMapPin class="text-lg" />
                   <span class="text-base">{{ item.location }}</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <Icon icon="lucide:calendar" class="text-lg" />
+                  <IconCalendar class="text-lg" />
                   <span class="text-base">{{ item.period }}</span>
                 </div>
               </div>
@@ -214,7 +217,7 @@ const { containerRef: pinContainerRef } = usePageAnimation(
                 class="flex items-start gap-2.5 text-base text-secondary-custom"
               >
                 <div class="shrink-0 md:pt-1 lg:pt-1.5">
-                  <Icon icon="lucide:check-circle-2" class="text-accent-custom text-sm" />
+                  <IconCheckCircle2 class="text-accent-custom text-sm" />
                 </div>
                 <span class="leading-relaxed">{{ point }}</span>
               </li>

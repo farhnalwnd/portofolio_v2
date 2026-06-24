@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
-import { Icon } from '@iconify/vue'
+import IconStar from '~icons/lucide/star'
+import IconLayoutGrid from '~icons/lucide/layout-grid'
 import gsap from 'gsap'
 import FeaturedProjectCard from '../components/FeaturedProjectCard.vue'
 import ProjectCard from '../components/ProjectCard.vue'
@@ -101,7 +102,7 @@ const { containerRef } = usePageAnimation(() => {
         <h2
           class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-text-custom font-archivo flex items-center gap-3 tracking-tight"
         >
-          <Icon icon="lucide:star" class="text-purple-500 text-2xl sm:text-3xl md:text-4xl" />
+          <IconStar class="text-purple-500 text-2xl sm:text-3xl md:text-4xl" />
           Featured Projects
         </h2>
       </div>
@@ -128,10 +129,7 @@ const { containerRef } = usePageAnimation(() => {
         <h2
           class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-text-custom font-archivo flex items-center gap-3 tracking-tight"
         >
-          <Icon
-            icon="lucide:layout-grid"
-            class="text-accent-custom text-2xl sm:text-3xl md:text-4xl"
-          />
+          <IconLayoutGrid class="text-accent-custom text-2xl sm:text-3xl md:text-4xl" />
           Other Projects
         </h2>
       </div>

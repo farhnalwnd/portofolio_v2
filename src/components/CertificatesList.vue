@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from 'vue'
-import { Icon } from '@iconify/vue'
+import Icon from './icons/Icon.vue'
+import IconEye from '~icons/lucide/eye'
+import IconCalendar from '~icons/lucide/calendar'
+import IconDownload from '~icons/lucide/download'
+import IconExternalLink from '~icons/lucide/external-link'
+import IconX from '~icons/lucide/x'
 import { getColorClasses } from '../data/colorMap.js'
 
 defineProps({
@@ -121,8 +126,7 @@ const getGridClasses = (index) => {
                   :icon="cert.issuerLogo || 'lucide:award'"
                   :class="['text-xl', getColorClasses(cert.color).text]"
                 />
-                <Icon
-                  icon="lucide:eye"
+                <IconEye
                   class="text-lg text-secondary-custom group-hover:text-text-custom transition-colors"
                 />
               </div>
@@ -154,7 +158,7 @@ const getGridClasses = (index) => {
             </div>
 
             <div class="flex items-center gap-1">
-              <Icon icon="lucide:calendar" class="text-xs text-purple-400" />
+              <IconCalendar class="text-xs text-purple-400" />
               <span>{{ cert.month }} {{ cert.year }}</span>
             </div>
           </div>
@@ -206,7 +210,7 @@ const getGridClasses = (index) => {
                 @click="closePreview"
                 class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 text-secondary-custom hover:text-text-custom transition-all"
               >
-                <Icon icon="lucide:x" class="text-xl" />
+                <IconX class="text-xl" />
               </button>
             </div>
 
@@ -261,7 +265,7 @@ const getGridClasses = (index) => {
                   download
                   class="flex items-center justify-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white bg-accent-custom hover:bg-accent-custom/90 rounded-full transition-all duration-300 shadow-lg shadow-accent-custom/10 hover:scale-[1.02]"
                 >
-                  <Icon icon="lucide:download" class="text-sm" />
+                  <IconDownload class="text-sm" />
                   Download
                 </a>
                 <a
@@ -271,7 +275,7 @@ const getGridClasses = (index) => {
                   rel="noopener noreferrer"
                   class="flex items-center justify-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider text-secondary-custom hover:text-text-custom bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/10 rounded-full transition-all duration-300 hover:scale-[1.02]"
                 >
-                  <Icon icon="lucide:external-link" class="text-sm" />
+                  <IconExternalLink class="text-sm" />
                   Verify Link
                 </a>
               </div>

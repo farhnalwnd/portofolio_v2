@@ -1,5 +1,5 @@
 <script setup>
-import { Icon } from '@iconify/vue'
+import Icon from '../icons/Icon.vue'
 
 defineProps({
   skills: {

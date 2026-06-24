@@ -2,7 +2,12 @@
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import gsap from 'gsap'
-import { Icon } from '@iconify/vue'
+import Icon from '../components/icons/Icon.vue'
+import IconArrowLeft from '~icons/lucide/arrow-left'
+import IconStar from '~icons/lucide/star'
+import IconImage from '~icons/lucide/image'
+import IconGithub from '~icons/lucide/github'
+import IconExternalLink from '~icons/lucide/external-link'
 import { projects } from '../data/projects.js'
 import { useGsapStore } from '../stores/gsap'
 import { getTechIcon, getTechColor } from '../data/techIcons.js'
@@ -73,10 +78,7 @@ const { containerRef } = usePageAnimation(
         @click="router.push('/projects')"
         class="back-button inline-flex items-center gap-2 px-5 py-2.5 mb-8 sm:mb-16 text-text-custom bg-white/70 dark:bg-white/5 border border-black/8 dark:border-white/10 rounded-full hover:bg-accent-custom hover:text-white dark:hover:bg-accent-custom dark:hover:text-white hover:border-accent-custom dark:hover:border-accent-custom transition-all duration-300 ease-out group font-medium shadow-lg dark:shadow-2xl cursor-pointer"
       >
-        <Icon
-          icon="lucide:arrow-left"
-          class="text-xl transition-transform group-hover:-translate-x-1"
-        />
+        <IconArrowLeft class="text-xl transition-transform group-hover:-translate-x-1" />
         <span>Kembali ke Projects</span>
       </button>
 
@@ -91,7 +93,7 @@ const { containerRef } = usePageAnimation(
             v-if="project.featured"
             class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-full"
           >
-            <Icon icon="lucide:star" class="text-sm" />
+            <IconStar class="text-sm" />
             Featured
           </span>
           <span class="text-secondary-custom text-sm">{{ project.year }}</span>
@@ -126,7 +128,7 @@ const { containerRef } = usePageAnimation(
               v-else
               class="w-full h-full flex items-center justify-center bg-linear-to-br from-accent-custom/20 via-purple-500/10 to-accent-custom/5 text-secondary-custom"
             >
-              <Icon icon="lucide:image" class="text-7xl opacity-30" />
+              <IconImage class="text-7xl opacity-30" />
             </div>
           </div>
           <div
@@ -177,8 +179,7 @@ const { containerRef } = usePageAnimation(
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-950 border border-zinc-800 rounded-xl hover:bg-zinc-900 hover:border-accent-custom/50 hover:scale-[1.02] transition-all duration-300 shadow-lg group"
             >
-              <Icon
-                icon="lucide:github"
+              <IconGithub
                 class="text-xl text-white group-hover:text-accent-custom transition-colors"
               />
               <span
@@ -193,7 +194,7 @@ const { containerRef } = usePageAnimation(
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 px-6 py-3 bg-accent-custom hover:bg-accent-hover-custom text-white rounded-xl shadow-lg shadow-accent-custom/25 hover:shadow-accent-custom/40 transition-all duration-300 hover:scale-[1.02] font-semibold"
             >
-              <Icon icon="lucide:external-link" class="text-xl" />
+              <IconExternalLink class="text-xl" />
               <span class="text-sm">Demo</span>
             </a>
           </div>
