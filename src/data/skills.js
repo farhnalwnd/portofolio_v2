@@ -4,7 +4,7 @@ export const skills = {
       category: 'Frontend',
       items: [
         { name: 'Vue.js', icon: 'logos:vue', level: 60 },
-        { name: 'Tailwind CSS', icon: 'logos:tailwindcss', level: 90 },
+        { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon', level: 90 },
         { name: 'JavaScript', icon: 'logos:javascript', level: 92 },
         { name: 'Flutter', icon: 'logos:flutter', level: 50 },
       ],

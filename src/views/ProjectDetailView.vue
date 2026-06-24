@@ -76,10 +76,10 @@ const { containerRef } = usePageAnimation(
     <div class="max-w-full mx-auto">
       <button
         @click="router.push('/projects')"
-        class="back-button inline-flex items-center gap-2 px-5 py-2.5 mb-8 sm:mb-16 text-text-custom bg-white/70 dark:bg-white/5 border border-black/8 dark:border-white/10 rounded-full hover:bg-accent-custom hover:text-white dark:hover:bg-accent-custom dark:hover:text-white hover:border-accent-custom dark:hover:border-accent-custom transition-all duration-300 ease-out group font-medium shadow-lg dark:shadow-2xl cursor-pointer"
+        class="back-button inline-flex items-center gap-2 px-5 py-2.5 mb-16 sm:mb-24 text-text-custom bg-white/70 dark:bg-white/5 border border-black/8 dark:border-white/10 rounded-full hover:bg-accent-custom hover:text-white dark:hover:bg-accent-custom dark:hover:text-white hover:border-accent-custom dark:hover:border-accent-custom transition-all duration-300 ease-out group font-medium shadow-lg dark:shadow-2xl cursor-pointer"
       >
         <IconArrowLeft class="text-xl transition-transform group-hover:-translate-x-1" />
-        <span>Kembali ke Projects</span>
+        <span>Back</span>
       </button>
 
       <div class="project-hero pt-4 pb-8 md:pb-20 md:pt-14 text-center flex flex-col items-center">
@@ -113,7 +113,7 @@ const { containerRef } = usePageAnimation(
       </div>
 
       <div class="project-section pb-10 md:pb-16">
-        <div class="flex flex-col lg:flex-row gap-8 items-stretch px-4">
+        <div class="flex flex-col lg:flex-row gap-8 items-stretch">
           <div
             class="w-full lg:w-1/2 rounded-2xl bg-white/70 dark:bg-white/5 border border-black/8 dark:border-white/10 overflow-hidden relative aspect-video flex items-center justify-center min-h-55 shadow-lg dark:shadow-2xl"
           >
@@ -148,7 +148,7 @@ const { containerRef } = usePageAnimation(
 
       <div class="project-section mb-16 md:mb-24">
         <div
-          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-4 sm:p-6 md:p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl"
+          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-6 sm:p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/8 dark:border-white/10 shadow-lg dark:shadow-2xl"
         >
           <!-- Tech Stack on the left -->
           <div class="flex flex-wrap gap-2 md:gap-3">

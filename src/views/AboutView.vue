@@ -83,8 +83,8 @@ const { containerRef } = usePageAnimation(() => {
     ></div>
 
     <div class="w-full relative z-10">
-      <div class="page-hero text-center mb-20">
-        <h1 :class="['font-bold text-text-custom mb-6 font-archivo', text.sectionTitle]">
+      <div class="page-hero text-center pb-12">
+        <h1 :class="['font-bold text-text-custom font-archivo', text.sectionTitle]">
           Skills & Expertise
         </h1>
       </div>

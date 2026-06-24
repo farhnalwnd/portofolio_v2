@@ -68,12 +68,12 @@ const handleTouchEnd = () => {
     >
       <div class="relative flex-1 w-full flex items-center justify-center px-4">
         <Transition
-          enter-active-class="transition-all duration-300 ease-out"
-          enter-from-class="opacity-0 scale-95 translate-x-8"
-          enter-to-class="opacity-100 scale-100 translate-x-0"
-          leave-active-class="transition-all duration-200 ease-in"
-          leave-from-class="opacity-100 scale-100 translate-x-0"
-          leave-to-class="opacity-0 scale-95 -translate-x-8"
+          enter-active-class="transition-all duration-400 ease-out"
+          enter-from-class="opacity-0 scale-95"
+          enter-to-class="opacity-100 scale-100"
+          leave-active-class="transition-all duration-250 ease-in"
+          leave-from-class="opacity-100 scale-100"
+          leave-to-class="opacity-0 scale-95"
           mode="out-in"
         >
           <div

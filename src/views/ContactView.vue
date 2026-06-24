@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import gsap from 'gsap'
 import Icon from '../components/icons/Icon.vue'
 import IconUser from '~icons/lucide/user'
@@ -6,6 +7,8 @@ import IconMapPin from '~icons/lucide/map-pin'
 import { personalInfo, contactChannels } from '../data/personal.js'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
 import { useResponsiveTheme } from '../composables/useResponsiveTheme.js'
+
+const imageError = ref(false)
 
 const { text, spacing } = useResponsiveTheme()
 
@@ -86,9 +89,16 @@ const { containerRef } = usePageAnimation(() => {
                 class="w-28 h-28 rounded-2xl bg-linear-to-br from-accent-custom to-purple-500 p-0.5 shadow-xl shadow-accent-custom/10 shrink-0 flex items-center justify-center relative overflow-hidden"
               >
                 <div
-                  class="w-full h-full rounded-2xl bg-white dark:bg-zinc-900 flex items-center justify-center"
+                  class="w-full h-full rounded-2xl bg-white dark:bg-zinc-900 flex items-center justify-center overflow-hidden"
                 >
-                  <IconUser class="text-5xl text-accent-custom" />
+                  <img
+                    v-if="!imageError"
+                    src="/profile/header.webp"
+                    alt="Profile Header"
+                    class="w-full h-full object-cover"
+                    @error="imageError = true"
+                  />
+                  <IconUser v-else class="text-5xl text-accent-custom" />
                 </div>
               </div>
 
