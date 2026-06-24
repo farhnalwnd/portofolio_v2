@@ -10,9 +10,8 @@ export const certificates = [
     color: 'accent',
     size: 'large',
     credential: 'https://www.dicoding.com/certificates/EYX4Q5RN5PDL',
+    file: '/sertif/membuat_system_ml.pdf',
     skills: ['MLOps', 'MLflow', 'Docker', 'GitHub', 'Machine Learning Pipeline'],
-    description:
-      'Menguasai keahlian implementasi MLOps untuk membangun sistem machine learning yang andal. Memproses data berkualitas, mengelola version control dan metadata, serta membangun pipelines otomatisasi re-training, serving, dan monitoring model production.',
   },
   {
     id: 2,
@@ -25,9 +24,8 @@ export const certificates = [
     color: 'purple',
     size: 'large',
     credential: 'https://www.dicoding.com/certificates/6RPN77R9RX2M',
+    file: '/sertif/dasar_deep_learning.pdf',
     skills: ['TensorFlow', 'Keras', 'Computer Vision', 'NLP', 'Time Series', 'Generative AI'],
-    description:
-      'Mempelajari arsitektur neural network kompleks untuk representasi data mendalam sesuai standar industri. Mampu membangun proyek deep learning untuk klasifikasi gambar, pemrosesan teks (NLP), analisis deret waktu (LSTM/RNN), sistem rekomendasi, dan generative AI.',
   },
   {
     id: 3,
@@ -40,14 +38,13 @@ export const certificates = [
     color: 'emerald',
     size: 'medium',
     credential: 'https://www.dicoding.com/certificates/07Z67WK1JPQR',
+    file: '/sertif/machine-learning-pemula.pdf',
     skills: [
       'Supervised Learning',
       'Unsupervised Learning',
       'Feature Engineering',
       'Hyperparameter Tuning',
     ],
-    description:
-      'Mengembangkan proyek machine learning pada data tabular berdasarkan standar industri. Mempelajari workflow data, teknik klasifikasi (KNN, Decision Tree), regresi linear, clustering (K-Means), penanganan over/underfitting, serta optimasi akurasi model.',
   },
   {
     id: 4,
@@ -60,6 +57,7 @@ export const certificates = [
     color: 'orange',
     size: 'medium',
     credential: 'https://www.dicoding.com/certificates/07Z67R3Y2PQR',
+    file: '/sertif/memulai-pemograman-dengan-python.pdf',
     skills: [
       'Python',
       'Control Flow',
@@ -67,8 +65,6 @@ export const certificates = [
       'Unit Testing',
       'PEP8 Style Guide',
     ],
-    description:
-      'Memahami dasar sintaksis dan pemrograman berorientasi objek (OOP) menggunakan Python. Menguasai manipulasi struktur data (array, matriks), kontrol alur, unit testing otomatis, ekspresi sekuensial, serta pemanfaatan berbagai ekosistem library populer.',
   },
   {
     id: 5,
@@ -81,14 +77,13 @@ export const certificates = [
     color: 'emerald',
     size: 'medium',
     credential: 'https://www.dicoding.com/certificates/EYX4KL7E5PDL',
+    file: '/sertif/dasar-ai.pdf',
     skills: [
       'Artificial Intelligence',
       'Data for AI',
       'Machine Learning Introduction',
       'Deep Learning Basics',
     ],
-    description:
-      'Kelas kompetensi dasar untuk menelaah berbagai konsep fundamental dalam dunia Artificial Intelligence (AI), pemanfaatan data, serta pengenalan awal arsitektur Machine Learning dan Deep Learning beserta penerapannya.',
   },
   {
     id: 6,
@@ -101,9 +96,8 @@ export const certificates = [
     color: 'orange',
     size: 'small',
     credential: 'https://www.dicoding.com/certificates/RVZKGNONQXD5',
+    file: '/sertif/github.pdf',
     skills: ['Git', 'GitHub', 'Branching & Merging', 'Code Review', 'Team Collaboration'],
-    description:
-      'Menguasai pengelolaan kode sumber aplikasi menggunakan Git dengan repositori GitHub berstandar industri. Mempelajari version control dasar, manajemen konflik (merge conflict), branching, forking, pull request, hingga optimasi portofolio developer.',
   },
   {
     id: 7,
@@ -116,9 +110,8 @@ export const certificates = [
     color: 'purple',
     size: 'small',
     credential: 'https://www.dicoding.com/certificates/JMZVVK993ZN9',
+    file: '/sertif/logic-pemograman.pdf',
     skills: ['Programming Logic', 'Algorithms', 'Computational Thinking', 'Logic Gates'],
-    description:
-      'Pondasi penalaran komputasional bagi software developer dalam memecahkan masalah kompleks. Mempelajari struktur logika dasar, pemetaan gerbang logika (AND, OR, NOT, dsb), dekomposisi masalah, pengenalan pola, abstraksi, dan penulisan algoritma.',
   },
   {
     id: 8,
@@ -131,9 +124,8 @@ export const certificates = [
     color: 'accent',
     size: 'medium',
     credential: 'https://www.dicoding.com/certificates/1RXYQ8KMKZVM',
+    file: '/sertif/Memulai-Dasar-Pemrograman-untuk-Menjadi-Pengembang-Software.pdf',
     skills: ['HTML5', 'CSS3', 'JavaScript (ES6)', 'Flowchart Diagram', 'Technical Documentation'],
-    description:
-      'Pelatihan kompetensi berbasis standar okupasi pengembang software (KBJI & Indotask). Mampu menganalisis kebutuhan teknis pengguna, memodelkan flowchart, melakukan modifikasi front-end aplikasi dasar, serta menyusun dokumentasi teknis yang terstandar.',
   },
   {
     id: 9,
@@ -145,10 +137,9 @@ export const certificates = [
     type: 'AI',
     color: 'emerald',
     size: 'small',
-    credential: 'public/sertif/intro-ai.jpg',
+    credential: 'https://skillsbuild.org',
+    file: '/sertif/intro-ai.jpg',
     skills: ['Artificial Intelligence', 'Machine Learning Foundations', 'Neural Networks'],
-    description:
-      'Mempelajari landasan mendasar kecerdasan buatan, perkembangan algoritma pembelajaran mesin, konsep dasar jaringan saraf tiruan, serta penerapannya dalam memecahkan masalah industri nyata.',
   },
   {
     id: 10,
@@ -160,10 +151,9 @@ export const certificates = [
     type: 'AI',
     color: 'purple',
     size: 'small',
-    credential: 'public/sertif/ai-ethic.jpg',
+    credential: 'https://skillsbuild.org',
+    file: '/sertif/ai-ethic.jpg',
     skills: ['AI Ethics', 'Responsible AI', 'Trustworthy Systems'],
-    description:
-      'Memahami prinsip dasar etika dalam pengembangan kecerdasan buatan. Berfokus pada pilar keselamatan, keadilan, transparansi, akuntabilitas, pengamanan data privasi, dan rekayasa sistem AI yang bertanggung jawab.',
   },
   {
     id: 11,
@@ -175,9 +165,8 @@ export const certificates = [
     type: 'AI',
     color: 'accent',
     size: 'small',
-    credential: 'public/sertif/gen-ai.jpg',
+    credential: 'https://skillsbuild.org',
+    file: '/sertif/gen-ai.jpg',
     skills: ['Generative AI', 'Large Language Models', 'Multimodal AI'],
-    description:
-      'Mempelajari pondasi teknologi kecerdasan buatan generatif, cara kerja model bahasa besar (LLM), teknik prompt engineering dasar, serta pemanfaatan AI untuk pembangkitan konten kreatif teks, gambar, dan multimodal.',
   },
 ]

@@ -4,7 +4,7 @@ export const projects = [
     title: 'CV Matcher AI',
     description:
       'AI-powered recruitment tool for HR and job seekers utilizing semantic search and smart skill matching.',
-    thumbnail: '/image.png',
+    thumbnail: '/porto/porto-cv.webp',
     techStack: ['Python', 'FastAPI', 'Sentence-Transformers', 'PyTorch', 'Vue.js', 'Docker'],
     category: 'Artificial Intelligence',
     categoryShort: 'AI',
@@ -40,7 +40,7 @@ export const projects = [
     title: 'SSO Portal Management',
     description:
       'A centralized secure portal ecosystem with dynamic access permissions and centralized authentication.',
-    thumbnail: '/image.png',
+    thumbnail: '/porto/porto-portal.webp',
     techStack: ['Laravel', 'Filament', 'PHP', 'Tailwind CSS', 'laravel schantum', 'flutter'],
     category: 'Web Development',
     categoryShort: 'Web',
@@ -58,7 +58,7 @@ export const projects = [
     title: 'Internal Financial Management System',
     description:
       'An automated budget tracking and interdepartmental loan application built for enterprise financial workflows.',
-    thumbnail: '/image.png',
+    thumbnail: '/porto/porto-web.webp',
     techStack: ['Laravel', 'Alpine.js', 'AJAX', 'PHP', 'MySQL'],
     category: 'Web Development',
     categoryShort: 'Web',
@@ -76,7 +76,7 @@ export const projects = [
     title: 'Sales Portfolio CMS',
     description:
       'A modern, mobile-first custom CMS to digitize and expand corporate digital marketing reach.',
-    thumbnail: '/image.png',
+    thumbnail: '/porto/porto-mormade.webp',
     techStack: ['Laravel', 'Filament', 'Tailwind CSS', 'TALL Stack'],
     category: 'Web Development',
     categoryShort: 'Web',
@@ -112,7 +112,7 @@ export const projects = [
     title: 'Warehouse Requisition System',
     description:
       'An end-to-end goods requisition system with multi-level approval workflows and secure audit logging.',
-    thumbnail: '/image.png',
+    thumbnail: '/porto/porto-rs.webp',
     techStack: ['Laravel', 'PHP', 'PDF-Generator', 'MySQL'],
     category: 'Web Development',
     categoryShort: 'Web',
@@ -140,6 +140,24 @@ export const projects = [
       'Sortify was designed and implemented as an undergraduate thesis project at President University. The system integrates artificial intelligence with Internet of Things hardware to create an automatic waste bin capable of recognizing, classifying, and physically sorting different types of waste in real-time utilizing smart sensor data and machine learning models.',
     links: {
       github: 'https://github.com/farhan-alwanda/Sortify',
+      demo: null,
+    },
+  },
+  {
+    slug: 'e-voting-system',
+    title: 'E-Voting System',
+    description:
+      'A secure and transparent electronic voting system for seamless and real-time election management.',
+    thumbnail: '/porto/porto-vote.webp',
+    techStack: ['Laravel', 'MySQL', 'CSS'],
+    category: 'Web Development',
+    categoryShort: 'Web',
+    featured: false,
+    year: 2025,
+    fullDescription:
+      'A web-based e-voting platform built to ensure integrity, speed, and security in election administration. Built with Laravel and Vanilla CSS, it features real-time live-count result visualization, voter authentication to prevent duplicate submissions, and a comprehensive admin interface for election configurations.',
+    links: {
+      github: 'https://github.com/farhan-alwanda/e-voting-system',
       demo: null,
     },
   },
