@@ -5,12 +5,53 @@ import { useGsapStore } from '../stores/gsap'
 import { personalInfo } from '../data/personal.js'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
 import { useAppBreakpoints } from '../composables/useBreakpoints.js'
+import Icon from '../components/icons/Icon.vue'
 
 const { isMobile } = useAppBreakpoints()
 
 const gsapStore = useGsapStore()
 const heroRef = ref(null)
 let mm
+
+const desktopIcons = [
+  'logos:vue',
+  'logos:javascript',
+  'logos:tailwindcss-icon',
+  'logos:typescript-icon',
+  'logos:nodejs-icon',
+  'logos:python',
+  'logos:go',
+  'logos:laravel',
+  'logos:postgresql',
+  'logos:docker-icon',
+  'logos:git-icon',
+  'logos:linux-tux',
+  'logos:mysql',
+  'logos:redis',
+  'logos:mongodb',
+  'logos:nginx',
+  'lucide:cpu',
+  'lucide:radio',
+  'lucide:microchip',
+  'lucide:server',
+]
+
+const mobileIcons = [
+  'logos:vue',
+  'logos:javascript',
+  'logos:tailwindcss-icon',
+  'logos:nodejs-icon',
+  'logos:python',
+  'logos:go',
+  'logos:postgresql',
+  'logos:docker-icon',
+  'logos:laravel',
+  'logos:git-icon',
+  'logos:mysql',
+  'logos:linux-tux',
+]
+
+const floatingIcons = computed(() => (isMobile.value ? mobileIcons : desktopIcons))
 
 const firstName = computed(() => personalInfo.name.split(' ')[0])
 const lastName = computed(() => personalInfo.name.split(' ')[1])
@@ -37,12 +78,13 @@ const { containerRef } = usePageAnimation(
       gsap.set('.state-job', { opacity: 1, visibility: 'visible' })
       gsap.set('.final-name', { opacity: 1, scale: 1, visibility: 'visible' })
       gsap.set('.role-item', { opacity: 1, y: 0, visibility: 'visible' })
+      gsap.set('.floating-icon', { opacity: 0, visibility: 'hidden' })
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: heroRef.value,
           start: 'top top',
-          end: () => (isMobile.value ? '+=1600' : '+=3200'),
+          end: () => (isMobile.value ? '+=2400' : '+=4800'),
           pin: true,
           scrub: false,
           anticipatePin: 1,
@@ -63,11 +105,32 @@ const { containerRef } = usePageAnimation(
       gsap.set('.final-name', { opacity: 0, scale: 0.85, visibility: 'hidden' })
       gsap.set('.role-item', { opacity: 0, y: 30, visibility: 'hidden' })
 
+      floatingIcons.value.forEach((_, idx) => {
+        const total = floatingIcons.value.length
+        const goldenAngle = Math.PI * (3 - Math.sqrt(5))
+        const innerRadius = isMobile.value ? 28 : 32
+        const outerRadius = isMobile.value ? 44 : 50
+        const radiusRange = outerRadius - innerRadius
+
+        const t = (idx + 0.5) / total
+        const radius = innerRadius + Math.sqrt(t) * radiusRange
+        const angle = idx * goldenAngle
+
+        gsap.set(`.floating-icon-${idx}`, {
+          x: Math.cos(angle) * radius + 'vw',
+          y: Math.sin(angle) * radius + 'vh',
+          rotation: gsap.utils.random(-30, 30),
+          scale: 1.1,
+          opacity: 0.4,
+          visibility: 'visible',
+        })
+      })
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: heroRef.value,
           start: 'top top',
-          end: () => (isMobile.value ? '+=1600' : '+=3200'),
+          end: () => (isMobile.value ? '+=3300' : '+=6600'),
           pin: true,
           scrub: 1,
           anticipatePin: 1,
@@ -77,9 +140,93 @@ const { containerRef } = usePageAnimation(
       gsapStore.setActiveTimeline(tl)
 
       tl.to('.scroll-indicator', { opacity: 0, duration: 0.7 })
-        .to('.hero-firstname', { xPercent: -120, opacity: 0, duration: 1.2 })
-        .to('.hero-lastname', { xPercent: 120, opacity: 0, duration: 1.2 }, '<')
-        .to('.hero-greeting', { opacity: 0, y: -30, visibility: 'hidden', duration: 0.8 }, '-=1')
+        .addLabel('icons-gather')
+        .to(
+          '.floating-icon',
+          {
+            x: 0,
+            y: isMobile.value ? '35vh' : '38vh',
+            rotation: 0,
+            scale: 0.7,
+            opacity: 0.9,
+            duration: 2.0,
+            ease: 'power2.inOut',
+            stagger: {
+              each: 0.08,
+              from: 'random',
+            },
+          },
+          '+=0.2',
+        )
+        .to({}, { duration: 0.4 })
+        .addLabel('icons-shake')
+        .to('.floating-icon', {
+          x: '+=3',
+          y: '-=3',
+          rotation: 2,
+          duration: 0.15,
+          ease: 'power1.inOut',
+          stagger: {
+            each: 0.02,
+            yoyo: true,
+            repeat: 1,
+          },
+        })
+        .to('.floating-icon', {
+          x: '-=3',
+          y: '+=3',
+          rotation: -2,
+          duration: 0.15,
+          ease: 'power1.inOut',
+          stagger: {
+            each: 0.02,
+            yoyo: true,
+            repeat: 1,
+          },
+        })
+        .to('.floating-icon', {
+          x: 0,
+          y: isMobile.value ? '35vh' : '38vh',
+          rotation: 0,
+          duration: 0.15,
+          ease: 'power1.inOut',
+        })
+        .to({}, { duration: 0.6 })
+        .to('.hero-firstname', { xPercent: -120, opacity: 0, duration: 1.5 })
+        .to('.hero-lastname', { xPercent: 120, opacity: 0, duration: 1.5 }, '<')
+        .addLabel('icons-burst')
+        .to(
+          '.floating-icon',
+          {
+            x: (idx) => {
+              const angleRange = 240
+              const baseAngle = 150
+              const angle = baseAngle + ((idx * 137.508) % angleRange)
+              const distance = isMobile.value ? 200 : 280
+              const variance = 0.8 + (idx % 4) * 0.15
+              return Math.cos((angle * Math.PI) / 180) * distance * variance
+            },
+            y: (idx) => {
+              const angleRange = 240
+              const baseAngle = 150
+              const angle = baseAngle + ((idx * 137.508) % angleRange)
+              const distance = isMobile.value ? 200 : 280
+              const variance = 0.8 + (idx % 4) * 0.15
+              return Math.sin((angle * Math.PI) / 180) * distance * variance
+            },
+            opacity: 0,
+            scale: 1.3,
+            rotation: () => gsap.utils.random(-270, 270),
+            duration: 3.0,
+            ease: 'power3.out',
+            stagger: {
+              each: 0.04,
+              from: 'random',
+            },
+          },
+          '-=0.5',
+        )
+        .to('.hero-greeting', { opacity: 0, y: -30, visibility: 'hidden', duration: 0.8 }, '-=0.8')
         .to('.hero-role-text', { opacity: 0, y: -50, visibility: 'hidden', duration: 0.8 }, '-=0.6')
         .addLabel('education')
         .to('.state-education', { visibility: 'visible', opacity: 1, y: 0, duration: 0.8 })
@@ -133,6 +280,16 @@ const { containerRef } = usePageAnimation(
       <div
         class="absolute -z-10 w-[70vw] h-[70vw] max-w-180 max-h-180 bg-accent-custom/16 dark:bg-accent-custom/20 blur-[110px] rounded-full"
       ></div>
+
+      <div class="icon-container absolute top-2/4 pointer-events-none z-5">
+        <Icon
+          v-for="(iconName, idx) in floatingIcons"
+          :key="iconName"
+          :icon="iconName"
+          :class="`floating-icon floating-icon-${idx}`"
+          class="absolute w-12 h-12 md:w-16 md:h-16 opacity-0"
+        />
+      </div>
 
       <div class="relative w-full h-full flex items-center justify-center">
         <div class="state-name-role absolute inset-0 flex flex-col items-center justify-center">
@@ -266,5 +423,21 @@ const { containerRef } = usePageAnimation(
     0 0 20px rgba(0, 102, 255, 0.15),
     0 0 40px rgba(0, 102, 255, 0.1),
     0 0 80px rgba(0, 102, 255, 0.05);
+}
+
+.floating-icon {
+  filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.2));
+}
+
+.dark .floating-icon {
+  filter: drop-shadow(0 4px 16px rgba(59, 130, 246, 0.25));
+}
+
+.icon-container {
+  z-index: 5;
+}
+
+.state-name-role {
+  z-index: 10;
 }
 </style>
