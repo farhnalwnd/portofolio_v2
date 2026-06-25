@@ -3,7 +3,7 @@ export const skills = {
     {
       category: 'Frontend',
       items: [
-        { name: 'Vue.js', icon: 'logos:vue', level: 60 },
+        { name: 'Vue.js', icon: 'logos:vue', level: 70 },
         { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon', level: 90 },
         { name: 'JavaScript', icon: 'logos:javascript', level: 92 },
         { name: 'Flutter', icon: 'logos:flutter', level: 50 },
@@ -16,7 +16,7 @@ export const skills = {
         { name: 'Filament', icon: 'lucide:component', level: 85 },
         { name: 'Go', icon: 'logos:go', level: 75 },
         { name: 'Python', icon: 'logos:python', level: 82 },
-        { name: 'FastAPI', icon: 'lucide:zap', level: 80 },
+        { name: 'FastAPI', icon: 'lucide:zap', level: 70 },
       ],
     },
     {

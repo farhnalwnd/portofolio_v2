@@ -93,7 +93,7 @@ const { containerRef } = usePageAnimation(() => {
                 >
                   <img
                     v-if="!imageError"
-                    src="/profile/header.webp"
+                    src="/profile/profile.webp"
                     alt="Profile Header"
                     class="w-full h-full object-cover"
                     @error="imageError = true"

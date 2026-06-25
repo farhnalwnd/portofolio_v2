@@ -13,7 +13,7 @@ export const projects = [
     fullDescription:
       'CV Matcher AI is an intelligent recruitment platform designed to bridge the gap between HR professionals and job seekers. The system implements semantic search and deep skill matching by leveraging the "paraphrase-multilingual-MiniLM-L12-v2" model, which has been fine-tuned using a Bi-Encoder architecture. This allows the system to understand the contextual meaning of resumes and job descriptions beyond simple keyword matching, ranking candidates based on true technical capability and experience.',
     links: {
-      github: 'https://github.com/farhan-alwanda/cv-matcher-ai',
+      github: 'https://github.com/farhnalwnd/dicoding-capstone',
       demo: null,
     },
   },
@@ -31,7 +31,7 @@ export const projects = [
     fullDescription:
       'Catera is an end-to-end digital solution designed for corporate meal quota management. By combining ESP32 microcontrollers and RFID technology, the system enables automated employee verification at tap entry points. Node-RED handles smart data processing and real-time database synchronization with a Laravel Filament backend, ensuring seamless and secure administration.',
     links: {
-      github: 'https://github.com/farhan-alwanda/catera',
+      github: '',
       demo: null,
     },
   },
@@ -47,9 +47,9 @@ export const projects = [
     featured: true,
     year: 2026,
     fullDescription:
-      'The IT-Framework CMS is a centralized portal architecture engineered to integrate various internal corporate systems into a single secure ecosystem. Developed using Laravel, flutter and Filament, it implements a highly secure centralized authentication mechanism alongside dynamic access permission mapping, giving administrators granular control over user roles across platforms.',
+      'The IT-Framework CMS is a centralized portal architecture engineered to integrate various internal corporate systems into a single secure ecosystem (SSO system). Developed using Laravel, flutter and Filament, it implements a highly secure centralized authentication mechanism alongside dynamic access permission mapping, giving administrators granular control over user roles across platforms.',
     links: {
-      github: 'https://github.com/farhan-alwanda/it-framework-cms',
+      github: '',
       demo: null,
     },
   },
@@ -65,9 +65,9 @@ export const projects = [
     featured: false,
     year: 2025,
     fullDescription:
-      'An enterprise-grade budget management application serving over 100 internal users. Built with Laravel and Alpine.js, the platform optimizes financial workflows by featuring an automated fund tracking module and dynamic, AJAX-based interdepartmental loan features to streamline corporate administration.',
+      'An enterprise-grade budget management application serving 100+ internal users. Built with Laravel and Alpine.js, it streamlines corporate administration through automated fund tracking and dynamic interdepartmental budget loans. The platform enforces financial compliance by incorporating a secure, multi-tier hierarchical approval system for all transactional reallocations.',
     links: {
-      github: 'https://github.com/farhan-alwanda/internal-financial-management',
+      github: 'https://github.com/farhnalwnd/budgeting',
       demo: null,
     },
   },
@@ -85,7 +85,7 @@ export const projects = [
     fullDescription:
       "Developed for Sinar Meadow International Indonesia, this custom Content Management System leverages the TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) via Filament to digitize the company's product portfolio. It features a modern, mobile-first design tailored to significantly expand the company's digital marketing and B2B engagement.",
     links: {
-      github: 'https://github.com/farhan-alwanda/sales-portfolio-cms',
+      github: '',
       demo: null,
     },
   },
@@ -101,9 +101,9 @@ export const projects = [
     featured: false,
     year: 2025,
     fullDescription:
-      'This backend automation project monitors warehouse inventory levels in real time. Built using Laravel Jobs and Mail, the system immediately detects when critical stock thresholds are breached and compiled detailed warehouse accuracy reports sent automatically via email in Excel format.',
+      'A Laravel-powered backend automation project designed to optimize warehouse inventory monitoring. By fetching real-time stock data directly from SAP, the system automatically detects when critical thresholds are breached and dispatches immediate email alerts to the person-in-charge. Additionally, it automates corporate reporting by compiling detailed inventory accuracy data into Excel format for scheduled email distribution.',
     links: {
-      github: 'https://github.com/farhan-alwanda/automated-stock-monitoring',
+      github: '',
       demo: null,
     },
   },
@@ -113,7 +113,7 @@ export const projects = [
     description:
       'An end-to-end goods requisition system with multi-level approval workflows and secure audit logging.',
     thumbnail: '/porto/porto-rs.webp',
-    techStack: ['Laravel', 'PHP', 'PDF-Generator', 'MySQL'],
+    techStack: ['Laravel', 'PHP', 'jquery' ,'PDF-Generator', 'MySQL'],
     category: 'Web Development',
     categoryShort: 'Web',
     featured: true,
@@ -121,7 +121,7 @@ export const projects = [
     fullDescription:
       'An end-to-end corporate supply chain administrative system equipped with a dynamic multi-level approval flow. To maximize transparency and speed up warehouse administration, the platform includes automated audit logging and a PDF report generator module.',
     links: {
-      github: 'https://github.com/farhan-alwanda/warehouse-requisition-approval',
+      github: 'https://github.com/farhnalwnd/requisition-slip',
       demo: null,
     },
   },
@@ -135,11 +135,11 @@ export const projects = [
     category: 'Artificial Intelligence & IoT',
     categoryShort: 'AI & IoT',
     featured: true,
-    year: 2026,
+    year: 2025,
     fullDescription:
       'Sortify was designed and implemented as an undergraduate thesis project at President University. The system integrates artificial intelligence with Internet of Things hardware to create an automatic waste bin capable of recognizing, classifying, and physically sorting different types of waste in real-time utilizing smart sensor data and machine learning models.',
     links: {
-      github: 'https://github.com/farhan-alwanda/Sortify',
+      github: '',
       demo: null,
     },
   },
@@ -153,11 +153,11 @@ export const projects = [
     category: 'Web Development',
     categoryShort: 'Web',
     featured: false,
-    year: 2025,
+    year: 2024,
     fullDescription:
       'A web-based e-voting platform built to ensure integrity, speed, and security in election administration. Built with Laravel and Vanilla CSS, it features real-time live-count result visualization, voter authentication to prevent duplicate submissions, and a comprehensive admin interface for election configurations.',
     links: {
-      github: 'https://github.com/farhan-alwanda/e-voting-system',
+      github: 'https://github.com/farhnalwnd/votesystem',
       demo: null,
     },
   },

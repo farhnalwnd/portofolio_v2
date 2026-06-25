@@ -6,6 +6,7 @@ import { personalInfo } from '../data/personal.js'
 import { usePageAnimation } from '../composables/usePageAnimation.js'
 import { useAppBreakpoints } from '../composables/useBreakpoints.js'
 import Icon from '../components/icons/Icon.vue'
+import IconMapPin from '~icons/lucide/map-pin'
 
 const { isMobile } = useAppBreakpoints()
 
@@ -361,6 +362,28 @@ const { containerRef } = usePageAnimation(
             <span class="role-item text-xl sm:text-2xl md:text-4xl font-semibold text-accent-custom"
               >& {{ personalInfo.title.split(' & ')[1] }}</span
             >
+          </div>
+          <p
+            class="role-item text-sm md:text-base text-secondary-custom italic py-6 max-w-xl text-center"
+          >
+            "{{ personalInfo.description }}"
+          </p>
+          <div class="role-item flex items-center gap-4 mt-6 text-secondary-custom text-sm">
+            <span class="flex items-center gap-1.5">
+              <IconMapPin class="w-4 h-4 text-accent-custom" />
+              Cikarang, Indonesia
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span
+                class="relative flex h-2 w-2"
+              >
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                ></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              Available for Projects
+            </span>
           </div>
         </div>
       </div>
