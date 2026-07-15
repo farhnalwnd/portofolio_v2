@@ -1,17 +1,30 @@
 <template>
-  <component
-    :is="to ? 'NuxtLink' : 'button'"
+  <NuxtLink
+    v-if="to && !isExternal"
     :to="to"
-    :type="to ? undefined : type"
-    :class="[
-      'inline-flex items-center justify-center font-bold uppercase tracking-wider border-3 border-brutal-black transition-all duration-100 select-none cursor-pointer',
-      colorClass,
-      sizeClass,
-      'hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none shadow-brutal active:translate-x-[4px] active:translate-y-[4px] active:shadow-none'
-    ]"
+    class="inline-flex items-center justify-center font-bold uppercase tracking-wider border-3 border-brutal-black transition-all duration-100 select-none cursor-pointer hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none shadow-brutal active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+    :class="[colorClass, sizeClass]"
   >
     <slot />
-  </component>
+  </NuxtLink>
+  <a
+    v-else-if="to && isExternal"
+    :href="to"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-flex items-center justify-center font-bold uppercase tracking-wider border-3 border-brutal-black transition-all duration-100 select-none cursor-pointer hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none shadow-brutal active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+    :class="[colorClass, sizeClass]"
+  >
+    <slot />
+  </a>
+  <button
+    v-else
+    :type="type"
+    class="inline-flex items-center justify-center font-bold uppercase tracking-wider border-3 border-brutal-black transition-all duration-100 select-none cursor-pointer hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none shadow-brutal active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+    :class="[colorClass, sizeClass]"
+  >
+    <slot />
+  </button>
 </template>
 
 <script setup lang="ts">
@@ -21,7 +34,7 @@ const props = withDefaults(
   defineProps<{
     to?: string
     type?: 'button' | 'submit' | 'reset'
-    color?: 'yellow' | 'blue' | 'red' | 'white' | 'black'
+    color?: 'yellow' | 'blue' | 'red' | 'white' | 'black' | 'purple' | 'pink' | 'green' | 'orange' | 'cream'
     size?: 'sm' | 'md' | 'lg'
   }>(),
   {
@@ -30,6 +43,10 @@ const props = withDefaults(
     size: 'md'
   }
 )
+
+const isExternal = computed(() => {
+  return props.to ? /^(https?:)?\/\//.test(props.to) : false
+})
 
 const colorClass = computed(() => {
   switch (props.color) {
@@ -43,6 +60,16 @@ const colorClass = computed(() => {
       return 'bg-white text-brutal-black'
     case 'black':
       return 'bg-brutal-black text-white'
+    case 'purple':
+      return 'bg-brutal-purple text-white'
+    case 'pink':
+      return 'bg-brutal-pink text-white'
+    case 'green':
+      return 'bg-brutal-green text-brutal-black'
+    case 'orange':
+      return 'bg-brutal-orange text-brutal-black'
+    case 'cream':
+      return 'bg-brutal-cream text-brutal-black'
     default:
       return 'bg-brutal-yellow text-brutal-black'
   }

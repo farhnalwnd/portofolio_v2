@@ -18,6 +18,8 @@
     - `SectionHead.vue` - Section header UI
     - `TheNavbar.vue` - Navigation bar
     - `TheFooter.vue` - Footer
+  - `/app/layouts` - Layout templates
+    - `default.vue` - Default layout with Navbar and Footer
   - `/app/pages`
     - `index.vue` - Main landing page (portfolio entry point)
   - `/app/assets/css`
@@ -26,6 +28,8 @@
   - `/content/certificates` - Professional certificates (with `tech` frontmatter array variable for badges)
   - `/content/history` - Experience & education history
   - `/content/projects` - Project details
+  - `/content/profile` - Personal bio info (dataDiri.md)
+  - `/content/skills` - Skills listing (skillsData.md)
 
 ## Design Guidelines (Brutalist Style)
 - Bold thick borders (`border-4 border-black` or similar).

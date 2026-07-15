@@ -1,10 +1,12 @@
 <template>
   <div class="max-w-7xl mx-auto py-12 px-4 md:px-8">
-    <SectionHead title="Project Detail" />
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+      <SectionHead title="Project Detail" class="mb-0 md:mb-0" />
+      <BrutalistBtn to="/projects" color="white" size="sm" class="self-start md:self-auto flex items-center gap-2">
+        <Icon name="lucide:arrow-left" class="w-4 h-4" /> Back to Projects
+      </BrutalistBtn>
+    </div>
     <div class="mt-8">
-      <NuxtLink to="/">
-        <BrutalistBtn color="white" class="mb-8">Back to Home</BrutalistBtn>
-      </NuxtLink>
       <div v-if="project" class="max-w-3xl mx-auto">
         <BrutalistCard color="white" class="p-8">
           <div class="border-b-3 border-brutal-black pb-6 mb-6">
@@ -24,16 +26,16 @@
           </div>
 
           <div class="flex flex-wrap gap-2 mb-8">
-            <BrutalistBadge v-for="tag in project.meta.tech" :key="tag" color="cream">
+            <BrutalistBadge v-for="tag in project.tech" :key="tag" color="cream">
               {{ tag }}
             </BrutalistBadge>
           </div>
 
           <div class="flex items-center space-x-4 border-t-2 border-brutal-black pt-6">
-            <BrutalistBtn :to="project.meta.demo" color="yellow" size="sm" class="flex-grow">
+            <BrutalistBtn v-if="project.links?.demo" :to="project.links.demo" color="yellow" size="sm" class="flex-grow">
               Live Demo
             </BrutalistBtn>
-            <BrutalistBtn :to="project.meta.github" color="white" size="sm" class="flex-grow">
+            <BrutalistBtn v-if="project.links?.github" :to="project.links.github" color="white" size="sm" class="flex-grow">
               Source Code
             </BrutalistBtn>
           </div>

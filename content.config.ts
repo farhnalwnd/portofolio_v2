@@ -14,12 +14,27 @@ export default defineContentConfig({
     projects: defineCollection({
       type: 'page',
       source: 'projects/*.md',
-      schema: baseSchema
+      schema: baseSchema.extend({
+        featured: z.boolean().default(false),
+        tech: z.array(z.string()).default([]),
+        links: z.object({
+          github: z.string().nullable().optional(),
+          demo: z.string().nullable().optional()
+        }).optional()
+      })
     }),
     certificates: defineCollection({
       type: 'page',
       source: 'certificates/*.md',
       schema: baseSchema
+    }),
+    profile: defineCollection({
+      type: 'page',
+      source: 'profile/*.md'
+    }),
+    skills: defineCollection({
+      type: 'page',
+      source: 'skills/*.md'
     })
   }
 })

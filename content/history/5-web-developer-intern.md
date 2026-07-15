@@ -4,7 +4,7 @@ order: 5
 type: "career"
 institution: "GaoTech Inc."
 period: "Aug 2024 - Oct 2024"
-location: "Jakarta, Indonesia"
+location: "remote, USA"
 description: "Built an e-commerce platform based on WordPress."
 ---
 - Built and developed e-commerce platforms utilizing WordPress

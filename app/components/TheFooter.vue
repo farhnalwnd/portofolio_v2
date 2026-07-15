@@ -2,8 +2,8 @@
   <footer class="bg-brutal-cream text-brutal-black border-t-3 border-brutal-black grid grid-cols-1 md:grid-cols-12 text-center md:text-left">
     <!-- Section 1: Hardcoded Text and Icon, with color background (Start) -->
     <div class="md:col-span-2 p-4 flex gap-3 items-center justify-center border-b-3 md:border-b-0 md:border-r-3 border-brutal-black bg-brutal-green">
-      <span class="font-black uppercase text-sm tracking-wider">DEV // PORTFOLIO</span>
       <Icon name="lucide:terminal" class="w-5 h-5 text-brutal-black" />
+      <span class="font-black uppercase text-sm tracking-wider">home/alwand></span>
     </div>
 
     <!-- Section 2: Credential (Center, more space) -->
@@ -14,16 +14,20 @@
     </div>
 
     <!-- Section 3: Social Icons (End) -->
-    <div class="md:col-span-2 p-4 flex items-center justify-center gap-6">
-      <a href="https://github.com/anomalyco/opencode" target="_blank" class="hover:text-brutal-blue transition-colors">
+    <div v-if="profile" class="md:col-span-2 p-4 flex items-center justify-center gap-6">
+      <a :href="profile.meta.github" target="_blank" class="hover:text-brutal-blue transition-colors">
         <Icon name="lucide:github" class="w-6 h-6" />
       </a>
-      <a href="https://wa.me/12345" target="_blank" class="hover:text-brutal-blue transition-colors">
+      <a :href="profile.meta.whatsapp" target="_blank" class="hover:text-brutal-blue transition-colors">
         <Icon name="lucide:message-circle" class="w-6 h-6" />
       </a>
-      <a href="https://instagram.com" target="_blank" class="hover:text-brutal-blue transition-colors">
+      <a :href="profile.meta.instagram" target="_blank" class="hover:text-brutal-blue transition-colors">
         <Icon name="lucide:instagram" class="w-6 h-6" />
       </a>
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+const { data: profile } = await useAsyncData('profile-footer', () => queryCollection('profile').first())
+</script>

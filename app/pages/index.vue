@@ -1,12 +1,9 @@
 <template>
   <div class="w-full flex-grow flex flex-col">
-    <!-- Navbar -->
-    <TheNavbar />
-
     <!-- 1. Intro Section -->
     <section id="intro" class="relative min-h-[90vh] flex flex-col justify-between py-16 px-4 md:px-8 border-b-3 border-brutal-black bg-brutal-cream overflow-hidden">
       <!-- Background grid decoration -->
-      <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#09090B 2px, transparent 2px); background-size: 24px 24px;"></div>
+      <div class="absolute inset-0 opacity-10 pointer-events-none brutal-dot-pattern"></div>
       
       <div class="relative z-10 max-w-7xl mx-auto w-full flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <!-- Text intro -->
@@ -40,18 +37,18 @@
               <div class="w-4 h-4 rounded-full bg-brutal-red border-2 border-brutal-black"></div>
               <div class="w-4 h-4 rounded-full bg-brutal-orange border-2 border-brutal-black"></div>
               <div class="w-4 h-4 rounded-full bg-brutal-blue border-2 border-brutal-black"></div>
-              <span class="font-bold text-xs uppercase text-zinc-500 tracking-wider">developer.exe</span>
+              <span class="font-bold text-xs uppercase text-zinc-500 tracking-wider">whoami</span>
             </div>
             
             <p class="font-mono text-sm leading-relaxed text-zinc-800 mb-6">
-              &gt; npm install creative-thinking machine-learning iot<br>
-              &gt; status: active<br>
-              &gt; stack: laravel / vue / python / esp32<br>
+              &gt; nick: alwand<br>
+              &gt; status: freshgraduation<br>
+              &gt; stack: laravel / vue / python / raspberry<br>
               &gt; focus: building software that feels alive and blazing fast.
             </p>
 
             <div class="flex items-center justify-between border-t-3 border-brutal-black pt-4">
-              <span class="font-black text-xl text-brutal-black uppercase tracking-wider">// LEVEL 99</span>
+              <span class="font-black text-xl text-brutal-black uppercase tracking-wider"></span>
               <Icon name="lucide:terminal" class="w-8 h-8 text-brutal-black" />
             </div>
           </BrutalistCard>
@@ -83,28 +80,33 @@
             </div>
           </div>
 
-          <div v-if="projects && projects.length" class="transition-all duration-300">
+          <div v-if="featuredProjects && featuredProjects.length" class="transition-all duration-300">
             <BrutalistCard color="white" class="p-6">
               <!-- Asset Image placeholder above title -->
-              <div class="w-full h-48 bg-brutal-purple border-3 border-brutal-black flex items-center justify-center mb-6 relative overflow-hidden">
-                <!-- <img v-if="projects[currentProjectIndex].meta.thumbnail" :src="projects[currentProjectIndex].meta.thumbnail" alt="Project thumbnail" class="w-full h-full object-cover" /> -->
-                <!-- <div v-else class="text-white font-black text-3xl tracking-widest uppercase">// PROJECT {{ currentProjectIndex + 1 }}</div> -->
-                <div class="text-white font-black text-3xl tracking-widest uppercase">// PROJECT {{ currentProjectIndex + 1 }}</div>
+              <div 
+                :class="[
+                  'w-full h-48 border-3 border-brutal-black flex items-center justify-center mb-6 relative overflow-hidden transition-colors duration-300',
+                  getProjectBgColor(currentProjectIndex)
+                ]"
+              >
+                <!-- Grid Pattern Decorator -->
+                <div class="absolute inset-0 opacity-10 pointer-events-none brutal-grid-pattern"></div>
+                <div class="text-white font-black text-3xl tracking-widest uppercase relative z-10 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">// PROJECT {{ currentProjectIndex + 1 }}</div>
               </div>
 
               <div class="flex items-center justify-between mb-4 border-b-2 border-brutal-black pb-3">
                 <h3 class="text-2xl font-black uppercase tracking-tight text-brutal-black">
-                  {{ projects[currentProjectIndex].title }}
+                  {{ featuredProjects[currentProjectIndex].title }}
                 </h3>
                 <Icon name="lucide:folder-git-2" class="w-8 h-8 text-brutal-blue" />
               </div>
               
               <p class="text-zinc-700 font-medium mb-6">
-                {{ projects[currentProjectIndex].description }}
+                {{ featuredProjects[currentProjectIndex].description }}
               </p>
 
               <div class="flex flex-wrap gap-2 mb-6">
-                <BrutalistBadge v-for="tag in projects[currentProjectIndex].meta.tech" :key="tag" color="pink">
+                <BrutalistBadge v-for="tag in featuredProjects[currentProjectIndex].tech" :key="tag" color="pink">
                   {{ tag }}
                 </BrutalistBadge>
               </div>
@@ -112,14 +114,14 @@
               <!-- Indicator Dots -->
               <div class="flex items-center justify-center space-x-2 mb-4">
                 <span 
-                  v-for="(proj, idx) in projects" 
+                  v-for="(proj, idx) in featuredProjects" 
                   :key="proj.path" 
                   :class="['w-3 h-3 rounded-full border-2 border-brutal-black transition-colors', idx === currentProjectIndex ? 'bg-brutal-orange' : 'bg-white']"
                 ></span>
               </div>
 
               <div class="flex items-center space-x-4 border-t-2 border-brutal-black pt-4">
-                <NuxtLink :to="`/projects/${getProjectSlug(projects[currentProjectIndex])}/detail`" class="inline-flex">
+                <NuxtLink :to="`/projects/${getProjectSlug(featuredProjects[currentProjectIndex])}/detail`" class="inline-flex">
                   <BrutalistBtn color="green" size="sm">
                     View Detail
                   </BrutalistBtn>
@@ -199,9 +201,10 @@
       </div>
 
       <!-- Grid 3 (Col span 3): Row span 2 height fit content / flex items with Arrow Icon -->
-      <div class="lg:col-span-3 p-8 bg-brutal-pink flex flex-row lg:flex-col justify-between items-center w-full lg:w-auto shrink-0">
-        <Icon name="lucide:arrow-left" class="w-16 h-16 text-brutal-black" />
-        <h2 class="text-3xl font-black uppercase tracking-tighter text-brutal-black">
+      <div class="lg:col-span-3 p-8 bg-brutal-pink flex flex-row lg:flex-col justify-between items-center w-full lg:w-auto shrink-0 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none brutal-stripe-pattern"></div>
+        <Icon name="lucide:arrow-left" class="w-16 h-16 text-brutal-black relative z-10" />
+        <h2 class="text-3xl font-black uppercase tracking-tighter text-brutal-black relative z-10">
           MY SKILLS
         </h2>
       </div>
@@ -252,17 +255,18 @@
       </div>
 
       <!-- Col 5 (Span 1): Contact CTA text -->
-      <div class="lg:col-span-1 p-8 bg-brutal-cream flex flex-col justify-between">
-        <div class="space-y-6">
+      <div class="lg:col-span-1 p-8 bg-brutal-cream flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none brutal-grid-pattern"></div>
+        <div class="space-y-6 relative z-10">
           <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-none stroke-text select-none hover:text-brutal-black transition-colors duration-300">
-            LET'S WORK TOGETHER.
+            FIND ME HERE AND LET'S WORK TOGETHER.
           </h3>
           <p class="text-xs font-bold uppercase tracking-tight text-zinc-700">
             REACH US AT ANY TIME FOR HIRING.
           </p>
         </div>
 
-        <div class="mt-8">
+        <div class="mt-8 relative z-10">
           <NuxtLink to="/catch-me">
             <BrutalistBtn color="green" class="w-full text-center text-xs py-2">GET IN TOUCH</BrutalistBtn>
           </NuxtLink>
@@ -272,59 +276,92 @@
 
     <!-- Certificate Preview Modal -->
     <div v-if="activeCert" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" @click="closeCertPreview">
-      <div class="w-full max-w-lg" @click.stop>
+      <div class="w-full max-w-4xl" @click.stop>
         <BrutalistCard color="white" class="p-6 relative">
           <!-- Close button -->
-          <button class="absolute -top-3 -right-3 w-8 h-8 bg-brutal-red text-white border-2 border-brutal-black font-black flex items-center justify-center hover:bg-red-600 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" @click="closeCertPreview">
+          <button class="absolute -top-3 -right-3 w-8 h-8 bg-brutal-red text-white border-2 border-brutal-black font-black flex items-center justify-center hover:bg-red-600 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-30" @click="closeCertPreview">
             ✕
           </button>
           
-          <div class="border-b-3 border-brutal-black pb-4 mb-4">
-            <BrutalistBadge color="yellow" class="mb-2">{{ activeCert.meta.year }}</BrutalistBadge>
-            <h3 class="text-2xl font-black uppercase tracking-tight text-brutal-black">
-              {{ activeCert.title }}
-            </h3>
-            <p class="font-black text-sm uppercase text-brutal-blue mt-1 mb-3">
-              {{ activeCert.meta.issuer }}
-            </p>
-            <div v-if="activeCert.meta.tech" class="flex flex-wrap gap-1.5">
-              <BrutalistBadge v-for="tag in activeCert.meta.tech" :key="tag" color="cream" class="text-xs py-1 px-2.5">
-                {{ tag }}
-              </BrutalistBadge>
+          <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Left Info Panel -->
+            <div class="w-full lg:w-1/3 flex flex-col justify-between border-b-3 lg:border-b-0 lg:border-r-3 border-brutal-black pb-6 lg:pb-0 lg:pr-6">
+              <div>
+                <BrutalistBadge color="yellow" class="mb-2">{{ activeCert.meta.year }}</BrutalistBadge>
+                <h3 class="text-2xl font-black uppercase tracking-tight text-brutal-black">
+                  {{ activeCert.title }}
+                </h3>
+                <p class="font-black text-sm uppercase text-brutal-blue mt-1 mb-4">
+                  {{ activeCert.meta.issuer }}
+                </p>
+                <div class="prose text-zinc-700 font-bold uppercase tracking-tight text-sm leading-relaxed mb-6">
+                  <ContentRenderer :value="activeCert" />
+                </div>
+                <div v-if="activeCert.meta.tech" class="flex flex-wrap gap-1.5 mb-6">
+                  <BrutalistBadge v-for="tag in activeCert.meta.tech" :key="tag" color="cream" class="text-xs py-1 px-2.5">
+                    {{ tag }}
+                  </BrutalistBadge>
+                </div>
+              </div>
+              
+              <div class="space-y-4 pt-4 border-t-2 border-brutal-black">
+                <div>
+                  <span class="block text-xs font-mono text-zinc-500 uppercase tracking-widest">Credential ID:</span>
+                  <span class="font-mono text-sm font-black text-brutal-black uppercase tracking-wider">{{ activeCert.meta.credentialId }}</span>
+                </div>
+                <div class="flex gap-2">
+                  <BrutalistBtn :to="activeCert.meta.credentialUrl" color="blue" size="sm" class="flex-grow text-white">
+                    Verify Original
+                  </BrutalistBtn>
+                  <a 
+                    v-if="activeCert.meta.file"
+                    :href="activeCert.meta.file" 
+                    download
+                    class="bg-brutal-yellow text-brutal-black border-3 border-brutal-black font-black uppercase text-xs px-4 py-2 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-1 shadow-brutal"
+                  >
+                    Download
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          
-          <!-- Virtual frame/preview design inside modal -->
-          <div class="bg-brutal-cream border-3 border-dashed border-brutal-black p-8 text-center my-6 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#09090B 2px, transparent 2px); background-size: 16px 16px;"></div>
-            <Icon name="lucide:award" class="w-16 h-16 text-brutal-yellow mx-auto mb-4" />
-            <span class="font-mono text-xs text-zinc-500 block">CREDENTIAL VERIFICATION FRAME</span>
-            <span class="font-mono text-sm font-black text-brutal-black uppercase tracking-widest mt-2 block">
-              ID: {{ activeCert.meta.credentialId }}
-            </span>
-          </div>
 
-          <div class="flex justify-end pt-4 border-t-2 border-brutal-black">
-            <BrutalistBtn color="white" size="sm" @click="closeCertPreview">
-              Close Preview
-            </BrutalistBtn>
+            <!-- Right Preview Panel -->
+            <div class="w-full lg:w-2/3 h-[500px] border-3 border-brutal-black bg-white overflow-hidden relative">
+              <iframe 
+                v-if="activeCert.meta.file && activeCert.meta.file.endsWith('.pdf')"
+                :src="`${activeCert.meta.file}#toolbar=0&navpanes=0&scrollbar=0`" 
+                class="w-full h-full border-none"
+              ></iframe>
+              <img 
+                v-else-if="activeCert.meta.file"
+                :src="activeCert.meta.file"
+                class="w-full h-full object-contain bg-zinc-900"
+                alt="Certificate Original File"
+              />
+              <div v-else class="flex flex-col items-center justify-center h-full bg-brutal-cream p-8 text-center">
+                <Icon name="lucide:award" class="w-16 h-16 text-brutal-yellow mb-4" />
+                <span class="font-black text-lg uppercase">No document preview available</span>
+              </div>
+            </div>
           </div>
         </BrutalistCard>
       </div>
     </div>
-
-    <!-- Footer -->
-    <TheFooter />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 // Fetch data
 const { data: history } = await useAsyncData('history', () => queryCollection('history').order('order', 'ASC').all())
 const { data: projects } = await useAsyncData('projects', () => queryCollection('projects').order('order', 'ASC').all())
 const { data: certificates } = await useAsyncData('certificates', () => queryCollection('certificates').order('order', 'ASC').all())
+
+const featuredProjects = computed(() => {
+  if (!projects.value) return []
+  return projects.value.filter((p: any) => p.featured === true || p.featured === 1)
+})
 
 // Project placeholder assets (storing local assets in variables)
 const projectImages = ref<string[]>([
@@ -343,16 +380,16 @@ const getProjectSlug = (project: any) => {
 // Project slider index
 const currentProjectIndex = ref(0)
 const prevProject = () => {
-  if (!projects.value) return
+  if (!featuredProjects.value.length) return
   if (currentProjectIndex.value === 0) {
-    currentProjectIndex.value = projects.value.length - 1
+    currentProjectIndex.value = featuredProjects.value.length - 1
   } else {
     currentProjectIndex.value--
   }
 }
 const nextProject = () => {
-  if (!projects.value) return
-  if (currentProjectIndex.value === projects.value.length - 1) {
+  if (!featuredProjects.value.length) return
+  if (currentProjectIndex.value === featuredProjects.value.length - 1) {
     currentProjectIndex.value = 0
   } else {
     currentProjectIndex.value++
@@ -368,31 +405,44 @@ const closeCertPreview = () => {
   activeCert.value = null
 }
 
-const marqueeItems = ['Clean Code', 'Performance First', 'Brutalist Design', 'Responsive UI']
+const marqueeItems = [
+  'HELLO WORLD !', 
+  'I AM FARHAN ALWANDA', 
+  'FULL-STACK DEVELOPER', 
+  'AI ENGINEER IN TRAINING', 
+  'IoT INTEGRATOR', 
+  'BUILDING DIGITAL SOLUTIONS', 
+  'EXPLORE MY PROJECTS',  
+  'HELLO WORLD !', 
+  'I AM FARHAN ALWANDA', 
+  'FULL-STACK DEVELOPER', 
+  'AI ENGINEER IN TRAINING', 
+  'IoT INTEGRATOR', 
+  'BUILDING DIGITAL SOLUTIONS', 
+  'EXPLORE MY PROJECTS'
+]
 
-// Skills categorization with icons (21 items)
+const getProjectBgColor = (idx: number) => {
+  const colors = [
+    'bg-brutal-purple',
+    'bg-brutal-blue',
+    'bg-brutal-red',
+    'bg-brutal-green',
+    'bg-brutal-orange',
+    'bg-brutal-pink'
+  ]
+  return colors[idx % colors.length]
+}
+
+// Highly curated essential skills only
 const skillsWithIcons = [
   { name: 'Laravel', icon: 'logos:laravel' },
   { name: 'Vue.js', icon: 'logos:vue' },
   { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
-  { name: 'JavaScript', icon: 'logos:javascript' },
   { name: 'TypeScript', icon: 'logos:typescript-icon' },
-  { name: 'Flutter', icon: 'logos:flutter' },
-  { name: 'Filament', icon: 'mdi:view-dashboard' },
   { name: 'Go', icon: 'logos:go' },
   { name: 'Python', icon: 'logos:python' },
-  { name: 'FastAPI', icon: 'simple-icons:fastapi' },
-  { name: 'PostgreSQL', icon: 'logos:postgresql' },
-  { name: 'MySQL', icon: 'logos:mysql' },
-  { name: 'Docker', icon: 'logos:docker-icon' },
-  { name: 'Git', icon: 'logos:git-icon' },
-  { name: 'ESP32', icon: 'mdi:chip' },
-  { name: 'React', icon: 'logos:react' },
-  { name: 'Next.js', icon: 'logos:nextjs-icon' },
-  { name: 'Redis', icon: 'logos:redis' },
-  { name: 'MongoDB', icon: 'logos:mongodb' },
-  { name: 'GraphQL', icon: 'logos:graphql' },
-  { name: 'Nginx', icon: 'logos:nginx' }
+  { name: 'Docker', icon: 'logos:docker-icon' }
 ]
 </script>
 
