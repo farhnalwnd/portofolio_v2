@@ -1,8 +1,12 @@
 <template>
-  <main class="flex-grow max-w-7xl mx-auto w-full py-16 px-4 md:px-8 flex flex-col justify-center">
-    <SectionHead title="Get In Touch" />
+  <div class="relative min-h-screen py-16 px-4 md:px-8 overflow-hidden flex flex-col justify-center">
+    <!-- Grid Pattern Background -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none brutal-grid-pattern z-0"></div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12 items-start">
+    <main class="relative z-10 max-w-7xl mx-auto w-full flex flex-col justify-center">
+      <SectionHead title="Get In Touch" />
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12 items-start">
       <div class="lg:col-span-5 flex flex-col space-y-6">
         <h3 class="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">
           LET'S BUILD SOMETHING RUGGED & RELIABLE.
@@ -35,13 +39,16 @@
       <!-- Contact Form -->
       <div class="lg:col-span-7">
         <BrutalistCard color="white" class="p-6 md:p-8">
-          <form class="flex flex-col space-y-6" @submit.prevent>
+          <form class="flex flex-col space-y-6" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="8855b402-787a-4846-b831-2c8443328136">
+            
             <div class="flex flex-col space-y-2">
               <label class="font-black uppercase tracking-wider text-sm">Your Name</label>
               <input 
+                name="name"
                 type="text" 
                 placeholder="JOHN DOE" 
-                class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream"
+                class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream disabled:opacity-50"
                 required
               >
             </div>
@@ -49,9 +56,10 @@
             <div class="flex flex-col space-y-2">
               <label class="font-black uppercase tracking-wider text-sm">Your Email</label>
               <input 
+                name="email"
                 type="email" 
                 placeholder="JOHN@EXAMPLE.COM" 
-                class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream"
+                class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream disabled:opacity-50"
                 required
               >
             </div>
@@ -59,9 +67,10 @@
             <div class="flex flex-col space-y-2">
               <label class="font-black uppercase tracking-wider text-sm">Your Message</label>
               <textarea 
+                name="message"
                 rows="4" 
                 placeholder="I HAVE AN EXCITING PROJECT FOR YOU..." 
-                class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream resize-none"
+                class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream resize-none disabled:opacity-50"
                 required
               ></textarea>
             </div>
@@ -74,8 +83,9 @@
           </form>
         </BrutalistCard>
       </div>
-    </div>
-  </main>
+      </div>
+    </main>
+  </div>
 </template>
 
 <script setup lang="ts">
