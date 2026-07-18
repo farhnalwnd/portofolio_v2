@@ -22,7 +22,6 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
     '@nuxt/icon',
-    '@vercel/analytics'
   ],
   icon: {
     serverBundle: {
