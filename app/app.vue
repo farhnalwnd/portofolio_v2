@@ -28,9 +28,9 @@ useHead({
 })
 
 useSeoMeta({
-  description: 'Portfolio of Farhan Alwanda, a Full-Stack Developer & AI Engineer crafting intelligent web applications and IoT solutions.',
-  ogTitle: 'Farhan Alwanda - Full-Stack Developer & AI Engineer',
-  ogDescription: 'I craft intelligent web applications and IoT solutions. Minimal fluff, raw performance, and bold aesthetics.',
+  description: 'Portfolio of Farhan Alwanda, a Full-Stack Developer & Junior AI Engineer. passionate about building well-structured and optimized applications by integrating Artificial Intelligence and smart IoT hardware.',
+  ogTitle: 'Farhan Alwanda - Full-Stack Developer & Junior AI Engineer',
+  ogDescription: 'passionate about building well-structured and optimized applications by integrating Artificial Intelligence and smart IoT hardware.',
   ogImage: ogImageUrl,
   ogImageWidth: 1200,
   ogImageHeight: 630,
@@ -38,8 +38,8 @@ useSeoMeta({
   ogSiteName: 'Farhan Alwanda Portfolio',
   ogUrl: canonicalUrl,
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Farhan Alwanda - Full-Stack Developer & AI Engineer',
-  twitterDescription: 'I craft intelligent web applications and IoT solutions.',
+  twitterTitle: 'Farhan Alwanda - Full-Stack Developer & Junior AI Engineer',
+  twitterDescription: 'passionate about building well-structured and optimized applications by integrating Artificial Intelligence and smart IoT hardware.',
   twitterImage: ogImageUrl
 })
 </script>

@@ -15,7 +15,7 @@
             FARHAN <span class="bg-brutal-orange px-2 inline-block transform -rotate-1 border-3 border-brutal-black">ALWANDA</span>
           </h1>
           <p class="text-xl md:text-2xl font-bold uppercase tracking-tight text-brutal-black max-w-2xl">
-            I craft intelligent web applications and IoT solutions. Minimal fluff, raw performance, and bold aesthetics.
+            I am passionate about designing well-structured and highly optimized applications through the integration of Artificial Intelligence with smart IoT devices. Less clutter, pure performance, and bold aesthetics.
           </p>
           <div class="flex flex-wrap gap-4 pt-4">
             <NuxtLink to="/projects">
@@ -42,9 +42,9 @@
             
             <p class="font-mono text-sm leading-relaxed text-zinc-800 mb-6">
               &gt; nick: alwand<br>
-              &gt; status: freshgraduation<br>
-              &gt; stack: laravel / vue / python / raspberry<br>
-              &gt; focus: building software that feels alive and blazing fast.
+              &gt; status: fresh graduate<br>
+              &gt; stack: laravel / vue / python <br>
+              &gt; motto: figure out that next step and aim for it.
             </p>
 
             <div class="flex items-center justify-between border-t-3 border-brutal-black pt-4">
@@ -361,7 +361,7 @@ import { ref, computed } from 'vue'
 useSeoMeta({
   title: 'Home',
   ogTitle: 'Farhan Alwanda - Full-Stack Developer & AI Engineer',
-  ogDescription: 'I craft intelligent web applications and IoT solutions. Minimal fluff, raw performance, and bold aesthetics.'
+  ogDescription: 'I craft intelligent web applications and IoT solutions. Less clutter, pure performance, and bold aesthetics.'
 })
 
 // Fetch data
@@ -417,20 +417,9 @@ const closeCertPreview = () => {
 }
 
 const marqueeItems = [
-  'HELLO WORLD !', 
-  'I AM FARHAN ALWANDA', 
-  'FULL-STACK DEVELOPER', 
-  'AI ENGINEER IN TRAINING', 
-  'IoT INTEGRATOR', 
-  'BUILDING DIGITAL SOLUTIONS', 
-  'EXPLORE MY PROJECTS',  
-  'HELLO WORLD !', 
-  'I AM FARHAN ALWANDA', 
-  'FULL-STACK DEVELOPER', 
-  'AI ENGINEER IN TRAINING', 
-  'IoT INTEGRATOR', 
-  'BUILDING DIGITAL SOLUTIONS', 
-  'EXPLORE MY PROJECTS'
+  'LARAVEL', 'FILAMENT', 'FLUTTER', 'GO / GIN', 'FASTAPI', 'PYTHON', 
+  'DOCKER COMPOSE', 'ESP32', 'MQTT PROTOCOL', 'NODE-RED', 
+  'CONVOLUTIONAL NEURAL NETWORKS', 'MODEL OPTIMIZATION', 'LINUX'
 ]
 
 const getProjectBgColor = (idx: number) => {
