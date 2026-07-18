@@ -1,14 +1,28 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: process.env.NODE_ENV !== 'production' },
+  sourcemap: { client: false, server: false },
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+    }
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/history', '/projects', '/skills', '/certificates', '/catch-me']
+    }
+  },
   css: ['~/assets/css/main.css'],
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
     '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    '@vercel/analytics'
   ],
   icon: {
     serverBundle: {
