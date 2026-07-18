@@ -44,47 +44,53 @@
       <!-- Contact Form -->
       <div class="lg:col-span-7">
         <BrutalistCard color="white" class="p-6 md:p-8">
-          <form class="flex flex-col space-y-6" action="https://api.web3forms.com/submit" method="POST">
+          <form class="flex flex-col space-y-6" @submit.prevent="handleSubmit">
             <input type="hidden" name="access_key" value="8855b402-787a-4846-b831-2c8443328136">
             
             <div class="flex flex-col space-y-2">
               <label class="font-black uppercase tracking-wider text-sm">Your Name</label>
               <input 
+                v-model="formData.name"
                 name="name"
                 type="text" 
                 placeholder="JOHN DOE" 
                 class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream disabled:opacity-50"
                 required
+                :disabled="isSubmitting"
               >
             </div>
             
             <div class="flex flex-col space-y-2">
               <label class="font-black uppercase tracking-wider text-sm">Your Email</label>
               <input 
+                v-model="formData.email"
                 name="email"
                 type="email" 
                 placeholder="JOHN@EXAMPLE.COM" 
                 class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream disabled:opacity-50"
                 required
+                :disabled="isSubmitting"
               >
             </div>
 
             <div class="flex flex-col space-y-2">
               <label class="font-black uppercase tracking-wider text-sm">Your Message</label>
               <textarea 
+                v-model="formData.message"
                 name="message"
                 rows="4" 
                 placeholder="I HAVE AN EXCITING PROJECT FOR YOU..." 
                 class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream resize-none disabled:opacity-50"
                 required
+                :disabled="isSubmitting"
               ></textarea>
             </div>
 
             <div class="h-captcha" data-captcha="true"></div>
 
             <div>
-              <BrutalistBtn type="submit" color="yellow" class="w-full">
-                Send Message
+              <BrutalistBtn type="submit" color="yellow" class="w-full" :disabled="isSubmitting">
+                {{ isSubmitting ? 'Sending...' : 'Send Message' }}
               </BrutalistBtn>
             </div>
           </form>
@@ -95,11 +101,19 @@
 
     <!-- CV Modal -->
     <CvModal :is-open="isCvModalOpen" @close="isCvModalOpen = false" />
+
+    <!-- Status Alert Modal -->
+    <StatusModal 
+      :is-open="statusModal.isOpen" 
+      :status="statusModal.status" 
+      :message="statusModal.message" 
+      @close="statusModal.isOpen = false" 
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 useSeoMeta({
   title: 'Get In Touch',
@@ -116,4 +130,94 @@ useHead({
 const { data: profile } = await useAsyncData('profile', () => queryCollection('profile').first())
 
 const isCvModalOpen = ref(false)
+
+const formData = reactive({
+  name: '',
+  email: '',
+  message: ''
+})
+
+const isSubmitting = ref(false)
+
+const statusModal = reactive({
+  isOpen: false,
+  status: 'success' as 'success' | 'error',
+  message: ''
+})
+
+const handleSubmit = async (e: Event) => {
+  // Rate limiting check using localStorage
+  const lastSubmitTime = localStorage.getItem('last_submit_time')
+  const cooldown = 60 * 1000 // 1 minute cooldown
+  
+  if (lastSubmitTime) {
+    const timePassed = Date.now() - parseInt(lastSubmitTime, 10)
+    if (timePassed < cooldown) {
+      const secondsLeft = Math.ceil((cooldown - timePassed) / 1000)
+      statusModal.status = 'error'
+      statusModal.message = `Rate limit exceeded. Please wait ${secondsLeft}s before sending another message.`
+      statusModal.isOpen = true
+      return
+    }
+  }
+
+  const form = e.target as HTMLFormElement
+  const data = new FormData(form)
+
+  // Explicitly add hCaptcha response if it exists in the DOM
+  const hcaptchaResponse = (window as any).hcaptcha?.getResponse()
+  if (!hcaptchaResponse) {
+    statusModal.status = 'error'
+    statusModal.message = 'Please complete the captcha verification first.'
+    statusModal.isOpen = true
+    return
+  }
+  
+  data.set('h-captcha-response', hcaptchaResponse)
+
+  isSubmitting.value = true
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    })
+
+    const result = await response.json()
+
+    if (response.ok && result.success) {
+      statusModal.status = 'success'
+      statusModal.message = result.message || 'Your message has been sent successfully!'
+      statusModal.isOpen = true
+      
+      // Save last submit time to rate limit
+      localStorage.setItem('last_submit_time', Date.now().toString())
+
+      // Reset form fields
+      formData.name = ''
+      formData.email = ''
+      formData.message = ''
+      
+      // Reset hcaptcha widget if available
+      if ((window as any).hcaptcha) {
+        ;(window as any).hcaptcha.reset()
+      }
+    } else {
+      statusModal.status = 'error'
+      // Handle potential spam detection status code / messages from Web3Forms
+      if (response.status === 429 || result.message?.toLowerCase().includes('spam') || result.message?.toLowerCase().includes('bot')) {
+        statusModal.message = 'Submission rejected as spam. Please verify captcha and try again.'
+      } else {
+        statusModal.message = result.message || 'Something went wrong. Please try again.'
+      }
+      statusModal.isOpen = true
+    }
+  } catch (error) {
+    statusModal.status = 'error'
+    statusModal.message = 'Network error. Please check your connection and try again.'
+    statusModal.isOpen = true
+  } finally {
+    isSubmitting.value = false
+  }
+}
 </script>
