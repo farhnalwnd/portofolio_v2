@@ -80,6 +80,8 @@
               ></textarea>
             </div>
 
+            <div class="h-captcha" data-captcha="true"></div>
+
             <div>
               <BrutalistBtn type="submit" color="yellow" class="w-full">
                 Send Message
@@ -103,6 +105,12 @@ useSeoMeta({
   title: 'Get In Touch',
   ogTitle: 'Contact & Hire | Farhan Alwanda',
   ogDescription: 'Get in touch with Farhan Alwanda. Open for full-time opportunities, projects, or consulting.'
+})
+
+useHead({
+  script: [
+    { src: 'https://web3forms.com/client/script.js', async: true, defer: true }
+  ]
 })
 
 const { data: profile } = await useAsyncData('profile', () => queryCollection('profile').first())
