@@ -14,8 +14,14 @@
         <div v-if="project" class="max-w-3xl mx-auto">
           <BrutalistCard color="white" class="p-8">
             <div class="border-b-3 border-brutal-black pb-6 mb-6">
-              <div class="h-64 bg-brutal-cream border-3 border-brutal-black flex items-center justify-center mb-6">
-                <Icon name="lucide:folder-git-2" class="w-24 h-24 text-brutal-blue" />
+              <div class="h-64 sm:h-96 bg-brutal-cream border-3 border-brutal-black flex items-center justify-center mb-6 overflow-hidden relative">
+                <img 
+                  v-if="project.thumbnail" 
+                  :src="project.thumbnail" 
+                  class="w-full h-full object-cover"
+                  alt="Project Thumbnail"
+                />
+                <Icon v-else name="lucide:folder-git-2" class="w-24 h-24 text-brutal-blue" />
               </div>
               <h1 class="text-4xl font-black uppercase tracking-tight text-brutal-black">
                 {{ project.title }}
@@ -63,5 +69,11 @@ const { data: project } = await useAsyncData(`project-detail-${projectId}`, asyn
   // Try to find the project by slug / name matching or database collections
   const allProjects = await queryCollection('projects').all()
   return allProjects.find(p => p.path.endsWith(projectId) || p.path.includes(projectId) || p.title.toLowerCase().replace(/ /g, '-') === projectId) || allProjects[0]
+})
+
+useSeoMeta({
+  title: computed(() => project.value?.title || 'Project Detail'),
+  ogTitle: computed(() => `${project.value?.title || 'Project Detail'} | Farhan Alwanda`),
+  ogDescription: computed(() => project.value?.description || 'Project details and tech stack specifications.')
 })
 </script>

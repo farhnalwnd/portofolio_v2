@@ -3,7 +3,7 @@
     <!-- Section 1: Hardcoded Text and Icon, with color background (Start) -->
     <div class="md:col-span-2 p-4 flex gap-3 items-center justify-center border-b-3 md:border-b-0 md:border-r-3 border-brutal-black bg-brutal-green">
       <Icon name="lucide:terminal" class="w-5 h-5 text-brutal-black" />
-      <span class="font-black uppercase text-sm tracking-wider">/home/alwand></span>
+      <span class="font-black uppercase text-sm tracking-wider">~/alwand ></span>
     </div>
 
     <!-- Section 2: Credential (Center, more space) -->
@@ -29,5 +29,5 @@
 </template>
 
 <script setup lang="ts">
-const { data: profile } = await useAsyncData('profile-footer', () => queryCollection('profile').first())
+const { data: profile } = useLazyAsyncData('profile-footer', () => queryCollection('profile').first())
 </script>

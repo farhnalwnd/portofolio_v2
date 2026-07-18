@@ -50,7 +50,13 @@
 </template>
 
 <script setup lang="ts">
-const { data: skills } = await useAsyncData('skills-content', () => queryCollection('skills').first())
+useSeoMeta({
+  title: 'Skills & Tech Stack',
+  ogTitle: 'Skills & Tech Stack | Farhan Alwanda',
+  ogDescription: 'Detailed technical skills, frameworks, languages, and tools mastered by Farhan Alwanda.'
+})
+
+const { data: skills } = await useAsyncData('skills-content', () => queryCollection('skills').first(), { default: () => ({ meta: { hardSkills: [], softSkills: [] } } as any) })
 
 const getSoftSkillColorClass = (idx: number) => {
   const colors = [

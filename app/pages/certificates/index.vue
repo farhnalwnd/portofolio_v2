@@ -57,14 +57,10 @@
 
     <!-- Certificate Preview Modal -->
     <div v-if="activeCert" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" @click="closeCertPreview">
-      <div class="w-full max-w-4xl" @click.stop>
-        <BrutalistCard color="white" class="p-6 relative">
-          <!-- Close button -->
-          <button class="absolute -top-3 -right-3 w-8 h-8 bg-brutal-red text-white border-2 border-brutal-black font-black flex items-center justify-center hover:bg-red-600 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-30" @click="closeCertPreview">
-            ✕
-          </button>
-          
-          <div class="flex flex-col lg:flex-row gap-6">
+      <div class="w-full max-w-4xl max-h-[90vh] overflow-y-auto p-4" @click.stop>
+        <div class="relative">
+          <BrutalistCard color="white" class="p-6">
+            <div class="flex flex-col lg:flex-row gap-6">
             <!-- Left Info Panel -->
             <div class="w-full lg:w-1/3 flex flex-col justify-between border-b-3 lg:border-b-0 lg:border-r-3 border-brutal-black pb-6 lg:pb-0 lg:pr-6">
               <div>
@@ -107,7 +103,7 @@
             </div>
 
             <!-- Right Preview Panel -->
-            <div class="w-full lg:w-2/3 h-[500px] border-3 border-brutal-black bg-white overflow-hidden relative">
+            <div class="w-full lg:w-2/3 h-[250px] sm:h-[350px] lg:h-[500px] border-3 border-brutal-black bg-white overflow-hidden relative">
               <iframe 
                 v-if="activeCert.meta.file && activeCert.meta.file.endsWith('.pdf')"
                 :src="`${activeCert.meta.file}#toolbar=0&navpanes=0&scrollbar=0`" 
@@ -126,15 +122,27 @@
             </div>
           </div>
         </BrutalistCard>
+        
+        <!-- Close button -->
+        <button class="absolute -top-3 -right-3 w-8 h-8 bg-brutal-red text-white border-2 border-brutal-black font-black flex items-center justify-center hover:bg-red-600 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-30" @click="closeCertPreview">
+          ✕
+        </button>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const { data: certificates } = await useAsyncData('certificates-detail', () => queryCollection('certificates').order('order', 'ASC').all())
+useSeoMeta({
+  title: 'Certificates',
+  ogTitle: 'Certifications | Farhan Alwanda',
+  ogDescription: 'Verified professional certifications and technical achievements of Farhan Alwanda.'
+})
+
+const { data: certificates } = await useAsyncData('certificates-detail', () => queryCollection('certificates').order('order', 'ASC').all(), { default: () => [] })
 
 const activeCert = ref<any>(null)
 

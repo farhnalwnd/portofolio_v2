@@ -7,19 +7,19 @@
       <SectionHead title="Get In Touch" />
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12 items-start">
-      <div class="lg:col-span-5 flex flex-col space-y-6">
+      <div class="lg:col-span-5 flex flex-col space-y-6 text-center lg:text-left">
         <h3 class="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">
           LET'S BUILD SOMETHING RUGGED & RELIABLE.
         </h3>
         <p class="text-lg font-bold uppercase tracking-tight text-brutal-black opacity-85">
           Drop me a line or find me on social media. Open for full-time opportunities or consulting work.
         </p>
-        <div v-if="profile" class="flex flex-col space-y-4 pt-4">
-          <a :href="`mailto:${profile.meta.email}`" class="text-2xl font-black uppercase hover:underline flex items-center gap-3">
-            <Icon name="lucide:mail" class="w-8 h-8" />
+        <div v-if="profile" class="flex flex-col space-y-4 pt-4 items-center lg:items-start">
+          <a :href="`mailto:${profile.meta.email}`" class=" sm:text-xl md:text-2xl font-black uppercase hover:underline flex items-center justify-center lg:justify-start gap-3 break-all w-full max-w-full">
+            <Icon name="lucide:mail" class="w-8 h-8 shrink-0" />
             {{ profile.meta.email }}
           </a>
-          <div class="grid grid-cols-4 gap-4">
+          <div class="grid grid-cols-4 gap-4 w-full max-w-sm">
             <BrutalistBtn v-if="profile.meta.github" :to="profile.meta.github" color="white" size="sm" class="flex items-center justify-center p-3">
               <Icon name="lucide:github" class="w-6 h-6" />
             </BrutalistBtn>
@@ -89,5 +89,11 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Get In Touch',
+  ogTitle: 'Contact & Hire | Farhan Alwanda',
+  ogDescription: 'Get in touch with Farhan Alwanda. Open for full-time opportunities, projects, or consulting.'
+})
+
 const { data: profile } = await useAsyncData('profile', () => queryCollection('profile').first())
 </script>

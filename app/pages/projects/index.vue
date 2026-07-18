@@ -48,7 +48,13 @@
 </template>
 
 <script setup lang="ts">
-const { data: projects } = await useAsyncData('projects-detail', () => queryCollection('projects').order('order', 'ASC').all())
+useSeoMeta({
+  title: 'Projects',
+  ogTitle: 'Featured Projects | Farhan Alwanda',
+  ogDescription: 'Browse the software, web applications, AI models, and IoT projects built by Farhan Alwanda.'
+})
+
+const { data: projects } = await useAsyncData('projects-detail', () => queryCollection('projects').order('order', 'ASC').all(), { default: () => [] })
 
 const getProjectSlug = (project: any) => {
   if (!project) return ''

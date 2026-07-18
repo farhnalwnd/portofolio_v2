@@ -53,5 +53,11 @@
 </template>
 
 <script setup lang="ts">
-const { data: history } = await useAsyncData('history-detail', () => queryCollection('history').order('order', 'ASC').all())
+useSeoMeta({
+  title: 'Journey History',
+  ogTitle: 'Journey History | Farhan Alwanda',
+  ogDescription: 'Experience timeline, career history, and educational journey of Farhan Alwanda.'
+})
+
+const { data: history } = await useAsyncData('history-detail', () => queryCollection('history').order('order', 'ASC').all(), { default: () => [] })
 </script>

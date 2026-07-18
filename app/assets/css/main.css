@@ -8,14 +8,34 @@ body {
 
 /* Custom Brutalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 18px;
+  height: 18px;
 }
 ::-webkit-scrollbar-track {
   background: #09090B;
+  border-left: 4px solid #09090B;
 }
 ::-webkit-scrollbar-thumb {
   background: #DFE104;
-  border: 3px solid #09090B;
+  border: 4px solid #09090B;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF5757;
+}
+
+/* Firefox Support */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #DFE104 #09090B;
+}
+
+/* Custom Brutalist Cursor */
+html, body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M2 2v18l5-5 4 8 3-1.5-4-7.5 6-1z' fill='%23ffffff' stroke='%2309090B' stroke-width='2.5' stroke-linejoin='miter'/%3E%3C/svg%3E"), auto;
+}
+
+a, button, select, input, textarea, [role="button"], .cursor-pointer {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M2 2v18l5-5 4 8 3-1.5-4-7.5 6-1z' fill='%23DFE104' stroke='%2309090B' stroke-width='2.5' stroke-linejoin='miter'/%3E%3C/svg%3E"), pointer !important;
 }
 
 .brutal-dot-pattern {
