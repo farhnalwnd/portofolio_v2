@@ -12,7 +12,6 @@ tech:
   - "IoT"
   - "Smart Sensors"
   - "ESP32"
-thumbnail: "/image.png"
 links:
   github: ""
   demo: null

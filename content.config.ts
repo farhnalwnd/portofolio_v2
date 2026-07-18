@@ -17,6 +17,7 @@ export default defineContentConfig({
       schema: baseSchema.extend({
         featured: z.boolean().default(false),
         tech: z.array(z.string()).default([]),
+        thumbnail: z.string().optional(),
         links: z.object({
           github: z.string().nullable().optional(),
           demo: z.string().nullable().optional()

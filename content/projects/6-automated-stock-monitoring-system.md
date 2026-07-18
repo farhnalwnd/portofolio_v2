@@ -11,7 +11,6 @@ tech:
   - "Laravel Jobs"
   - "Laravel Mail"
   - "PHP"
-thumbnail: "/image.png"
 links:
   github: ""
   demo: null

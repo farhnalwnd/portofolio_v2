@@ -13,7 +13,7 @@ tech:
   - "Laravel"
   - "Filament"
   - "Livewire"
-thumbnail: "/image.png"
+# thumbnail: "/image.png"
 links:
   github: ""
   demo: null

@@ -419,7 +419,8 @@ const closeCertPreview = () => {
 const marqueeItems = [
   'LARAVEL', 'FILAMENT', 'FLUTTER', 'GO / GIN', 'FASTAPI', 'PYTHON', 
   'DOCKER COMPOSE', 'ESP32', 'MQTT PROTOCOL', 'NODE-RED', 
-  'CONVOLUTIONAL NEURAL NETWORKS', 'MODEL OPTIMIZATION', 'LINUX'
+  'CONVOLUTIONAL NEURAL NETWORKS', 'MODEL OPTIMIZATION', 'LINUX',
+  'KERAS', 'PYTORCH', 'TENSORFLOW'
 ]
 
 const getProjectBgColor = (idx: number) => {
