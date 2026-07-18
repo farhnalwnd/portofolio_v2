@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" @click="$emit('close')">
+  <div v-if="isOpen" class="brutal-modal-backdrop" @click="$emit('close')">
     <div class="w-full max-w-4xl max-h-[90vh] overflow-y-auto p-4" @click.stop>
       <div class="relative">
         <BrutalistCard color="white" class="p-6">
@@ -43,7 +43,7 @@
         </BrutalistCard>
         
         <!-- Close button -->
-        <button class="absolute -top-3 -right-3 w-8 h-8 bg-brutal-red text-white border-2 border-brutal-black font-black flex items-center justify-center hover:bg-red-600 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-30" @click="$emit('close')">
+        <button class="brutal-close-btn" @click="$emit('close')">
           ✕
         </button>
       </div>

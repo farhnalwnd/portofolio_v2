@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" @click="$emit('close')">
+  <div v-if="isOpen" class="brutal-modal-backdrop" @click="$emit('close')">
     <div class="w-full max-w-md p-4 animate-in fade-in zoom-in-95 duration-100" @click.stop>
       <BrutalistCard :color="status === 'success' ? 'green' : 'red'" class="p-6">
         <div class="flex flex-col items-center text-center space-y-6">
