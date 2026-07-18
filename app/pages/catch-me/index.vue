@@ -33,6 +33,11 @@
               <Icon name="lucide:instagram" class="w-6 h-6" />
             </BrutalistBtn>
           </div>
+          <div class="w-full max-w-sm pt-2">
+            <BrutalistBtn color="yellow" class="w-full text-center" @click="isCvModalOpen = true">
+              Download CV
+            </BrutalistBtn>
+          </div>
         </div>
       </div>
 
@@ -85,10 +90,15 @@
       </div>
       </div>
     </main>
+
+    <!-- CV Modal -->
+    <CvModal :is-open="isCvModalOpen" @close="isCvModalOpen = false" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 useSeoMeta({
   title: 'Get In Touch',
   ogTitle: 'Contact & Hire | Farhan Alwanda',
@@ -96,4 +106,6 @@ useSeoMeta({
 })
 
 const { data: profile } = await useAsyncData('profile', () => queryCollection('profile').first())
+
+const isCvModalOpen = ref(false)
 </script>

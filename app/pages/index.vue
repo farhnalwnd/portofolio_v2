@@ -24,6 +24,9 @@
             <NuxtLink to="/catch-me">
               <BrutalistBtn color="white" size="lg">Let's Talk</BrutalistBtn>
             </NuxtLink>
+            <BrutalistBtn color="yellow" size="lg" @click="isCvModalOpen = true">
+              Download CV
+            </BrutalistBtn>
           </div>
         </div>
 
@@ -352,6 +355,9 @@
       </div>
     </div>
   </div>
+
+  <!-- CV Modal -->
+  <CvModal :is-open="isCvModalOpen" @close="isCvModalOpen = false" />
   </div>
 </template>
 
@@ -409,6 +415,7 @@ const nextProject = () => {
 
 // Certificate Preview Modal state
 const activeCert = ref<any>(null)
+const isCvModalOpen = ref(false)
 const openCertPreview = (cert: any) => {
   activeCert.value = cert
 }
