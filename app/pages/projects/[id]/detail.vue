@@ -71,7 +71,11 @@ const localePath = useLocalePath()
 
 const { data: project } = await useAsyncData(`project-detail-${projectId}-${locale.value}`, async () => {
   const allProjects = await queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).all()
-  return allProjects.find(p => p.path.endsWith(projectId) || p.path.includes(projectId) || p.title.toLowerCase().replace(/ /g, '-') === projectId) || allProjects[0]
+  const found = allProjects.find(p => p.path.endsWith(projectId) || p.path.includes(projectId) || p.title.toLowerCase().replace(/ /g, '-') === projectId)
+  if (!found) {
+    throw createError({ statusCode: 404, statusMessage: 'Project Not Found', fatal: true })
+  }
+  return found
 }, { watch: [locale] })
 
 useSeoMeta({

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex-grow flex flex-col">
+  <div class="w-full flex-grow flex flex-col transition-opacity duration-200" :class="{ 'opacity-50 pointer-events-none': pending }">
     <!-- 1. Intro Section -->
     <section id="intro" class="relative min-h-[90vh] flex flex-col justify-between py-16 px-4 md:px-8 border-b-3 border-brutal-black bg-brutal-cream overflow-hidden">
       <!-- Background grid decoration -->
@@ -291,18 +291,31 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-useSeoMeta({
-  title: 'Home',
-  ogTitle: 'Farhan Alwanda - Full-Stack Developer & AI Engineer',
-  ogDescription: 'I craft intelligent web applications and IoT solutions. Less clutter, pure performance, and bold aesthetics.'
-})
-
 const { locale } = useI18n()
 const localePath = useLocalePath()
+const { t } = useI18n()
 
-const { data: history } = await useAsyncData(`home-history-${locale.value}`, () => queryCollection('history').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
-const { data: projects } = await useAsyncData(`home-projects-${locale.value}`, () => queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
-const { data: certificates } = await useAsyncData(`home-certificates-${locale.value}`, () => queryCollection('certificates').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
+useSeoMeta({
+  title: computed(() => t('nav.intro')),
+  ogTitle: computed(() => `Farhan Alwanda - ${t('home.badge')}`),
+  ogDescription: computed(() => t('home.bio'))
+})
+
+const { data: homeData, pending } = await useAsyncData(`home-data-${locale.value}`, async () => {
+  const [history, projects, certificates] = await Promise.all([
+    queryCollection('history').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(),
+    queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(),
+    queryCollection('certificates').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all()
+  ])
+  return { history, projects, certificates }
+}, {
+  default: () => ({ history: [], projects: [], certificates: [] }),
+  watch: [locale]
+})
+
+const history = computed(() => homeData.value.history)
+const projects = computed(() => homeData.value.projects)
+const certificates = computed(() => homeData.value.certificates)
 
 const featuredProjects = computed(() => {
   if (!projects.value) return []

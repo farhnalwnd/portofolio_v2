@@ -72,5 +72,15 @@
   },
   "footer": {
     "copyright": "© 2026 — HAK CIPTA DILINDUNGI ALWAND"
+  },
+  "error": {
+    "title_404": "HALAMAN TIDAK DITEMUKAN",
+    "desc_404": "RUTE YANG ANDA CARI TIDAK TERSEDIA DI DALAM PORTOFOLIO INI.",
+    "title_500": "SERVER BERMASALAH",
+    "desc_500": "TERJADI KESALAHAN INTERNAL PADA SERVER. KAMI SEDANG MENYELIDIKINYA.",
+    "title_generic": "TERJADI KESALAHAN",
+    "desc_generic": "TERJADI KESALAHAN YANG TIDAK DIHARAPKAN.",
+    "back_home": "KEMBALI KE BERANDA",
+    "seo_title": "Terjadi Kesalahan"
   }
 }

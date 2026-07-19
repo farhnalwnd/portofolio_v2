@@ -50,12 +50,12 @@
 </template>
 
 <script setup lang="ts">
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 useSeoMeta({
-  title: 'Skills & Tech Stack',
-  ogTitle: 'Skills & Tech Stack | Farhan Alwanda',
-  ogDescription: 'Detailed technical skills, frameworks, languages, and tools mastered by Farhan Alwanda.'
+  title: computed(() => t('skills.title')),
+  ogTitle: computed(() => `${t('skills.title')} | Farhan Alwanda`),
+  ogDescription: computed(() => t('skills.subtitle'))
 })
 
 const { data: skills } = await useAsyncData(`skills-content-${locale.value}`, () => queryCollection('skills').where('stem', 'LIKE', `${locale.value}/%`).first(), { default: () => ({ meta: { hardSkills: [], softSkills: [] } } as any), watch: [locale] })

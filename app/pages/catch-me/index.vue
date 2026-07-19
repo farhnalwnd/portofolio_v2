@@ -121,12 +121,12 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 useSeoMeta({
-  title: 'Get In Touch',
-  ogTitle: 'Contact & Hire | Farhan Alwanda',
-  ogDescription: 'Get in touch with Farhan Alwanda. Open for full-time opportunities, projects, or consulting.'
+  title: computed(() => t('contact.title')),
+  ogTitle: computed(() => `${t('contact.title')} | Farhan Alwanda`),
+  ogDescription: computed(() => t('contact.sub'))
 })
 
 const { data: profile } = await useAsyncData(`profile-data-${locale.value}`, () => queryCollection('profile').where('stem', 'LIKE', `${locale.value}/%`).first(), { watch: [locale] })

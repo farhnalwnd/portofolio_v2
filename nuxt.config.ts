@@ -6,9 +6,6 @@ export default defineNuxtConfig({
   sourcemap: { client: false, server: false },
   app: {
     head: {
-      htmlAttrs: {
-        lang: 'en'
-      },
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
@@ -42,7 +39,11 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/history', '/projects', '/skills', '/certificates', '/catch-me', '/robots.txt', '/sitemap.xml']
+      routes: [
+        '/', '/history', '/projects', '/skills', '/certificates', '/catch-me',
+        '/en', '/en/history', '/en/projects', '/en/skills', '/en/certificates', '/en/catch-me',
+        '/robots.txt', '/sitemap.xml'
+      ]
     }
   },
   css: ['~/assets/css/main.css'],

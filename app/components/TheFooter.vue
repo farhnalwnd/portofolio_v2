@@ -29,5 +29,10 @@
 </template>
 
 <script setup lang="ts">
-const { data: profile } = useLazyAsyncData('profile-footer', () => queryCollection('profile').first())
+const { locale } = useI18n()
+const { data: profile } = useLazyAsyncData(
+  `profile-footer-${locale.value}`,
+  () => queryCollection('profile').where('stem', 'LIKE', `${locale.value}/%`).first(),
+  { watch: [locale] }
+)
 </script>

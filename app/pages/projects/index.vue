@@ -10,7 +10,7 @@
           <div v-for="project in projects" :key="project.path" class="mb-8">
             <BrutalistCard :color="project.featured ? 'cream' : 'white'" class="h-full flex flex-col justify-between p-6 relative">
               <div v-if="project.featured" class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 bg-brutal-pink text-white font-bold uppercase tracking-wider text-xs border-2 border-brutal-black px-3 py-1.5 z-10 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                Featured
+                {{ $t('home.featured_project') }}
               </div>
               <div>
                 <div class="flex items-center justify-between mb-4 border-b-2 border-brutal-black pb-3">
@@ -48,13 +48,13 @@
 </template>
 
 <script setup lang="ts">
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const localePath = useLocalePath()
 
 useSeoMeta({
-  title: 'Projects',
-  ogTitle: 'Featured Projects | Farhan Alwanda',
-  ogDescription: 'Browse the software, web applications, AI models, and IoT projects built by Farhan Alwanda.'
+  title: computed(() => t('projects.title')),
+  ogTitle: computed(() => `${t('projects.title')} | Farhan Alwanda`),
+  ogDescription: computed(() => t('projects.subtitle'))
 })
 
 const { data: projects } = await useAsyncData(`projects-list-${locale.value}`, () => queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })

@@ -72,5 +72,15 @@
   },
   "footer": {
     "copyright": "© 2026 — ALL RIGHTS RESERVED ALWAND"
+  },
+  "error": {
+    "title_404": "PAGE NOT FOUND",
+    "desc_404": "THE ROAD YOU ARE LOOKING FOR DOES NOT EXIST IN THIS PORTFOLIO.",
+    "title_500": "SERVER CRASHED",
+    "desc_500": "SOMETHING BROKE ON THE SERVER SIDE. WE ARE INVESTIGATING.",
+    "title_generic": "ERROR OCCURRED",
+    "desc_generic": "AN UNEXPECTED ERROR HAS OCCURRED.",
+    "back_home": "BACK TO HOME",
+    "seo_title": "Error Occurred"
   }
 }

@@ -46,7 +46,7 @@
                   ID: {{ cert.meta.credentialId }}
                 </span>
                 <span class="font-black text-xs text-brutal-blue uppercase hover:underline">
-                  Click to View & Verify
+                  {{ $t('certs.click_verify') }}
                 </span>
               </div>
             </BrutalistCard>
@@ -63,12 +63,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 useSeoMeta({
-  title: 'Certificates',
-  ogTitle: 'Certifications | Farhan Alwanda',
-  ogDescription: 'Verified professional certifications and technical achievements of Farhan Alwanda.'
+  title: computed(() => t('certs.title')),
+  ogTitle: computed(() => `${t('certs.title')} | Farhan Alwanda`),
+  ogDescription: computed(() => t('certs.subtitle'))
 })
 
 const { data: certificates } = await useAsyncData(`certs-list-${locale.value}`, () => queryCollection('certificates').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
