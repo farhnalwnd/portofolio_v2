@@ -10,7 +10,7 @@
         <h2 class="text-3xl font-black uppercase tracking-tight text-brutal-black mb-8 border-b-4 border-brutal-black pb-2 inline-block">
           Hard Skills
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
           <BrutalistCard v-for="(group, idx) in skills.meta.hardSkills" :key="group.category" color="white" class="p-6">
             <h3 :class="[
               'text-2xl font-black uppercase tracking-tight border-b-3 border-brutal-black pb-3 mb-6 flex items-center justify-between -mx-6 -mt-6 p-6',
