@@ -178,7 +178,7 @@ const handleSubmit = async (e: Event) => {
     if (timePassed < cooldown) {
       const secondsLeft = Math.ceil((cooldown - timePassed) / 1000)
       statusModal.status = 'error'
-      statusModal.message = `Rate limit exceeded. Please wait ${secondsLeft}s before sending another message.`
+      statusModal.message = t('contact.rate_limit', { seconds: secondsLeft.toString() })
       statusModal.isOpen = true
       return
     }
@@ -191,7 +191,7 @@ const handleSubmit = async (e: Event) => {
   const hcaptchaResponse = (window as any).hcaptcha?.getResponse()
   if (!hcaptchaResponse) {
     statusModal.status = 'error'
-    statusModal.message = 'Please complete the captcha verification first.'
+    statusModal.message = t('contact.captcha_error')
     statusModal.isOpen = true
     return
   }
@@ -210,7 +210,7 @@ const handleSubmit = async (e: Event) => {
 
     if (response.ok && result.success) {
       statusModal.status = 'success'
-      statusModal.message = result.message || 'Your message has been sent successfully!'
+      statusModal.message = t('contact.success_message')
       statusModal.isOpen = true
       
       // Save last submit time to rate limit
@@ -229,15 +229,15 @@ const handleSubmit = async (e: Event) => {
       statusModal.status = 'error'
       // Handle potential spam detection status code / messages from Web3Forms
       if (response.status === 429 || result.message?.toLowerCase().includes('spam') || result.message?.toLowerCase().includes('bot')) {
-        statusModal.message = 'Submission rejected as spam. Please verify captcha and try again.'
+        statusModal.message = t('contact.spam_error')
       } else {
-        statusModal.message = result.message || 'Something went wrong. Please try again.'
+        statusModal.message = t('contact.generic_error')
       }
       statusModal.isOpen = true
     }
   } catch (error) {
     statusModal.status = 'error'
-    statusModal.message = 'Network error. Please check your connection and try again.'
+    statusModal.message = t('contact.network_error')
     statusModal.isOpen = true
   } finally {
     isSubmitting.value = false

@@ -68,7 +68,13 @@
     "your_message": "Pesan Anda",
     "name_placeholder": "NAMA ANDA",
     "email_placeholder": "EMAIL{'@'}CONTOH.COM",
-    "message_placeholder": "SAYA MEMILIKI PROYEK MENARIK UNTUK ANDA..."
+    "message_placeholder": "SAYA MEMILIKI PROYEK MENARIK UNTUK ANDA...",
+    "rate_limit": "Batas pengiriman terlampaui. Silakan tunggu {seconds} detik sebelum mengirim pesan lagi.",
+    "captcha_error": "Silakan selesaikan verifikasi captcha terlebih dahulu.",
+    "success_message": "Pesan Anda berhasil dikirim!",
+    "spam_error": "Pengiriman ditolak karena dianggap spam. Silakan verifikasi captcha dan coba lagi.",
+    "generic_error": "Terjadi kesalahan. Silakan coba lagi.",
+    "network_error": "Kesalahan jaringan. Silakan periksa koneksi Anda dan coba lagi."
   },
   "footer": {
     "copyright": "© 2026 — HAK CIPTA DILINDUNGI ALWAND"

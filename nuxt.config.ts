@@ -60,6 +60,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n'
   ],
   i18n: {
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     locales: [
       { code: 'id', name: 'Bahasa Indonesia', iso: 'id-ID', file: 'id.json' },
       { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' }

@@ -68,7 +68,13 @@
     "your_message": "Your Message",
     "name_placeholder": "JOHN DOE",
     "email_placeholder": "JOHN{'@'}EXAMPLE.COM",
-    "message_placeholder": "I HAVE AN EXCITING PROJECT FOR YOU..."
+    "message_placeholder": "I HAVE AN EXCITING PROJECT FOR YOU...",
+    "rate_limit": "Rate limit exceeded. Please wait {seconds}s before sending another message.",
+    "captcha_error": "Please complete the captcha verification first.",
+    "success_message": "Your message has been sent successfully!",
+    "spam_error": "Submission rejected as spam. Please verify captcha and try again.",
+    "generic_error": "Something went wrong. Please try again.",
+    "network_error": "Network error. Please check your connection and try again."
   },
   "footer": {
     "copyright": "© 2026 — ALL RIGHTS RESERVED ALWAND"
