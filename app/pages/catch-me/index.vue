@@ -44,7 +44,13 @@
       <!-- Contact Form -->
       <div class="lg:col-span-7">
         <BrutalistCard color="white" class="p-6 md:p-8">
-          <form class="flex flex-col space-y-6" @submit.prevent="handleSubmit">
+          <form 
+            class="flex flex-col space-y-6" 
+            @submit.prevent="handleSubmit"
+            @mouseenter.once="loadCaptcha"
+            @focusin.once="loadCaptcha"
+            @touchstart.once="loadCaptcha"
+          >
             <input type="hidden" name="access_key" value="8855b402-787a-4846-b831-2c8443328136">
             
             <div class="flex flex-col space-y-2">
@@ -121,15 +127,28 @@ useSeoMeta({
   ogDescription: 'Get in touch with Farhan Alwanda. Open for full-time opportunities, projects, or consulting.'
 })
 
-useHead({
-  script: [
-    { src: 'https://web3forms.com/client/script.js', async: true, defer: true }
-  ]
-})
-
 const { data: profile } = await useAsyncData('profile', () => queryCollection('profile').first())
 
 const isCvModalOpen = ref(false)
+const isCaptchaLoaded = ref(false)
+
+const loadCaptcha = (): Promise<void> => {
+  return new Promise((resolve) => {
+    if (isCaptchaLoaded.value) {
+      resolve()
+      return
+    }
+    const script = document.createElement('script')
+    script.src = 'https://web3forms.com/client/script.js'
+    script.async = true
+    script.defer = true
+    script.onload = () => {
+      isCaptchaLoaded.value = true
+      resolve()
+    }
+    document.head.appendChild(script)
+  })
+}
 
 const formData = reactive({
   name: '',
@@ -146,6 +165,8 @@ const statusModal = reactive({
 })
 
 const handleSubmit = async (e: Event) => {
+  await loadCaptcha()
+
   // Rate limiting check using localStorage
   const lastSubmitTime = localStorage.getItem('last_submit_time')
   const cooldown = 60 * 1000 // 1 minute cooldown
