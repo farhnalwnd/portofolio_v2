@@ -4,7 +4,7 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none brutal-stripe-pattern z-0"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto">
-      <SectionHead title="Projects" />
+      <SectionHead title="Projects" tag="h1" />
       <div class="mt-8">
         <div v-if="projects && projects.length" class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div v-for="project in projects" :key="project.path" class="mb-8">

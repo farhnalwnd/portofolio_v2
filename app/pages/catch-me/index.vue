@@ -4,7 +4,7 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none brutal-grid-pattern z-0"></div>
 
     <main class="relative z-10 max-w-7xl mx-auto w-full flex flex-col justify-center">
-      <SectionHead title="Get In Touch" />
+      <SectionHead title="Get In Touch" tag="h1" />
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12 items-start">
       <div class="lg:col-span-5 flex flex-col space-y-6 text-center lg:text-left">
@@ -20,16 +20,16 @@
             {{ profile.meta.email }}
           </a>
           <div class="grid grid-cols-4 gap-4 w-full max-w-sm">
-            <BrutalistBtn v-if="profile.meta.github" :to="profile.meta.github" color="white" size="sm" class="flex items-center justify-center p-3">
+            <BrutalistBtn v-if="profile.meta.github" :to="profile.meta.github" color="white" size="sm" aria-label="GitHub Profile" class="flex items-center justify-center p-3">
               <Icon name="lucide:github" class="w-6 h-6" />
             </BrutalistBtn>
-            <BrutalistBtn v-if="profile.meta.linkedin" :to="profile.meta.linkedin" color="white" size="sm" class="flex items-center justify-center p-3">
+            <BrutalistBtn v-if="profile.meta.linkedin" :to="profile.meta.linkedin" color="white" size="sm" aria-label="LinkedIn Profile" class="flex items-center justify-center p-3">
               <Icon name="lucide:linkedin" class="w-6 h-6" />
             </BrutalistBtn>
-            <BrutalistBtn v-if="profile.meta.whatsapp" :to="profile.meta.whatsapp" color="white" size="sm" class="flex items-center justify-center p-3">
+            <BrutalistBtn v-if="profile.meta.whatsapp" :to="profile.meta.whatsapp" color="white" size="sm" aria-label="WhatsApp Contact" class="flex items-center justify-center p-3">
               <Icon name="lucide:message-circle" class="w-6 h-6" />
             </BrutalistBtn>
-            <BrutalistBtn v-if="profile.meta.instagram" :to="profile.meta.instagram" color="white" size="sm" class="flex items-center justify-center p-3">
+            <BrutalistBtn v-if="profile.meta.instagram" :to="profile.meta.instagram" color="white" size="sm" aria-label="Instagram Profile" class="flex items-center justify-center p-3">
               <Icon name="lucide:instagram" class="w-6 h-6" />
             </BrutalistBtn>
           </div>

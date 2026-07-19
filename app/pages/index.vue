@@ -40,10 +40,10 @@
               <div class="w-4 h-4 rounded-full bg-brutal-red border-2 border-brutal-black"></div>
               <div class="w-4 h-4 rounded-full bg-brutal-orange border-2 border-brutal-black"></div>
               <div class="w-4 h-4 rounded-full bg-brutal-blue border-2 border-brutal-black"></div>
-              <span class="font-bold text-xs uppercase text-zinc-500 tracking-wider">whoami</span>
+              <span class="font-bold text-xs uppercase text-zinc-800 tracking-wider">whoami</span>
             </div>
             
-            <p class="font-mono text-sm leading-relaxed text-zinc-800 mb-6">
+            <p class="font-mono text-sm leading-relaxed text-zinc-900 mb-6">
               &gt; nick: alwand<br>
               &gt; status: fresh graduate<br>
               &gt; stack: laravel / vue / python <br>
@@ -74,10 +74,10 @@
               Featured Project
             </h2>
             <div class="flex items-center space-x-2">
-              <BrutalistBtn color="white" size="sm" @click="prevProject">
+              <BrutalistBtn color="white" size="sm" aria-label="Previous project" @click="prevProject">
                 <Icon name="lucide:arrow-left" class="w-5 h-5" />
               </BrutalistBtn>
-              <BrutalistBtn color="white" size="sm" @click="nextProject">
+              <BrutalistBtn color="white" size="sm" aria-label="Next project" @click="nextProject">
                 <Icon name="lucide:arrow-right" class="w-5 h-5" />
               </BrutalistBtn>
             </div>
@@ -161,10 +161,10 @@
               <BrutalistCard color="cream" class="p-4 hover:bg-brutal-purple transition-colors">
                 <div class="flex justify-between items-start mb-3">
                   <div>
-                    <h4 class="font-black uppercase text-sm text-brutal-black line-clamp-1">
+                    <h3 class="font-black uppercase text-sm text-brutal-black line-clamp-1">
                       {{ cert.title }}
-                    </h4>
-                    <p class="text-xs text-zinc-500 font-bold uppercase mt-1">
+                    </h3>
+                    <p class="text-xs text-zinc-700 font-bold uppercase mt-1">
                       {{ cert.meta.issuer }}
                     </p>
                   </div>
@@ -240,9 +240,9 @@
               <span class="text-xs font-bold uppercase bg-brutal-black text-white px-2 py-0.5">
                 {{ item.meta.period }}
               </span>
-              <h4 class="text-xl font-black uppercase tracking-tight text-brutal-black mt-2">
+              <h3 class="text-xl font-black uppercase tracking-tight text-brutal-black mt-2">
                 {{ item.title }}
-              </h4>
+              </h3>
               <p class="text-sm font-bold uppercase text-brutal-blue mb-2">
                 {{ item.meta.institution }}
               </p>
@@ -264,10 +264,10 @@
       <div class="lg:col-span-1 p-8 bg-brutal-cream flex flex-col justify-between relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 pointer-events-none brutal-grid-pattern"></div>
         <div class="space-y-6 relative z-10">
-          <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-none stroke-text select-none hover:text-brutal-black transition-colors duration-300">
+          <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight leading-none stroke-text select-none hover:text-brutal-purple transition-colors duration-300">
             FIND ME HERE AND LET'S WORK TOGETHER.
           </h3>
-          <p class="text-xs font-bold uppercase tracking-tight text-zinc-700">
+          <p class="text-xs font-black uppercase tracking-tight text-zinc-900">
             REACH US AT ANY TIME FOR HIRING.
           </p>
         </div>

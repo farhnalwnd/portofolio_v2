@@ -26,6 +26,7 @@
       <!-- Mobile Menu Button -->
       <button 
         class="xl:hidden flex items-center justify-center p-2 border-3 border-brutal-black bg-white hover:bg-brutal-yellow transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+        aria-label="Toggle navigation menu"
         @click="toggleMenu"
       >
         <Icon :name="isOpen ? 'lucide:x' : 'lucide:menu'" class="w-6 h-6 text-brutal-black" />

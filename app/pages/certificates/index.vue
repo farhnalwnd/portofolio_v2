@@ -4,7 +4,7 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none brutal-grid-pattern z-0"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto">
-      <SectionHead title="Certifications" />
+      <SectionHead title="Certifications" tag="h1" />
       <div class="mt-8">
         <div v-if="certificates && certificates.length" class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div 
@@ -42,7 +42,7 @@
 
               <!-- Footer Details -->
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t-2 border-brutal-black pt-4 mt-auto">
-                <span class="font-mono text-xs text-zinc-500 uppercase tracking-widest">
+                <span class="font-mono text-xs text-zinc-700 uppercase tracking-widest">
                   ID: {{ cert.meta.credentialId }}
                 </span>
                 <span class="font-black text-xs text-brutal-blue uppercase hover:underline">

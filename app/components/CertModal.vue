@@ -70,7 +70,7 @@
         </BrutalistCard>
         
         <!-- Close button -->
-        <button class="brutal-close-btn" @click="$emit('close')">
+        <button class="brutal-close-btn" aria-label="Close certificate modal" @click="$emit('close')">
           ✕
         </button>
       </div>

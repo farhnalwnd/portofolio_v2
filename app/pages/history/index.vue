@@ -4,7 +4,7 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none brutal-dot-pattern z-0"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto">
-      <SectionHead title="Journey History" />
+      <SectionHead title="Journey History" tag="h1" />
       <div class="mt-12 relative border-l-4 border-brutal-black pl-8 ml-4 md:ml-8 space-y-12">
         <!-- Vertically Centered Dot Indicator (Brutalist style) -->
         <div v-for="item in history" :key="item.path" class="relative">
@@ -24,13 +24,13 @@
                   <BrutalistBadge :color="item.meta.type === 'career' ? 'bg-brutal-yellow' : 'bg-brutal-blue'" class="text-xs uppercase">
                     {{ item.meta.type }}
                   </BrutalistBadge>
-                  <span class="text-xs font-black uppercase text-zinc-500 tracking-wider">
+                  <span class="text-xs font-black uppercase text-zinc-700 tracking-wider">
                     {{ item.meta.location }}
                   </span>
                 </div>
-                <h4 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-brutal-black">
+                <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-brutal-black">
                   {{ item.title }}
-                </h4>
+                </h2>
               </div>
               <div class="flex flex-col items-start md:items-end">
                 <span class="font-black text-sm bg-brutal-black text-white px-3 py-1.5 uppercase tracking-wider inline-block border-2 border-brutal-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">

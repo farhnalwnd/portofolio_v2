@@ -15,13 +15,13 @@
 
     <!-- Section 3: Social Icons (End) -->
     <div v-if="profile" class="md:col-span-2 p-4 flex items-center justify-center gap-6">
-      <a :href="profile.meta.github" target="_blank" class="hover:text-brutal-blue transition-colors">
+      <a :href="profile.meta.github" target="_blank" aria-label="GitHub Profile" class="hover:text-brutal-blue transition-colors">
         <Icon name="lucide:github" class="w-6 h-6" />
       </a>
-      <a :href="profile.meta.whatsapp" target="_blank" class="hover:text-brutal-blue transition-colors">
+      <a :href="profile.meta.whatsapp" target="_blank" aria-label="WhatsApp Contact" class="hover:text-brutal-blue transition-colors">
         <Icon name="lucide:message-circle" class="w-6 h-6" />
       </a>
-      <a :href="profile.meta.instagram" target="_blank" class="hover:text-brutal-blue transition-colors">
+      <a :href="profile.meta.instagram" target="_blank" aria-label="Instagram Profile" class="hover:text-brutal-blue transition-colors">
         <Icon name="lucide:instagram" class="w-6 h-6" />
       </a>
     </div>

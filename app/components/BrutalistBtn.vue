@@ -53,17 +53,17 @@ const colorClass = computed(() => {
     case 'yellow':
       return 'bg-brutal-yellow text-brutal-black'
     case 'blue':
-      return 'bg-brutal-blue text-white'
+      return 'bg-brutal-blue text-white font-black'
     case 'red':
-      return 'bg-brutal-red text-white'
+      return 'bg-brutal-red text-white font-black'
     case 'white':
       return 'bg-white text-brutal-black'
     case 'black':
-      return 'bg-brutal-black text-white'
+      return 'bg-brutal-black text-white font-black'
     case 'purple':
-      return 'bg-brutal-purple text-white'
+      return 'bg-brutal-purple text-white font-black'
     case 'pink':
-      return 'bg-brutal-pink text-white'
+      return 'bg-brutal-pink text-white font-black'
     case 'green':
       return 'bg-brutal-green text-brutal-black'
     case 'orange':

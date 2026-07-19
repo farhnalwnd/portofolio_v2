@@ -43,7 +43,7 @@
         </BrutalistCard>
         
         <!-- Close button -->
-        <button class="brutal-close-btn" @click="$emit('close')">
+        <button class="brutal-close-btn" aria-label="Close CV modal" @click="$emit('close')">
           ✕
         </button>
       </div>
