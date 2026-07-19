@@ -18,11 +18,7 @@ useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | Farhan Alwanda` : 'Farhan Alwanda - Full-Stack Developer & AI Engineer'
   },
-  htmlAttrs: {
-    lang: 'en'
-  },
   link: [
-    { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
     { rel: 'canonical', href: canonicalUrl }
   ]
 })
