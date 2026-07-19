@@ -55,7 +55,10 @@
               <img 
                 v-else-if="cert.meta.file"
                 :src="cert.meta.file"
-                class="w-full h-full object-contain bg-zinc-900"
+                class="w-full h-full object-contain bg-zinc-900 aspect-video"
+                width="800"
+                height="450"
+                loading="lazy"
                 alt="Certificate Original File"
               />
               <div v-else class="flex flex-col items-center justify-center h-full bg-brutal-cream p-8 text-center">

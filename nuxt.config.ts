@@ -9,12 +9,21 @@ export default defineNuxtConfig({
       modulePreload: {
         polyfill: false
       }
+    },
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit'
+      ]
     }
   },
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     }
+  },
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
   },
   nitro: {
     prerender: {
@@ -30,7 +39,9 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/icon',
     '@vercel/analytics',
-    '@vercel/speed-insights'
+    '@vercel/speed-insights',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
   icon: {
     serverBundle: {
@@ -42,7 +53,7 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-      'Space+Grotesk': [300, 400, 500, 600, 700, 900]
+      'Space+Grotesk': [400, 700]
     },
     display: 'swap',
     prefetch: true,

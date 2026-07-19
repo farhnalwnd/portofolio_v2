@@ -36,7 +36,7 @@
     <Teleport to="body">
       <div 
         v-if="isOpen"
-        class="xl:hidden fixed top-[75px] left-0 w-full h-[calc(100vh-75px)] bg-brutal-black/50 backdrop-blur-sm z-40"
+        class="xl:hidden fixed top-[75px] left-0 w-full h-[calc(100vh-75px)] bg-brutal-black/50 z-40"
         @click="closeMenu"
       >
         <!-- Mobile Drawer Content -->

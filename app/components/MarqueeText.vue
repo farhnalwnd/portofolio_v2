@@ -46,11 +46,13 @@ withDefaults(
   display: flex;
   width: max-content;
   animation: marquee 40s linear infinite;
+  will-change: transform;
 }
 
 .animate-marquee-reverse {
   display: flex;
   width: max-content;
   animation: marquee-reverse 40s linear infinite;
+  will-change: transform;
 }
 </style>

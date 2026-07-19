@@ -18,7 +18,9 @@
                 <img 
                   v-if="project.thumbnail" 
                   :src="project.thumbnail" 
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover aspect-video"
+                  width="1200"
+                  height="630"
                   alt="Project Thumbnail"
                 />
                 <Icon v-else name="lucide:folder-git-2" class="w-24 h-24 text-brutal-blue" />
