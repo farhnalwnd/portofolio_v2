@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "intro": "Intro",
+    "history": "History",
+    "projects": "Projects",
+    "skills": "Skills",
+    "certs": "Certs",
+    "touch_me": "Touch Me",
+    "menu": "MENU"
+  },
+  "home": {
+    "badge": "Full-Stack Developer & AI Engineer",
+    "bio": "I am passionate about designing well-structured and highly optimized applications through the integration of Artificial Intelligence with smart IoT devices. Less clutter, pure performance, and bold aesthetics.",
+    "based_in": "BASED IN ID",
+    "featured_project": "Featured Project",
+    "certifications": "Certifications",
+    "my_skills": "MY SKILLS",
+    "experience": "EXPERIENCE",
+    "cta_title": "FIND ME HERE AND LET'S WORK TOGETHER.",
+    "cta_subtitle": "REACH US AT ANY TIME FOR HIRING."
+  },
+  "btn": {
+    "my_projects": "My Projects",
+    "lets_talk": "Let's Talk",
+    "download_cv": "Download CV",
+    "view_detail": "View Detail",
+    "view_all_projects": "View All Projects",
+    "view_all_certs": "View All Certs",
+    "view_detail_journey": "View Detail Journey",
+    "get_in_touch": "GET IN TOUCH",
+    "back_to_projects": "Back to Projects",
+    "live_demo": "Live Demo",
+    "source_code": "Source Code",
+    "verify_original": "Verify Original",
+    "download": "Download",
+    "send_message": "Send Message",
+    "sending": "Sending..."
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A collection of projects I have worked on",
+    "detail_title": "Project Detail",
+    "not_found": "Project not found",
+    "click_image_hint": "click \"view detail to see image\""
+  },
+  "certs": {
+    "title": "Certifications",
+    "subtitle": "Professional certifications and credentials I have earned",
+    "click_verify": "Click to View & Verify",
+    "no_preview": "No document preview available"
+  },
+  "skills": {
+    "title": "Tech Stack & Skills",
+    "subtitle": "Technologies and tools I frequently use",
+    "hard_skills": "Hard Skills",
+    "soft_skills": "Soft Skills"
+  },
+  "history": {
+    "title": "Journey History",
+    "subtitle": "My educational journey and professional career"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "headline": "LET'S BUILD SOMETHING RUGGED & RELIABLE.",
+    "sub": "Drop me a line or find me on social media. Open for full-time opportunities or consulting work.",
+    "your_name": "Your Name",
+    "your_email": "Your Email",
+    "your_message": "Your Message",
+    "name_placeholder": "JOHN DOE",
+    "email_placeholder": "JOHN{'@'}EXAMPLE.COM",
+    "message_placeholder": "I HAVE AN EXCITING PROJECT FOR YOU..."
+  },
+  "footer": {
+    "copyright": "© 2026 — ALL RIGHTS RESERVED ALWAND"
+  }
+}

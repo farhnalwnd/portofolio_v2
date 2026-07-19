@@ -4,11 +4,11 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none brutal-dot-pattern z-0"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto">
-      <SectionHead title="Tech Stack & Skills" tag="h1" />
+      <SectionHead :title="$t('skills.title')" tag="h1" />
       <div v-if="skills" class="mt-8">
         <!-- Hard Skills Grid -->
         <h2 class="text-3xl font-black uppercase tracking-tight text-brutal-black mb-8 border-b-4 border-brutal-black pb-2 inline-block">
-          Hard Skills
+          {{ $t('skills.hard_skills') }}
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
           <BrutalistCard v-for="(group, idx) in skills.meta.hardSkills" :key="group.category" color="white" class="p-6">
@@ -30,7 +30,7 @@
 
         <!-- Soft Skills Section -->
         <h2 class="text-3xl font-black uppercase tracking-tight text-brutal-black mb-8 border-b-4 border-brutal-black pb-2 inline-block">
-          Soft Skills
+          {{ $t('skills.soft_skills') }}
         </h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
           <div 

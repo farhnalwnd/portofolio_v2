@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "intro": "Intro",
+    "history": "Riwayat",
+    "projects": "Proyek",
+    "skills": "Keahlian",
+    "certs": "Sertifikat",
+    "touch_me": "Hubungi Saya",
+    "menu": "MENU"
+  },
+  "home": {
+    "badge": "Pengembang Full-Stack & AI Engineer",
+    "bio": "Saya bersemangat merancang aplikasi yang terstruktur rapi dan teroptimasi tinggi melalui integrasi Kecerdasan Buatan dengan perangkat IoT pintar. Minim gangguan, performa murni, dan estetika berani.",
+    "based_in": "BERBASIS DI ID",
+    "featured_project": "Proyek Unggulan",
+    "certifications": "Sertifikasi",
+    "my_skills": "KEAHLIAN SAYA",
+    "experience": "PENGALAMAN",
+    "cta_title": "TEMUKAN SAYA DI SINI & MARI BEKERJA SAMA.",
+    "cta_subtitle": "HUBUNGI SAYA KAPAN SAJA UNTUK REKRUTMEN."
+  },
+  "btn": {
+    "my_projects": "Proyek Saya",
+    "lets_talk": "Mari Bicara",
+    "download_cv": "Unduh CV",
+    "view_detail": "Lihat Detail",
+    "view_all_projects": "Lihat Semua Proyek",
+    "view_all_certs": "Lihat Semua Sertifikat",
+    "view_detail_journey": "Lihat Detail Perjalanan",
+    "get_in_touch": "HUBUNGI SAYA",
+    "back_to_projects": "Kembali ke Proyek",
+    "live_demo": "Demo",
+    "source_code": "Kode Sumber",
+    "verify_original": "Verifikasi Asli",
+    "download": "Unduh",
+    "send_message": "Kirim Pesan",
+    "sending": "Mengirim..."
+  },
+  "projects": {
+    "title": "Proyek",
+    "subtitle": "Koleksi proyek yang pernah saya kerjakan",
+    "detail_title": "Detail Proyek",
+    "not_found": "Proyek tidak ditemukan",
+    "click_image_hint": "klik \"lihat detail untuk melihat gambar\""
+  },
+  "certs": {
+    "title": "Sertifikat",
+    "subtitle": "Sertifikasi dan penghargaan profesional yang saya peroleh",
+    "click_verify": "Klik untuk Melihat & Verifikasi",
+    "no_preview": "Pratinjau dokumen tidak tersedia"
+  },
+  "skills": {
+    "title": "Teknologi & Keahlian",
+    "subtitle": "Teknologi dan alat yang sering saya gunakan",
+    "hard_skills": "Hard Skills",
+    "soft_skills": "Soft Skills"
+  },
+  "history": {
+    "title": "Perjalanan Karir",
+    "subtitle": "Perjalanan pendidikan dan karir profesional saya"
+  },
+  "contact": {
+    "title": "Hubungi Saya",
+    "headline": "MARI MEMBANGUN SOMETHING RUGGED & RELIABLE.",
+    "sub": "Kirim pesan atau temukan saya di media sosial. Terbuka untuk peluang kerja penuh waktu atau konsultasi.",
+    "your_name": "Nama Anda",
+    "your_email": "Email Anda",
+    "your_message": "Pesan Anda",
+    "name_placeholder": "NAMA ANDA",
+    "email_placeholder": "EMAIL{'@'}CONTOH.COM",
+    "message_placeholder": "SAYA MEMILIKI PROYEK MENARIK UNTUK ANDA..."
+  },
+  "footer": {
+    "copyright": "© 2026 — HAK CIPTA DILINDUNGI ALWAND"
+  }
+}

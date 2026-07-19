@@ -4,7 +4,7 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none brutal-dot-pattern z-0"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto">
-      <SectionHead title="Journey History" tag="h1" />
+      <SectionHead :title="$t('history.title')" tag="h1" />
       <div class="mt-12 relative border-l-4 border-brutal-black pl-8 ml-4 md:ml-8 space-y-12">
         <!-- Vertically Centered Dot Indicator (Brutalist style) -->
         <div v-for="item in history" :key="item.path" class="relative">

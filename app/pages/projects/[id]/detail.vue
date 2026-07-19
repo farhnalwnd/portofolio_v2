@@ -5,9 +5,9 @@
 
     <div class="relative z-10 max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-        <SectionHead title="Project Detail" class="mb-0 md:mb-0" />
-        <BrutalistBtn to="/projects" color="white" size="sm" class="self-start md:self-auto flex items-center gap-2">
-          <Icon name="lucide:arrow-left" class="w-4 h-4" /> Back to Projects
+        <SectionHead :title="$t('projects.detail_title')" class="mb-0 md:mb-0" />
+        <BrutalistBtn :to="localePath('/projects')" color="white" size="sm" class="self-start md:self-auto flex items-center gap-2">
+          <Icon name="lucide:arrow-left" class="w-4 h-4" /> {{ $t('btn.back_to_projects') }}
         </BrutalistBtn>
       </div>
       <div class="mt-8">
@@ -45,16 +45,16 @@
 
             <div class="flex items-center space-x-4 border-t-2 border-brutal-black pt-6">
               <BrutalistBtn v-if="project.links?.demo" :to="project.links.demo" color="yellow" size="sm" class="flex-grow">
-                Live Demo
+                {{ $t('btn.live_demo') }}
               </BrutalistBtn>
               <BrutalistBtn v-if="project.links?.github" :to="project.links.github" color="white" size="sm" class="flex-grow">
-                Source Code
+                {{ $t('btn.source_code') }}
               </BrutalistBtn>
             </div>
           </BrutalistCard>
         </div>
         <div v-else class="text-center font-bold uppercase py-12">
-          Project not found
+          {{ $t('projects.not_found') }}
         </div>
       </div>
     </div>
@@ -66,6 +66,7 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const projectId = route.params.id as string
+const localePath = useLocalePath()
 
 const { data: project } = await useAsyncData(`project-detail-${projectId}`, async () => {
   // Try to find the project by slug / name matching or database collections

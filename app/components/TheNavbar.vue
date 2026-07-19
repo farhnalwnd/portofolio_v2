@@ -1,6 +1,6 @@
 <template>
   <nav class="sticky top-0 z-50 bg-brutal-cream border-b-3 border-brutal-black px-4 md:px-8 py-4 flex items-center justify-between">
-    <NuxtLink to="/" class="text-xl md:text-2xl font-black uppercase tracking-wider select-none hover:text-brutal-blue transition-colors">
+    <NuxtLink :to="localePath('/')" class="text-xl md:text-2xl font-black uppercase tracking-wider select-none hover:text-brutal-blue transition-colors">
       Farhan_Alwanda;
     </NuxtLink>
     
@@ -9,18 +9,31 @@
       <NuxtLink 
         v-for="link in navLinks" 
         :key="link.href" 
-        :to="link.href" 
+        :to="localePath(link.href)" 
         class="font-bold uppercase text-sm hover:text-brutal-blue transition-colors px-2 py-1 border-2 border-transparent"
         active-class="bg-brutal-black text-white border-brutal-black"
         exact-active-class="bg-brutal-black text-white border-brutal-black"
       >
-        {{ link.label }}
+        {{ $t(link.key) }}
       </NuxtLink>
     </div>
     
     <div class="flex items-center gap-4">
-      <NuxtLink to="/catch-me" class="hidden xl:inline-block">
-        <BrutalistBtn size="sm" color="yellow">Touch Me</BrutalistBtn>
+      <!-- Language Switcher -->
+      <div class="flex items-center border-2 border-brutal-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-xs font-black overflow-hidden select-none">
+        <button 
+          v-for="loc in availableLocales" 
+          :key="loc.code"
+          class="px-2 py-1 transition-colors uppercase"
+          :class="locale === loc.code ? 'bg-brutal-black text-white' : 'hover:bg-brutal-yellow text-brutal-black'"
+          @click="setLocale(loc.code)"
+        >
+          {{ loc.code }}
+        </button>
+      </div>
+
+      <NuxtLink :to="localePath('/catch-me')" class="hidden xl:inline-block">
+        <BrutalistBtn size="sm" color="yellow">{{ $t('nav.touch_me') }}</BrutalistBtn>
       </NuxtLink>
 
       <!-- Mobile Menu Button -->
@@ -46,22 +59,22 @@
           @click.stop
         >
           <div class="flex flex-col space-y-6">
-            <span class="font-black text-xl border-b-3 border-brutal-black pb-2 text-brutal-black">MENU</span>
+            <span class="font-black text-xl border-b-3 border-brutal-black pb-2 text-brutal-black">{{ $t('nav.menu') }}</span>
             <NuxtLink 
               v-for="link in navLinks" 
               :key="link.href" 
-              :to="link.href" 
+              :to="localePath(link.href)" 
               class="font-black uppercase text-lg text-brutal-black hover:text-brutal-blue py-2 px-3 border-3 border-transparent"
               active-class="bg-brutal-black text-white border-brutal-black"
               exact-active-class="bg-brutal-black text-white border-brutal-black"
               @click="closeMenu"
             >
-              {{ link.label }}
+              {{ $t(link.key) }}
             </NuxtLink>
           </div>
           <div class="pt-6 border-t-3 border-brutal-black">
-            <NuxtLink to="/catch-me" @click="closeMenu">
-              <BrutalistBtn size="md" color="yellow" class="w-full text-center">Touch Me</BrutalistBtn>
+            <NuxtLink :to="localePath('/catch-me')" @click="closeMenu">
+              <BrutalistBtn size="md" color="yellow" class="w-full text-center">{{ $t('nav.touch_me') }}</BrutalistBtn>
             </NuxtLink>
           </div>
         </div>
@@ -71,7 +84,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+
+const { locale, locales, setLocale } = useI18n()
+const localePath = useLocalePath()
 
 const isOpen = ref(false)
 
@@ -83,11 +99,18 @@ const closeMenu = () => {
   isOpen.value = false
 }
 
+const availableLocales = computed(() => {
+  return (locales.value as Array<{ code: string; name: string }>).map(i => ({
+    code: i.code,
+    name: i.name
+  }))
+})
+
 const navLinks = [
-  { label: 'Intro', href: '/' },
-  { label: 'History', href: '/history' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Skills', href: '/skills' },
-  { label: 'Certs', href: '/certificates' }
+  { key: 'nav.intro', href: '/' },
+  { key: 'nav.history', href: '/history' },
+  { key: 'nav.projects', href: '/projects' },
+  { key: 'nav.skills', href: '/skills' },
+  { key: 'nav.certs', href: '/certificates' }
 ]
 </script>

@@ -55,8 +55,19 @@ export default defineNuxtConfig({
     '@vercel/analytics',
     '@vercel/speed-insights',
     '@nuxtjs/sitemap',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    '@nuxtjs/i18n'
   ],
+  i18n: {
+    locales: [
+      { code: 'id', name: 'Bahasa Indonesia', iso: 'id-ID', file: 'id.json' },
+      { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' }
+    ],
+    langDir: 'locales',
+    defaultLocale: 'id',
+    strategy: 'prefix_except_default',
+    restructureDir: 'app'
+  },
   icon: {
     serverBundle: {
       collections: ['lucide', 'logos', 'simple-icons', 'mdi']

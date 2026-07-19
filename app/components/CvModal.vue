@@ -26,7 +26,7 @@
                     download
                     class="w-full bg-brutal-yellow text-brutal-black border-3 border-brutal-black font-black uppercase text-xs px-4 py-2 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-1 shadow-brutal text-center"
                   >
-                    Download CV
+                    {{ $t('btn.download_cv') }}
                   </a>
                 </div>
               </div>

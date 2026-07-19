@@ -4,15 +4,15 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none brutal-grid-pattern z-0"></div>
 
     <main class="relative z-10 max-w-7xl mx-auto w-full flex flex-col justify-center">
-      <SectionHead title="Get In Touch" tag="h1" />
+      <SectionHead :title="$t('contact.title')" tag="h1" />
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12 items-start">
       <div class="lg:col-span-5 flex flex-col space-y-6 text-center lg:text-left">
         <h3 class="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">
-          LET'S BUILD SOMETHING RUGGED & RELIABLE.
+          {{ $t('contact.headline') }}
         </h3>
         <p class="text-lg font-bold uppercase tracking-tight text-brutal-black opacity-85">
-          Drop me a line or find me on social media. Open for full-time opportunities or consulting work.
+          {{ $t('contact.sub') }}
         </p>
         <div v-if="profile" class="flex flex-col space-y-4 pt-4 items-center lg:items-start">
           <a :href="`mailto:${profile.meta.email}`" class=" sm:text-xl md:text-2xl font-black uppercase hover:underline flex items-center justify-center lg:justify-start gap-3 break-all w-full max-w-full">
@@ -35,7 +35,7 @@
           </div>
           <div class="w-full max-w-sm pt-2">
             <BrutalistBtn color="yellow" class="w-full text-center" @click="isCvModalOpen = true">
-              Download CV
+              {{ $t('btn.download_cv') }}
             </BrutalistBtn>
           </div>
         </div>
@@ -54,12 +54,12 @@
             <input type="hidden" name="access_key" value="8855b402-787a-4846-b831-2c8443328136">
             
             <div class="flex flex-col space-y-2">
-              <label class="font-black uppercase tracking-wider text-sm">Your Name</label>
+              <label class="font-black uppercase tracking-wider text-sm">{{ $t('contact.your_name') }}</label>
               <input 
                 v-model="formData.name"
                 name="name"
                 type="text" 
-                placeholder="JOHN DOE" 
+                :placeholder="$t('contact.name_placeholder')" 
                 class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream disabled:opacity-50"
                 required
                 :disabled="isSubmitting"
@@ -67,12 +67,12 @@
             </div>
             
             <div class="flex flex-col space-y-2">
-              <label class="font-black uppercase tracking-wider text-sm">Your Email</label>
+              <label class="font-black uppercase tracking-wider text-sm">{{ $t('contact.your_email') }}</label>
               <input 
                 v-model="formData.email"
                 name="email"
                 type="email" 
-                placeholder="JOHN@EXAMPLE.COM" 
+                :placeholder="$t('contact.email_placeholder')" 
                 class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream disabled:opacity-50"
                 required
                 :disabled="isSubmitting"
@@ -80,12 +80,12 @@
             </div>
 
             <div class="flex flex-col space-y-2">
-              <label class="font-black uppercase tracking-wider text-sm">Your Message</label>
+              <label class="font-black uppercase tracking-wider text-sm">{{ $t('contact.your_message') }}</label>
               <textarea 
                 v-model="formData.message"
                 name="message"
                 rows="4" 
-                placeholder="I HAVE AN EXCITING PROJECT FOR YOU..." 
+                :placeholder="$t('contact.message_placeholder')" 
                 class="w-full p-4 border-3 border-brutal-black font-bold uppercase placeholder-zinc-400 focus:outline-none focus:bg-brutal-cream resize-none disabled:opacity-50"
                 required
                 :disabled="isSubmitting"
@@ -96,7 +96,7 @@
 
             <div>
               <BrutalistBtn type="submit" color="yellow" class="w-full" :disabled="isSubmitting">
-                {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+                {{ isSubmitting ? $t('btn.sending') : $t('btn.send_message') }}
               </BrutalistBtn>
             </div>
           </form>

@@ -4,7 +4,7 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none brutal-stripe-pattern z-0"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto">
-      <SectionHead title="Projects" tag="h1" />
+      <SectionHead :title="$t('projects.title')" tag="h1" />
       <div class="mt-8">
         <div v-if="projects && projects.length" class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div v-for="project in projects" :key="project.path" class="mb-8">
@@ -29,14 +29,14 @@
                 </div>
               </div>
               <div class="flex items-center gap-4 border-t-2 border-brutal-black pt-4 mt-auto">
-                <BrutalistBtn :to="`/projects/${getProjectSlug(project)}/detail`" color="yellow" size="sm" class="flex-grow">
-                  View Detail
+                <BrutalistBtn :to="localePath(`/projects/${getProjectSlug(project)}/detail`)" color="yellow" size="sm" class="flex-grow">
+                  {{ $t('btn.view_detail') }}
                 </BrutalistBtn>
                 <BrutalistBtn v-if="project.links?.demo" :to="project.links.demo" color="blue" size="sm" class="flex-grow">
-                  Live Demo
+                  {{ $t('btn.live_demo') }}
                 </BrutalistBtn>
                 <BrutalistBtn v-if="project.links?.github" :to="project.links.github" color="white" size="sm" class="flex-grow">
-                  Source Code
+                  {{ $t('btn.source_code') }}
                 </BrutalistBtn>
               </div>
             </BrutalistCard>
@@ -48,6 +48,8 @@
 </template>
 
 <script setup lang="ts">
+const localePath = useLocalePath()
+
 useSeoMeta({
   title: 'Projects',
   ogTitle: 'Featured Projects | Farhan Alwanda',

@@ -31,7 +31,7 @@
                 </div>
                 <div class="flex gap-2">
                   <BrutalistBtn :to="cert.meta.credentialUrl" color="blue" size="sm" class="flex-grow text-white">
-                    Verify Original
+                    {{ $t('btn.verify_original') }}
                   </BrutalistBtn>
                   <a 
                     v-if="cert.meta.file"
@@ -39,7 +39,7 @@
                     download
                     class="bg-brutal-yellow text-brutal-black border-3 border-brutal-black font-black uppercase text-xs px-4 py-2 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-1 shadow-brutal"
                   >
-                    Download
+                    {{ $t('btn.download') }}
                   </a>
                 </div>
               </div>
@@ -63,7 +63,7 @@
               />
               <div v-else class="flex flex-col items-center justify-center h-full bg-brutal-cream p-8 text-center">
                 <Icon name="lucide:award" class="w-16 h-16 text-brutal-yellow mb-4" />
-                <span class="font-black text-lg uppercase">No document preview available</span>
+                <span class="font-black text-lg uppercase">{{ $t('certs.no_preview') }}</span>
               </div>
             </div>
           </div>

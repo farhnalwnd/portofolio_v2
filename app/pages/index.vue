@@ -9,23 +9,23 @@
         <!-- Text intro -->
         <div class="lg:col-span-7 flex flex-col space-y-6">
           <div class="inline-flex">
-            <BrutalistBadge color="blue" class="text-sm py-1.5 px-4">Full-Stack Developer & AI Engineer</BrutalistBadge>
+            <BrutalistBadge color="blue" class="text-sm py-1.5 px-4">{{ $t('home.badge') }}</BrutalistBadge>
           </div>
           <h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none text-brutal-black">
             FARHAN <span class="bg-brutal-orange px-2 inline-block transform -rotate-1 border-3 border-brutal-black">ALWANDA</span>
           </h1>
           <p class="text-xl md:text-2xl font-bold uppercase tracking-tight text-brutal-black max-w-2xl">
-            I am passionate about designing well-structured and highly optimized applications through the integration of Artificial Intelligence with smart IoT devices. Less clutter, pure performance, and bold aesthetics.
+            {{ $t('home.bio') }}
           </p>
           <div class="flex flex-wrap gap-4 pt-4">
-            <NuxtLink to="/projects">
-              <BrutalistBtn color="purple" size="lg">My Projects</BrutalistBtn>
+            <NuxtLink :to="localePath('/projects')">
+              <BrutalistBtn color="purple" size="lg">{{ $t('btn.my_projects') }}</BrutalistBtn>
             </NuxtLink>
-            <NuxtLink to="/catch-me">
-              <BrutalistBtn color="white" size="lg">Let's Talk</BrutalistBtn>
+            <NuxtLink :to="localePath('/catch-me')">
+              <BrutalistBtn color="white" size="lg">{{ $t('btn.lets_talk') }}</BrutalistBtn>
             </NuxtLink>
             <BrutalistBtn color="yellow" size="lg" @click="isCvModalOpen = true">
-              Download CV
+              {{ $t('btn.download_cv') }}
             </BrutalistBtn>
           </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="lg:col-span-5 flex justify-center items-center">
           <BrutalistCard color="white" class="p-6 md:p-8 max-w-md w-full relative transform rotate-2">
             <div class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 bg-brutal-pink text-white font-bold uppercase tracking-wider text-xs border-2 border-brutal-black px-3 py-1.5 z-20">
-              BASED IN ID
+              {{ $t('home.based_in') }}
             </div>
             <div class="flex items-center space-x-3 border-b-3 border-brutal-black pb-4 mb-6">
               <div class="w-4 h-4 rounded-full bg-brutal-red border-2 border-brutal-black"></div>
@@ -71,7 +71,7 @@
         <div>
           <div class="flex justify-between items-center border-b-3 border-brutal-black pb-4 mb-6">
             <h2 class="text-3xl font-black uppercase tracking-tight text-brutal-black">
-              Featured Project
+              {{ $t('home.featured_project') }}
             </h2>
             <div class="flex items-center space-x-2">
               <BrutalistBtn color="white" size="sm" aria-label="Previous project" @click="prevProject">
@@ -96,7 +96,7 @@
                 <div class="absolute inset-0 opacity-10 pointer-events-none brutal-grid-pattern"></div>
                 <div class="text-white font-black text-3xl tracking-widest uppercase relative z-10 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">// PROJECT {{ currentProjectIndex + 1 }}</div>
                 <div class="text-white/80 font-black text-xs tracking-wider uppercase relative z-10 mt-2 drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">
-                  click "view detail to see image"
+                  {{ $t('projects.click_image_hint') }}
                 </div>
               </div>
 
@@ -127,9 +127,9 @@
               </div>
 
               <div class="flex items-center space-x-4 border-t-2 border-brutal-black pt-4">
-                <NuxtLink :to="`/projects/${getProjectSlug(featuredProjects[currentProjectIndex])}/detail`" class="inline-flex">
+                <NuxtLink :to="localePath(`/projects/${getProjectSlug(featuredProjects[currentProjectIndex])}/detail`)" class="inline-flex">
                   <BrutalistBtn color="green" size="sm">
-                    View Detail
+                    {{ $t('btn.view_detail') }}
                   </BrutalistBtn>
                 </NuxtLink>
               </div>
@@ -138,8 +138,8 @@
         </div>
 
         <div class="mt-8 flex justify-start">
-          <NuxtLink to="/projects">
-            <BrutalistBtn color="white">View All Projects</BrutalistBtn>
+          <NuxtLink :to="localePath('/projects')">
+            <BrutalistBtn color="white">{{ $t('btn.view_all_projects') }}</BrutalistBtn>
           </NuxtLink>
         </div>
       </div>
@@ -148,7 +148,7 @@
       <div class="lg:col-span-1 p-8 bg-white flex flex-col justify-between">
         <div>
           <h2 class="text-3xl font-black uppercase tracking-tight text-brutal-black border-b-3 border-brutal-black pb-4 mb-6">
-            Certifications
+            {{ $t('home.certifications') }}
           </h2>
 
           <div class="space-y-4">
@@ -181,8 +181,8 @@
         </div>
 
         <div class="mt-8 flex justify-start">
-          <NuxtLink to="/certificates">
-            <BrutalistBtn color="black" class="text-white">View All Certs</BrutalistBtn>
+          <NuxtLink :to="localePath('/certificates')">
+            <BrutalistBtn color="black" class="text-white">{{ $t('btn.view_all_certs') }}</BrutalistBtn>
           </NuxtLink>
         </div>
       </div>
@@ -211,7 +211,7 @@
         <div class="absolute inset-0 opacity-10 pointer-events-none brutal-stripe-pattern"></div>
         <Icon name="lucide:arrow-left" class="w-16 h-16 text-brutal-black relative z-10" />
         <h2 class="text-3xl font-black uppercase tracking-tighter text-brutal-black relative z-10">
-          MY SKILLS
+          {{ $t('home.my_skills') }}
         </h2>
       </div>
     </section>
@@ -221,7 +221,7 @@
       <!-- Col 1: Experience title -->
       <div class="lg:col-span-1 p-8 border-b-3 lg:border-b-0 lg:border-r-3 border-brutal-black bg-brutal-orange flex flex-col justify-between items-start">
         <h2 class="text-4xl font-black uppercase tracking-tighter leading-none text-brutal-black">
-          EXPERIENCE
+          {{ $t('home.experience') }}
         </h2>
         <Icon name="lucide:arrow-down-right" class="w-16 h-16 text-brutal-black hidden lg:block" />
       </div>
@@ -254,8 +254,8 @@
         </div>
 
         <div class="mt-8">
-          <NuxtLink to="/history">
-            <BrutalistBtn color="white" size="sm">View Detail Journey</BrutalistBtn>
+          <NuxtLink :to="localePath('/history')">
+            <BrutalistBtn color="white" size="sm">{{ $t('btn.view_detail_journey') }}</BrutalistBtn>
           </NuxtLink>
         </div>
       </div>
@@ -265,16 +265,16 @@
         <div class="absolute inset-0 opacity-10 pointer-events-none brutal-grid-pattern"></div>
         <div class="space-y-6 relative z-10">
           <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight leading-none stroke-text select-none hover:text-brutal-purple transition-colors duration-300">
-            FIND ME HERE AND LET'S WORK TOGETHER.
+            {{ $t('home.cta_title') }}
           </h3>
           <p class="text-xs font-black uppercase tracking-tight text-zinc-900">
-            REACH US AT ANY TIME FOR HIRING.
+            {{ $t('home.cta_subtitle') }}
           </p>
         </div>
 
         <div class="mt-8 relative z-10">
-          <NuxtLink to="/catch-me">
-            <BrutalistBtn color="green" class="w-full text-center text-xs py-2">GET IN TOUCH</BrutalistBtn>
+          <NuxtLink :to="localePath('/catch-me')">
+            <BrutalistBtn color="green" class="w-full text-center text-xs py-2">{{ $t('btn.get_in_touch') }}</BrutalistBtn>
           </NuxtLink>
         </div>
       </div>
@@ -297,7 +297,7 @@ useSeoMeta({
   ogDescription: 'I craft intelligent web applications and IoT solutions. Less clutter, pure performance, and bold aesthetics.'
 })
 
-// Fetch data
+const localePath = useLocalePath()
 const { data: history } = await useAsyncData('history', () => queryCollection('history').order('order', 'ASC').all(), { default: () => [] })
 const { data: projects } = await useAsyncData('projects', () => queryCollection('projects').order('order', 'ASC').all(), { default: () => [] })
 const { data: certificates } = await useAsyncData('certificates', () => queryCollection('certificates').order('order', 'ASC').all(), { default: () => [] })

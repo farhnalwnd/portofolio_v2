@@ -9,7 +9,7 @@
     <!-- Section 2: Credential (Center, more space) -->
     <div class="md:col-span-8 p-4 flex items-center justify-center border-b-3 md:border-b-0 md:border-r-3 border-brutal-black">
       <p class="font-black uppercase tracking-wider text-sm">
-        © 2026 — ALL RIGHTS RESERVED ALWAND
+        {{ $t('footer.copyright') }}
       </p>
     </div>
 
