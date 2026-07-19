@@ -24,11 +24,12 @@ export default defineNuxtConfig({
   },
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    name: 'Farhan Alwanda - Portfolio'
   },
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/history', '/projects', '/skills', '/certificates', '/catch-me']
+      routes: ['/', '/history', '/projects', '/skills', '/certificates', '/catch-me', '/robots.txt', '/sitemap.xml']
     }
   },
   css: ['~/assets/css/main.css'],
