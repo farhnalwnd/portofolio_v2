@@ -297,10 +297,12 @@ useSeoMeta({
   ogDescription: 'I craft intelligent web applications and IoT solutions. Less clutter, pure performance, and bold aesthetics.'
 })
 
+const { locale } = useI18n()
 const localePath = useLocalePath()
-const { data: history } = await useAsyncData('history', () => queryCollection('history').order('order', 'ASC').all(), { default: () => [] })
-const { data: projects } = await useAsyncData('projects', () => queryCollection('projects').order('order', 'ASC').all(), { default: () => [] })
-const { data: certificates } = await useAsyncData('certificates', () => queryCollection('certificates').order('order', 'ASC').all(), { default: () => [] })
+
+const { data: history } = await useAsyncData(`home-history-${locale.value}`, () => queryCollection('history').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
+const { data: projects } = await useAsyncData(`home-projects-${locale.value}`, () => queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
+const { data: certificates } = await useAsyncData(`home-certificates-${locale.value}`, () => queryCollection('certificates').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
 
 const featuredProjects = computed(() => {
   if (!projects.value) return []

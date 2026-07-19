@@ -8,12 +8,12 @@ export default defineContentConfig({
   collections: {
     history: defineCollection({
       type: 'page',
-      source: 'history/*.md',
+      source: '**/history/*.md',
       schema: baseSchema
     }),
     projects: defineCollection({
       type: 'page',
-      source: 'projects/*.md',
+      source: '**/projects/*.md',
       schema: baseSchema.extend({
         featured: z.boolean().default(false),
         tech: z.array(z.string()).default([]),
@@ -26,16 +26,16 @@ export default defineContentConfig({
     }),
     certificates: defineCollection({
       type: 'page',
-      source: 'certificates/*.md',
+      source: '**/certificates/*.md',
       schema: baseSchema
     }),
     profile: defineCollection({
       type: 'page',
-      source: 'profile/*.md'
+      source: '**/profile/*.md'
     }),
     skills: defineCollection({
       type: 'page',
-      source: 'skills/*.md'
+      source: '**/skills/*.md'
     })
   }
 })

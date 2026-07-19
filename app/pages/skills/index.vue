@@ -50,13 +50,15 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n()
+
 useSeoMeta({
   title: 'Skills & Tech Stack',
   ogTitle: 'Skills & Tech Stack | Farhan Alwanda',
   ogDescription: 'Detailed technical skills, frameworks, languages, and tools mastered by Farhan Alwanda.'
 })
 
-const { data: skills } = await useAsyncData('skills-content', () => queryCollection('skills').first(), { default: () => ({ meta: { hardSkills: [], softSkills: [] } } as any) })
+const { data: skills } = await useAsyncData(`skills-content-${locale.value}`, () => queryCollection('skills').where('stem', 'LIKE', `${locale.value}/%`).first(), { default: () => ({ meta: { hardSkills: [], softSkills: [] } } as any), watch: [locale] })
 
 const getSoftSkillColorClass = (idx: number) => {
   const colors = [

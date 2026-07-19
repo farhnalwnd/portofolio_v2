@@ -9,9 +9,9 @@
     "menu": "MENU"
   },
   "home": {
-    "badge": "Pengembang Full-Stack & AI Engineer",
-    "bio": "Saya bersemangat merancang aplikasi yang terstruktur rapi dan teroptimasi tinggi melalui integrasi Kecerdasan Buatan dengan perangkat IoT pintar. Minim gangguan, performa murni, dan estetika berani.",
-    "based_in": "BERBASIS DI ID",
+    "badge": "Full-Stack Developer & AI Engineer",
+    "bio": "Senang merancang aplikasi yang terstruktur rapi dan teroptimasi tinggi melalui integrasi Kecerdasan Buatan dengan perangkat IoT pintar. Minim gangguan, performa murni, dan estetika berani.",
+    "based_in": "DOMISILI DI ID",
     "featured_project": "Proyek Unggulan",
     "certifications": "Sertifikasi",
     "my_skills": "KEAHLIAN SAYA",
@@ -41,7 +41,7 @@
     "subtitle": "Koleksi proyek yang pernah saya kerjakan",
     "detail_title": "Detail Proyek",
     "not_found": "Proyek tidak ditemukan",
-    "click_image_hint": "klik \"lihat detail untuk melihat gambar\""
+    "click_image_hint": "klik \"lihat detail untuk gambar\""
   },
   "certs": {
     "title": "Sertifikat",

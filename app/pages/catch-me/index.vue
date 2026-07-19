@@ -121,13 +121,15 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 
+const { locale } = useI18n()
+
 useSeoMeta({
   title: 'Get In Touch',
   ogTitle: 'Contact & Hire | Farhan Alwanda',
   ogDescription: 'Get in touch with Farhan Alwanda. Open for full-time opportunities, projects, or consulting.'
 })
 
-const { data: profile } = await useAsyncData('profile', () => queryCollection('profile').first())
+const { data: profile } = await useAsyncData(`profile-data-${locale.value}`, () => queryCollection('profile').where('stem', 'LIKE', `${locale.value}/%`).first(), { watch: [locale] })
 
 const isCvModalOpen = ref(false)
 const isCaptchaLoaded = ref(false)

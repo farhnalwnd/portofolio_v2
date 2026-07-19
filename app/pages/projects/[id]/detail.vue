@@ -66,13 +66,13 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const projectId = route.params.id as string
+const { locale } = useI18n()
 const localePath = useLocalePath()
 
-const { data: project } = await useAsyncData(`project-detail-${projectId}`, async () => {
-  // Try to find the project by slug / name matching or database collections
-  const allProjects = await queryCollection('projects').all()
+const { data: project } = await useAsyncData(`project-detail-${projectId}-${locale.value}`, async () => {
+  const allProjects = await queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).all()
   return allProjects.find(p => p.path.endsWith(projectId) || p.path.includes(projectId) || p.title.toLowerCase().replace(/ /g, '-') === projectId) || allProjects[0]
-})
+}, { watch: [locale] })
 
 useSeoMeta({
   title: computed(() => project.value?.title || 'Project Detail'),

@@ -53,11 +53,13 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n()
+
 useSeoMeta({
   title: 'Journey History',
   ogTitle: 'Journey History | Farhan Alwanda',
   ogDescription: 'Experience timeline, career history, and educational journey of Farhan Alwanda.'
 })
 
-const { data: history } = await useAsyncData('history-detail', () => queryCollection('history').order('order', 'ASC').all(), { default: () => [] })
+const { data: history } = await useAsyncData(`history-list-${locale.value}`, () => queryCollection('history').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
 </script>

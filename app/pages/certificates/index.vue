@@ -63,13 +63,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const { locale } = useI18n()
+
 useSeoMeta({
   title: 'Certificates',
   ogTitle: 'Certifications | Farhan Alwanda',
   ogDescription: 'Verified professional certifications and technical achievements of Farhan Alwanda.'
 })
 
-const { data: certificates } = await useAsyncData('certificates-detail', () => queryCollection('certificates').order('order', 'ASC').all(), { default: () => [] })
+const { data: certificates } = await useAsyncData(`certs-list-${locale.value}`, () => queryCollection('certificates').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
 
 const activeCert = ref<any>(null)
 

@@ -48,6 +48,7 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n()
 const localePath = useLocalePath()
 
 useSeoMeta({
@@ -56,7 +57,7 @@ useSeoMeta({
   ogDescription: 'Browse the software, web applications, AI models, and IoT projects built by Farhan Alwanda.'
 })
 
-const { data: projects } = await useAsyncData('projects-detail', () => queryCollection('projects').order('order', 'ASC').all(), { default: () => [] })
+const { data: projects } = await useAsyncData(`projects-list-${locale.value}`, () => queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
 
 const getProjectSlug = (project: any) => {
   if (!project) return ''
