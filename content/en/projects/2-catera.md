@@ -18,6 +18,10 @@ links:
   github: ""
   demo: null
 ---
-Catera is an end-to-end IoT digital solution designed to optimize corporate meal quota management and prevent operational losses. By combining ESP32 microcontrollers and RFID technology, the system enables automated, tamper-proof employee verification at tap entry points. 
+**Catera** is an end-to-end IoT digital solution designed to optimize corporate meal quota management and prevent operational losses.
 
-Node-RED serves as the middleware for smart data processing, ensuring real-time database synchronization with a centralized Laravel Filament backend. The implementation effectively eliminates catering fraud, guarantees that all employees receive meals strictly according to corporate policy, and provides administrators with live, auditable access records.
+### Key Features
+- **ESP32 & RFID Integration**: Automated employee identity card verification at cafeteria gates.
+- **Real-Time Data Pipelines**: Middleware powered by `Node-RED` linking edge sensors to database.
+- **Filament Portal Control**: Full-featured admin panel using `Laravel Filament` and `Livewire` for access logs.
+- **Fraud Prevention**: Prevents double-taps and ensures compliance with company meal allowances.

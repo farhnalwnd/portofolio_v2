@@ -16,4 +16,9 @@ links:
   github: ""
   demo: null
 ---
-Dikembangkan untuk Sinar Meadow International Indonesia, Content Management System (CMS) kustom ini memanfaatkan TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) dan Filament untuk mendigitalisasi portofolio produk perusahaan secara penuh. Platform ini menghadirkan desain modern, responsif, dan berpendekatan mobile-first yang dibangun untuk meningkatkan pengalaman pengguna, mengoptimalkan kemudahan penemuan produk, serta memperluas jangkauan pemasaran digital perusahaan untuk keterlibatan B2B.
+Content Management System (CMS) kustom untuk mendigitalisasi katalog produk dan portofolio pemasaran Sinar Meadow.
+
+### Fitur Utama
+- **Arsitektur TALL Stack**: Dibuat menggunakan kombinasi `Tailwind CSS`, `Alpine.js`, `Laravel`, dan `Livewire`.
+- **Katalog Produk Interaktif**: Kemudahan manajemen kategori dan tagging item dengan dashboard admin `Filament`.
+- **Desain Mobile-First**: Antarmuka responsif yang memudahkan eksplorasi produk pada perangkat mobile/smartphone.

@@ -42,7 +42,7 @@
               </div>
             </div>
             
-            <div class="prose max-w-none text-zinc-800 font-bold uppercase tracking-tight leading-relaxed">
+            <div class="prose max-w-none text-zinc-800 text-sm md:text-base font-normal tracking-tight leading-relaxed">
               <ContentRenderer :value="item" />
             </div>
           </BrutalistCard>

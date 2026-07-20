@@ -72,3 +72,26 @@ a, button, select, input, textarea, [role="button"], .cursor-pointer {
 .brutal-modal-backdrop {
   @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm;
 }
+
+/* Brutalist Prose Styling for Nuxt Content */
+.prose ul {
+  @apply list-disc list-outside pl-5 space-y-2 my-4;
+}
+
+.prose ol {
+  @apply list-decimal list-outside pl-5 space-y-2 my-4;
+}
+
+.prose li {
+  @apply pl-1;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed;
+}
+
+.prose p:last-child,
+.prose ul:last-child,
+.prose ol:last-child {
+  @apply mb-0;
+}

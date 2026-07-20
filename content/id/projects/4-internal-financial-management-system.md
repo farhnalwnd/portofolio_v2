@@ -17,4 +17,9 @@ links:
   github: "https://github.com/farhnalwnd/budgeting"
   demo: null
 ---
-Aplikasi manajemen anggaran tingkat perusahaan ini melayani lebih dari 100 pengguna internal, menyederhanakan administrasi korporat melalui pelacakan dana otomatis dan alokasi anggaran antar-departemen yang dinamis. Dikembangkan menggunakan Laravel dan Alpine.js, sistem ini menghadirkan alur kerja berbasis AJAX untuk menangani permintaan pinjaman dan pemrosesan dana secara real-time. Untuk memastikan kepatuhan finansial yang ketat dan transparansi administratif, platform ini menerapkan alur kerja persetujuan hierarkis multi-tingkat yang aman untuk semua transaksi realokasi.
+Aplikasi manajemen anggaran korporat untuk 100+ pengguna internal, menyederhanakan alokasi dana dan transaksi antar-divisi.
+
+### Fitur Utama
+- **Otomatisasi Pelacakan Dana**: Perhitungan saldo real-time dan manajemen pengajuan pinjaman anggaran.
+- **Interaksi Asinkron (AJAX)**: Penanganan form dinamis dan pemrosesan tanpa reload halaman via `Alpine.js` & `AJAX`.
+- **Persetujuan Bertingkat (Approval Path)**: Memaksa alur validasi transaksi secara berurutan sesuai bagan hierarki manager.

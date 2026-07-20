@@ -18,4 +18,9 @@ links:
   github: ""
   demo: null
 ---
-The IT-Framework CMS (The Bridge) is a centralized portal architecture engineered to integrate diverse internal corporate systems into a single, unified ecosystem. Developed using Laravel, Filament, and Flutter, the platform implements a secure Single Sign-On (SSO) mechanism powered by custom ticket-based authentication guards to bridge cross-module sessions seamlessly. Combined with dynamic Role-Based Access Control (RBAC) and permission mapping, it provides administrators with granular control over user roles and access rights across multiple integrated platforms, eliminating the need for multiple credentials while ensuring robust data isolation.
+Centralized IT-Framework CMS designed to integrate diverse internal corporate systems into a single, unified ecosystem.
+
+### Key Features
+- **Centralized Single Sign-On**: Unified session management across web apps and `Flutter` mobile clients.
+- **Custom Authentication Guards**: Custom ticket-based tokens using `Laravel Sanctum` for secure data routing.
+- **Granular RBAC**: Full role-based authorization controls enabling custom permissions per module.

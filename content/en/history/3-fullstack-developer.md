@@ -7,7 +7,9 @@ period: "Apr 2025 - Dec 2025"
 location: "East Jakarta, Indonesia"
 description: "Responsible for designing and developing cross-departmental enterprise applications spanning finance, sales, inventory, and warehouse logistics to digitize workflows and optimize operational efficiency."
 ---
-- Developed an Internal Financial Management System using Laravel, Alpine.js, and AJAX for over 100 users, automating fund tracking and interdepartmental loans to accelerate financial workflows.
-- Built a custom Sales Portfolio CMS using the TALL Stack (Tailwind CSS, Alpine.js, Laravel, Livewire) to digitize the company's product catalog with a mobile-first design, expanding digital marketing reach.
-- Designed an Automated Stock Monitoring System using Laravel Jobs & Mail that detects critical inventory thresholds in real time and auto-generates Excel reports to ensure warehouse data accuracy.
-- Implemented an end-to-end Warehouse Requisition & Approval System equipped with dynamic multi-level approval workflows, audit logs, and PDF generation to improve administrative transparency.
+> **Impact Summary**: Scaled internal tools for 100+ active users across finance, inventory, and sales logistics.
+
+- **Internal Financial System**: Built automated fund tracking & interdepartmental loan portal for 100+ active users using `Laravel`, `Alpine.js`, and `AJAX`.
+- **Sales Portfolio CMS**: Digitized product catalog with mobile-first `TALL Stack` (`Tailwind CSS`, `Alpine.js`, `Laravel`, `Livewire`).
+- **Automated Stock Monitoring**: Engineered real-time threshold detection & automated Excel reporting using `Laravel Queue` & `Mail`.
+- **Warehouse Requisition Platform**: Implemented multi-level approval workflows, audit trails, and instant PDF generation.

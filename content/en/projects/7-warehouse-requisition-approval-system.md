@@ -17,4 +17,9 @@ links:
   github: "https://github.com/farhnalwnd/requisition-slip"
   demo: null
 ---
-This end-to-end corporate supply chain application streamlines logistics administration through a dynamic, multi-level approval workflow. Developed to maximize operational transparency and accelerate warehouse processing, the platform features automated audit logging for comprehensive tracking alongside a custom PDF report generator module.
+Supply chain application built to streamline logistical administration and automate internal physical approvals.
+
+### Key Features
+- **Dynamic Approval Routing**: Configurable validation flow depending on stock classification and user hierarchy.
+- **Automated Audit Trail**: Logs every transaction status change to guarantee historical tracking.
+- **On-The-Fly PDF Rendering**: Compiles requisition data directly into downloadable slips for physical signing.

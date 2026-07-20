@@ -28,12 +28,9 @@
               <h1 class="text-4xl font-black uppercase tracking-tight text-brutal-black">
                 {{ project.title }}
               </h1>
-              <p class="text-zinc-500 font-bold uppercase mt-2">
-                {{ project.description }}
-              </p>
             </div>
 
-            <div class="prose max-w-none text-zinc-700 font-medium leading-relaxed mb-8">
+            <div class="prose max-w-none text-zinc-700 text-sm md:text-base font-medium leading-relaxed mb-8">
               <ContentRenderer :value="project" />
             </div>
 

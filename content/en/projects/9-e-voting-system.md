@@ -15,4 +15,9 @@ links:
   github: "https://github.com/farhnalwnd/votesystem"
   demo: null
 ---
-A web-based e-voting platform built to ensure integrity, speed, and security in election administration. Built with Laravel and Vanilla CSS, it features real-time live-count result visualization, voter authentication to prevent duplicate submissions, and a comprehensive admin interface for election configurations.
+Web voting software developed to enforce integrity, speed, and overall security throughout regional elections.
+
+### Key Features
+- **Real-time Live Charts**: Live results display charts tracking vote count immediately as they are cast.
+- **Duplicate Vote Blocker**: Enforces voter token validation mechanisms preventing multiple ballots.
+- **Election Dashboard**: Simplified setup for candidates, voting schedules, and registered voter logs.

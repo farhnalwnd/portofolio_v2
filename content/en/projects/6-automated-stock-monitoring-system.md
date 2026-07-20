@@ -15,4 +15,9 @@ links:
   github: ""
   demo: null
 ---
-This backend automation system is engineered to optimize warehouse inventory monitoring and ensure high data accuracy. Utilizing Laravel Jobs and Mail, the system continuously monitors stock levels, automatically detects when critical thresholds are breached, and dispatches real-time email alerts to the person-in-charge. Furthermore, it streamlines corporate reporting workflows by automatically compiling comprehensive inventory logs into Excel format for scheduled email distribution.
+Backend automation tool designed to optimize warehouse inventory status tracking and minimize tracking delay.
+
+### Key Features
+- **Asynchronous Check Queue**: Continuous inventory analysis utilizing `Laravel Jobs` to check stock states.
+- **Automated Mail Alerts**: Broadcasts critical threshold notifications to coordinators instantly via `Laravel Mail`.
+- **Scheduled Reports**: Builds and compiles detailed inventory data logs directly to Excel attachments.

@@ -16,4 +16,9 @@ links:
   github: ""
   demo: null
 ---
-Developed for Sinar Meadow International Indonesia, this custom Content Management System (CMS) leverages the TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) and Filament to fully digitize the company's product portfolio. The platform features a modern, responsive, and mobile-first design built to enhance user experience, optimize product discoverability, and expand corporate digital marketing reach for B2B engagement.
+Custom B2B Content Management System (CMS) built to digitize Sinar Meadow's product catalog and marketing assets.
+
+### Key Features
+- **Full TALL Stack Engine**: Powered by `Tailwind CSS`, `Alpine.js`, `Laravel`, and `Livewire`.
+- **B2B Product Showcase**: Easy catalog modifications and tagging using a tailored `Filament` dashboard.
+- **Mobile-First Layout**: Fully responsive interface optimizing catalog discoverability on mobile.

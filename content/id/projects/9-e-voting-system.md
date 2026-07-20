@@ -16,4 +16,9 @@ links:
   github: "https://github.com/farhnalwnd/e-voting-system"
   demo: null
 ---
-E-Voting System adalah platform pemilihan elektronik terenkripsi yang dirancang untuk memastikan kerahasiaan dan integritas suara pada pemilihan organisasi mahasiswa. Menggunakan token autentikasi sekali pakai (OTP) dan hashing kriptografi pada lembar suara, sistem ini mencegah pemungutan suara ganda dan menampilkan hasil perhitungan suara secara cepat dan transparan segera setelah periode pemilihan berakhir.
+Aplikasi pemungutan suara (e-voting) berbasis web yang dirancang untuk menjaga kerahasiaan, kecepatan, dan keamanan pemilihan umum mahasiswa.
+
+### Fitur Utama
+- **Bagan Hasil Real-Time**: Visualisasi data perolehan suara langsung saat pemilih mengirimkan hak suara mereka.
+- **Pencegah Suara Ganda**: Validasi token otentikasi unik sekali pakai (OTP) untuk mencegah pengiriman surat suara ganda.
+- **Dashboard Pemilu Terpadu**: Kemudahan penyiapan profil kandidat, masa berlaku pemilihan, dan log pemilih terdaftar.

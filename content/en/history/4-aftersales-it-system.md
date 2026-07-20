@@ -7,5 +7,7 @@ period: "Sep 2024 - Dec 2024"
 location: "South Jakarta, Indonesia"
 description: "Responsible for managing and auditing cross-system data administration for aftersales operations, ensuring data alignment, and maintaining high integrity across dealer and supplier networks."
 ---
-- Conducted comprehensive data cleaning and preprocessing on large-scale aftersales datasets (1,000+ rows) to optimize data usability for advanced analysis.
-- Verified and monitored aftersales service data by cross-checking transactional records from dealers to end consumers, ensuring service quality and contract compliance.
+> **Data Integrity Focus**: Ensured operational quality across nationwide dealer and supplier networks.
+
+- **Large-Scale Data Preprocessing**: Cleaned and formatted 1,000+ complex aftersales dataset records to enable accurate downstream reporting.
+- **Cross-System Data Auditing**: Verified transactional records between dealers and consumers to ensure service quality and SLA compliance.

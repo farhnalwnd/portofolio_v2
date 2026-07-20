@@ -16,4 +16,9 @@ links:
   github: ""
   demo: null
 ---
-Sortify was designed and implemented as an undergraduate thesis project at President University. The system seamlessly integrates Artificial Intelligence (AI) with Internet of Things (IoT) hardware to create an automated waste bin capable of recognizing, classifying, and physically sorting diverse types of waste in real-time by leveraging smart sensor networks and optimized machine learning models.
+Undergraduate thesis project at President University that automates sorting of different waste types.
+
+### Key Features
+- **Computer Vision AI**: Classifies waste types instantly using custom trained light computer vision models.
+- **Raspberry Pi Orchestrator**: Serves as the central computing unit interfacing sensors and hardware actuators.
+- **Smart Sensor Mesh**: Employs physical detection modules to calculate bin full percentage and trigger actions.

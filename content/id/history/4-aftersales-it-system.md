@@ -3,9 +3,11 @@ title: "Aftersales IT-system"
 order: 4
 type: "career"
 institution: "SGMW Motor Indonesia"
-period: "Sep 2024 - Des 2024"
+period: "Sep 2024 - Dec 2024"
 location: "Jakarta Selatan, Indonesia"
-description: "Bertanggung jawab untuk mengelola dan mengaudit administrasi data lintas sistem untuk operasional purnajual (*aftersales*), memastikan keselarasan data, serta menjaga integritas tinggi di seluruh jaringan dealer."
+description: "Bertanggung jawab mengelola dan mengaudit administrasi data lintas sistem untuk operasional aftersales, memastikan keselarasan data dan integritas tinggi."
 ---
-- Melakukan pembersihan dan pra-pemrosesan data (data cleaning & preprocessing) secara komprehensif pada kumpulan data purnajual berskala besar (1.000+ baris) untuk mengoptimalkan kegunaan data bagi analisis tingkat lanjut.
-- Memverifikasi dan memantau data layanan purnajual dengan memeriksa silang catatan transaksi dari dealer hingga konsumen akhir, guna memastikan kualitas layanan dan kepatuhan kontrak.
+> **Fokus Integritas Data**: Memastikan kualitas operasional jaringan dealer dan pemasok secara nasional.
+
+- **Pembersihan Data Skala Besar**: Melakukan pembersihan data pada 1.000+ baris data aftersales untuk analisis data yang akurat.
+- **Audit Data Lintas Sistem**: Memverifikasi catatan transaksi layanan dari dealer hingga konsumen akhir guna memastikan kepatuhan standar.

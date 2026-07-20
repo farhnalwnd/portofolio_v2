@@ -5,9 +5,10 @@ type: "education"
 institution: "President University"
 period: "2022 - 2026"
 location: "Cikarang, Indonesia"
-description: "Menyelesaikan gelar Teknik Informatika dengan mempertahankan prestasi akademis yang tinggi melalui kurikulum ilmu komputer yang intensif."
+description: "Menyelesaikan pendidikan S1 Teknik Informatika dengan prestasi akademik tinggi melalui kurikulum ilmu komputer yang intensif."
 ---
-- Merancang dan mengimplementasikan 'Sortify', sebuah sistem tempat sampah otomatis berbasis IoT dan AI sebagai tugas akhir/skripsi, yang memungkinkan klasifikasi dan pemilahan sampah secara waktu nyata (real-time) menggunakan model machine learning dan integrasi sensor (IoT).
-- Mempertahankan IPK kumulatif sebesar 3.70/4.00, menunjukkan performa akademis yang kuat di seluruh mata kuliah inti rekayasa perangkat lunak (software engineering).
-- Mendapatkan Beasiswa Akademik 75% selama seluruh masa studi sarjana berdasarkan keunggulan akademis yang konsisten.
-- Aktif terlibat dalam komunitas teknis kampus, acara, dan kompetisi teknik untuk mengembangkan keterampilan praktis dalam kolaborasi dan pemecahan masalah.
+> **Pencapaian Akademik**: Lulus dengan **IPK 3.70/4.00** dan penerima Beasiswa Beasiswa Akademik 75%.
+
+- **Tugas Akhir (`Sortify`)**: Merancang tempat sampah otomatis berbasis IoT & AI menggunakan `Raspberry Pi`, model machine learning, dan jaringan sensor pintar.
+- **Beasiswa Akademik 75%**: Mempertahankan beasiswa penuh 75% selama 4 tahun perkuliahan.
+- **Performa Akademik**: Meraih IPK 3.70 dengan fokus pada rekayasa perangkat lunak dan kecerdasan buatan.

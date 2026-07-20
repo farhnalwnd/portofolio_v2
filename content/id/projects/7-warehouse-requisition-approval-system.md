@@ -17,4 +17,9 @@ links:
   github: "https://github.com/farhnalwnd/requisition-slip"
   demo: null
 ---
-Aplikasi rantai pasok perusahaan ujung-ke-ujung (end-to-end) ini menyederhanakan administrasi logistik melalui alur kerja persetujuan multi-tingkat yang dinamis. Dikembangkan untuk memaksimalkan transparansi operasional dan mempercepat pemrosesan gudang, platform ini menghadirkan pencatatan audit (audit logging) otomatis untuk pelacakan yang komprehensif serta modul pembuat laporan PDF kustom.
+Aplikasi rantai pasokan logistik internal untuk mengelola permintaan barang dan persetujuan tanda tangan fisik.
+
+### Fitur Utama
+- **Alur Approval Dinamis**: Alur persetujuan yang berubah otomatis sesuai nilai klasifikasi barang dan jabatan pemohon.
+- **Jejak Audit Otomatis**: Menyimpan riwayat perubahan status dokumen requisition secara aman untuk keperluan transparansi.
+- **Rendering Slip PDF**: Mengonversi draf pengajuan barang menjadi file PDF siap cetak dalam satu klik.

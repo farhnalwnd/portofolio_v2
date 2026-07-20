@@ -15,4 +15,9 @@ links:
   github: ""
   demo: null
 ---
-Sebuah proyek otomatisasi backend berbasis Laravel yang dirancang untuk mengoptimalkan pemantauan inventaris gudang. Dengan mengambil data stok real-time langsung dari SAP, sistem ini secara otomatis mendeteksi ketika ambang batas kritis terlampaui dan mengirimkan peringatan email instan kepada penanggung jawab (person-in-charge). Selain itu, sistem ini mengotomatiskan pelaporan perusahaan dengan menyusun data akurasi inventaris yang terperinci ke dalam format Excel untuk distribusi email yang terjadwal.
+Sistem otomatisasi backend untuk memantau status inventaris gudang dan meminimalkan keterlambatan pelacakan logistik.
+
+### Fitur Utama
+- **Antrean Pemantauan Asinkron**: Analisis stok secara berkala menggunakan `Laravel Jobs` untuk efisiensi beban server.
+- **Notifikasi Email Otomatis**: Mengirimkan peringatan instan ke person-in-charge saat stok berada di bawah batas minimum via `Laravel Mail`.
+- **Ekspor Laporan Terjadwal**: Mengompilasi data log inventaris mingguan/bulanan langsung ke lampiran Excel.
