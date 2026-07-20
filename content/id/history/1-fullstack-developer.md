@@ -2,7 +2,7 @@
 title: "Fullstack Developer"
 order: 1
 type: "career"
-institution: "PT Haluan Teknologi Nusantara"
+institution: "Oneject Indonesia"
 period: "Jan 2026 - Sekarang"
 location: "Cikarang, Indonesia"
 description: "Mengembangkan aplikasi web internal, CMS portofolio penjualan, dan integrasi perangkat IoT."
