@@ -1,19 +1,21 @@
 ---
-title: "IT Framework CMS"
-description: "Sistem Manajemen Konten untuk kerangka kerja dan standardisasi tim IT purna jual di perusahaan otomotif."
-category: "Web Application"
+title: "SSO Portal Management"
+description: "Ekosistem portal terpusat dan aman yang menghadirkan izin akses dinamis serta autentikasi terpadu di berbagai sistem multi-modul."
+category: "Web Development"
 categoryShort: "Web"
-featured: false
-year: 2025
+featured: true
+year: 2026
 order: 3
 tech:
   - "Laravel"
-  - "Blade"
+  - "Filament"
+  - "PHP"
   - "Tailwind CSS"
-  - "MySQL"
-thumbnail: ""
+  - "Laravel Sanctum"
+  - "Flutter"
+thumbnail: "/porto/porto-portal.webp"
 links:
-  github: null
+  github: ""
   demo: null
 ---
-IT Framework CMS dikembangkan untuk mengelola, mendokumentasikan, dan menyebarluaskan standardisasi kerangka kerja IT purna jual perusahaan. Portal dinamis ini membantu tim IT mendokumentasikan panduan arsitektur sistem, aturan integrasi data, dan SOP penanganan masalah secara tersentralisasi. Sistem ini mempermudah proses audit kepatuhan IT dan mempercepat orientasi teknis bagi anggota tim baru.
+IT-Framework CMS (The Bridge) adalah arsitektur portal terpusat yang dirancang untuk mengintegrasikan berbagai sistem internal perusahaan ke dalam satu ekosistem yang terpadu. Dikembangkan menggunakan Laravel, Filament, dan Flutter, platform ini menerapkan mekanisme Single Sign-On (SSO) aman yang didukung oleh custom ticket-based authentication guards untuk menjembatani sesi antar-modul secara mulus. Dikombinasikan dengan Role-Based Access Control (RBAC) dinamis dan pemetaan izin (permission mapping), sistem ini memberikan kendali granular kepada administrator atas peran pengguna dan hak akses di beberapa platform terintegrasi, menghapus kebutuhan akan banyak kredensial sekaligus memastikan isolasi data yang kuat.

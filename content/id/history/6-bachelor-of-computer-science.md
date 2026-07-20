@@ -1,12 +1,13 @@
 ---
-title: "Sarjana Ilmu Komputer"
-order: 6
+title: "Bachelor of Computer Science"
+order: 5
 type: "education"
-institution: "Universitas Presiden"
+institution: "President University"
 period: "2022 - 2026"
 location: "Cikarang, Indonesia"
-description: "Lulus dengan IPK 3.60/4.00 dan Beasiswa Akademik 75%. Skripsi: Sistem pemilahan sampah berbasis IoT & AI."
+description: "Menyelesaikan gelar Teknik Informatika dengan mempertahankan prestasi akademis yang tinggi melalui kurikulum ilmu komputer yang intensif."
 ---
-- Merancang Sortify — Tempat sampah pintar berbasis IoT dengan klasifikasi real-time
-- Berpartisipasi aktif dalam kegiatan kampus dan kompetisi teknologi
-- Meraih Beasiswa Akademik 75% sepanjang masa studi
+- Merancang dan mengimplementasikan 'Sortify', sebuah sistem tempat sampah otomatis berbasis IoT dan AI sebagai tugas akhir/skripsi, yang memungkinkan klasifikasi dan pemilahan sampah secara waktu nyata (real-time) menggunakan model machine learning dan integrasi sensor (IoT).
+- Mempertahankan IPK kumulatif sebesar 3.70/4.00, menunjukkan performa akademis yang kuat di seluruh mata kuliah inti rekayasa perangkat lunak (software engineering).
+- Mendapatkan Beasiswa Akademik 75% selama seluruh masa studi sarjana berdasarkan keunggulan akademis yang konsisten.
+- Aktif terlibat dalam komunitas teknis kampus, acara, dan kompetisi teknik untuk mengembangkan keterampilan praktis dalam kolaborasi dan pemecahan masalah.

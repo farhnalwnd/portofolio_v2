@@ -3,7 +3,7 @@ title: "Pengenalan ke Logika Pemrograman (Programming Logic 101)"
 order: 7
 issuer: "Dicoding Indonesia"
 year: 2026
-month: "january"
+month: "Januari"
 type: "Backend"
 color: "purple"
 size: "small"

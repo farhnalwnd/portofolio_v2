@@ -3,7 +3,7 @@ title: "Web Developer Intern"
 order: 5
 type: "career"
 institution: "GaoTech Inc."
-period: "Aug 2024 - Oct 2024"
+period: "Agus 2024 - Okto 2024"
 location: "remote, USA"
 description: "Membangun platform e-commerce berbasis WordPress."
 ---

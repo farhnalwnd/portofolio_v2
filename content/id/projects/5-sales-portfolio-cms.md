@@ -1,7 +1,7 @@
 ---
 title: "Sales Portfolio CMS"
-description: "Platform CMS internal untuk menampilkan katalog produk dan portofolio penjualan secara interaktif."
-category: "Web Application"
+description: "CMS kustom modern berpendekatan mobile-first yang dirancang untuk mendigitalisasi katalog produk dan memperluas jangkauan pemasaran digital perusahaan."
+category: "Web Development"
 categoryShort: "Web"
 featured: false
 year: 2025
@@ -10,10 +10,10 @@ tech:
   - "Laravel"
   - "Filament"
   - "Tailwind CSS"
-  - "MySQL"
-thumbnail: ""
+  - "TALL Stack"
+thumbnail: "/porto/porto-mormade.webp"
 links:
-  github: null
+  github: ""
   demo: null
 ---
-Sales Portfolio CMS memungkinkan tim pemasaran dan penjualan untuk mengelola katalog produk, studi kasus klien, dan materi presentasi bisnis secara fleksibel. Menggunakan Filament admin panel, manajer konten dapat memperbarui lembar spesifikasi produk dan materi promosi secara instan tanpa perlu keterlibatan tim pengembang web.
+Dikembangkan untuk Sinar Meadow International Indonesia, Content Management System (CMS) kustom ini memanfaatkan TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) dan Filament untuk mendigitalisasi portofolio produk perusahaan secara penuh. Platform ini menghadirkan desain modern, responsif, dan berpendekatan mobile-first yang dibangun untuk meningkatkan pengalaman pengguna, mengoptimalkan kemudahan penemuan produk, serta memperluas jangkauan pemasaran digital perusahaan untuk keterlibatan B2B.

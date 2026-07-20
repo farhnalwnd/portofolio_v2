@@ -3,7 +3,7 @@ title: "Belajar Dasar AI"
 order: 5
 issuer: "Dicoding Indonesia"
 year: 2026
-month: "February"
+month: "Februari"
 type: "AI"
 color: "emerald"
 size: "medium"

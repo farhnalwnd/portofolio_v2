@@ -3,7 +3,7 @@ title: "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software"
 order: 8
 issuer: "Dicoding Indonesia"
 year: 2026
-month: "january"
+month: "January"
 type: "Full-Stack"
 color: "accent"
 size: "medium"

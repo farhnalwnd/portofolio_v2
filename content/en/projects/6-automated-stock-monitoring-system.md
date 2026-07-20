@@ -1,6 +1,6 @@
 ---
 title: "Automated Stock Monitoring System"
-description: "A real-time inventory system with automated threshold detection and automated Excel reporting."
+description: "A real-time inventory automation system featuring automated critical threshold detection and scheduled Excel reporting."
 category: "Web Development"
 categoryShort: "Web"
 featured: false
@@ -15,4 +15,4 @@ links:
   github: ""
   demo: null
 ---
-A Laravel-powered backend automation project designed to optimize warehouse inventory monitoring. By fetching real-time stock data directly from SAP, the system automatically detects when critical thresholds are breached and dispatches immediate email alerts to the person-in-charge. Additionally, it automates corporate reporting by compiling detailed inventory accuracy data into Excel format for scheduled email distribution.
+This backend automation system is engineered to optimize warehouse inventory monitoring and ensure high data accuracy. Utilizing Laravel Jobs and Mail, the system continuously monitors stock levels, automatically detects when critical thresholds are breached, and dispatches real-time email alerts to the person-in-charge. Furthermore, it streamlines corporate reporting workflows by automatically compiling comprehensive inventory logs into Excel format for scheduled email distribution.

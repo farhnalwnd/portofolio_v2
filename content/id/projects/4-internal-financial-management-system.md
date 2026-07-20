@@ -1,19 +1,20 @@
 ---
-title: "System Management Financial Internal"
-description: "Aplikasi pencatatan keuangan internal dan pelaporan anggaran perusahaan secara terpusat."
-category: "Web Application"
+title: "Internal Financial Management System"
+description: "Aplikasi pelacakan anggaran otomatis dan pengajuan pinjaman antar-departemen yang dibangun untuk mengoptimalkan alur kerja keuangan perusahaan."
+category: "Web Development"
 categoryShort: "Web"
 featured: false
 year: 2025
 order: 4
 tech:
   - "Laravel"
-  - "Vue.js"
-  - "PostgreSQL"
-  - "Tailwind CSS"
-thumbnail: ""
+  - "Alpine.js"
+  - "AJAX"
+  - "PHP"
+  - "MySQL"
+thumbnail: "/porto/porto-web.webp"
 links:
-  github: null
+  github: "https://github.com/farhnalwnd/budgeting"
   demo: null
 ---
-Sistem Manajemen Keuangan Internal dirancang untuk menyederhanakan pelaporan arus kas, pengajuan anggaran, dan verifikasi kuitansi perusahaan. Dilengkapi dengan kontrol akses berbasis peran (RBAC) yang ketat dan dasbor analitik real-time, platform ini mempercepat proses rekonsiliasi keuangan bulanan dan meminimalkan kesalahan pencatatan manual.
+Aplikasi manajemen anggaran tingkat perusahaan ini melayani lebih dari 100 pengguna internal, menyederhanakan administrasi korporat melalui pelacakan dana otomatis dan alokasi anggaran antar-departemen yang dinamis. Dikembangkan menggunakan Laravel dan Alpine.js, sistem ini menghadirkan alur kerja berbasis AJAX untuk menangani permintaan pinjaman dan pemrosesan dana secara real-time. Untuk memastikan kepatuhan finansial yang ketat dan transparansi administratif, platform ini menerapkan alur kerja persetujuan hierarkis multi-tingkat yang aman untuk semua transaksi realokasi.

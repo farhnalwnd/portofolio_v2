@@ -1,12 +1,11 @@
 ---
-title: "Aftersales IT System Support"
+title: "Aftersales IT-system"
 order: 4
 type: "career"
-institution: "PT SGMW Motor Indonesia (Wuling)"
-period: "Nov 2024 - Dec 2025"
-location: "Cikarang, Indonesia"
-description: "Mengembangkan aplikasi pemantauan stok otomatis dan CMS kerangka kerja IT."
+institution: "SGMW Motor Indonesia"
+period: "Sep 2024 - Des 2024"
+location: "Jakarta Selatan, Indonesia"
+description: "Bertanggung jawab untuk mengelola dan mengaudit administrasi data lintas sistem untuk operasional purnajual (*aftersales*), memastikan keselarasan data, serta menjaga integritas tinggi di seluruh jaringan dealer."
 ---
-- Mengembangkan aplikasi internal pemantauan stok suku cadang purna jual
-- Merancang CMS dinamis untuk pengelolaan standardisasi kerangka kerja IT internal
-- Memelihara database sistem logistik purna jual dan memastikan integritas data
+- Melakukan pembersihan dan pra-pemrosesan data (data cleaning & preprocessing) secara komprehensif pada kumpulan data purnajual berskala besar (1.000+ baris) untuk mengoptimalkan kegunaan data bagi analisis tingkat lanjut.
+- Memverifikasi dan memantau data layanan purnajual dengan memeriksa silang catatan transaksi dari dealer hingga konsumen akhir, guna memastikan kualitas layanan dan kepatuhan kontrak.

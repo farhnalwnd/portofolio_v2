@@ -5,8 +5,7 @@ type: "career"
 institution: "SGMW Motor Indonesia"
 period: "Sep 2024 - Dec 2024"
 location: "South Jakarta, Indonesia"
-description: "Managed advanced data administration ensuring integrity across supplier and dealer databases."
+description: "Responsible for managing and auditing cross-system data administration for aftersales operations, ensuring data alignment, and maintaining high integrity across dealer and supplier networks."
 ---
-- Conducted daily audits on 1,000+ rows of supplier & dealer data
-- Performed complex reconciliation using advanced Excel functions
-- Ensured full data integrity and accuracy across systems
+- Conducted comprehensive data cleaning and preprocessing on large-scale aftersales datasets (1,000+ rows) to optimize data usability for advanced analysis.
+- Verified and monitored aftersales service data by cross-checking transactional records from dealers to end consumers, ensuring service quality and contract compliance.

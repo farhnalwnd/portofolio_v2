@@ -1,6 +1,6 @@
 ---
 title: "Sortify"
-description: "An IoT and AI-powered automatic waste bin system capable of classifying and sorting waste in real-time."
+description: "An IoT and AI-powered automatic waste bin system engineered to classify and sort waste in real-time."
 category: "Artificial Intelligence & IoT"
 categoryShort: "AI & IoT"
 featured: true
@@ -11,9 +11,9 @@ tech:
   - "Machine Learning"
   - "IoT"
   - "Smart Sensors"
-  - "ESP32"
+  - "Raspberry Pi"
 links:
   github: ""
   demo: null
 ---
-Sortify was designed and implemented as an undergraduate thesis project at President University. The system integrates artificial intelligence with Internet of Things hardware to create an automatic waste bin capable of recognizing, classifying, and physically sorting different types of waste in real-time utilizing smart sensor data and machine learning models.
+Sortify was designed and implemented as an undergraduate thesis project at President University. The system seamlessly integrates Artificial Intelligence (AI) with Internet of Things (IoT) hardware to create an automated waste bin capable of recognizing, classifying, and physically sorting diverse types of waste in real-time by leveraging smart sensor networks and optimized machine learning models.

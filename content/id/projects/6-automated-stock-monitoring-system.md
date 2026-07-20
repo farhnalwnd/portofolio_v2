@@ -1,21 +1,18 @@
 ---
 title: "Automated Stock Monitoring System"
-description: "Sistem pemantauan stok otomatis yang terintegrasi dengan sensor IoT dan dasbor peringatan batas minimum persediaan."
-category: "IoT & Web System"
-categoryShort: "IoT/Web"
+description: "Sistem inventaris real-time dengan deteksi ambang batas otomatis dan pelaporan Excel otomatis."
+category: "Web Development"
+categoryShort: "Web"
 featured: false
 year: 2025
 order: 6
 tech:
-  - "Python"
-  - "FastAPI"
-  - "ESP32"
-  - "MQTT"
-  - "Vue.js"
-  - "PostgreSQL"
-thumbnail: ""
+  - "Laravel"
+  - "Laravel Jobs"
+  - "Laravel Mail"
+  - "PHP"
 links:
-  github: null
+  github: ""
   demo: null
 ---
-Automated Stock Monitoring System menghubungkan perangkat sensor fisik ESP32 dengan dasbor web terpusat melalui protokol komunikasi MQTT. Sistem ini memantau tingkat persediaan barang secara real-time dan secara otomatis memberikan notifikasi peringatan saat jumlah stok berada di bawah batas minimum keamanan, mencegah terjadinya kehabisan stok yang tidak terduga di gudang purna jual.
+Sebuah proyek otomatisasi backend berbasis Laravel yang dirancang untuk mengoptimalkan pemantauan inventaris gudang. Dengan mengambil data stok real-time langsung dari SAP, sistem ini secara otomatis mendeteksi ketika ambang batas kritis terlampaui dan mengirimkan peringatan email instan kepada penanggung jawab (person-in-charge). Selain itu, sistem ini mengotomatiskan pelaporan perusahaan dengan menyusun data akurasi inventaris yang terperinci ke dalam format Excel untuk distribusi email yang terjadwal.

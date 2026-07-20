@@ -1,19 +1,20 @@
 ---
-title: "Warehouse Requisition Approval System"
-description: "Platform digital untuk mengelola alur persetujuan pengajuan barang gudang berbasis alur kerja bertingkat."
-category: "Enterprise Web App"
-categoryShort: "Enterprise"
-featured: false
+title: "Warehouse Requisition System"
+description: "Platform permintaan barang end-to-end yang menghadirkan alur kerja persetujuan multi-tingkat yang dinamis dan pencatatan audit otomatis."
+category: "Web Development"
+categoryShort: "Web"
+featured: true
 year: 2025
 order: 7
 tech:
   - "Laravel"
-  - "Livewire"
-  - "Tailwind CSS"
+  - "PHP"
+  - "jQuery"
+  - "PDF-Generator"
   - "MySQL"
-thumbnail: ""
+thumbnail: "/porto/porto-rs.webp"
 links:
-  github: null
+  github: "https://github.com/farhnalwnd/requisition-slip"
   demo: null
 ---
-Warehouse Requisition Approval System menggantikan formulir pengajuan barang berbasis kertas menjadi alur kerja digital yang cepat dan efisien. Sistem ini memiliki fungsionalitas persetujuan bertingkat (multi-level approval), audit trail transparan, serta notifikasi email dan WhatsApp langsung kepada penyelia terkait saat ada barang gudang yang membutuhkan persetujuan pengeluaran.
+Aplikasi rantai pasok perusahaan ujung-ke-ujung (end-to-end) ini menyederhanakan administrasi logistik melalui alur kerja persetujuan multi-tingkat yang dinamis. Dikembangkan untuk memaksimalkan transparansi operasional dan mempercepat pemrosesan gudang, platform ini menghadirkan pencatatan audit (audit logging) otomatis untuk pelacakan yang komprehensif serta modul pembuat laporan PDF kustom.

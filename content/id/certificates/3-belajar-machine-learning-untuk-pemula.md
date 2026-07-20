@@ -3,7 +3,7 @@ title: "Belajar Machine Learning untuk Pemula"
 order: 3
 issuer: "Dicoding Indonesia"
 year: 2026
-month: "March"
+month: "Maret"
 type: "AI"
 color: "emerald"
 size: "medium"

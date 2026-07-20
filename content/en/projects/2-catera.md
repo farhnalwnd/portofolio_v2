@@ -1,6 +1,6 @@
 ---
 title: "Catera (Catering Tap Entry & Record Access)"
-description: "An IoT-based meal quota management system with automated employee verification and real-time synchronization."
+description: "An IoT-based meal quota management system deploying ESP32 and RFID to eliminate catering fraud and ensure policy-compliant meal distribution."
 category: "Internet of Things"
 categoryShort: "IoT"
 featured: false
@@ -18,4 +18,6 @@ links:
   github: ""
   demo: null
 ---
-Catera is an end-to-end digital solution designed for corporate meal quota management. By combining ESP32 microcontrollers and RFID technology, the system enables automated employee verification at tap entry points. Node-RED handles smart data processing and real-time database synchronization with a Laravel Filament backend, ensuring seamless and secure administration.
+Catera is an end-to-end IoT digital solution designed to optimize corporate meal quota management and prevent operational losses. By combining ESP32 microcontrollers and RFID technology, the system enables automated, tamper-proof employee verification at tap entry points. 
+
+Node-RED serves as the middleware for smart data processing, ensuring real-time database synchronization with a centralized Laravel Filament backend. The implementation effectively eliminates catering fraud, guarantees that all employees receive meals strictly according to corporate policy, and provides administrators with live, auditable access records.

@@ -1,6 +1,6 @@
 ---
 title: "Sales Portfolio CMS"
-description: "A modern, mobile-first custom CMS to digitize and expand corporate digital marketing reach."
+description: "A modern, mobile-first custom CMS engineered to digitize product catalogs and expand corporate digital marketing reach."
 category: "Web Development"
 categoryShort: "Web"
 featured: false
@@ -16,4 +16,4 @@ links:
   github: ""
   demo: null
 ---
-Developed for Sinar Meadow International Indonesia, this custom Content Management System leverages the TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) via Filament to digitize the company's product portfolio. It features a modern, mobile-first design tailored to significantly expand the company's digital marketing and B2B engagement.
+Developed for Sinar Meadow International Indonesia, this custom Content Management System (CMS) leverages the TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) and Filament to fully digitize the company's product portfolio. The platform features a modern, responsive, and mobile-first design built to enhance user experience, optimize product discoverability, and expand corporate digital marketing reach for B2B engagement.

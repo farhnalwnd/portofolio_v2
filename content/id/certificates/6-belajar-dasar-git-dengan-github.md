@@ -3,7 +3,7 @@ title: "Belajar Dasar Git dengan GitHub"
 order: 6
 issuer: "Dicoding Indonesia"
 year: 2026
-month: "january"
+month: "januari"
 type: "DevOps"
 color: "orange"
 size: "small"

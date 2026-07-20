@@ -1,6 +1,6 @@
 ---
 title: "SSO Portal Management"
-description: "A centralized secure portal ecosystem with dynamic access permissions and centralized authentication."
+description: "A centralized, secure portal ecosystem featuring dynamic access permissions and unified authentication across multi-module systems."
 category: "Web Development"
 categoryShort: "Web"
 featured: true
@@ -11,11 +11,11 @@ tech:
   - "Filament"
   - "PHP"
   - "Tailwind CSS"
-  - "laravel schantum"
-  - "flutter"
+  - "Laravel Sanctum"
+  - "Flutter"
 thumbnail: "/porto/porto-portal.webp"
 links:
   github: ""
   demo: null
 ---
-The IT-Framework CMS is a centralized portal architecture engineered to integrate various internal corporate systems into a single secure ecosystem (SSO system). Developed using Laravel, flutter and Filament, it implements a highly secure centralized authentication mechanism alongside dynamic access permission mapping, giving administrators granular control over user roles across platforms.
+The IT-Framework CMS (The Bridge) is a centralized portal architecture engineered to integrate diverse internal corporate systems into a single, unified ecosystem. Developed using Laravel, Filament, and Flutter, the platform implements a secure Single Sign-On (SSO) mechanism powered by custom ticket-based authentication guards to bridge cross-module sessions seamlessly. Combined with dynamic Role-Based Access Control (RBAC) and permission mapping, it provides administrators with granular control over user roles and access rights across multiple integrated platforms, eliminating the need for multiple credentials while ensuring robust data isolation.

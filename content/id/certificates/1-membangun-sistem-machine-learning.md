@@ -3,7 +3,7 @@ title: "Membangun Sistem Machine Learning"
 order: 1
 issuer: "Dicoding Indonesia"
 year: 2026
-month: "June"
+month: "Juni"
 type: "AI & MLOps"
 color: "accent"
 size: "large"

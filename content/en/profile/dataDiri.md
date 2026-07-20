@@ -10,4 +10,4 @@ instagram: https://www.instagram.com/farhnalwnd/
 github: https://github.com/farhnalwnd
 ---
 # Farhan Alwanda
-Full-Stack Developer & AI Engineer
+Full-Stack Developer & Junior AI Engineer

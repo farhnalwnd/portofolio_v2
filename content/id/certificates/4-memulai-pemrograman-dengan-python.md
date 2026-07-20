@@ -3,7 +3,7 @@ title: "Memulai Pemrograman dengan Python"
 order: 4
 issuer: "Dicoding Indonesia"
 year: 2026
-month: "February"
+month: "Februari"
 type: "Backend"
 color: "orange"
 size: "medium"

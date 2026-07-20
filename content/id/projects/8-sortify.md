@@ -1,21 +1,19 @@
 ---
 title: "Sortify"
-description: "Tempat sampah pintar berbasis IoT dan AI yang memilah sampah secara otomatis menggunakan Computer Vision."
-category: "IoT & Artificial Intelligence"
-categoryShort: "IoT/AI"
+description: "Sistem tempat sampah otomatis berbasis IoT dan AI yang dirancang untuk mengklasifikasikan dan memilah sampah secara real-time."
+category: "Artificial Intelligence & IoT"
+categoryShort: "AI & IoT"
 featured: true
-year: 2024
+year: 2025
 order: 8
 tech:
   - "Python"
-  - "TensorFlow"
-  - "OpenCV"
-  - "ESP32"
+  - "Machine Learning"
+  - "IoT"
+  - "Smart Sensors"
   - "Raspberry Pi"
-  - "MQTT"
-thumbnail: ""
 links:
-  github: "https://github.com/farhnalwnd/sortify"
+  github: ""
   demo: null
 ---
-Sortify adalah solusi pemilahan sampah otomatis yang memadukan Computer Vision dan perangkat IoT. Dikembangkan sebagai proyek tugas akhir (skripsi), Sortify menangkap citra sampah yang dimasukkan, mengklasifikasikannya menggunakan model jaringan saraf tiruan (CNN) berbasis MobileNetV2 secara real-time, dan menggerakkan mekanisme pemilah servo untuk memisahkan sampah ke dalam kategori yang tepat (organik, anorganik, dan daur ulang).
+Sortify dirancang dan diimplementasikan sebagai proyek tugas akhir sarjana (skripsi) di Universitas Presiden. Sistem ini mengintegrasikan Kecerdasan Buatan (AI) secara mulus dengan perangkat keras Internet of Things (IoT) untuk menciptakan tempat sampah otomatis yang mampu mengenali, mengklasifikasikan, dan memilah berbagai jenis sampah secara fisik dan real-time dengan memanfaatkan jaringan sensor pintar serta model machine learning yang dioptimalkan.

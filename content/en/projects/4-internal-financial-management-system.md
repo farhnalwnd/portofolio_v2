@@ -1,6 +1,6 @@
 ---
 title: "Internal Financial Management System"
-description: "An automated budget tracking and interdepartmental loan application built for enterprise financial workflows."
+description: "An automated budget tracking and interdepartmental loan application built to optimize enterprise financial workflows."
 category: "Web Development"
 categoryShort: "Web"
 featured: false
@@ -17,4 +17,4 @@ links:
   github: "https://github.com/farhnalwnd/budgeting"
   demo: null
 ---
-An enterprise-grade budget management application serving 100+ internal users. Built with Laravel and Alpine.js, it streamlines corporate administration through automated fund tracking and dynamic interdepartmental budget loans. The platform enforces financial compliance by incorporating a secure, multi-tier hierarchical approval system for all transactional reallocations.
+This enterprise-grade budget management application serves over 100 internal users, streamlining corporate administration through automated fund tracking and dynamic interdepartmental budget allocations. Developed using Laravel and Alpine.js, the system features an AJAX-based workflow to handle real-time loan requests and fund processing. To ensure strict financial compliance and administrative transparency, the platform enforces a secure, multi-level hierarchical approval workflow for all transactional reallocations.
