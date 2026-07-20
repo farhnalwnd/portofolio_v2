@@ -5,7 +5,7 @@ type: "career"
 institution: "Oneject Indonesia"
 period: "Jan 2026 - Sekarang"
 location: "Cikarang, Indonesia"
-description: "Mengembangkan aplikasi web internal, CMS portofolio penjualan, dan integrasi perangkat IoT."
+description: "mengembangkan beberapa sistem perusahaan yang komprehensif, mulai dari awal hingga akhir, dengan mengintegrasikan infrastruktur IoT dan aplikasi web terpusat guna mengoptimalkan operasi internal, mengotomatiskan aliran data, dan meningkatkan keamanan sistem."
 ---
 > **Fokus Peran**: Memimpin transformasi digital enterprise melalui integrasi IoT, portal web aman, dan arsitektur microservices.
 

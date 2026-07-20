@@ -5,7 +5,7 @@ type: "career"
 institution: "Oneject Indonesia"
 period: "Jan 2026 - Present"
 location: "Cikarang, Indonesia"
-description: "Lead the end-to-end development of enterprise-grade systems, integrating IoT infrastructure and centralized web applications to optimize internal operations, automate data pipelines, and strengthen system security."
+description: "Developed several comprehensive enterprise systems, end-to-end, by integrating IoT infrastructure and centralized web applications to optimize internal operations, automate data flows, and enhance system security."
 ---
 > **Role Focus**: Driving enterprise digital transformation through IoT integration, secure web portals, and microservices architecture.
 
