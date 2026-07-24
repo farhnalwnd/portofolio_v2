@@ -9,5 +9,5 @@ tech:
   - "Large Language Models"
   - "Multimodal AI"
 ---
-Sertifikasi oleh IBM Skill Build di November 2025.
+Sertifikasi oleh IBM SkillsBuild di November 2025.
 

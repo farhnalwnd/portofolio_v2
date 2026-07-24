@@ -9,4 +9,4 @@ tech:
   - "Responsible AI"
   - "Trustworthy Systems"
 ---
-Sertifikasi oleh IBM Skill Build di November 2025.
+Sertifikasi oleh IBM SkillsBuild di November 2025.

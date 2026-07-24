@@ -9,4 +9,4 @@ tech:
   - "Machine Learning Foundations"
   - "Neural Networks"
 ---
-Sertifikasi oleh IBM Skill Build di Februari 2025.
+Sertifikasi oleh IBM SkillsBuild di Februari 2025.
