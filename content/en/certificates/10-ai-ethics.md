@@ -7,8 +7,6 @@ month: "November"
 type: "AI"
 color: "purple"
 size: "small"
-credentialId: "skillsbuild.org"
-credentialUrl: "https://skillsbuild.org"
 file: "/sertif/ai-ethic.jpg"
 tech:
   - "AI Ethics"

@@ -7,8 +7,6 @@ month: "November"
 type: "AI"
 color: "accent"
 size: "small"
-credentialId: "skillsbuild.org"
-credentialUrl: "https://skillsbuild.org"
 file: "/sertif/gen-ai.jpg"
 tech:
   - "Generative AI"

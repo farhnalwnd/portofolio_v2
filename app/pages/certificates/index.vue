@@ -41,11 +41,11 @@
               </div>
 
               <!-- Footer Details -->
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t-2 border-brutal-black pt-4 mt-auto">
-                <span class="font-mono text-xs text-zinc-700 uppercase tracking-widest">
+              <div v-if="cert.meta.credentialId || cert.meta.credentialUrl" class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t-2 border-brutal-black pt-4 mt-auto">
+                <span v-if="cert.meta.credentialId" class="font-mono text-xs text-zinc-700 uppercase tracking-widest">
                   ID: {{ cert.meta.credentialId }}
                 </span>
-                <span class="font-black text-xs text-brutal-blue uppercase hover:underline">
+                <span v-if="cert.meta.credentialUrl" class="font-black text-xs text-brutal-blue uppercase hover:underline">
                   {{ $t('certs.click_verify') }}
                 </span>
               </div>

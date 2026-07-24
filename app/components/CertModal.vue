@@ -24,23 +24,15 @@
                 </div>
               </div>
               
-              <div class="space-y-4 pt-4 border-t-2 border-brutal-black">
-                <div>
+              <div v-if="cert.meta.credentialId || cert.meta.credentialUrl" class="space-y-4 pt-4 border-t-2 border-brutal-black">
+                <div v-if="cert.meta.credentialId">
                   <span class="block text-xs font-mono text-zinc-500 uppercase tracking-widest">Credential ID:</span>
                   <span class="font-mono text-sm font-black text-brutal-black uppercase tracking-wider">{{ cert.meta.credentialId }}</span>
                 </div>
-                <div class="flex gap-2">
+                <div v-if="cert.meta.credentialUrl" class="flex gap-2">
                   <BrutalistBtn :to="cert.meta.credentialUrl" color="blue" size="sm" class="flex-grow text-white">
                     {{ $t('btn.verify_original') }}
                   </BrutalistBtn>
-                  <a 
-                    v-if="cert.meta.file"
-                    :href="cert.meta.file" 
-                    download
-                    class="bg-brutal-yellow text-brutal-black border-3 border-brutal-black font-black uppercase text-xs px-4 py-2 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-1 shadow-brutal"
-                  >
-                    {{ $t('btn.download') }}
-                  </a>
                 </div>
               </div>
             </div>

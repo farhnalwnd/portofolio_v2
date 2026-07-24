@@ -7,8 +7,6 @@ month: "February"
 type: "AI"
 color: "emerald"
 size: "small"
-credentialId: "skillsbuild.org"
-credentialUrl: "https://skillsbuild.org"
 file: "/sertif/intro-ai.jpg"
 tech:
   - "Artificial Intelligence"

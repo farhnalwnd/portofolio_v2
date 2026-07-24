@@ -168,7 +168,7 @@
                       {{ cert.meta.issuer }}
                     </p>
                   </div>
-                  <Icon name="lucide:external-link" class="w-4 h-4 text-brutal-black shrink-0" />
+                  <Icon v-if="cert.meta.credentialUrl" name="lucide:external-link" class="w-4 h-4 text-brutal-black shrink-0" />
                 </div>
                 <div v-if="cert.meta.tech" class="flex flex-wrap gap-1">
                   <BrutalistBadge v-for="tag in cert.meta.tech" :key="tag" color="white" class="text-[10px] py-0.5 px-2">
