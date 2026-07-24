@@ -1,10 +1,7 @@
 ---
 title: "Sortify"
 description: "An IoT and AI-powered automatic waste bin system engineered to classify and sort waste in real-time."
-category: "Artificial Intelligence & IoT"
-categoryShort: "AI & IoT"
 featured: true
-year: 2025
 order: 8
 tech:
   - "Python"

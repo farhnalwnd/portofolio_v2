@@ -3,10 +3,6 @@ title: "Introduction to Artificial Intelligence"
 order: 9
 issuer: "IBM SkillsBuild"
 year: 2025
-month: "February"
-type: "AI"
-color: "emerald"
-size: "small"
 file: "/sertif/intro-ai.jpg"
 tech:
   - "Artificial Intelligence"

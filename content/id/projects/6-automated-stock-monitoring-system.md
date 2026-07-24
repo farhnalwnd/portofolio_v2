@@ -1,10 +1,7 @@
 ---
 title: "Automated Stock Monitoring System"
 description: "Sistem inventaris real-time dengan deteksi ambang batas otomatis dan pelaporan Excel otomatis."
-category: "Web Development"
-categoryShort: "Web"
 featured: false
-year: 2025
 order: 6
 tech:
   - "Laravel"

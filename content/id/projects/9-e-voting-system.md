@@ -1,10 +1,7 @@
 ---
 title: "E-Voting System"
 description: "Platform pemungutan suara elektronik yang aman, transparan, dan terenkripsi untuk pemilihan organisasi kampus."
-category: "Web Application"
-categoryShort: "Web"
 featured: false
-year: 2024
 order: 9
 tech:
   - "Laravel"

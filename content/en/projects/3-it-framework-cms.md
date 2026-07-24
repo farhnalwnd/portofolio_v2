@@ -1,10 +1,7 @@
 ---
 title: "SSO Portal Management"
 description: "A centralized, secure portal ecosystem featuring dynamic access permissions and unified authentication across multi-module systems."
-category: "Web Development"
-categoryShort: "Web"
 featured: true
-year: 2026
 order: 3
 tech:
   - "Laravel"

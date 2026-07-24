@@ -1,10 +1,7 @@
 ---
 title: "E-Voting System"
 description: "A secure and transparent electronic voting system for seamless and real-time election management."
-category: "Web Development"
-categoryShort: "Web"
 featured: false
-year: 2024
 order: 9
 tech:
   - "Laravel"

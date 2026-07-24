@@ -1,10 +1,7 @@
 ---
 title: "Internal Financial Management System"
 description: "An automated budget tracking and interdepartmental loan application built to optimize enterprise financial workflows."
-category: "Web Development"
-categoryShort: "Web"
 featured: false
-year: 2025
 order: 4
 tech:
   - "Laravel"

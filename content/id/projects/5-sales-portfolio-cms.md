@@ -1,10 +1,7 @@
 ---
 title: "Sales Portfolio CMS"
 description: "CMS kustom modern berpendekatan mobile-first yang dirancang untuk mendigitalisasi katalog produk dan memperluas jangkauan pemasaran digital perusahaan."
-category: "Web Development"
-categoryShort: "Web"
 featured: false
-year: 2025
 order: 5
 tech:
   - "Laravel"

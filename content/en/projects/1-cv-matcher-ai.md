@@ -1,10 +1,7 @@
 ---
 title: "Hirezy — CV Matcher AI"
 description: "An AI-powered recruitment platform that automates bulk CV screening for HR and optimizes job matching for candidates using vector-based semantic search."
-category: "Artificial Intelligence"
-categoryShort: "AI"
 featured: true
-year: 2026
 order: 1
 tech:
   - "Python"

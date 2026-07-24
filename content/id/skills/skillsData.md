@@ -1,5 +1,4 @@
 ---
-title: "Keahlian"
 hardSkills:
   - category: "Frontend"
     items:

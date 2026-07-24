@@ -1,10 +1,7 @@
 ---
 title: "Hirezy — CV Matcher AI"
 description: "Platform rekrutmen berbasis AI yang mengotomatiskan penyaringan CV massal untuk HR dan mengoptimalkan pencocokan lowongan pekerjaan bagi kandidat menggunakan pencarian semantik berbasis vektor."
-category: "Artificial Intelligence"
-categoryShort: "AI"
 featured: true
-year: 2026
 order: 1
 tech:
   - "Python"

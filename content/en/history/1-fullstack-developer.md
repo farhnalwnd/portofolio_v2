@@ -7,7 +7,7 @@ period: "Jan 2026 - Present"
 location: "Cikarang, Indonesia"
 description: "Developed several comprehensive enterprise systems, end-to-end, by integrating IoT infrastructure and centralized web applications to optimize internal operations, automate data flows, and enhance system security."
 ---
-> **Role Focus**: Driving enterprise digital transformation through IoT integration, secure web portals, and microservices architecture.
+> **Role Focus**: Driving enterprise digital transformation through IoT integration, secure SSO web portals, and semi-microservices architecture.
 
 - **IoT Meal Management (`Catera`)**: Engineered smart meal quota tracking using `ESP32`, `RFID`, `Node-RED`, and `Laravel` — eliminating 100% catering fraud through real-time card verification.
 - **Unified SSO Portal**: Built centralized Single Sign-On hub with `Laravel` and `Filament` bridging multi-module sessions and unifying user data.

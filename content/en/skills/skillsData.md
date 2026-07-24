@@ -1,5 +1,4 @@
 ---
-title: "Skills"
 hardSkills:
   - category: "Frontend"
     items:

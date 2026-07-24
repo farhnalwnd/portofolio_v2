@@ -1,10 +1,7 @@
 ---
 title: "Warehouse Requisition System"
 description: "An end-to-end goods requisition platform featuring dynamic multi-level approval workflows and automated audit logging."
-category: "Web Development"
-categoryShort: "Web"
 featured: true
-year: 2025
 order: 7
 tech:
   - "Laravel"

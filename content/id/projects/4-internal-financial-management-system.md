@@ -1,10 +1,7 @@
 ---
 title: "Internal Financial Management System"
 description: "Aplikasi pelacakan anggaran otomatis dan pengajuan pinjaman antar-departemen yang dibangun untuk mengoptimalkan alur kerja keuangan perusahaan."
-category: "Web Development"
-categoryShort: "Web"
 featured: false
-year: 2025
 order: 4
 tech:
   - "Laravel"

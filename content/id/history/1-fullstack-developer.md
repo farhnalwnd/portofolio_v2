@@ -7,7 +7,7 @@ period: "Jan 2026 - Sekarang"
 location: "Cikarang, Indonesia"
 description: "mengembangkan beberapa sistem perusahaan yang komprehensif, mulai dari awal hingga akhir, dengan mengintegrasikan infrastruktur IoT dan aplikasi web terpusat guna mengoptimalkan operasi internal, mengotomatiskan aliran data, dan meningkatkan keamanan sistem."
 ---
-> **Fokus Peran**: Memimpin transformasi digital enterprise melalui integrasi IoT, portal web aman, dan arsitektur microservices.
+> **Fokus Peran**: Melakukan transformasi digital melalui integrasi IoT, SSO portal web, dan arsitektur semi-microservices.
 
 - **Sistem Manajemen Makan IoT (`Catera`)**: Mengembangkan sistem kuota makan cerdas menggunakan `ESP32`, `RFID`, `Node-RED`, dan `Laravel` — mengeliminasi 100% kecurangan katering via verifikasi kartu real-time.
 - **Portal SSO Terpusat**: Membangun portal Single Sign-On dengan `Laravel` dan `Filament` untuk menjembatani sesi multi-modul dan memusatkan data pengguna.

@@ -1,10 +1,7 @@
 ---
 title: "Catera (Catering Tap Entry & Record Access)"
 description: "Sistem manajemen kuota makanan berbasis IoT yang menerapkan ESP32 dan RFID untuk menghapus kecurangan katering dan memastikan distribusi makanan sesuai kebijakan."
-category: "Internet of Things"
-categoryShort: "IoT"
 featured: false
-year: 2026
 order: 2
 tech:
   - "ESP32"

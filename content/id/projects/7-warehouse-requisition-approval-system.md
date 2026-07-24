@@ -1,10 +1,7 @@
 ---
 title: "Warehouse Requisition System"
 description: "Platform permintaan barang end-to-end yang menghadirkan alur kerja persetujuan multi-tingkat yang dinamis dan pencatatan audit otomatis."
-category: "Web Development"
-categoryShort: "Web"
 featured: true
-year: 2025
 order: 7
 tech:
   - "Laravel"

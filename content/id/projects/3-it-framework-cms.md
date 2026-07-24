@@ -1,10 +1,7 @@
 ---
 title: "SSO Portal Management"
 description: "Ekosistem portal terpusat dan aman yang menghadirkan izin akses dinamis serta autentikasi terpadu di berbagai sistem multi-modul."
-category: "Web Development"
-categoryShort: "Web"
 featured: true
-year: 2026
 order: 3
 tech:
   - "Laravel"

@@ -3,10 +3,6 @@ title: "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software"
 order: 8
 issuer: "Dicoding Indonesia"
 year: 2026
-month: "January"
-type: "Full-Stack"
-color: "accent"
-size: "medium"
 credentialId: "1RXYQ8KMKZVM"
 credentialUrl: "https://www.dicoding.com/certificates/1RXYQ8KMKZVM"
 file: "/sertif/Memulai-Dasar-Pemrograman-untuk-Menjadi-Pengembang-Software.pdf"

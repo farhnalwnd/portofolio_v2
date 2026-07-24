@@ -1,10 +1,7 @@
 ---
 title: "Automated Stock Monitoring System"
 description: "A real-time inventory automation system featuring automated critical threshold detection and scheduled Excel reporting."
-category: "Web Development"
-categoryShort: "Web"
 featured: false
-year: 2025
 order: 6
 tech:
   - "Laravel"

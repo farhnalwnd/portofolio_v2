@@ -1,10 +1,7 @@
 ---
 title: "Sortify"
 description: "Sistem tempat sampah otomatis berbasis IoT dan AI yang dirancang untuk mengklasifikasikan dan memilah sampah secara real-time."
-category: "Artificial Intelligence & IoT"
-categoryShort: "AI & IoT"
 featured: true
-year: 2025
 order: 8
 tech:
   - "Python"
