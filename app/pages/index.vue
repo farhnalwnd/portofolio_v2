@@ -301,7 +301,7 @@ useSeoMeta({
   ogDescription: computed(() => t('home.bio'))
 })
 
-const { data: homeData, pending } = await useAsyncData(`home-data-${locale.value}`, async () => {
+const { data: homeData, pending } = await useAsyncData(() => `home-data-${locale.value}`, async () => {
   const [history, projects, certificates] = await Promise.all([
     queryCollection('history').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(),
     queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(),
@@ -309,8 +309,7 @@ const { data: homeData, pending } = await useAsyncData(`home-data-${locale.value
   ])
   return { history, projects, certificates }
 }, {
-  default: () => ({ history: [], projects: [], certificates: [] }),
-  watch: [locale]
+  default: () => ({ history: [], projects: [], certificates: [] })
 })
 
 const history = computed(() => homeData.value.history)

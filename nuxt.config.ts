@@ -73,6 +73,7 @@ export default defineNuxtConfig({
     langDir: 'locales',
     defaultLocale: 'id',
     strategy: 'prefix_except_default',
+    detectBrowserLanguage: false,
     restructureDir: 'app'
   },
   icon: {
