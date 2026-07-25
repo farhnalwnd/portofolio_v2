@@ -6,8 +6,33 @@
     <div class="relative z-10 max-w-7xl mx-auto">
       <SectionHead :title="$t('history.title')" tag="h1" />
       <div class="mt-12 relative border-l-4 border-brutal-black pl-8 ml-4 md:ml-8 space-y-12">
-        <!-- Vertically Centered Dot Indicator (Brutalist style) -->
-        <div v-for="item in history" :key="item.path" class="relative">
+        <div v-if="showSkeleton" class="space-y-12">
+          <div v-for="i in 3" :key="i" class="relative">
+            <span class="absolute -left-[45px] top-1.5 w-7 h-7 rounded-full border-3 border-brutal-black bg-zinc-300 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"></span>
+            <BrutalistCard color="white" class="p-6 md:p-8">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b-3 border-brutal-black pb-4 mb-6">
+                <div class="w-full space-y-2">
+                  <div class="flex items-center gap-3">
+                    <SkeletonBlock width="w-16" height="h-5" />
+                    <SkeletonBlock width="w-24" height="h-4" />
+                  </div>
+                  <SkeletonBlock width="w-2/3" height="h-7" />
+                </div>
+                <div class="flex flex-col items-start md:items-end w-full md:w-auto gap-2">
+                  <SkeletonBlock width="w-28" height="h-8" />
+                  <SkeletonBlock width="w-20" height="h-5" />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <SkeletonBlock height="h-4" />
+                <SkeletonBlock height="h-4" />
+                <SkeletonBlock width="w-3/4" height="h-4" />
+              </div>
+            </BrutalistCard>
+          </div>
+        </div>
+
+        <div v-else v-for="item in history" :key="item.path" class="relative">
           <!-- Dot -->
           <span 
             :class="[
@@ -61,5 +86,7 @@ useSeoMeta({
   ogDescription: computed(() => t('history.subtitle'))
 })
 
-const { data: history } = await useAsyncData(`history-list-${locale.value}`, () => queryCollection('history').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
+const { data: history, pending } = await useAsyncData(() => `history-list-${locale.value}`, () => queryCollection('history').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [] })
+
+const showSkeleton = useDelayedPending(pending)
 </script>

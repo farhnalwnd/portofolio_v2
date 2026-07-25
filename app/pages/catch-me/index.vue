@@ -14,7 +14,16 @@
         <p class="text-lg font-bold uppercase tracking-tight text-brutal-black opacity-85">
           {{ $t('contact.sub') }}
         </p>
-        <div v-if="profile" class="flex flex-col space-y-4 pt-4 items-center lg:items-start">
+        <div v-if="showSkeleton" class="flex flex-col space-y-4 pt-4 items-center lg:items-start w-full">
+          <SkeletonBlock width="w-3/4" height="h-8" />
+          <div class="grid grid-cols-4 gap-4 w-full max-w-sm">
+            <SkeletonBlock v-for="i in 4" :key="i" width="w-full" height="h-12" />
+          </div>
+          <div class="w-full max-w-sm pt-2">
+            <SkeletonBlock width="w-full" height="h-12" />
+          </div>
+        </div>
+        <div v-else-if="profile" class="flex flex-col space-y-4 pt-4 items-center lg:items-start">
           <a :href="`mailto:${profile.meta.email}`" class=" sm:text-xl md:text-2xl font-black uppercase hover:underline flex items-center justify-center lg:justify-start gap-3 break-all w-full max-w-full">
             <Icon name="lucide:mail" class="w-8 h-8 shrink-0" />
             {{ profile.meta.email }}
@@ -129,7 +138,9 @@ useSeoMeta({
   ogDescription: computed(() => t('contact.sub'))
 })
 
-const { data: profile } = await useAsyncData(`profile-data-${locale.value}`, () => queryCollection('profile').where('stem', 'LIKE', `${locale.value}/%`).first(), { watch: [locale] })
+const { data: profile, pending } = await useAsyncData(() => `profile-data-${locale.value}`, () => queryCollection('profile').where('stem', 'LIKE', `${locale.value}/%`).first())
+
+const showSkeleton = useDelayedPending(pending)
 
 const isCvModalOpen = ref(false)
 const isCaptchaLoaded = ref(false)

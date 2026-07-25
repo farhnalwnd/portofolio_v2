@@ -6,7 +6,37 @@
     <div class="relative z-10 max-w-7xl mx-auto">
       <SectionHead :title="$t('certs.title')" tag="h1" />
       <div class="mt-8">
-        <div v-if="certificates && certificates.length" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div v-if="showSkeleton" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div v-for="i in 4" :key="i" class="mb-8">
+            <BrutalistCard color="white" class="p-6 h-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-start justify-between gap-4 border-b-2 border-brutal-black pb-3 mb-4">
+                  <div class="w-full space-y-2">
+                    <SkeletonBlock width="w-3/4" height="h-6" />
+                    <SkeletonBlock width="w-1/3" height="h-4" />
+                  </div>
+                  <SkeletonBlock width="w-16" height="h-6" class="shrink-0" />
+                </div>
+                <div class="space-y-2 mb-6">
+                  <SkeletonBlock height="h-4" />
+                  <SkeletonBlock height="h-4" />
+                  <SkeletonBlock width="w-2/3" height="h-4" />
+                </div>
+                <div class="flex flex-wrap gap-1.5 mb-6">
+                  <SkeletonBlock width="w-12" height="h-5" />
+                  <SkeletonBlock width="w-16" height="h-5" />
+                  <SkeletonBlock width="w-14" height="h-5" />
+                </div>
+              </div>
+              <div class="flex justify-between gap-3 border-t-2 border-brutal-black pt-4">
+                <SkeletonBlock width="w-1/2" height="h-4" />
+                <SkeletonBlock width="w-1/4" height="h-4" />
+              </div>
+            </BrutalistCard>
+          </div>
+        </div>
+
+        <div v-else-if="certificates && certificates.length" class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div 
             v-for="(cert, idx) in certificates" 
             :key="cert.path" 
@@ -71,7 +101,9 @@ useSeoMeta({
   ogDescription: computed(() => t('certs.subtitle'))
 })
 
-const { data: certificates } = await useAsyncData(`certs-list-${locale.value}`, () => queryCollection('certificates').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
+const { data: certificates, pending } = await useAsyncData(() => `certs-list-${locale.value}`, () => queryCollection('certificates').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [] })
+
+const showSkeleton = useDelayedPending(pending)
 
 const activeCert = ref<any>(null)
 

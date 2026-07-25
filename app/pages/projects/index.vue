@@ -6,7 +6,34 @@
     <div class="relative z-10 max-w-7xl mx-auto">
       <SectionHead :title="$t('projects.title')" tag="h1" />
       <div class="mt-8">
-        <div v-if="projects && projects.length" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div v-if="showSkeleton" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div v-for="i in 4" :key="i" class="mb-8">
+            <BrutalistCard color="white" class="h-full flex flex-col justify-between p-6">
+              <div>
+                <div class="flex items-center justify-between mb-4 border-b-2 border-brutal-black pb-3">
+                  <SkeletonBlock width="w-2/3" height="h-8" />
+                  <SkeletonBlock width="w-8" height="h-8" />
+                </div>
+                <div class="space-y-2 mb-6">
+                  <SkeletonBlock height="h-4" />
+                  <SkeletonBlock height="h-4" />
+                  <SkeletonBlock width="w-3/4" height="h-4" />
+                </div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <SkeletonBlock width="w-14" height="h-5" />
+                  <SkeletonBlock width="w-16" height="h-5" />
+                  <SkeletonBlock width="w-12" height="h-5" />
+                </div>
+              </div>
+              <div class="flex items-center gap-4 border-t-2 border-brutal-black pt-4">
+                <SkeletonBlock width="w-full" height="h-9" />
+                <SkeletonBlock width="w-full" height="h-9" />
+              </div>
+            </BrutalistCard>
+          </div>
+        </div>
+
+        <div v-else-if="projects && projects.length" class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div v-for="project in projects" :key="project.path" class="mb-8">
             <BrutalistCard :color="project.featured ? 'cream' : 'white'" class="h-full flex flex-col justify-between p-6 relative">
               <div v-if="project.featured" class="absolute top-0 right-0 transform translate-x-2 -translate-y-2 bg-brutal-pink text-white font-bold uppercase tracking-wider text-xs border-2 border-brutal-black px-3 py-1.5 z-10 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
@@ -57,7 +84,9 @@ useSeoMeta({
   ogDescription: computed(() => t('projects.subtitle'))
 })
 
-const { data: projects } = await useAsyncData(`projects-list-${locale.value}`, () => queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [], watch: [locale] })
+const { data: projects, pending } = await useAsyncData(() => `projects-list-${locale.value}`, () => queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).order('order', 'ASC').all(), { default: () => [] })
+
+const showSkeleton = useDelayedPending(pending)
 
 const getProjectSlug = (project: any) => {
   if (!project) return ''

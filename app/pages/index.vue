@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex-grow flex flex-col transition-opacity duration-200" :class="{ 'opacity-50 pointer-events-none': pending }">
+  <div class="w-full flex-grow flex flex-col transition-opacity duration-200">
     <!-- 1. Intro Section -->
     <section id="intro" class="relative min-h-[90vh] flex flex-col justify-between py-16 px-4 md:px-8 border-b-3 border-brutal-black bg-brutal-cream overflow-hidden">
       <!-- Background grid decoration -->
@@ -83,7 +83,28 @@
             </div>
           </div>
 
-          <div v-if="featuredProjects && featuredProjects.length" class="transition-all duration-300">
+          <div v-if="showSkeleton" class="transition-all duration-300">
+            <BrutalistCard color="white" class="p-6">
+              <SkeletonBlock height="h-48" class="mb-6" />
+              <div class="flex items-center justify-between mb-4 border-b-2 border-brutal-black pb-3">
+                <SkeletonBlock width="w-2/3" height="h-8" />
+                <SkeletonBlock width="w-8" height="h-8" />
+              </div>
+              <SkeletonBlock height="h-4" class="mb-2" />
+              <SkeletonBlock height="h-4" class="mb-2" />
+              <SkeletonBlock width="w-3/4" height="h-4" class="mb-6" />
+              <div class="flex flex-wrap gap-2 mb-6">
+                <SkeletonBlock width="w-16" height="h-6" />
+                <SkeletonBlock width="w-20" height="h-6" />
+                <SkeletonBlock width="w-14" height="h-6" />
+              </div>
+              <div class="flex items-center space-x-4 border-t-2 border-brutal-black pt-4">
+                <SkeletonBlock width="w-28" height="h-10" />
+              </div>
+            </BrutalistCard>
+          </div>
+
+          <div v-else-if="featuredProjects && featuredProjects.length" class="transition-all duration-300">
             <BrutalistCard color="white" class="p-6">
               <!-- Asset Image placeholder above title -->
               <div 
@@ -151,7 +172,23 @@
             {{ $t('home.certifications') }}
           </h2>
 
-          <div class="space-y-4">
+          <div v-if="showSkeleton" class="space-y-4">
+            <BrutalistCard v-for="i in 3" :key="i" color="cream" class="p-4">
+              <div class="flex justify-between items-start mb-3">
+                <div class="w-full space-y-2">
+                  <SkeletonBlock width="w-2/3" height="h-4" />
+                  <SkeletonBlock width="w-1/3" height="h-3" />
+                </div>
+                <SkeletonBlock width="w-4" height="h-4" class="shrink-0" />
+              </div>
+              <div class="flex flex-wrap gap-1">
+                <SkeletonBlock width="w-12" height="h-4" />
+                <SkeletonBlock width="w-16" height="h-4" />
+              </div>
+            </BrutalistCard>
+          </div>
+
+          <div v-else class="space-y-4">
             <div 
               v-for="cert in certificates?.slice(0, 3)" 
               :key="cert.path" 
@@ -228,7 +265,22 @@
 
       <!-- Col 2-4 (Span 3): Timeline (3 items latest) -->
       <div class="lg:col-span-3 p-8 border-b-3 lg:border-b-0 lg:border-r-3 border-brutal-black bg-white flex flex-col justify-between">
-        <div class="relative border-l-4 border-brutal-black pl-6 ml-2 space-y-8">
+        <div v-if="showSkeleton" class="relative border-l-4 border-brutal-black pl-6 ml-2 space-y-8">
+          <div v-for="i in 3" :key="i" class="relative">
+            <div class="absolute -left-[28px] w-4 h-4 rounded-full bg-zinc-300 border-2 border-brutal-black"></div>
+            <div class="space-y-3">
+              <SkeletonBlock width="w-20" height="h-5" />
+              <SkeletonBlock width="w-1/2" height="h-6" />
+              <SkeletonBlock width="w-1/3" height="h-4" />
+              <div class="p-4 border-2 border-brutal-black bg-zinc-100 shadow-brutal space-y-2">
+                <SkeletonBlock height="h-4" />
+                <SkeletonBlock width="5/6" height="h-4" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-else class="relative border-l-4 border-brutal-black pl-6 ml-2 space-y-8">
           <div 
             v-for="item in history?.slice(0, 3)" 
             :key="item.path"
@@ -311,6 +363,8 @@ const { data: homeData, pending } = await useAsyncData(() => `home-data-${locale
 }, {
   default: () => ({ history: [], projects: [], certificates: [] })
 })
+
+const showSkeleton = useDelayedPending(pending)
 
 const history = computed(() => homeData.value.history)
 const projects = computed(() => homeData.value.projects)

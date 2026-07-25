@@ -5,7 +5,38 @@
 
     <div class="relative z-10 max-w-7xl mx-auto">
       <SectionHead :title="$t('skills.title')" tag="h1" />
-      <div v-if="skills" class="mt-8">
+      <div v-if="showSkeleton" class="mt-8">
+        <!-- Hard Skills Grid Skeleton -->
+        <h2 class="text-3xl font-black uppercase tracking-tight text-brutal-black mb-8 border-b-4 border-brutal-black pb-2 inline-block">
+          {{ $t('skills.hard_skills') }}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+          <BrutalistCard v-for="i in 3" :key="i" color="white" class="p-6">
+            <h3 class="text-2xl font-black uppercase tracking-tight border-b-3 border-brutal-black pb-3 mb-6 flex items-center justify-between -mx-6 -mt-6 p-6 bg-zinc-200">
+              <SkeletonBlock width="w-1/2" height="h-6" />
+              <SkeletonBlock width="w-6" height="h-6" />
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div v-for="j in 4" :key="j" class="flex items-center space-x-3 p-3 border-2 border-brutal-black bg-zinc-100">
+                <SkeletonBlock width="w-8" height="h-8" class="shrink-0" />
+                <SkeletonBlock width="w-2/3" height="h-4" />
+              </div>
+            </div>
+          </BrutalistCard>
+        </div>
+
+        <!-- Soft Skills Section Skeleton -->
+        <h2 class="text-3xl font-black uppercase tracking-tight text-brutal-black mb-8 border-b-4 border-brutal-black pb-2 inline-block">
+          {{ $t('skills.soft_skills') }}
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+          <div v-for="i in 6" :key="i" class="flex items-center justify-center p-4 border-3 border-brutal-black bg-zinc-100 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <SkeletonBlock width="w-3/4" height="h-4" />
+          </div>
+        </div>
+      </div>
+
+      <div v-else-if="skills" class="mt-8">
         <!-- Hard Skills Grid -->
         <h2 class="text-3xl font-black uppercase tracking-tight text-brutal-black mb-8 border-b-4 border-brutal-black pb-2 inline-block">
           {{ $t('skills.hard_skills') }}
@@ -58,7 +89,9 @@ useSeoMeta({
   ogDescription: computed(() => t('skills.subtitle'))
 })
 
-const { data: skills } = await useAsyncData(`skills-content-${locale.value}`, () => queryCollection('skills').where('stem', 'LIKE', `${locale.value}/%`).first(), { default: () => ({ meta: { hardSkills: [], softSkills: [] } } as any), watch: [locale] })
+const { data: skills, pending } = await useAsyncData(() => `skills-content-${locale.value}`, () => queryCollection('skills').where('stem', 'LIKE', `${locale.value}/%`).first(), { default: () => ({ meta: { hardSkills: [], softSkills: [] } } as any) })
+
+const showSkeleton = useDelayedPending(pending)
 
 const getSoftSkillColorClass = (idx: number) => {
   const colors = [

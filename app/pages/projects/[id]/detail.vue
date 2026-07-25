@@ -11,7 +11,30 @@
         </BrutalistBtn>
       </div>
       <div class="mt-8">
-        <div v-if="project" class="max-w-3xl mx-auto">
+        <div v-if="showSkeleton" class="max-w-3xl mx-auto">
+          <BrutalistCard color="white" class="p-8">
+            <div class="border-b-3 border-brutal-black pb-6 mb-6">
+              <SkeletonBlock height="h-64 sm:h-96" class="mb-6" />
+              <SkeletonBlock width="w-2/3" height="h-10" />
+            </div>
+            <div class="space-y-3 mb-8">
+              <SkeletonBlock height="h-4" />
+              <SkeletonBlock height="h-4" />
+              <SkeletonBlock width="w-4/5" height="h-4" />
+            </div>
+            <div class="flex flex-wrap gap-2 mb-8">
+              <SkeletonBlock width="w-14" height="h-5" />
+              <SkeletonBlock width="w-16" height="h-5" />
+              <SkeletonBlock width="w-12" height="h-5" />
+            </div>
+            <div class="flex items-center space-x-4 border-t-2 border-brutal-black pt-6">
+              <SkeletonBlock width="w-full" height="h-9" />
+              <SkeletonBlock width="w-full" height="h-9" />
+            </div>
+          </BrutalistCard>
+        </div>
+
+        <div v-else-if="project" class="max-w-3xl mx-auto">
           <BrutalistCard color="white" class="p-8">
             <div class="border-b-3 border-brutal-black pb-6 mb-6">
               <div class="h-64 sm:h-96 bg-brutal-cream border-3 border-brutal-black flex items-center justify-center mb-6 overflow-hidden relative">
@@ -66,14 +89,16 @@ const projectId = route.params.id as string
 const { locale } = useI18n()
 const localePath = useLocalePath()
 
-const { data: project } = await useAsyncData(`project-detail-${projectId}-${locale.value}`, async () => {
+const { data: project, pending } = await useAsyncData(() => `project-detail-${projectId}-${locale.value}`, async () => {
   const allProjects = await queryCollection('projects').where('stem', 'LIKE', `${locale.value}/%`).all()
   const found = allProjects.find(p => p.path.endsWith(projectId) || p.path.includes(projectId) || p.title.toLowerCase().replace(/ /g, '-') === projectId)
   if (!found) {
     throw createError({ statusCode: 404, statusMessage: 'Project Not Found', fatal: true })
   }
   return found
-}, { watch: [locale] })
+})
+
+const showSkeleton = useDelayedPending(pending)
 
 useSeoMeta({
   title: computed(() => project.value?.title || 'Project Detail'),
