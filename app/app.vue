@@ -33,6 +33,7 @@ useSeoMeta({
   ogImageType: 'image/png',
   ogSiteName: 'Farhan Alwanda Portfolio',
   ogUrl: canonicalUrl,
+  ogType: 'website',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Farhan Alwanda - Full-Stack Developer & Junior AI Engineer',
   twitterDescription: 'passionate about building well-structured and optimized applications by integrating Artificial Intelligence and smart IoT hardware.',
