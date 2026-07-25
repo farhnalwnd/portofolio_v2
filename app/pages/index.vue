@@ -389,8 +389,8 @@ const skillsWithIcons = [
   { name: 'Laravel', icon: 'logos:laravel' },
   { name: 'Vue.js', icon: 'logos:vue' },
   { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
-  { name: 'TypeScript', icon: 'logos:typescript-icon' },
-  { name: 'Go', icon: 'logos:go' },
+  { name: 'TensorFlow', icon: 'logos:tensorflow' },
+  { name: 'Keras', icon: 'simple-icons:keras' },
   { name: 'Python', icon: 'logos:python' },
   { name: 'Docker', icon: 'logos:docker-icon' }
 ]

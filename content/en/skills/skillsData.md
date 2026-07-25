@@ -25,6 +25,16 @@ hardSkills:
       - name: "Git"
       - name: "Linux"
       - name: "Nginx"
+      - name: "Grafana"
+      - name: "Prometheus"
+  - category: "AI & Data Engineering"
+    items:
+      - name: "TensorFlow"
+      - name: "Keras"
+      - name: "PyTorch"
+      - name: "MLflow"
+      - name: "Pandas"
+      - name: "NumPy"
   - category: "IoT & Hardware"
     items:
       - name: "ESP32"

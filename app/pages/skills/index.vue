@@ -95,6 +95,8 @@ const getCategoryIcon = (category: string) => {
       return 'lucide:database'
     case 'devops & cloud':
       return 'lucide:wrench'
+    case 'ai & data engineering':
+      return 'lucide:brain'
     case 'iot & hardware':
       return 'lucide:cpu'
     default:
@@ -113,6 +115,14 @@ const getTechIcon = (name: string) => {
     'Go': 'logos:go',
     'Python': 'logos:python',
     'FastAPI': 'simple-icons:fastapi',
+    'TensorFlow': 'logos:tensorflow',
+    'Keras': 'simple-icons:keras',
+    'PyTorch': 'logos:pytorch-icon',
+    'MLflow': 'simple-icons:mlflow',
+    'Grafana': 'logos:grafana',
+    'Prometheus': 'logos:prometheus',
+    'Pandas': 'logos:pandas-icon',
+    'NumPy': 'logos:numpy',
     'PostgreSQL': 'logos:postgresql',
     'MySQL': 'logos:mysql',
     'Redis': 'logos:redis',
