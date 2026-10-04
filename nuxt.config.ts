@@ -47,7 +47,7 @@ export default defineNuxtConfig({
       routes: [
         '/', '/history', '/projects', '/skills', '/certificates', '/catch-me',
         '/en', '/en/history', '/en/projects', '/en/skills', '/en/certificates', '/en/catch-me',
-        '/robots.txt', '/sitemap.xml', '/sitemap_index.xml'
+        '/robots.txt', '/sitemap.xml'
       ]
     }
   },

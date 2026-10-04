@@ -3,8 +3,8 @@ title: "Belajar Machine Learning untuk Pemula"
 order: 3
 issuer: "Dicoding Indonesia"
 year: 2026
-credentialId: "6RPN77R9RX2M"
-credentialUrl: "https://www.dicoding.com/certificates/6RPN77R9RX2M"
+credentialId: "07Z67WK1JPQR"
+credentialUrl: "https://www.dicoding.com/certificates/07Z67WK1JPQR"
 file: "/sertif/machine-learning-pemula.pdf"
 tech:
   - "Supervised Learning"
